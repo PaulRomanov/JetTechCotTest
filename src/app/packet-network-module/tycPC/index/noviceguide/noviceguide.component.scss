@@ -33,12 +33,13 @@
   position: relative;
   display: flex;
   //align-items: center;
-  background: linear-gradient(180deg, #A40525FF 0%, #670316FF 100%)
+  background: black;
 }
 .zm-model-title {
   position: relative;
   height: 60px;
   background-size: 100% 100%;
+  background-color: black;
 }
 .zm-con-left {
   margin-right: 10px;
@@ -134,4 +135,5 @@
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: 100% 100%;
+  background-color: black;
 }
