@@ -1,10 +1,12 @@
-<div class="bg" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/main-background@2x.jpg' | bgUrl">
+<!-- <div class="bg" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/main-background@2x.jpg' | bgUrl"> -->
+  <div class="bg">
   <tyc-homepage></tyc-homepage>
   <tyc-marquee [marqueeTitleStyle]="marqueeTitleStyle" [marqueeContentStyle]="marqueeContentStyle"></tyc-marquee>
   <!--首页弹窗-->
   <div class="zm-model-box" *ngIf="$GlobalService.globalTipsModelModel.isOpenBigMsg && (bannerLeft.length > 0 || bannerRight.length > 0)">
     <div class="zm-container">
-      <div class="zm-model-title" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/dialog_top.png' | bgUrl">
+      <div class="zm-model-title">
+        <!-- <div class="zm-model-title" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/dialog_top.png' | bgUrl"> -->
             <span class="zm-close-btn"
                   [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/closeOpen.png' | bgUrl"
                   (click)="toggleShow()"></span>
@@ -14,10 +16,12 @@
           <div class="zm-con-left-item"
                *ngFor="let item of bannerLeft let i = index"
                [style.color]="item.active ? '#fff':'#DAD4D1'"
-               [style.background-image]="item.active ? ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/active-bg_01.png' | bgUrl) : ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/current-bg.png' | bgUrl)"
+               
                (click)="toogelImg(item,i)">
             {{item.title}}
           </div>
+          <!-- [style.background-image]="item.active ? ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/active-bg_01.png' | bgUrl) : ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/current-bg.png' | bgUrl)" -->
+
         </div>
         <div class="zm-con-content" *ngIf="bannerLeft.length > 0">
           <img [hidden]="!(imgShowIndex === i)"
