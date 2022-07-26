@@ -1,0 +1,24 @@
+<div class="mvkt" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj02.jpg' | bgUrl">
+  <div class="wrapper">
+    <div class="top_bg">
+      <div class="top_bg_left">
+        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_mnkt_texy.png'" alt="">
+        <div class="btns">
+          <span [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/button_bg.png' | bgUrl" (click)="$GlobalMethodsService.loginOPenWindow()" *ngIf="!$GlobalService.globalJavaResData.isShowloginHeader">注册会员</span>
+          <span [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/button_bg.png' | bgUrl" (click)="$GlobalMethodsService.openKufu()">在线客服</span>
+          <span [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/button_bg.png' | bgUrl" routerLink="noviceguide">返回首页</span>
+        </div>
+      </div>
+      <div class="top_bg_right">
+        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_mnkt_girl.png'" alt="">
+      </div>
+    </div>
+    <div class="vip">
+      <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_mnkt_1s.png'" alt="">
+      <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_mnkt_2s.png'" alt="">
+      <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_mnkt_3s.png'" alt="">
+      <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_mnkt_4s.png'" alt="">
+      <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_mnkt_5s.png'" alt="">
+    </div>
+  </div>
+</div>

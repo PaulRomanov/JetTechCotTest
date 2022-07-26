@@ -1,0 +1,92 @@
+h3{
+    height: 40px;
+    padding-left: 20px;
+    border-bottom: 1px solid #5d5d5d;
+    background-color: #141414;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 41px;
+}
+.content{
+    padding:20px;
+    background: #141414;
+    color: #fff;
+    line-height: 20px;
+    .search_row{
+        margin-bottom: 20px;
+        &>span{
+            position: relative;
+            margin-right: 10px;
+            display: inline-block;
+            &:nth-of-type(1),&:nth-of-type(2){
+                transform: translateY(2px);
+            }
+            i{
+                position: absolute;
+                right: 5px;
+                top: 5px;
+                color: #D3B797;;
+                font-size: 20px;
+            }
+        }
+        .search{
+            border-radius: 5px;
+            height: 34px;
+            width: 104px;
+            text-align: center;
+            line-height: 34px;
+            cursor: pointer;
+            color: #fff;
+            vertical-align: middle;
+            background: linear-gradient(90deg, #dccab8, #d2b496);
+        }
+        .return_btn{
+            width:80px;
+            height: 33px;
+            border-radius: 6px;
+            border: 1px solid #D3B797;
+            color: #D3B797;
+            text-align: center;
+            line-height: 34px;
+            cursor: pointer;
+            float: right;
+            margin-right: 0;
+        }
+    }
+    .table{
+        width: 100%;
+        border:1px solid #F1D5B1;
+        border-collapse: collapse;
+        thead{
+            background: #850005;
+        }
+        td, th{
+            padding:10px 0;
+            text-align: center;
+            border:1px solid #F1D5B1;
+        }
+        td{
+            max-width: 200px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow:hidden;
+        }
+        tr{
+            border-bottom: solid 1px #141414;
+            &:nth-of-type(odd){
+                td{
+                    background: #1F1F1F;
+                }
+            }
+            &:nth-of-type(even){
+                td{
+                    background: #181818;
+                }
+            }
+        }
+    }
+    .Member_history_bottom{
+        justify-content: right
+    }
+}

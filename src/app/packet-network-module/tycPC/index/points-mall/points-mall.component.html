@@ -1,0 +1,20 @@
+<div class="mall">
+  <img class="banner" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/jifenbanner.png'" alt="">
+  
+  <div class="mall-content">
+    <div class="mall-menu">
+      <div class="menu-left">
+        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/jifenicon.png'" alt="">
+        <span>我的积分：</span>
+        <span>{{ isUserToken ? score : '您还未登录'}}</span>
+      </div>
+      <div class="divider"></div>
+      <div class="menu-right">
+        <a class="menu" routerLink="./order-history" href="" [routerLinkActive]="['menu-active']">订单记录</a>
+        <a class="menu" routerLink="./point-history" href="" [routerLinkActive]="['menu-active']">积分历史</a>
+        <a class="menu" routerLink="./exchange" href="" [routerLinkActive]="['menu-active']">兑换规则</a>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

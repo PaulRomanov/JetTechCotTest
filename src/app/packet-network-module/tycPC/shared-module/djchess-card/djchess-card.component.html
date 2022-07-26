@@ -1,0 +1,102 @@
+<!-- <div class="djchess-card">
+  <div class="djchess-card-background"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/qpbj.png' | bgUrl">
+    <div class="djchess-card-background-center">
+      <ul class="game_type_list">
+        <div class="title-current" [style.left.px]="tabIndex*140"></div>
+        <ng-container *ngFor="let item of titleList let i = index">
+          <li class="game_name" (click)="sportsTab($event, item, i)">{{item.name}}</li>
+        </ng-container>
+      </ul>
+      <ul class="game_list" *ngIf="isQp === 'FF'">
+            <li *ngFor="let item of qpList let i = index" (click)="goGame(item)">
+              <img [src]="item.imgpath" />
+              <div class="djchess-card-background-center-div">
+                <p [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/gameBtn.png' | bgUrl">{{item.gamename}}</p>
+              </div>
+              <div class="djchess-card-background-center-button">
+                <button>开始游戏</button>
+              </div>
+            </li>
+      </ul>
+      <div class="game_list" *ngIf="isQp === 'DTQP'" (click)="goGame(dtDataObj)">
+        <img src="{{dtDataObj.imgpath}}" alt="">
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="a5_a7" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj02.jpg' | bgUrl" style="background-size: auto 100%;">
+  <div class="a5_bS">
+    <img class="a5_bU" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/bannerImg.png'" alt="">
+    <img class="a5_bW"  [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/card_game_title.png'" alt="">
+  </div>
+  <div class="a5_a9 a5_bB">
+    <div class="a5_eG">
+      <ul>
+        <li [class.a5_Cf]="i === tabIndex" (click)="sportsTab($event, item, i)" *ngFor="let item of titleList let i = index">
+          <img [src]="$GlobalService.globalJavaResData.cdnValidKey +item.imgLUrl" alt="">
+          <p>{{item.name}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="a5_G a5_bY">
+      <div>
+        <div class="a5_ba">
+          <div class="a5_b7 a5_cn">
+            <div class="a5_cB">
+              <div class="a5_cO">
+                <div class="a5_bc">
+                  <div class="a5_bj">
+                    <span class="a5_bn"></span>
+                    <img class="a5_I" [src]="$GlobalService.globalJavaResData.cdnValidKey +titleList[tabIndex].imgLUrl" alt="">
+                    <div class="a5_bf">
+                      <p class="a5_bl">{{isQp === 'FF' ? 'VG' : isQp === 'DTQP' ? '大唐' : isQp === 'LEG'? '乐游' : isQp === 'WL'? '瓦力' : '开元'}}棋牌  </p>
+                      <p class="a5_bQ">{{isQp === 'FF' ? 'VG' : isQp === 'DTQP' ? 'DT' : isQp === 'LEG'? 'LEG' : isQp === 'WL'? 'WL' : 'KY'}} chess & Card Games</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="a5_b7">
+<!--                  <ul class="a5_ca a5_bY" *ngIf="isQp === 'FF'">-->
+                  <ul class="a5_ca a5_bY">
+                    <li *ngFor="let item of qpList let i = index" >
+                      <section class="a5_cc">
+                        <div class="a5_ch"><img [src]="item.imgpath" /></div>
+                        <div class="a5_cj">
+                          <span>{{item.gamename}}</span>
+                        </div>
+                        <div class="a5_cf">
+                          <button class="a5_cv" (click)="goGame(item)">开始游戏</button>
+                        </div>
+                      </section>
+                    </li>
+                  </ul>
+
+                  <!--<div class="a5_ca a5_bY" *ngIf="isQp === 'DTQP'" (click)="goGame(dtDataObj)" style="cursor: pointer;">
+                    <img width="1000" src="{{dtDataObj.imgpath}}" alt="">
+                  </div>
+
+                  <div class="a5_ca a5_bY" *ngIf="isQp === 'KYQP'" (click)="goGame(kyDataObj)" style="cursor: pointer;">
+                    <img width="1000" src="{{kyDataObj.imgpath}}" alt="">
+                  </div>
+
+                  <div class="a5_ca a5_bY" *ngIf="isQp === 'LEG'" (click)="goGame(lyDataObj)" style="cursor: pointer;">
+                    <img width="1000" src="{{lyDataObj.imgpath}}" alt="">
+                  </div>
+
+                  <div class="a5_ca a5_bY" *ngIf="isQp === 'WL'" (click)="goGame(wlDataObj)" style="cursor: pointer;">
+                    <img width="1000" src="{{wlDataObj.imgpath}}" alt="">
+                  </div>-->
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

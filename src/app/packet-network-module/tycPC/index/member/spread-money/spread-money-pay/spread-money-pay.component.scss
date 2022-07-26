@@ -1,0 +1,132 @@
+.Member_acticity_ul {
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 0;
+}
+.Member_spread_reward .Member_reward_item{
+    height: 37px;
+    line-height: 37px;
+    margin-right: 20px;
+}
+.Member_spread_reward .Member_reward_item .bluefont{
+    color: #3a9be8;
+}
+.Member_spread_reward .Member_reward_item input{
+    border: 1px solid #dedede;
+    line-height: 35px;
+    border-radius: 5px;
+    padding:0 15px;
+}
+.Member_spread_reward	.Member_personal_table {
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+.spreadPay-unactive{
+    width: 60%;
+    margin-top: 30px;
+    margin-left: 10%;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.spreadPay-unactive .spreadPay-unactive-content{
+    text-align: center;
+    box-shadow: 5px 5px 5px #dedede;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    padding:50px 20px;
+}
+.spreadPay-unactive .spreadPay-unactive-content span{
+    color: red;
+}
+.spreadPay-unactive .spreadPay-unactive-btn button{
+    background: linear-gradient(90deg,#dccab8,#d2b496);
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 40px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.spreadPay-active .spreadPay-active-left{
+    width: 40%;
+}
+.spreadPay-active .spreadPay-left-item{
+    padding: 10px 0;
+}
+.spreadPay-active .spreadPay-left-item .spreadPay-left-title{
+    display: inline-block;
+    width: 130px;
+    text-align: right;
+    margin-right: 10px;
+}
+.spreadPay-active .bluefont{
+    color: #3a9be8;
+}
+.spreadPay-active .Member_acticity_selectlx{
+    width: auto;
+    padding: 10px 0;
+}
+.spreadPay-active .Setup_Choice {
+    margin: 0;
+    border: 1px solid #dedede;
+    border-radius: 5px;
+    height: 26px;
+    line-height: 26px;
+    width: 160px;
+}
+
+.spreadPay-active .Member_acticity_selectlx .Setup_over{
+    position: relative;
+}
+.spreadPay-active .Member_acticity_selectlx .Setup_over i{
+    top: 6px;
+}
+.spreadPay-active .Member_acticity_selectlx label{
+    margin-left: 10px;
+}
+.spreadPay-active button{
+    margin-left: 10px;
+    line-height: 30px;
+    padding: 0 30px;
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    background: #f1b55a;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    &.disabledBtn{
+        background: #ccc;
+    }
+}
+.spreadPay-active .spreadPay-active-right{
+    /* padding-left: 5%; */
+    border-left: 1px dashed #dedede;
+    flex: 1;
+}
+.spreadPay-active .spreadPay-active-right ul{
+    margin-left: 50px;
+}
+.spreadPay-active .spreadPay-right-item{
+    padding: 20px 0;
+}
+.spreadPay-active .spreadPay-right-item input{
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    background: #dedede;
+    border-radius: 5px;
+    width: 320px;
+    padding-left:  10px;
+}
+.spreadPay-active .spreadPay-right-item button{
+    background: linear-gradient(#47a3ec, #0674cc);
+}
+.spreadPay-active .spreadPay-right-item img{
+    vertical-align: bottom;
+}

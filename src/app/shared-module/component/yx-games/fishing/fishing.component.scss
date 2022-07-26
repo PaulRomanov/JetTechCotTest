@@ -1,0 +1,58 @@
+.fishing-title {
+  //background: url("../../../../../assets/public/img/index_bybj.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 1200px;
+  position: relative;
+}
+
+#bubbles {
+  position: absolute;
+  z-index: 0;
+}
+
+.index_by_head {
+  width: 100%;
+  padding-top: 30px;
+  text-align: center;
+  animation: fishimg 2s linear infinite;
+  position: relative;
+}
+
+.index_by_center ul {
+  display: flex;
+  width: 690px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  /*justify-content: space-evenly;*/
+}
+
+.GameUrl {
+  transition: all 0.6s;
+}
+
+.index_by_center ul li {
+  margin: 0 10px 20px 10px;;
+  position: relative;
+}
+
+.index_by_center ul li a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.index_by_center ul li p {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.index_by_center ul li:hover .GameUrl {
+  transform: scale(1.1);
+}

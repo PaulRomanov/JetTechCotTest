@@ -1,0 +1,98 @@
+<img class="title" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/head_jingpin.png'">
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let item of bestGoodsList let i = index">
+      <img src="{{(item.coverpc.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{item.coverpc}}" alt="" (click)="getGoodsDetail(item.id)">
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<img class="title" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/jifenmall_tese.png'">
+
+<div class="goods-grid">
+  <div class="good" *ngFor="let item of hotGoodsList let i = index">
+    <div class="good-img" (click)="getGoodsDetail(item.id)">
+      <img src="{{(item.coverpc.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{item.coverpc}}" alt="">
+    </div>
+    <div class="good-msg" (click)="getGoodsDetail(item.id)">
+      <div class="good-name" [title]="item.name">{{item.name}}</div>
+      <div class="good-name">¥{{item.value}}</div>
+      <div class="point-title">兑换所需积分</div>
+      <div class="points">{{item.score}}</div>
+      <div class="btn">立即兑换</div>
+    </div>
+  </div>
+</div>
+
+<div class="Member_history_bottom" *ngIf="hotGoodsList.length !== 0">
+  <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(1)">首页</li>
+  <li class="lyactive"  *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">上一页</li>
+  <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">{{pageData.currentPage - 1}}</li>
+  <li class="lyactive" (click)="addCurrentPage(pageData.currentPage)" [class.page-bg]="pageData.currentPage">{{pageData.currentPage}}</li>
+  <li *ngIf="pageData.currentPage != pageData.total"
+      class="lyactive" (click)="addCurrentPage(pageData.currentPage + 1)">{{pageData.currentPage + 1}}</li>
+  <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.currentPage + 1)">下一页</li>
+  <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.total)">末页</li>
+  <li *ngIf="pageData.total != 1" class="noBoder">共{{pageData.total}}页</li>
+  <li *ngIf="pageData.total != 1" class="noBoder">跳转到 <input type="text" [(ngModel)]="pageData.goPage" onkeyup="value=value.replace(/[^\d]/g,'') "> 页
+  </li>
+  <li *ngIf="pageData.total != 1" class="lyactive HistoryActive" (click)="addCurrentPage(pageData.goPage, 0)">GO</li>
+</div>
+
+<div class="modal"  [style.visibility]="!showModal ? 'hidden' : 'visible'">
+  <div class="modal-content">
+    <header>
+      商品兑换信息
+      <span (click)="showModal = false; detailLoading = false"></span>
+    </header>
+    <main *ngIf="goodsDetail">
+      <div class="left">
+        <div class="swiper-container1">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" *ngFor="let item of goodsDetail.images let i = index">
+              <img src="{{(item.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{item}}" alt="">
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <p>{{goodsDetail.desc}}</p>
+      </div>
+      <div class="right">
+        <div class="row">商品名称：{{goodsDetail.name}}</div>
+        <div class="row">商品价值：{{goodsDetail.value}}元</div>
+        <div class="row">兑换所需积分：{{goodsDetail.score}}</div>
+        <div class="row">当前可用积分：{{goodsDetail.userScore}}</div>
+        <div class="row">
+          <span class="label">兑换数量：</span>
+          <input type="number" name="" id="" min="0" [max]="max" [(ngModel)]="$GlobalService.globalQueryModel.createOrder.amount">
+        </div>
+        <div class="row">
+          <span class="label">配送地区：</span>
+          <nz-cascader [nzSize]="'small'" [nzPlaceHolder]="'请选择'" [nzOptions]="nzOptions" [(ngModel)]="values" (ngModelChange)="onChanges($event)" class="options"></nz-cascader>
+        </div>
+        <div class="row">
+          <span class="label">详细地址：</span>
+          <input type="text" [(ngModel)]="detailAddress" (change)="detailChange()">
+        </div>
+        <div class="row">
+          <span class="label">姓名：</span>
+          <input type="text" [(ngModel)]="$GlobalService.globalQueryModel.createOrder.addressee">
+        </div>
+        <div class="row">
+          <span class="label">联系电话：</span>
+          <input type="text" [(ngModel)]="$GlobalService.globalQueryModel.createOrder.phoneno">
+        </div>
+        <div class="btn" (click)="createOrder()" [class]="(!$GlobalService.globalQueryModel.createOrder.addressee || !$GlobalService.globalQueryModel.createOrder.phoneno || !detailAddress || values.length == 0 || !$GlobalService.globalQueryModel.createOrder.amount || (goodsDetail.userScore <  goodsDetail.score)) ? 'btn btn-disabled' : 'btn'">
+          兑换
+        </div>
+      </div>
+      <div class="spin" [style.visibility]="!detailLoading ? 'hidden' : 'visible'">
+        <nz-spin [nzSpinning]="detailLoading"></nz-spin>
+      </div>
+    </main>
+  </div>
+</div>

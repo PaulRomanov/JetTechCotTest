@@ -1,0 +1,193 @@
+<div class="index-account-history">
+  <div class="index-account-con">
+      <span>
+        <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" [filter]="true"
+                    (onChange)="dataTimeChange($event, 0)"
+                    class="zm-dropdown-style"
+                    [style]="{'width':'110px'}"
+                    filterBy="label,value.name"></p-dropdown>
+      </span>
+    <span>
+        <p-calendar [(ngModel)]="dataStartTime" (onSelect)="selectDate()" [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028"  [readonlyInput]="true"  class="zm-calendar"
+        [style]="{'width':'120px'}"
+        [inputStyle]="{'width':'120px'}"></p-calendar>
+        <i class="iconfont">&#xe65d;</i>
+      </span>
+    <span>
+        <p-calendar [(ngModel)]="dataEndTime" (onSelect)="selectDate()" [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"  class="zm-calendar"
+        [style]="{'width':'120px'}"
+        [inputStyle]="{'width':'120px'}"></p-calendar>
+        <i class="iconfont">&#xe65d;</i>
+      </span>
+    <span class="statement">
+      会员查询：
+       <input id="float-input" class="common-input-style" type="text"  placeholder="请输入查询账号"
+              [(ngModel)]="$GlobalService.globalQueryModel.dataReport.memberName"/>
+    </span>
+    <div class="serach-btn-box">
+      <button  (click)="querySerach(1)" lh-loading [isLoad]="isLoad">搜索</button>
+    </div>
+  </div>
+  <!-- 会员自身信息部分 -->
+  <div class="statement-title">会员自身信息：</div>
+  <div class="statement-title-up">上级账号：<b>{{upAccount}}</b></div>
+  <table class="Member_personal_table" style="table-layout:auto;">
+    <thead>
+    <tr>
+      <th colspan="1" rowspan="2">会员账号</th>
+      <th colspan="1" rowspan="2" >待领取推广奖励（元）</th>
+      <th colspan="2">入款（元）/次数</th>
+      <th colspan="2">出款（元）/次数</th>
+      <th colspan="2">有效投注额（元）</th>
+      <th colspan="2">输赢金额（元）</th>
+      <th colspan="1" rowspan="2" >其他详情</th>
+    </tr>
+    <tr class="Member_personal_table_labe">
+      <th>自身</th>
+      <th>下线</th>
+      <th>自身</th>
+      <th>下线</th>
+      <th>自身</th>
+      <th>下线</th>
+      <th>自身</th>
+      <th>下线</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="isHide === 0">
+    <tr>
+      <!--     账号-->
+      <td [innerHTML]="topUser.account ? topUser.account : 0"></td>
+      <!--     待领取推广奖励-->
+      <td [innerHTML]="topUser.balance ? topUser.balance : 0"></td>
+      <!--     入款自身-->
+      <td [innerHTML]="(selfTotal.depositTotal ? selfTotal.depositTotal : 0)+'/'+
+          (selfTotal.depositTimes ? selfTotal.depositTimes : 0)"></td>
+      <!--     入款下线-->
+      <td [innerHTML]="(childrenTotal.depositTotal ? childrenTotal.depositTotal : 0) +'/'+
+          (childrenTotal.depositTimes ? childrenTotal.depositTimes : 0)"></td>
+      <!--     出款自身-->
+      <td [innerHTML]="(selfTotal.withdrawTotal ? selfTotal.withdrawTotal : 0)+'/'+
+          (selfTotal.withdrawTimes ? selfTotal.withdrawTimes : 0)"></td>
+      <!--     出款下线-->
+      <td [innerHTML]="(childrenTotal.withdrawTotal ? childrenTotal.withdrawTotal : 0)+'/'+
+          (childrenTotal.withdrawTimes ? childrenTotal.withdrawTimes : 0)"></td>
+      <!--     有效投注额自身-->
+      <td [innerHTML]="selfTotal.validBetAmount ? selfTotal.validBetAmount : 0"></td>
+      <!--     有效投注额下线-->
+      <td [innerHTML]="childrenTotal.validBetAmount ? childrenTotal.validBetAmount : 0"></td>
+      <!--     输赢金额自身-->
+      <td [innerHTML]="selfTotal.resultAmount ? selfTotal.resultAmount : 0"></td>
+      <!--     输赢金额下线-->
+      <td [innerHTML]="childrenTotal.resultAmount ? childrenTotal.resultAmount : 0"></td>
+      <td><button (click)="thisItem(topUser,selfTotal,childrenTotal)">查看</button></td>
+    </tr>
+    </tbody>
+    <tbody class="Member_personal_none">
+    <tr>
+      <td colspan="12" *ngIf="isHide === 1">暂无数据</td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- 下线会员信息列表部分 -->
+  <div class="statement-title">下线会员信息：</div>
+  <table class="Member_personal_table">
+    <thead>
+    <tr>
+      <th colspan="1" rowspan="2">会员账号</th>
+      <th colspan="1" rowspan="2" >类别</th>
+      <th colspan="1" rowspan="2" >待领取推广奖励（元）</th>
+      <th colspan="2">入款（元）/次数</th>
+      <th colspan="2">出款（元）/次数</th>
+      <th colspan="2">有效投注额（元）</th>
+      <th colspan="2">输赢金额（元）</th>
+      <th colspan="1" rowspan="2" >其他详情</th>
+    </tr>
+    <tr class="Member_personal_table_labe">
+      <th>自身</th>
+      <th>下线</th>
+      <th>自身</th>
+      <th>下线</th>
+      <th>自身</th>
+      <th>下线</th>
+      <th>自身</th>
+      <th>下线</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="isHide === 0">
+    <tr *ngFor="let item of underReportList">
+        <td (click)="thisInputShow(item)" class="thisTextPost">{{item.underUser.account}}</td>
+        <td>{{item.underUser.clan === topUser.uid?'直属':'非直属'}}</td>
+        <td>{{item.underUser.balance}}</td>
+<!--      直属会员入款自身-->
+        <td  [innerHTML]="item.selfTotal ? ((item.selfTotal.depositTotal)+'/'+(item.selfTotal.depositTimes)) : '0/0'"></td>
+      <!--      直属会员入款下线-->
+      <td [innerHTML]="item.childrenTotal ? ((item.childrenTotal.depositTotal)+'/'+(item.childrenTotal.depositTimes)) : '0/0'"></td>
+      <!--      直属会员出款自身-->
+      <td [innerHTML]="item.selfTotal ? ((item.selfTotal.withdrawTotal)+'/'+(item.selfTotal.withdrawTimes)) : '0/0'"></td>
+      <!--      直属会员出款下线-->
+        <td [innerHTML]="item.childrenTotal ? ((item.childrenTotal.withdrawTotal)+'/'+(item.childrenTotal.withdrawTimes)) : '0/0'"></td>
+      <!--      直属会员有效投注额自身-->
+        <td [innerHTML]="item.selfTotal ? (item.selfTotal.validBetAmount) : '0'"></td>
+      <!--      直属会员有效投注额下线-->
+        <td [innerHTML]="item.childrenTotal ? (item.childrenTotal.validBetAmount) : '0'"></td>
+      <!--      直属会员输赢金额自身-->
+        <td [innerHTML]="item.selfTotal ? (item.selfTotal.resultAmount) : '0'"></td>
+      <!--      直属会员输赢金额下线-->
+        <td [innerHTML]="item.childrenTotal ? (item.childrenTotal.resultAmount) : '0'"></td>
+      <td>
+          <!-- thisItem(topUser,selfTotal,childrenTotal) -->
+        <button (click)="thisItem(item.underUser,item.selfTotal,item.childrenTotal)">
+        查看</button>
+      </td>
+    </tr>
+    </tbody>
+    <tbody class="Member_personal_none">
+    <tr>
+      <td colspan="12" *ngIf="isHide === 1">暂无数据</td>
+    </tr>
+    </tbody>
+  </table>
+<!--  弹框-->
+  <div   [class.name]="isPopup" class="statement-fined">
+    <div class="statement-other" style="width: 990px;">
+      <h4>其他详情</h4>
+      <table class="Member_personal_table">
+        <thead>
+        <tr>
+          <th colspan="1" rowspan="2">会员账号</th>
+          <th colspan="1" rowspan="2" >激活时间</th>
+          <th colspan="1" rowspan="2">提成比例（%）</th>
+          <th colspan="1" rowspan="2">已领取推广奖励（元）</th>
+          <th colspan="2">下线人数</th>
+          <th colspan="2">优惠金额（元）</th>
+          <th colspan="2">返水金额（元）</th>
+        </tr>
+        <tr class="Member_personal_table_labe">
+          <th>直属</th>
+          <th>非直属</th>
+          <th>自身</th>
+          <th>下线</th>
+          <th>自身</th>
+          <th>下线</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{popup.account}}</td>
+          <td>{{popup.createTime}}</td>
+          <td>{{popup.delegatePercent}}</td>
+          <td>{{popup.cashback}}</td>
+          <td>{{popup.userCount2nd}}</td>
+          <td [innerHTML]="popup.userCountTotal-popup.userCount2nd"></td>
+          <td>{{popup.setdepositOffer+popup.setregister+popup.setyharchive+popup.setother}}</td>
+          <td>{{popup.childdepositOffer+popup.childsetregister+popup.childsetyharchive+popup.childsetother}}</td>
+          <td>{{popup.setreturnPriv}}</td>
+          <td>{{popup.childreturnPriv}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <div><button (click)="isPopup = false">确定</button></div>
+    </div>
+
+  </div>
+</div>

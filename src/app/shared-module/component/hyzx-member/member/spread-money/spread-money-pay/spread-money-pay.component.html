@@ -1,0 +1,60 @@
+<div class="Member_spread_pay" [hidden]='isShow'>
+	<!-- 未激活状态 -->
+	<div class="spreadPay-unactive " *ngIf="!isSpreadActive">
+		<div class="spreadPay-unactive-content">
+			<span>温馨提示：</span>
+			您的账户还未激活全民推广功能！点击一键激活成为推广员赚钱！
+		</div>
+		<div class="spreadPay-unactive-btn">
+			<button (click)='goToSpreadActive()' lh-loading [isLoad]="isLoad">一键激活</button>
+		</div>
+	</div>
+	<!-- 激活状态 -->
+	<div class="spreadPay-active Member_acticity_ul" *ngIf="isSpreadActive">
+		<div class="spreadPay-active-left">
+			<ul>
+				<li class="spreadPay-left-item">
+					<span class="spreadPay-left-title">可领取奖励（元）：</span>
+					<span class="bluefont">{{spreadActiveData.balance}}</span>
+				</li>
+				<li class="Member_acticity_selectlx">
+					<span>领取到：</span>
+					<p-dropdown [options]="accountList" optionLabel="name" [(ngModel)]="selectedAccount" [filter]="true"
+					filterBy="label,value.name" class="zm-dropdown-style" [style]="{'width':'175px'}"></p-dropdown>
+					<button (click)="postRewardMoney(spreadActiveData.balance)" [ngClass]="{disabledBtn: spreadActiveData.balance<=0}">领取奖励</button>
+				</li>
+				<li class="spreadPay-left-item">
+					<span class="spreadPay-left-title">当前提成比例：</span>
+					<span class="bluefont">{{spreadActiveData.delegatePercent}}%</span>
+				</li>
+				<li class="spreadPay-left-item">
+					<span class="spreadPay-left-title">历史总奖励：</span>
+					<span class="bluefont">{{spreadActiveData.cashback}}</span>
+				</li>
+				<li class="spreadPay-left-item">
+					<span class="spreadPay-left-title">直属会员人数：</span>
+					<span class="bluefont">{{spreadActiveData.userCount2nd}}</span>
+				</li>
+				<li class="spreadPay-left-item">
+					<span class="spreadPay-left-title">其他会员人数：</span>
+					<span class="bluefont">{{spreadActiveData.userCountTotal-spreadActiveData.userCount2nd}}</span>
+				</li>
+			</ul>
+		</div>
+		<div class="spreadPay-active-right">
+			<ul>
+				<li class="spreadPay-right-item">复制您的专属推广网址或保存推广二维码，发送给好友</li>
+				<li class="spreadPay-right-item">
+					<input type="text" id="website" value='{{spreadActiveData.website}}' readonly/>
+					<button data-clipboard-target="#website" class="copyBtn_website">复制链接</button>
+				</li>
+				<li class="spreadPay-right-item">
+					<img [src]="$CommonProxyService.dlUrl+ '/ms/api/uc/getQrcode?url=' + spreadActiveData.website" alt="">
+					<a [href]="$CommonProxyService.dlUrl+ '/ms/api/uc/getQrcode?url=' + spreadActiveData.website" download="QRcode.png">
+						<button>点击下载</button>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

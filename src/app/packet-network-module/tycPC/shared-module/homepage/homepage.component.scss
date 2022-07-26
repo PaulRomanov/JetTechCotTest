@@ -1,0 +1,63 @@
+.swiper-slide img{width: 100%;height: 100%;display: block;}
+.swiper-container{
+  .hide{
+    opacity:0;
+  }
+  cursor: pointer;
+  max-width: 1920px;
+  height: 430px;
+  &:hover{
+    .swiper-button-prev, .swiper-button-next{
+      opacity: 1;
+    }
+    .swiper-button-prev, .swiper-button-next{
+      transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+}
+.swiper-button-next,.swiper-button-prev{
+  width: 39px;
+  height: 80px;
+  transition:opacity,transform .5s;
+  opacity: 0;
+}
+.swiper-button-prev {
+  background-position: 0 0;
+  background-size: 400% 99%;
+  transform: translateX(-27px);
+  &:hover{
+    background-position: -82px 0;
+  }
+}
+
+.swiper-button-next {
+  background-size: 400% 99%;
+  background-position: -37px 0;
+  transform: translateX(27px);
+  &:hover{
+    background-position: -119px 0;
+  }
+}
+/deep/.my-bullet{
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+  display: inline-block;
+  opacity: 1;
+  background-color: transparent;
+  background-image: url(../../../../../assets/img/index-dot-normal.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+/deep/.my-bullet:hover {
+  transition: all .2s;
+  background-image: url(../../../../../assets/img/index-dot-active.png);
+  background-repeat: no-repeat;
+}
+
+/deep/.my-bullet-active {
+  background-image: url(../../../../../assets/img/index-dot-active.png);
+  background-repeat: no-repeat;
+}
+

@@ -1,0 +1,69 @@
+<!-- <div class="zm-lottery"
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/' + $GlobalService.globalJavaResData.projectName+'/img/bjscbg.png' | bgUrl"
+
+>
+  <div  class="index_bjsc">
+    <div class="index_bjsc_head">
+      <ng-container *ngFor="let data of $GlobalService.globalJavaResData.gameNavList">
+        <ul *ngIf="data.subname === 'CP GAME'" class="index_bjsc_head_ul">
+          <div class="title-current" [style.left.px]="$GlobalService.globalJavaResData.tabIndex*140" style="height: 50px;"></div>
+          <li *ngFor="let x of data.childs  let i=index"
+              (click)="gamesName($event, x.gameUrl2,i,data.whStatus,x.chargeStatus,x)"
+              [class.active]="$GlobalService.globalJavaResData.tabIndex===i">
+            {{x.name}}
+          </li>
+        </ul>
+      </ng-container>
+      <div class="index_bjsc_center">
+        <ul>
+          <li *ngFor="let data of $GlobalService.globalJavaResData.cpList" (click)="gameLogin(data)"
+              [ngClass]="$GlobalService.globalJavaResData.cpList.length > 6 ? 'bjsc_sixClass' : 'bjsc_oneClass'">
+            <img src="{{(data.imgpath.indexOf('http')?$GlobalService.globalJavaResData.cdnValidKey:'')}}/{{data.imgpath}}"/>
+            <p>{{data.gamename}}</p>
+            <div class="index_bjsc_center_abs"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div style="height: 100vh; background-repeat: no-repeat; background-size: 100%; background-color: #200204;" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj01.jpg' | bgUrl">
+  <div style="min-height: calc(100vh - 210px);">
+    <div class="AoU_WG">
+      <ul class="AoU_WI">
+        <li class="AoU_WK">
+          <div class="AoU_SM AoU_Wj AoU_S3">
+            <div class="AoU_k9"><img
+                class="AoU_WY"
+                src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/img_lottery_01.png"
+                style="width: 615px;margin-top: 30px;"></div>
+          </div>
+          <div class="AoU_SK">
+            <div class="AoU_Wj AoU_SS">
+              <div class="AoU_IK"><img
+                  src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/img_content_title_lxlottery.png"></div>
+              <p class="AoU_UB">
+                提供中国福利彩票开奖时间、开奖查询，各类福利彩开奖时间信息，如六合彩、3D彩、BB番摊、11选5、排列三、北京pk拾、时时彩、快乐十分、快乐8、快乐彩、江苏快三、十一定夺金、双喜龙门、BB幸运熊猫、BB射龙门、BB雷电PK、梯子游戏等等。
+              </p>
+            </div>
+
+            <div class="games_wrapper">
+              <div class="btn_prev" *ngIf="arr.length > 5" (click)="scrollGame('prev')" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Group-13.png' | bgUrl"></div>
+              <div class="games_box">
+                <div  (click)="gameLogin(x)" class="game" *ngFor="let x of arr let i = index">
+                  <div (mouseover)="isShowIndex = i" (mouseout)="isShowIndex = null" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + (isShowIndex == i ? '/img/img_live_casino_logo_bg.png' : '/img/img_live_casino_logo_bg2.png') | bgUrl">
+                    <img [class.active-img]="i === isShowIndex" src="{{x.imgLUrl}}" alt="">
+                  </div>
+                  <div>{{x.name}}</div>
+                </div>
+              </div>
+              <div class="btn_next" *ngIf="arr.length > 5" (click)="scrollGame('next')" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Group-13.png' | bgUrl"></div>
+            </div>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

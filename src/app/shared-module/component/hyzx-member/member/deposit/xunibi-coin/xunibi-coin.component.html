@@ -1,0 +1,223 @@
+<div class="index_member">
+
+  <div class="posi_left" [style.left]="posiLeft+'px'" *ngIf="showPosi">
+    <div (click)="goDistance(1)"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + (maodian==1?'/img/primary-medium-new-selected-1@1x.png':'/img/primary-medium-txt-normal-3@1x.png') | bgUrl">交易所介绍</div>
+    <div (click)="goDistance(2)" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +(maodian==2?'/img/primary-medium-new-selected-1@1x.png':'/img/primary-medium-txt-normal-3@1x.png') | bgUrl">注册账号及认证</div>
+    <div (click)="goDistance(3)" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +(maodian==3?'/img/primary-medium-new-selected-1@1x.png':'/img/primary-medium-txt-normal-3@1x.png') | bgUrl">购买USDT</div>
+    <div (click)="goDistance(4)" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +(maodian==4?'/img/primary-medium-new-selected-1@1x.png':'/img/primary-medium-txt-normal-3@1x.png') | bgUrl">平台USDT充值</div>
+    <div (click)="goDistance(5)" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +(maodian==5?'/img/primary-medium-new-selected-1@1x.png':'/img/primary-medium-txt-normal-3@1x.png') | bgUrl">USDT兑换人民币</div>
+  </div>
+  <div class="index_member_left">
+    <div></div>
+  </div>
+
+  <div class="companys-payment" >
+
+    <div class="header"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/Group-7@1x.png' | bgUrl"></div>
+
+    <div class="title1"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/careful-1@1x.png' | bgUrl"></div>
+
+    <div>
+      <div class="alist"><span class="dot"></span>58coin网站为: www.58ex.com, 如无法开启，建议使用VPN。</div>
+      <div class="alist"><span class="dot"></span>注册之后，需要实名验证才可以购买USDT。</div>
+      <div class="alist"><span class="dot"></span>请购买与存款页面所对应的USDT类型，如在存款页面选择ERC20则购买时也选择ERC20，不同类型转账将导致失败。</div>
+      <div class="alist"><span class="dot"></span>若交易所的内容有所变更，一切以交易所官方信息为准。</div>
+      <div class="alist"><span class="dot"></span>操作时情尽快完成充值，以免长时间未完成操作导致二维码失效。</div>
+      <div class="alist"><span class="dot"></span>请勿多次取消交易，否则出发网站风控，当日无法交易。</div>
+      <div class="alist"><span class="dot"></span>本教程为热门交易所功能介绍，不负责担保任何交易结果，使用中若遇到操作、账户类的问题，请联系交易所客服获取专业协助。</div>
+      <div class="alist" style="color: #E1C0A0;"><span class="dot"></span>转出时需支付少量手续费，请在买币前联系火币客服了解手续费数量。</div>
+    </div>
+
+    <div class="title1"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/huobiliucheng2title-1@1x.png' | bgUrl"></div>
+
+    <div class="swiper-father">
+      <div class="swiper-container banner-swiper1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-zhuce-1.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-zhuce-2.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-zhuce-3.png"/>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="swiper-button-prev swiper-button-prev1"
+            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Component-3@1x.png' | bgUrl"
+        ></div>
+        <div class="swiper-button-next swiper-button-next1"
+            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Component-2@1x.png' | bgUrl"
+        ></div>
+      </div>
+    </div>
+
+    <div *ngIf="index1==0" class="foot">注册-步骤1/3：登入首页https://www.58ex.com，点击右上角【注册】</div>
+    <div *ngIf="index1==1" class="foot">注册-步骤2/3：选择【手机注册】或【邮箱注册】，填写完毕输入密码，点击【注册】</div>
+    <div *ngIf="index1==2" class="foot">注册-步骤3/3：确认风险提示，确认后即可注册成功！</div>
+
+    <div class="title1"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/Buy-USDT-1@1x.png' | bgUrl"></div>
+
+    <div class="swiper-father">
+      <div class="swiper-container banner-swiper2">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-goumai-1.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-goumai-2.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-goumai-3.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-goumai-4.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-goumai-5.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-goumai-6.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-goumai-7.png"/>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="swiper-button-prev swiper-button-prev2"
+            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Component-3@1x.png' | bgUrl"
+        ></div>
+        <div class="swiper-button-next swiper-button-next2"
+            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Component-2@1x.png' | bgUrl"
+        ></div>
+      </div>
+    </div>
+
+    <div *ngIf="index2==0" class="foot">购买-步骤1/7：进入本站官网，在线存款中选择USDT支付方式，点击【下一步】获取USDT存款地址与存入USDT数量</div>
+    <div *ngIf="index2==1" class="foot">购买-步骤2/7：买币请先点击右下方联系客服，确认提现手续费，完成后左上方点击【法币OTC交易】</div>
+    <div *ngIf="index2==2" class="foot">购买-步骤3/7：进入OTC交易页面，选择【我要购买】，【USDT】,输入想购买数量，点击【购买USDT】</div>
+    <div *ngIf="index2==3" class="foot">购买-步骤4/7：输入购买USDT数量（存入USDT数量+手续费），确认金额，支付方式，点击【确认购买】</div>
+    <div *ngIf="index2==4" class="foot">购买-步骤5/7：进入【购买USDT】页面，确认付款信息，进入银行/支付宝/微信，完成转账后，点击【我已付款成功】</div>
+    <div *ngIf="index2==5" class="foot">购买-步骤6/7：弹出确认视窗，确认后点击【确认已付款】，过程大约3-5分钟</div>
+    <div *ngIf="index2==6" class="foot">购买-步骤7/7：完成之后，订单页面显示【已完成】</div>
+
+    <div class="title1"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/pingtaiUSDTchongzhi-1@1x.png' | bgUrl"></div>
+
+    <div class="swiper-father">
+      <div class="swiper-container banner-swiper3">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-chongzhi-1.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-chongzhi-2.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-chongzhi-3.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-chongzhi-4.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-chongzhi-5.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-chongzhi-6.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-chongzhi-7.png"/>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <div class="swiper-button-prev swiper-button-prev3"
+            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Component-3@1x.png' | bgUrl"
+        ></div>
+        <div class="swiper-button-next swiper-button-next3"
+            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Component-2@1x.png' | bgUrl"
+        ></div>
+      </div>
+    </div>
+
+    <div *ngIf="index3==0" class="foot">充值-步骤1/7：点击右上角【资产】，点击右上角【提现】，进入总资产折合页面</div>
+    <div *ngIf="index3==1" class="foot">充值-步骤2/7：在总资产折合页面，右侧点击【提现】</div>
+    <div *ngIf="index3==2" class="foot">充值-步骤3/7：进入提现页面，选择【币种】USDT</div>
+    <div *ngIf="index3==3" class="foot">充值-步骤4/7：选择【链名】，【USDT地址】，【备注】，点击【添加】</div>
+    <div *ngIf="index3==4" class="foot">充值-步骤5/7：输入【提现数量】，【资金密码】，【短信验证码】，确认【手续费】，点击【提现】</div>
+    <div *ngIf="index3==5" class="foot">充值-步骤6/7：收到确认邮件，点击确认</div>
+    <div *ngIf="index3==6" class="foot">充值-步骤7/7：完成之后弹出提币成功，大约5-10分钟</div>
+
+    <div class="title1"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/Convert-1@1x.png' | bgUrl"></div>
+
+    <div class="swiper-father">
+      <div class="swiper-container banner-swiper4">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-1.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-2.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-3.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-4.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-5.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-6.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-7.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-8.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-9.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-10.png"/>
+          </div>
+          <div class="swiper-slide">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/58-duihuan-11.png"/>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="swiper-button-prev swiper-button-prev4"
+            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Component-3@1x.png' | bgUrl"
+        ></div>
+        <div class="swiper-button-next swiper-button-next4"
+            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Component-2@1x.png' | bgUrl"
+        ></div>
+      </div>
+    </div>
+
+    <div *ngIf="index4==0" class="foot">兑换-步骤1/11：请先绑定收款账户：点击右上角【头像】，进入【账户安全】</div>
+    <div *ngIf="index4==1" class="foot">兑换-步骤2/11：收款方式右侧，点击【立即设置】收款方式</div>
+    <div *ngIf="index4==2" class="foot">兑换-步骤3/11：设置您的收款方式，点击添加：银行卡/支付宝/微信</div>
+    <div *ngIf="index4==3" class="foot">兑换-步骤4/11：输入姓名，账号信息，输入验证码，点击【提交】，完成添加支付方式</div>
+    <div *ngIf="index4==4" class="foot">兑换-步骤5/11：左上方点击【法币OTC交易】</div>
+    <div *ngIf="index4==5" class="foot">兑换-步骤6/11：进入OTC交易页面，选择【我要出售】，【USDT】，确认出售金额，点击【出售USDT】</div>
+    <div *ngIf="index4==6" class="foot">兑换-步骤7/11：弹出确认视窗，输入要出售的USDT数量，确认后点击【确认出售】</div>
+    <div *ngIf="index4==7" class="foot">兑换-步骤8/11：进入【待买家付款】页面，等候买家进行操作</div>
+    <div *ngIf="index4==8" class="foot">兑换-步骤9/11：买家操作后，进入【待放行】页面，请到您的银行卡/支付宝/微信确认是否收到款项，如果收到，点击【确认放行USDT】</div>
+    <div *ngIf="index4==9" class="foot">兑换-步骤10/11：弹出确认视窗，输入资金密码后点击【确认放行】，兑换过程大约3-5分钟</div>
+    <div *ngIf="index4==10" class="foot">兑换-步骤11/11：确认到账之后，订单状态变成已完成，恭喜你完成兑换人民币！</div>
+  </div>
+</div>

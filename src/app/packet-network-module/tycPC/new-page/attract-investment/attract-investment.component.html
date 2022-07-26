@@ -1,0 +1,304 @@
+<!--<header class="header">
+    <ul class="header-content">
+        <li class="logo">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_logo.png" alt="太阳城集团">
+            <div>代理系统</div>
+        </li>
+        <li>
+            <ul class="menu" id="menu">
+                <li>
+                    <a href="javascript:;" (click)="jumptoAncher(1)" [ngClass]="{'choosen':ancher == 1}">首页</a>
+                </li>
+                <li>
+                    <a href="javascript:;" (click)="jumptoAncher(2)" [ngClass]="{'choosen':ancher == 2}">公司背景</a>
+                </li>
+                <li>
+                    <a href="javascript:;" (click)="jumptoAncher(3)" [ngClass]="{'choosen':ancher == 3}">智能系统</a>
+                </li>
+                <li>
+                    <a href="javascript:;" (click)="jumptoAncher(4)" [ngClass]="{'choosen':ancher == 4}">专业服务</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <ul class="btns">
+                <li>
+                    <div (click)="$GlobalMethodsService.openKufu()" >
+                        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_icon_kefu.png" alt="">
+                        在线客服
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_icon_back.png" alt="">
+                        <a routerLink="/#/tyc/index/noviceguide">返回官网</a>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</header>
+<div class="arrow" (click)="jumptoAncher()">
+    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_icon_jiantou.png" alt="">
+</div>
+<ul class="navigator">
+    <li (click)="jumptoAncher(1)" [ngStyle]="{'background-color':ancher === 1 ? '#d9b77a' : 'transparent' }"></li>
+    <li (click)="jumptoAncher(2)" [ngStyle]="{'background-color':ancher === 2 ? '#d9b77a' : 'transparent' }"></li>
+    <li (click)="jumptoAncher(3)" [ngStyle]="{'background-color':ancher === 3 ? '#d9b77a' : 'transparent' }"></li>
+    <li (click)="jumptoAncher(4)" [ngStyle]="{'background-color':ancher === 4 ? '#d9b77a' : 'transparent' }"></li>
+</ul>
+<div
+     class="fullpage-div" id="fullpage">
+    <div id="section1" class="fp-section fp-table" #section1>
+        <div class="fp-1">
+            <div class="section-content">
+                <div class="title">太阳城集团</div>
+                <div class="subtitle">有实力，有诚意，有态度！</div>
+                <div class="subtitle">一个值得您长期发展的平台</div>
+                <div class="btn">
+                    <div>
+                        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_icon_qq.png" alt="">
+                        <ng-container *ngFor="let item of $GlobalService.globalQueryModel.customerQQ;let i=index ">
+                            <a href="https://wpa.qq.com/msgrd?v=3&uin={{item.keyvalue}}&site=qq&menu=yes" target="_blank" *ngIf="i<1">联系我们</a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="section2" class="fp-section fp-table" #section2>
+        <div class="fp-2">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d2_left.png" alt="" class="fp-2-img">
+            <div class="section-content">
+                <h2>公司背景</h2>
+                <p>太阳城集团获得全球最具权威的SGS服务认证。</p>
+                <p>太阳城集团在线游戏平台，公司注册在哥斯达黎加，拥有政府颁发的合法博彩牌照，遵从欧洲游戏和博彩协会（EGBA）制定的行为准则。</p>
+                <br>
+                <p>作为国际专业的博彩运行商，太阳城集团极其重视诚信，为客户提供公平，公正的游戏环境，及专业的在线客服服务。</p>
+                <p>公司在业界同行及广大用户中都拥有良好的口碑。</p>
+            </div>
+        </div>
+    </div>
+    <div id="section3" class="fp-section fp-table" #section3>
+        <div class="fp-3">
+            <h2>智能系统</h2>
+            <div class="hen"></div>
+            <p>加入亚信合营，无需资金担保，开启高额佣金</p>
+            <div class="imgs">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d3_tb01.png" alt="">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d3_tb02.png" alt="">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d3_tb03.png" alt="">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d3_tb04.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="section4" class="fp-section fp-table" #section4>
+        <div class="fp-4">
+            <h2>专业服务</h2>
+            <div class="hen"></div>
+            <p>秉持专业的服务质量，真诚扶持每一位合营伙伴！</p>
+            <div class="imgs">
+                <div class="box">
+                    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d4_icon01.png" alt="">
+                    <h3>贴身客服</h3>
+                    <p>7*24小时</p>
+                    <p>全年无休VIP客服</p>
+                    <p>随时随地，有求必应！</p>
+                </div>
+                <div class="box">
+                    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d4_icon02.png" alt="">
+                    <h3>推广扶持</h3>
+                    <p>专属活动策划，</p>
+                    <p>优质流量推荐，</p>
+                    <p>为您的业绩提供助力！</p>
+                </div>
+                <div class="box">
+                    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d4_icon03.png" alt="">
+                    <h3>保驾护航</h3>
+                    <p>提供行业市场监测，政策风</p>
+                    <p>险预警，保障合作伙伴人身</p>
+                    <p>财产安全！</p>
+                </div>
+                <div class="box">
+                    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_zsym_d4_icon04.png" alt="">
+                    <h3>贵宾招待</h3>
+                    <p>每年2次境外任意目的地豪华</p>
+                    <p>旅游，全程香车美女，享受</p>
+                    <p>奢侈待遇！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_mvkt_bottom_logo.png" alt="">
+    <p>Copyright @太阳城集团 All Right Reserved</p>
+</footer>-->
+
+<div class="agent_int">
+  <pc-djlist></pc-djlist>
+  <div style="min-height: calc(100vh - 106px);">
+    <div class="Zj_Zl" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj01.jpg' | bgUrl">
+      <div class="swiper-container Zj_Zp agent_swiper_wrap">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <section class="Zj_Zt Zj_Zx">
+              <div class="Zj_Zv">
+                <div class="Zj_Bc">
+                  <img class="Zj_Ba" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-title-01.png'" alt="">
+                  <img class="Zj_Qc" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-content-01.png'" alt="">
+                  <ul class="Zj_Zz">
+                    <!-- <li class="swiper-no-swiping Zj_Z1">
+                      <div class="Zj_Z3"></div>
+                      <div class="Zj_Z5">
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon-letstalk.png'" alt="">
+                        <p class="Zj_Ba">代理letstalk账号</p>
+                        <p class="Zj_Ba Zj_Z7">t15180436</p>
+                        <p class="Zj_Z9">
+                          <a (click)="copyBankaccount('#acc1')" data-clipboard-text="t15180436" id="acc1">复制</a>
+                          <a target="_blank" href="https://www.letstalk.net" class="Zj_aB">下载</a>
+                        </p>
+                      </div>
+                    </li> -->
+                    <!-- <li class="swiper-no-swiping Zj_Z1">
+                      <div class="Zj_Z3"></div>
+                      <div class="Zj_Z5">
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon-tencent-qq.png'" alt="">
+                        <p class="Zj_Ba">招商经理QQ</p>
+                        <p>
+                          <a target="_blank" href="tencent://message/?uin=2630453063&amp;Site=&amp;Menu=yes">咨询</a>
+                        </p>
+                      </div>
+                    </li> -->
+                    <!-- <li class="swiper-no-swiping Zj_Z1">
+                      <div class="Zj_Z3"></div>
+                      <div class="Zj_Z5">
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_flygram.png'" alt="">
+                        <p class="Zj_Ba">代理flygram账号</p>
+                        <p class="Zj_Ba Zj_Z7">yaxin8888</p>
+                        <p class="Zj_Z9">
+                          <a (click)="copyBankaccount('#acc3')" data-clipboard-text="yaxin8888" id="acc3">复制</a>
+                          <a target="_blank" href="https://www.flygram1.im/dl" class="Zj_aB">下载</a>
+                        </p>
+                      </div>
+                    </li>
+                    <li class="swiper-no-swiping Zj_Z1">
+                      <div class="Zj_Z3"></div>
+                      <div class="Zj_Z5">
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon-mchat.png'" alt="">
+                        <p class="Zj_Ba">代理mchat账号</p>
+                        <p class="Zj_Ba Zj_Z7">yyxx8888</p>
+                        <p class="Zj_Z9">
+                          <a (click)="copyBankaccount('#acc2')" data-clipboard-text="yyxx8888" id="acc2">复制</a>
+                          <a target="_blank" href="https://mchat.com/#/download" class="Zj_aB">下载</a>
+                        </p>
+                      </div>
+                    </li> -->
+                  </ul>
+                  <div class="Zj_SG">
+                    <span (click)="$GlobalMethodsService.openDailiKufu()" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/button_bg.png' | bgUrl">加入我们</span>
+                  </div>
+                </div>
+                <div class="Zj_LI">
+                  <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-main-01.png'" alt="">
+                </div>
+              </div>
+            </section>
+          </div>
+          <div class="swiper-slide">
+            <div class="Zj_Zt Zj_aE" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj01.jpg' | bgUrl">
+              <div class="Zj_Zv">
+                <div class="Zj_Bc">
+                  <img class="Zj_Ba" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-title-02.png'" alt="">
+                  <ul class="Zj_aG">
+                    <li>
+                      <div class="Zj_U9">
+                        <p class="Zj_aI">会员统计</p>
+                        <p class="Zj_aK">注册会员与有效会员随时查看</p>
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-animation-sheet-01.png'" alt="">
+                      </div>
+                    </li>
+                    <li>
+                      <div class="Zj_U9">
+                        <p class="Zj_aI">会员游戏明细</p>
+                        <p class="Zj_aK">会员参与游戏盈亏详情</p>
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-animation-sheet-02.png'" alt="">
+                      </div>
+                    </li>
+                    <li>
+                      <div class="Zj_U9">
+                        <p class="Zj_aI">会员报表</p>
+                        <p class="Zj_aK">各种会员信息一目了然</p>
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-animation-sheet-03.png'" alt="">
+                      </div>
+                    </li>
+                    <li>
+                      <div class="Zj_U9">
+                        <p class="Zj_aI">平台费用明细</p>
+                        <p class="Zj_aK">平台流水，费用率，输赢状况及总平台费用</p>
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-animation-sheet-04.png'" alt="">
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="Zj_LI">
+                  <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-main-02.png'" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="Zj_Zt Zj_aM" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj01.jpg' | bgUrl">
+              <div class="Zj_Zv">
+                <div class="Zj_Bc">
+                  <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_app_download.png'" alt="">
+                </div>
+                <div class="Zj_LI">
+                  <img class="Zj_Ba" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-title-03.png'" alt="">
+                  <div class="Zj_aO">
+                    <div class="Zj_G5">
+                      <p class="Zj_aQ">业内最强的APP产品</p>
+                    </div>
+                    <ul class="Zj_aS">
+                      <li>
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/app-plentiful.png'" alt="">
+                        <p class="Zj_aI">更丰富</p>
+                        <p class="Zj_aK">丰富的游戏产品</p>
+                        <p class="Zj_aK">您想要的我们都有</p>
+                      </li>
+                      <li>
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/app-stability.png'" alt="">
+                        <p class="Zj_aI">更稳定</p>
+                        <p class="Zj_aK">强大的技术团队</p>
+                        <p class="Zj_aK">提供最稳定的产品</p>
+                      </li>
+                      <li>
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/app-safety.png'" alt="">
+                        <p class="Zj_aI">更安全</p>
+                        <p class="Zj_aK">独家网络技术</p>
+                        <p class="Zj_aK">超强防劫持</p>
+                      </li>
+                      <li>
+                        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/app-privacy.png'" alt="">
+                        <p class="Zj_aI">更私密</p>
+                        <p class="Zj_aK">三重数据加密</p>
+                        <p class="Zj_aK">保护您的资料安全</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="Zj_aO">
+                    <div class="Zj_G5">
+                      <p class="Zj_aQ">权威认证机构</p>
+                    </div>
+                    <img width="100%" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/image-license.png'" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="game-permiss">
+  <div class="zm-tips">
+    <div class="zm-con-game">
+      <div class="game-zm-title">
+        <span class="zm-text">游戏账户余额不足（当前： <span class="zm-text">{{gameYe}}</span>）</span>
+        <span class="rest-zm" (click)="getGameBalance()">刷新</span>
+      </div>
+      <div class="zm-tips-banner">
+        <div class="banner-con">
+          <span class="zm-label">主账户</span>
+          <span class="zm-label-text">{{accountBalance}}</span>
+          <span class="zm-btn-game" (click)="clickRouter()">
+            <span>去存款</span>
+          </span>
+          <span class="zm-btn-game" (click)="keyAccount()">
+            <span>一键归账</span>
+          </span>
+        </div>
+        <div>
+          <span class="zm-label">转账金额</span>
+          <input type="text" onlyNumber [(ngModel)]="transferAmount"
+                 maxlength="10" pInputText style="width: 220px;">
+        </div>
+      </div>
+      <div class="btn-footer">
+        <button class="footer-btn-text" (click)="automaticTransfer()">自动转账进入游戏</button>
+        <button class="footer-btn-text" (click)="goGames()">忽略提醒进入游戏</button>
+      </div>
+    </div>
+  </div>
+</div>

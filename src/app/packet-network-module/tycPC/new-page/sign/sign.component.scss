@@ -1,0 +1,95 @@
+.sign-header{
+    background: #161616;
+    height: 70px;
+    .sign-header-box{
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+    .sign-header-btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sign-btn{
+        display: block;
+        margin-right: 5px;
+        color: #fff;
+        border-radius: 3px;
+        padding: 5px 16px;
+        text-align: center;
+        font-size: 14px;
+        background: linear-gradient(to right, #800000, #da292a);
+    }
+}
+.sign-content{
+    width: 100%;
+    height: 2661px;
+    .sign-content-box{
+        width: 1236px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .sign-content-slogan{
+        padding-top: 84px;
+        padding-bottom: 60px;
+    }
+    .sign-content-top{
+        width: 1236px;
+        height: 820px;
+        position: relative;
+    }
+    .sign-calendar{
+        position: absolute;
+        top: 105px;
+        left: 128px;
+        .ui-datepicker{
+            background-color: transparent !important;
+        }
+    }
+    .sign-days{
+        // position: absolute;
+        // right: 0;
+        // top: 115px;
+        .sign-days-count{
+            position: absolute;
+            color: #ffe400;
+            right: 195px;
+            top: 115px;
+            p{
+                font-size: 14px;
+            }
+        }
+        .sign-days-btn{
+            img{
+                position: absolute;
+                top: 180px;
+                right: 118px;
+            }
+        }
+        .sign-days-reward{
+            background-repeat: no-repeat;
+            width: 301px;
+            height: 70px;
+            position: absolute;
+            right: 118px;
+            top: 283px;
+            display: flex;
+            align-items: center;
+        }
+        .sign-reward-num{
+            font-size: 30px;
+            color: #ffe400;
+            width: 80px;
+            text-align: center;
+        }
+        .sign-reward-money{
+            font-size: 18px;
+            text-align: center;
+            width: 164px;
+        }
+    }
+}

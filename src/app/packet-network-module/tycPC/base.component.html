@@ -1,0 +1,14 @@
+
+<div [class]="styleName">
+  <router-outlet></router-outlet>
+</div>
+ <!-- 点选验证 -->
+  <verify-click></verify-click>
+
+<!--提示框显示 tools-->
+<div class="zm-p-toast">
+  <p-toast [style]="{top: '39%', left: '43%'}"
+           position="top-center" key="tc"
+           [showTransitionOptions]="'20ms'"
+           [hideTransitionOptions]="'100ms'"></p-toast>
+</div>

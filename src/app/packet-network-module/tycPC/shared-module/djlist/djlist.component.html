@@ -1,0 +1,85 @@
+
+<div class="header_time">
+  <div class="header_time_box">
+    <ul class="index_head_center_top">
+      <li><a >在线人数：</a><a href="javascript:;" class="showCount">检测中...</a>|</li>
+<!--      <li><a class="add_underline" href="javascript:;" (click)="circuit()">线路检测</a>|</li>-->
+      <li><a class="add_underline" href="javascript:;" [routerLink]="['guide', 0]">新手指南</a>|</li>
+      <li><a class="add_underline" href="javascript:;" [routerLink]="['guide', 4]">存取款教程</a></li>
+    </ul>
+    <p>GMT+8 {{nowMdTime}}</p>
+  </div>
+</div>
+<div class="index_head_list">
+  <div class="header_inner clearfix">
+    <div (click)="openLinkGame('HOME', 0)" class="logo" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/tyc_logo.png' | bgUrl">
+    </div>
+    <ul class="index_head_list_game">
+      <ng-container *ngFor="let list of navDataList let i = index">
+        <!--加首页图标按钮-->
+        <!-- <li *ngIf="i===0"
+            (mousemove)="listName(list, i)"
+            (mouseout)="listNameHide()"
+            [class.active]="tabIndex===i"
+            [class.list-item-bg]="i === isShowIndex">
+          <a [routerLink]="list.link" (click)="openLinkGame(list.subname, i)">
+            <i class="iconfont" style="font-size: 25px;">&#xe61b;</i>
+          </a>
+        </li> -->
+        <li [ngClass]="list.subname"
+            (mousemove)="listName(list, i)"
+            (mouseout)="listNameHide()"
+            [class.list-item-bg]="i === isShowIndex">
+          <a href="javascript:;" (click)="openLinkGame(list.subname, i)" [class.active]="tabIndex===i">
+            {{list.subname === 'APPXZ'||list.subname === 'SSFS' ? list.name : list.name.substring(0, 2)}}
+            <div class="arrow" *ngIf="list.childs.length > 0" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/sprite.png' | bgUrl"></div>
+          </a>
+        </li>
+      </ng-container>
+
+    </ul>
+    <app-zm-header class="menu_right"></app-zm-header>
+  </div>
+  <div class="index_head_list_arr">
+    <ng-container *ngFor="let list of navDataList let i = index">
+      <ul (mousemove)="listName(list, i)"
+          (mouseout)="listNameHide()" class="li-hide"  [class.li-show]="i=== isShowIndex">
+        <ng-container *ngFor="let x of list.childs let number = index">
+          <li class="if_li" (click)="imgGamesGo(x,list,number)" *ngIf="x.name.indexOf('棋牌') < 0 && x.name.indexOf('电竞') < 0 && x.name.indexOf('彩票') < 0 && x.name.indexOf('体育') < 0; else elseBlock">
+            <!-- <li class="if_li" (click)="imgGamesGo(x,list,number)" *ngIf="x.name.indexOf('棋牌') < 0 && x.name.indexOf('电竞') < 0 && x.name.indexOf('彩票') < 0 && x.name.indexOf('体育') < 0;">   -->
+            <div class="logo_container">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgSUrl}}" alt="">
+              <div class="logo_name">{{x.name}}</div>
+            </div>
+            <img class="game_img" src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgUrl}}" alt="">
+          </li>
+          <li class="else_li" (click)="imgGamesGo(x,list,number)" *ngIf="x.name.indexOf('棋牌') > 0 || x.name.indexOf('电竞') > 0">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgUrl}}" alt="">
+            <div class="right_box">
+              <div class="name">{{x.name}}</div>
+              <div class="sub_name">{{x.subname}}</div>
+            </div>
+          </li>
+
+          <li class="else_li" (click)="gameLogin(x)" *ngIf="x.name.indexOf('彩票') > 0">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgUrl}}" alt="">
+            <div class="right_box">
+              <div class="name">{{x.name}}</div>
+              <div class="sub_name">{{x.subname}}</div>
+            </div>
+          </li>
+
+          <li class="else_li" (click)="goGame(x)" *ngIf="x.name.indexOf('体育') > 0">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgUrl}}" alt="">
+            <div class="right_box">
+              <div class="name">{{x.name}}</div>
+              <div class="sub_name">{{x.subname}}</div>
+            </div>
+          </li>
+        </ng-container>
+      </ul>
+    </ng-container>
+  </div>
+
+</div>
+

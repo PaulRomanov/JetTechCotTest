@@ -1,0 +1,19 @@
+<div class="swiper-container home-swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let item of data">
+      <img (click)="targetImg(item)" src="{{(item.filePath.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{item.filePath}}"/>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <!-- 亚信 -->
+  <div>
+    <div class="swiper-button-prev swiper-button-prev1"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/d.png' | bgUrl"
+    ></div>
+    <div class="swiper-button-next swiper-button-next1"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/d.png' | bgUrl"
+    ></div>
+  </div>
+</div>
+
+

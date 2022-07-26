@@ -1,0 +1,150 @@
+<pc-marquee></pc-marquee>
+<div class="index_characteristic_recommend">
+    <div class="index_characteristic_recommend_center revealOnScroll"  data-animation="bounceInLeft" data-timeout="400">
+        <p>励扬太阳城特色</p>
+        <div class="index_characteristic_recommend_right">
+          <div class="sz-waterfall">
+            <div class="sz-waterfall-item" *ngFor="let data of charas">
+              <div class="sz-playlist-img">
+                <img  [src]="data.imgUrl"/>
+                <img [src]="data.imgLUrl" />
+              </div>
+              <div class="sz-waterfall-text" >
+                <span class="orangeFont" >{{data.name}}</span>
+                <span class="orangeFont" >Read More<i class="iconfont">&#xe65e;</i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="index_act">
+  <div class="block3 grayBg">
+    <ul class="index_bjae revealOnScroll" data-animation="bounceInUp" data-timeout="500">
+      <li>
+        <div class="orangeFont"><i class="iconfont">&#xe70c;</i>支付方式</div>
+        <a><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/payWays.png" alt=""></a>
+        <img class="borderRight" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/verticalLine.png" alt="">
+      </li>
+      <li>
+        <div class="orangeFont"><i class="iconfont">&#xe764;</i>优惠推荐</div>
+        <div class="swiper-container" id="swiper-container2">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"*ngFor="let dataSubset of resData">
+              <ul class="recommends"*ngFor="let x of dataSubset">
+                <li>
+                  <a href="javascript:;">
+                    <p class="blueFont">{{x.ACTNAME}}</p>
+                    <p  name="9">{{x.ACTRENARKS}}</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="pagination2"></div>
+        </div>
+        <img class="borderRight" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/verticalLine.png" alt="">
+      </li>
+      <li>
+        <div class="orangeFont"><i class="iconfont">&#xe66d;</i>服务优势</div>
+        <ul class="serviceAdvantage">
+          <li>
+            <p class="boldTitle">存款</p>
+            <p>
+              <span>平均时间</span>
+              <span>
+								<b class="blueFont" id="FontNumone"></b>
+								分钟
+							</span>
+            </p>
+            <div>
+              <div class="graph">
+                <strong id="bar" style="width:100%;"></strong>
+              </div>
+            </div>
+          </li>
+          <li>
+            <p class="boldTitle">提款</p>
+            <p>
+              <span>平均时间</span>
+              <span>
+								<b class="blueFont" id="FontNumtwo"></b>
+								分钟
+							</span>
+            </p>
+            <div>
+            <div class="graph">
+              <strong id="drawing" style="width:100%;"></strong>
+            </div>
+            </div>
+          </li>
+          <li>*以上存款提款时间仅供参考。</li>
+          <li>*银行维护期间除外，详情咨询在线客服。</li>
+        </ul>
+      </li>
+      <li>
+        <img class="borderTop" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/transverseLine.png" alt="">
+        <div class="orangeFont"><i class="iconfont">&#xe692;</i>产品优势</div>
+        <ul>
+          <li>
+            <p class="boldTitle">多元化游戏</p>
+            <p>真人娱乐城、老虎机、扑克、体育游戏一应俱全，精挑细选给您提供最好的选择。</p>
+          </li>
+          <li>
+            <p class="boldTitle">专业客户服务</p>
+            <p>严格训练的客服团队，24小时全天候为您服务，随时关注您的意见和建议。！</p>
+          </li>
+          <li>
+            <p class="boldTitle">信誉保障</p>
+            <p>澳门现场博彩与线上在线娱乐结为一体，极速提款承诺，打造最安全、最公平的博彩平台是我们的永恒宗旨。</p>
+          </li>
+        </ul>
+        <img class="borderRight" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}public/img/verticalLine.png" alt="">
+      </li>
+      <li class="informationCenter">
+        <img class="borderTop" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/transverseLine.png" alt="">
+        <div class="orangeFont"><i class="iconfont">&#xe7a8;</i>信息中心</div>
+        <ul>
+          <li><span class="lyactive" [routerLink]="['../guide', 6]">常见问题 ></span></li>
+          <li><span class="lyactive" [routerLink]="['../guide', 4]">如何存款？ ></span></li>
+          <li><span class="lyactive" [routerLink]="['../guide', 5]">如何提款？ ></span></li>
+        </ul>
+        <img class="borderRight" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/verticalLine.png" alt="">
+      </li>
+      <li class="serverOnline">
+        <img class="borderTop" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/transverseLine.png" alt="">
+        <div class="orangeFont">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/onlineService.png" alt="">
+          在线服务
+        </div>
+        <ul>
+          <li class="lyactive">
+            <i class="iconfont">&#xe667;</i>
+            <div>
+              <p class="blueFont" (click)="$GlobalMethodsService.openKufu()">在线客服</p>
+              <p>
+                <a href="javascript:;">立即点击</a>
+              </p>
+            </div>
+          </li>
+          <li class="lyactive">
+            <i class="iconfont">&#xe601;</i>
+            <div>
+              <p class="blueFont">热线电话</p>
+              <ng-container *ngFor="let item of $GlobalService.globalQueryModel.customerPhone;let i=index ">
+                <p  *ngIf="i<2">{{item.keyvalue}}</p>
+              </ng-container>
+            </div>
+          </li>
+          <li class="lyactive">
+            <i class="iconfont">&#xe7aa;</i>
+            <div>
+              <p class="blueFont">电子邮件</p>
+              <p>liyangcheng520521@gmail.com</p>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

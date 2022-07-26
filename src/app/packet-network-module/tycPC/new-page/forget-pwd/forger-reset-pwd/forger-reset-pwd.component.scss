@@ -1,0 +1,136 @@
+.pwd-content{
+    background: #fff;
+    width: 1200px;
+    margin: 40px auto;
+    min-height: 400px;
+    padding: 50px;
+    input{
+        height: 40px;
+        background: #F4F4F4;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        padding: 15px 10px;
+        &.input-account{
+            width: 300px;
+            // margin-bottom: 30px;
+        }
+        &.input-SMS{
+            margin-right: 10px;
+        }
+    }
+    .btn{
+        min-width: 130px;
+        padding: 10px 15px;
+        border-radius: 3px;
+        cursor: pointer;
+        border: none;
+        font-size: 16px;
+
+    }
+    .pwd-btn{
+        //background: #2F86F6;
+        color: #fff;
+        background-image: linear-gradient(270deg, #DCCAB8, #D2B496);
+        //box-shadow: 2px 2px 0 #266ECB;
+        //&:hover{
+        //    background: #3b92dc;
+        //}
+    }
+    .confirm-btn{
+        width: 300px;
+        text-align: center;
+    }
+    .ml30{
+        margin-left: 30px;
+    }
+    .input-item{
+        margin:20px auto;
+    }
+    .content-step{
+        text-align: center;
+        width: 100%;
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 0 auto;
+            padding-top: 10px;
+            width: 883px;
+        }
+        span{
+            flex: 1;
+            position: absolute;
+            &:first-child{
+                left: -10px;
+            }
+            &:nth-child(2){
+                left: 275px;
+            }
+            &:nth-child(3){
+                right: 265px;
+            }
+            &:last-child{
+                right: 0;
+            }
+        }
+    }
+    .line{
+        width: 800px;
+        margin: 50px auto;
+        border-top: 1px solid #ccc;
+    }
+    .content-txt{
+        width: 400px;
+        margin: 0 auto;
+        .content-txt-title{
+            margin-bottom: 10px;
+        }
+        .input-code{
+            input{
+                vertical-align: middle;
+            }
+            img{
+                height: 40px;
+                vertical-align: middle;
+                margin-left: 10px;
+            }
+        }
+    }
+    .iconcaozuochenggong{
+        color: #46B530;
+        font-size: 70px;
+    }
+    .iconbiyan,.iconyanjing{
+        color: #9D9D9D;
+        font-size: 20px;
+        margin-left: -30px;
+        cursor: pointer;
+    }
+    .step4{
+        text-align: center;
+        .content-txt-title{
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+    }
+    .progress{
+        display: flex;
+        justify-content: flex-end;
+        width: 300px;
+        margin-top: 10px;
+        .progress-item{
+            background: #bbb;
+            width: 50px;
+            height: 6px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            margin-left: 5px;
+        }
+        .active{
+            background: #FED109;
+        }
+    }
+}

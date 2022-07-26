@@ -1,0 +1,77 @@
+<h3>订单记录</h3>
+<div class="content">
+  <div class="search_row">
+    <span>
+      <p-calendar [(ngModel)]="startTime" (onSelect)="selectDate()" [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"
+                  class="zm-calendar" [style]="{'width':'120px'}" [inputStyle]="{'width':'120px'}"
+      ></p-calendar>
+        <i class="iconfont">&#xe65d;</i>
+    </span>
+    ~&nbsp;&nbsp;
+    <span>
+        <p-calendar [(ngModel)]="endTime" (onSelect)="selectDate()" [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"
+                    class="zm-calendar" [style]="{'width':'120px'}" [inputStyle]="{'width':'120px'}"
+        ></p-calendar>
+        <i class="iconfont">&#xe65d;</i>
+    </span>
+    <span>
+        审核状态：
+        <p-dropdown [options]="giftTypes" [(ngModel)]="giftType" [filter]="true"
+                    (onChange)="giftTypeChange()"
+                    class="zm-dropdown-style" [style]="{'width':'145px'}"
+                    filterBy="label,value.name" [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+    </span>
+    <span>
+      <p-dropdown [options]="pageSize" [(ngModel)]="selectedPageSize" [filter]="true" (onChange)="dataTimeChange($event, 5)"
+        class="zm-dropdown-style" [style]="{'width':'110px'}" filterBy="label,value.name"
+        [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+    </span>
+    
+    <span  class="search" (click)=getOrderHistory() lh-loading [isLoad]="isQueryLoading">
+        <span>搜索</span>
+    </span>
+  </div>
+  <table class="table">
+      <thead>
+      <tr>
+        <ng-container *ngFor="let header of tableHeaderList">
+          <th [style.width.%]="header.width">{{header.label}}</th>
+        </ng-container>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of list let i = index">
+          <td>{{item.productName }}</td>
+          <td>{{item.amount}}</td>
+          <td>{{item.allScore}}</td>
+          <td>LV{{item.commitTime }}</td>
+          <td>{{item.serial }}</td>
+          <td>{{item.addressee }}</td>
+          <td>{{item.phoneno}}</td>
+          <td [style.color]="item.status == '0' ? '#cfab4e' : item.status == '1' ? '#20961d' : '#cc4f4f'">{{item.status == '0' ? '未审核' : item.status == '1' ? '审核通过' : '审核不通过' }}</td>
+          <td class="copy_address">
+            <span [id]="'a' + item.serial">{{item.transOrder }}</span>
+            <div class="copy" (click)="copy(item.serial)">复制</div>
+          </td>
+          <td>{{item.desc }}</td>
+        </tr>
+        <tr *ngIf="list.length === 0">
+          <td colspan="10">暂无数据...</td>
+        </tr>
+      </tbody>
+  </table>
+  <div class="Member_history_bottom" *ngIf="list.length !== 0">
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(1)">首页</li>
+    <li class="lyactive"  *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">上一页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">{{pageData.currentPage - 1}}</li>
+    <li class="lyactive" (click)="addCurrentPage(pageData.currentPage)" [class.page-bg]="pageData.currentPage">{{pageData.currentPage}}</li>
+    <li *ngIf="pageData.currentPage != pageData.total"
+        class="lyactive" (click)="addCurrentPage(pageData.currentPage + 1)">{{pageData.currentPage + 1}}</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.currentPage + 1)">下一页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.total)">末页</li>
+    <li *ngIf="pageData.total != 1" class="noBoder">共{{pageData.total}}页</li>
+    <li *ngIf="pageData.total != 1" class="noBoder">跳转到 <input type="text" [(ngModel)]="pageData.goPage" onkeyup="value=value.replace(/[^\d]/g,'') "> 页
+    </li>
+    <li *ngIf="pageData.total != 1" class="lyactive HistoryActive" (click)="addCurrentPage(pageData.goPage, 0)">GO</li>
+  </div>
+</div>

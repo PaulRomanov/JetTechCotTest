@@ -1,0 +1,138 @@
+<div class="men-bg" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj02.jpg' | bgUrl">
+  <div  class="index_member">
+    <div class="ATl_ATn">
+      <ul class="ATl_ATr">
+        <li class="ATl_ATt" *ngFor="let item of demoIndex">
+          <div class="ATl_Tit">{{ item.title }}</div>
+          <ul>
+            <li class="ATl_ATv" *ngFor="let name of item.list" (click)="listName(item, name.index)" [class.ATl_Jf]="name.index === isShowIndex||name.index === isShowIndex1">
+              <div class="flex_box" *ngIf="name.link !== 'deposit' && name.link !== 'withdrawMoney'" routerLink="{{name.link}}">
+                <i [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/usercenter_sprite.png' | bgUrl" [style.background-position]="name.position"></i>
+                <span class="ATl_ATx ATl_Jj">{{ name.name }}</span>
+              </div>
+              <div class="flex_box" *ngIf="name.link === 'deposit'">
+                <i [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/usercenter_sprite.png' | bgUrl" style="background-position: 1px 1px"></i>
+                <span class="ATl_ATx ATl_Jj">{{ name.name }}</span>
+              </div>
+              <div class="flex_box" *ngIf="name.link === 'withdrawMoney'">
+                <i [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/usercenter_sprite.png' | bgUrl" style="background-position: -17px 1px"></i>
+                <span class="ATl_ATx ATl_Jj">{{ name.name }}</span>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!--<div class="index_member_left">
+      <ul *ngFor="let item of demoIndex">
+        <h4>{{item.title}}</h4>
+        <li *ngFor="let name of item.list" (click)="listName(item, name.index)"
+            [class.active]="name.index == isShowIndex||name.index == isShowIndex1"
+            (mousemove)="listNameShow(name, name.index)"
+            [class.active]="name.index === isShowIndex||name.index === isShowIndex1"
+            (mousemove)="listNameShow(name, name.index)"
+            (mouseout)="listNameHide()"
+        >
+          <div *ngIf="name.link !== 'deposit' && name.link !== 'withdrawMoney'" routerLink="{{name.link}}">
+            <i class="iconfont {{name.icon}}"></i>
+            <a href="javascript:;">{{name.name}}</a>
+            &lt;!&ndash; 个人消息里面添加是否有未读消息标识 &ndash;&gt;
+            <span *ngIf="name.index === '10' && $GlobalService.globalTipsModelModel.isUnreadInfo" class="personalIcon">(new)</span>
+          </div>
+          <div *ngIf="name.link === 'deposit'">
+            <i class="iconfont {{name.icon}}"></i>
+            <a href="javascript:;">{{name.name}}</a>
+          </div>
+          <div *ngIf="name.link === 'withdrawMoney'">
+            <i class="iconfont {{name.icon}}"></i>
+            <a href="javascript:;">{{name.name}}</a>
+          </div>
+        </li>
+      </ul>
+    </div>-->
+    <div class="index_member_right">
+      <ul class="index_member_right_top">
+        <li class="index_member_right_top_left">
+          <div><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/avatar_2.png"/> </div>
+          <div>
+            <p>
+              <span class="font-14 col-414655">{{sessionStorageName}}</span>
+              <span class="font-14" routerLink="./security/personalInformation">个人信息</span>
+            </p>
+            <p class="font-14 col-414655">上次登录时间：<span class="font-14">{{$GlobalService.globalQueryModel.loginTime}}</span></p>
+          </div>
+        </li>
+        <li class="index_member_right_top_center">
+          <div style="margin-right: 20px">
+            <p class="font-14 col-414655">主账户</p>
+            <p class="font-14" style="color: #b1987f;">{{$GlobalService.globalQueryModel.totalBalanceName}}</p>
+          </div>
+          <div style="margin-right: 20px">
+            <p class="font-14 col-414655">总余额</p>
+            <p class="font-14" style="color: #b1987f;">{{$GlobalService.globalQueryModel.totalBalance}}</p>
+          </div>
+          <div class="index_member_right_top_account">
+            <button (click)="gameToMain()" lh-loading
+                    [isLoad]="isAccounta" [disabled]="isAccounta">一键归账</button>
+            <button (click)="refreshAmount();" lh-loading
+                    [isLoad]="refroneKeyTransfer" [disabled]="refroneKeyTransfer">刷新余额</button>
+          </div>
+        </li>
+        <li class="Member_head_grade zm-header-right col-414655">
+          <!--        账户安全等级-->
+          <!--          <span>高</span>-->
+          <!--          <span><img src="../../../../assets/img/icon10.png"/></span>-->
+          <!--          <span><img src="../../../../assets/img/icon20.png"/></span>-->
+          <!--          <span><img src="../../../../assets/img/icon30.png"/></span>-->
+          <!--          <span><img src="../../../../assets/img/icon40.png"/></span>-->
+          <!--          <span><img src="../../../../assets/img/icon5.png"/></span>-->
+          账户安全等级<span class="Member_head_lan" style="color: red;">{{$GlobalService.globalTipsModelModel.level}}</span>
+          <span
+            [style.background-image]="this.$GlobalService.globalTipsModelModel.grades.realname ? ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_user01.png' | bgUrl) :  ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_user02.png' | bgUrl)"
+            [class.isSet]="this.$GlobalService.globalTipsModelModel.grades.realname">
+							<span [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/title-bg.png' | bgUrl">真实姓名</span>
+						</span>
+          <span
+            [style.background-image]="this.$GlobalService.globalTipsModelModel.grades.userbankpassword ? ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_password01.png' | bgUrl) :  ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_password02.png' | bgUrl)"
+
+            [class.isSet]="this.$GlobalService.globalTipsModelModel.grades.userbankpassword">
+							<span
+                [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/title-bg.png' | bgUrl"
+
+              >取款密码</span>
+						</span>
+          <span
+            [style.background-image]="this.$GlobalService.globalTipsModelModel.grades.securityquestion ? ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_security01.png' | bgUrl) :  ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_security02.png' | bgUrl)"
+
+            [class.isSet]="this.$GlobalService.globalTipsModelModel.grades.securityquestion">
+							<span
+                [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/title-bg.png' | bgUrl"
+              >密保问题</span>
+						</span>
+          <span
+            [style.background-image]="this.$GlobalService.globalTipsModelModel.grades.mobile ? ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_phone01.png' | bgUrl) :  ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_phone02.png' | bgUrl)"
+
+            [class.isSet]="this.$GlobalService.globalTipsModelModel.grades.mobile">
+							<span
+                [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/title-bg.png' | bgUrl"
+
+              >手机号码</span>
+						</span>
+          <span
+            [style.background-image]="this.$GlobalService.globalTipsModelModel.grades.mail ? ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_mail01.png' | bgUrl) :  ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon_mail02.png' | bgUrl)"
+
+            [class.isSet]="this.$GlobalService.globalTipsModelModel.grades.mail">
+							<span
+                [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/title-bg.png' | bgUrl"
+
+              >邮箱账号</span>
+        </span>
+        </li>
+      </ul>
+      <ul class="index_member_rightBottom">
+        <router-outlet></router-outlet>
+      </ul>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,155 @@
+<ul class="index-withdraw-money_one_ul" *ngIf="!isMoeny && !noMoeny">
+  <h4>可用余额：￥<span>{{getpayName.USERBALANCE}}</span></h4>
+  <li class="index-withdraw-money_one_li">会员姓名：<span>{{getpayName.REALNAME}}</span></li>
+  <li class="index-withdraw-money_one_li"><span>取款金额：</span>
+    <input id="float-input" type="text" size="20" *ngIf="isLoding" placeholder="{{WITFLOOR}}元-{{WITCEILING}}元"
+      oninput="this.value=this.value.replace(/[^\d]/g,'')" (input)="getQkVale($event)" maxlength="13" pInputText
+      [(ngModel)]="$GlobalService.globalQueryModel.appImmediatelyaudit.money">
+    <div class="loding" *ngIf="!isLoding"><span></span></div>
+    <span *ngIf="!isAccuntOK; else elseBlock" style="color: red;margin-left: 10px">*取款金额应处于{{WITFLOOR}}到{{WITCEILING}}之间</span>
+    <ng-template #elseBlock>
+      <span style="color: red;margin-left: 10px" *ngIf="isCity?.bankname === 'USDT-ERC20' || isCity?.bankname === 'USDT-TRC20'">≈{{ mathNumber($GlobalService.globalQueryModel.appImmediatelyaudit.money / USDTRATE) }}USDT</span>
+      <span style="color: red;margin-left: 10px" *ngIf="isCity?.bankname === 'CNYB'">≈{{ mathNumber($GlobalService.globalQueryModel.appImmediatelyaudit.money / CNYBRATE) }}CNYB</span>
+    </ng-template>
+  </li>
+  <li class="index-withdraw-money_one_li"><span>{{isCity?.bankname=="USDT-TRC20"||isCity?.bankname=="USDT-ERC20"?"出款方式：":"我的银行："}}</span>
+    <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" [filter]="true" (onChange)="changeType($event)"
+      *ngIf="isLoding" filterBy="label,value.name" [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText">
+    </p-dropdown>
+    <div class="loding" *ngIf="!isLoding"><span></span></div>
+    <span style="color: red;margin-left: 10px" *ngIf="isCity?.bankname === 'USDT-ERC20' || isCity?.bankname === 'USDT-TRC20'">1USDT={{USDTRATE}}CNY</span>
+  </li>
+  <li class="index-withdraw-money_one_li"><i class="iconfont">&#xe8a5;</i>
+    单笔最低取款金额不低于{{WITFLOOR}}元，最高取款金额不高于{{WITCEILING}}元。取款金额必须为1的整倍数。
+  </li>
+  <li class="index-withdraw-money_one_li"><i class="iconfont">&#xe8a5;</i>
+    2022年3月前TRC通道提款免收手续费，ERC通道提款10000U以下收取30u手续费，10000U以上免手续费。
+  </li>
+  <li class="index-withdraw-money_one_li">
+    <button *ngIf="nextLat" (click)="sunbimMach()" lh-loading [isLoad]="moneyLoad" [class.active]="!isnumOks"
+      [disabled]="!isnumOks">
+      下一步
+    </button>
+  </li>
+</ul>
+<ul class="index-withdraw-money_one_ul index-withdraw-money_one_nomeny" *ngIf="noMoeny && isOk == 1">
+  <p>温馨提示：</p>
+  <p>您上一次取款未完成，暂时不能再次出款</p>
+  <div>如果您有任何问题请联系<em (click)="$GlobalMethodsService.openKufu()">在线客服</em></div>
+  <div class="index-withdraw-money_one_acbutton"><button [routerLink]="['/tyc/index/member/accountHistory']">查看账户记录</button></div>
+</ul>
+<ul class="index-withdraw-money_one_ul Member_draw_center" *ngIf="isMoeny">
+  <h4>实际取款金额：<span>{{appImme.realmoney}}</span>元 <span *ngIf="isCity?.bankname === 'USDT-ERC20' || isCity?.bankname === 'USDT-TRC20'">当前汇率1USDT={{USDTRATE}}CNY，您的USDT钱包将收到{{usdtamount}}USDT</span></h4>
+  <li class="Member_draw_center_actual">实际取款 = 申请金额 - 优惠金额 - 手续费 【{{appImme.realmoney}} =
+    {{$GlobalService.globalQueryModel.appImmediatelyaudit.money}} -
+    {{appImme.deductPrivilege}} - {{appImme.serviceCharge}}】</li>
+  <div>
+    <ul class="Member_draw_center2_ul">
+      <li>申请取款金额：<span>{{$GlobalService.globalQueryModel.appImmediatelyaudit.money}}</span></li>
+      <li>实际取款金额：<span>{{appImme.realmoney}}</span></li>
+      <li>稽核所差流水：<span>{{appImme.sumcamamount}}</span></li>
+      <li>从主账户取：<span>{{$GlobalService.globalQueryModel.appImmediatelyaudit.money}}</span></li>
+      <li>优惠金额：<span>{{appImme.deductPrivilege}}</span></li>
+      <li>取款后余额：<span>{{appImme.remainamount}}</span></li>
+      <li>手续费：<span>{{appImme.serviceCharge}}</span></li>
+      <li>扣除总额：<span>{{appImme.deductions}}</span></li>
+    </ul>
+    <div class="index-withdraw-money_two_li">
+      <button (click)="pervClick()">上一步</button>
+      <button (click)="drawMoney()">确认取款</button>
+    </div>
+  </div>
+
+</ul>
+<!-- 取款密码弹窗 -->
+<div class="Member-pop" *ngIf="isDraw" [class.rotateIn]="isDraw">
+  <div class="Member_draw animated">
+    <div class="Member_draw_qk">
+      <div class="Member_drwa_sr">
+        <h4>请输入取款密码</h4>
+        <div class="Member_drwa_sr_div">
+          <div>
+            <input type="password" maxlength="1" [(ngModel)]="withdrawone.inputPassword1" (keyup)="inputChangeData(1)"
+              #zmInput1 class="inputItem" />
+            <input type="password" maxlength="1" [(ngModel)]="withdrawone.inputPassword2" (keyup)="inputChangeData(2)"
+              #zmInput2 class="inputItem" />
+            <input type="password" maxlength="1" [(ngModel)]="withdrawone.inputPassword3" (keyup)="inputChangeData(3)"
+              #zmInput3 class="inputItem" />
+            <input type="password" maxlength="1" [(ngModel)]="withdrawone.inputPassword4" (keyup)="inputChangeData(4)"
+              #zmInput4 class="inputItem" />
+            <input type="password" maxlength="1" [(ngModel)]="withdrawone.inputPassword5" (keyup)="inputChangeData(5)"
+              #zmInput5 class="inputItem" />
+            <input type="password" maxlength="1" [(ngModel)]="withdrawone.inputPassword6" (keyup)="inputChangeData(6)"
+              #zmInput6 class="inputItem" />
+          </div>
+          <div class="warning"
+            [style.display]="!withdrawone.inputPassword1 || !withdrawone.inputPassword2 || !withdrawone.inputPassword3 || !withdrawone.inputPassword4 || !withdrawone.inputPassword5 || !withdrawone.inputPassword6 ? 'block' : 'none'">
+            *请输入6位数取款密码</div>
+        </div>
+        <div class="btns">
+          <button class="btn-cance" (click)="isDraw=!isDraw">
+            取消
+          </button>
+          <button class="blueBg" lh-loading [isLoad]="saveLoad"
+            [class.bgOk]="!withdrawone.inputPassword1 || !withdrawone.inputPassword2 || !withdrawone.inputPassword3 || !withdrawone.inputPassword4 || !withdrawone.inputPassword5 || !withdrawone.inputPassword6"
+            [disabled]="!withdrawone.inputPassword1 ||
+                     !withdrawone.inputPassword2 || !withdrawone.inputPassword3 || !withdrawone.inputPassword4 ||
+                      !withdrawone.inputPassword5 || !withdrawone.inputPassword6"
+            (click)="saveDataInput()">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 首次出款验证手机号弹窗 -->
+<div class="member_draw_dialog" *ngIf='memberDrawShow'>
+  <div class="member_draw_dialogContent">
+    <div class="title">
+      <div class="titleTwo">首次出款请输入验证码</div>
+      <i class="iconfont closeLayer" (click)="closeMemberDrawDialog()">&#xe6a0;</i>
+    </div>
+    <div class="content">
+
+      <div class="inputBlock">
+        <!-- <i class="iconfont iconLeft">&#xe658;</i> -->
+        <input type="text" class="common-input-style" maxlength="11" placeholder="请输入11位手机号码" [(ngModel)]="memberDrawMobile" onkeyup="value=value.replace(/[^\d]/g,'')" (blur)="testMobile()" />
+      </div>
+      <div *ngIf="isMobileWarning" class="mobileWarning">{{mobileWarningTxt}}</div>
+      <div class="inputBlock member_draw_code">
+        <input type="text" class="common-input-style" placeholder="请输入短信验证码" [(ngModel)]="memberDrawCode" />
+        <button class="btnBlueBG" (click)='getSMScode()' *ngIf='countNum===60'>{{countTxt}}</button>
+        <button  *ngIf='countNum<60'>{{countNum}} s</button>
+      </div>
+      <div *ngIf="isCodeWarning" class="mobileWarning">请填写验证码</div>
+      <div class="member_draw_submit">
+        <button class="submitButton" (click)="submitMemberDraw()">确认</button>
+        <button class="kefu" (click)="openKufu()">在线客服</button>
+      </div>
+      <div class="layerTips">
+        *若输入手机号与注册手机号不一致，将替换旧手机号
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- 取款信息确认弹窗 -->
+<div class="Member-pop" *ngIf="confirmDraw" [class.rotateIn]="confirmDraw">
+  <div class="Member_draw animated confirmDraw">
+    <div class="Member_draw_qk">
+      <div class="Member_drwa_sr">
+        <div class="confirmDraw-title">您本次申请取款金额为<span class="bluefont">{{$GlobalService.globalQueryModel.appImmediatelyaudit.money}}</span>元，实际取款金额为<span class="bluefont">{{appImme.realmoney}}</span>元，其中扣除总额为<span class="bluefont">{{appImme.deductions}}</span>元。<span style="color: red;" *ngIf="isCity?.bankname === 'USDT-ERC20' || isCity?.bankname === 'USDT-TRC20'">您的USDT将收到{{usdtamount}}USDT</span></div>
+        <div class="Member_drwa_sr_div">
+          <div>
+            <p class="confirmDraw-tips">温馨提示：</p>
+            <div>游戏注单同步需要一定时间，如流水量与您实际不符合，请耐心等待一段时间。</div>
+            <div>如有疑问，请联系 <span class="service" (click)="openKufu()"><span class="iconfont">&#xe7bb;</span>在线客服</span></div>
+          </div>
+        </div>
+        <div class="btns">
+          <button class="btn-cance" (click)="closeConfirmDraw()">取消</button>
+          <button class="blueBg bgOk" (click)="doConfirmDraw()">确认</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

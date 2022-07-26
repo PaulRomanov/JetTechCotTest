@@ -1,0 +1,636 @@
+.angular-tyc-pc {
+  .zm-logins-container {
+    background: #161616;
+  }
+  .index_head_center_top li {
+    color: #ccc;
+  }
+  .index_head_center_top li a {
+    color: rgba(204, 204, 204, 1);
+    font-size: 12px;
+  }
+  pc-member {
+    display: block;
+  }
+  .ly-guide div {
+    color: #fff !important;
+  }
+  .ly-newhand-left .active {
+    background-image: linear-gradient(90deg, #DCCAB8 0%, #D2B496 100%);
+  }
+  .index_head_bottom_login li {
+    color: #ccc;
+  }
+  .index_head_bottom p {
+    color: rgba(204, 204, 204, 1) !important;
+  }
+  .index_head_bottom p a {
+    color: rgba(204, 204, 204, 1);
+  }
+  .index_head_list_game li {
+    flex: 1 !important;
+  }
+  .index_head_bottom_login a {
+    color: #ccc;
+  }
+  .index_head_list_game li a {
+    font-size: 16px;
+  }
+  .gameLists {
+    background-color: rgba(0, 0, 0, 0) !important;
+    padding: 30px 0 !important;
+  }
+  .gameLists #theader {
+    background-color: rgba(0, 0, 0, 0) !important;
+    justify-content: space-between;
+  }
+  .gameLists li {
+    margin: 0 !important;
+    margin-bottom: 1% !important;
+  }
+  .title2 {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+  }
+  .index2 {
+    background-attachment: inherit !important;
+    padding-top: 292px !important;
+    background-position-x: center;
+    width: 100%;
+    background-color: #161616;
+    background-size: auto !important;
+    background-repeat: no-repeat;
+  }
+  .searchGrop {
+    margin: 15px 24px 10px 0 !important;
+  }
+  .titleTwoGrops {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .titleTwoGrops ul {
+    position: absolute;
+    bottom: 0;
+  }
+  .searchGrop input {
+    border: none !important;
+    width: 226px !important;
+    color: #ccc;
+    background: #161616;
+  }
+  .searchGrop input::-webkit-input-placeholder {
+    color: #ccc;
+  }
+  .searchGrop input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #ccc;
+  }
+  .searchGrop input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #ccc;
+  }
+  .searchGrop input:-ms-input-placeholder {
+    color: #ccc;
+  }
+  .searchGrop i {
+    color: #ccc !important;
+    background: none !important;
+  }
+  .index2Content .bg {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .title-active {
+    color: #990000 !important;
+    background-color: inherit !important;
+    border-bottom: 5px solid #990000;
+    position: relative;
+  }
+  .titleOne li.active {
+    background-color: transparent !important;
+    color: #fff !important;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+  }
+  .zm-ul-con {
+    background: #070707 !important;
+  }
+  .zm-ul-con .active {
+    background: transparent !important;
+    color: #fff !important;
+    border-top: 1px solid transparent;
+    height: 100% !important;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    z-index: 1;
+  }
+  .title-current {
+    width: 140px;
+    background: #990000 !important;
+    border-top: 1px solid #ff5152;
+    height: 100%;
+    border-bottom: 1px solid #8c1b1b;
+    position: absolute;
+    z-index: 0;
+  }
+  .titleTwoGrops span {
+    color: #fff;
+  }
+  .title-active:after {
+    content: "\25B2";
+    color: #990000;
+    font-size: 20px !important;
+    position: absolute;
+    bottom: -12px;
+    text-align: center;
+    left: 0;
+    right: 0;
+  }
+  .twoFloor p:nth-child(1) a {
+    background-color: #990000 !important;
+    border-radius: 3px;
+  }
+  .zm-sports-container {
+    background-attachment: inherit !important;
+    background-size: inherit !important;
+    padding-top: 200px !important;
+    background-position-x: center;
+  }
+  .index_characteristic_center span {
+    background: none !important;
+  }
+  .ly-newhand-right {
+    background: #ffffff;
+    border: 1px solid #D7DBE4 !important;
+  }
+  .ly-newhand-right-text h4 {
+    color: #444C64 !important;
+  }
+  .ly-newhand-right-text p {
+    color: #444C64 !important;
+  }
+  .ly-newhand-left li:last-child {
+    border-bottom: 1px solid #D7DBE4 !important;
+    border-bottom-left-radius: 4px;
+  }
+  .ly-newhand-left li:hover {
+    background-image: linear-gradient(90deg, #DCCAB8 0%, #D2B496 100%) !important;
+    color: #fff;
+  }
+  .ly-newhand-left li {
+    line-height: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-left: 1px solid #D7DBE4 !important;
+    border-bottom: 1px solid #D7DBE4 !important;
+    cursor: pointer;
+  }
+  .ly-newhand-left li:first-child {
+    border-top: 1px solid #D7DBE4 !important;
+    border-top-left-radius: 4px;
+  }
+  .ly-newhand-right-text-margin li div i {
+    color: #fff !important;
+    font-size: 40px !important;
+  }
+  .ly-newhand-right-text-margin li div:first-child {
+    border: 2px solid #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .index_newhand_body_r_green {
+    color: #cdd120 !important;
+  }
+  .ly-newhand-right-text b {
+    border: none !important;
+    background: #D7DBE4;
+  }
+  // 滚动条动画
+  .page-opacity {
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  .page-opacity .page-arrow {
+    margin-left: -360px;
+    margin-bottom: 20px;
+  }
+  .show-page {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+  // 公告弹窗
+  .g-g-w-banner {
+    background-image: linear-gradient(-90deg,#b10000 18%,#ff3d3e 100%)!important;
+  }
+  .g-g-w-con {
+    background: #252525 !important;
+  }
+  .g-g--w-open-text {
+    color: #eeeeee;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .g-g-w-page{
+    .swiper-pagination-bullet-active{
+      background: #b40202 !important;
+    }
+    .swiper-pagination-bullet{
+      background: #fff;
+      opacity: 1;
+    }
+  }
+  // 优惠活动
+  .favourable-container .favourable-header-bg {
+    background: #000000;
+    background-repeat: no-repeat;
+  }
+  .favourable-header-yyq,
+  .text2-box,
+  .favourable-header-hd-pop-men2,
+  .favourable-header-hd-lh,
+  .favourable-header-hd-yj {
+    display: none;
+  }
+  .favourable-container-banner {
+    padding-top: 250px !important;
+  }
+  .favourable-banner-title2 {
+    display: none !important;
+  }
+  .banner-con-hd {
+    background: #1b1b1b !important;
+    margin-bottom: 50px;
+  }
+  .banner-con-hd-info .banner-tab-com {
+    border-radius: 4px;
+    border: none !important;
+    background: #2a2a2a;
+  }
+  .banner-con-hd-info .banner-tab-com a {
+    background: transparent !important;
+    border-bottom: none !important;
+    color: #ccc !important;
+    position: relative;
+    z-index: 1;
+  }
+  .banner-con-hd-info .banner-hd-list .banner-active-sq:hover {
+    border-color: transparent !important;
+  }
+  .banner-con-hd-info .banner-tab-com .current,
+  .banner-con-hd-info .banner-tab-com a:hover {
+    border: none !important;
+  }
+  .banner-con-hd-info .banner-tab-com .current {
+    color: #ffffff !important;
+    height: 100% !important;
+  }
+  .banner-con-hd-info .banner-tab-com ul .active {
+    height: 100% !important;
+    border: none !important;
+    background: #990000 !important;
+    z-index: 0;
+  }
+  @media screen and (max-width: 1500px) {
+    .favourable-container-banner .banner-con-hd {
+      padding-top: 40px !important;
+    }
+  }
+  .banner-con-hd {
+    border-radius: 4px;
+  }
+  .banner-con-hd-info .banner-hd-list {
+    padding-top: 30px !important;
+  }
+  .banner-hd-list-null {
+    color: #cccccc;
+  }
+  .banner-con-hd-info .banner-hd-list ul li {
+    background: #2a2a2a !important;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .banner-con-hd-info .banner-hd-list ul li:last-child {
+    margin-bottom: 40px !important;
+  }
+  .banner-con-hd-info .banner-hd-list .banner-hd-time {
+    margin: 0px !important;
+    padding: 3px 0 3px 20px;
+    background: #2a2a2a;
+  }
+  .banner-con-hd-info .banner-hd-list .banner-active-sq {
+    background: #990000 !important;
+    border-radius: 3px !important;
+    color: #ffffff !important;
+    border: 1px solid #990000 !important;
+    cursor: pointer;
+  }
+  .banner-con-hd-info .banner-hd-list .banner-active-sq a {
+    color: #ffffff !important;
+  }
+  .hvr-border-fade-button:hover {
+    box-shadow: inset 0 0 0 1px #990000, 0 0 1px #990000 !important;
+  }
+  .banner-con-hd-info .banner-hd-list .banner-list-title {
+    color: #ffffff !important;
+  }
+  .underway,
+  .notstart,
+  .ended {
+    display: none !important;
+  }
+  // 登录注册样式
+  .zm-login .ui-inputtext:enabled:focus:not(.ui-state-error) {
+    //border-color: #ccc;
+  }
+  // login 登录的复选框样式
+  .zm-login {
+    .ui-chkbox .ui-chkbox-box {
+      width: 15px;
+      height: 15px;
+    }
+    .ui-chkbox .ui-chkbox-box .ui-chkbox-icon {
+      font-size: 14px;
+    }
+    .ui-state-default{
+      border-color: #F6EA86;
+    }
+    .ui-chkbox .ui-chkbox-box.ui-state-active:not(.ui-state-disabled):hover,
+    .ui-chkbox .ui-chkbox-box.ui-state-active {
+      border-color: #D2B496;
+      background-color: #D2B496;
+      color: #ffffff;
+    }
+    .ui-chkbox .ui-chkbox-box.ui-state-focus {
+      color: #ffffff;
+      border-color: #D2B496;
+      box-shadow: 0 0 0 0.2em #D2B496;
+    }
+    // .ui-chkbox .ui-chkbox-box {
+    //   border: none;
+    // }
+  }
+  // login 登录的复选框样式 end
+  #topNav .swiper-slide .active {
+    border-radius: 8px;
+  background: #F1D5B1;
+  border: 1px solid #FFE9C1;
+  color: #3E0D11;
+  font-family: PingFang SC;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-align: center;
+  
+  }
+  #topNav .swiper-slide span{
+    border-radius: 8px;
+      background: #232323;
+      border: 1px solid #373737;
+  }
+
+}
+
+.mc-modal .modal-dialog{
+	min-width: 400px !important;
+  position: absolute;
+	background: transparent;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  left: 50%;
+}
+
+.mc-modal .modal-content:before{
+  content:"提示";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 35px;
+  width: 400px;
+  line-height: 35px;
+  // background-image: linear-gradient(270deg, #DCCAB8 0%, #D2B496 100%);
+  border-radius: 6px 6px 0px 0px;
+  background: #B10000;
+  color: #fff;
+}
+.dialog--open .modal-inner{
+  border-radius: 6px;
+  background: #252525;
+  border: 1px solid #676767;
+  color: #fff;
+
+}
+.mc-modal .modal-content{
+    padding: 55px 20px 20px !important;
+    width: 400px !important;
+    text-align: center;
+}
+.mc-modal .modal-controller{
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+	padding:0 !important;
+	padding-top: 0;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.mc-modal  button{
+  flex-grow: 0;
+  // width: 60px !important;
+  width: auto !important;
+  height: 28px !important;
+  padding: 0 5px !important;
+  margin-bottom: 20px !important;
+  border-radius: 2px;
+  margin: 0 70px;
+  border: none;
+  // background-image: linear-gradient(270deg, #DCCAB8 0%, #D2B496 100%) !important;
+  cursor: pointer;
+  border-radius: 4px;
+  background: #F1D5B1;
+  color: #4F2021;
+  font-weight: bold;
+}
+
+.index_deposit_entrance .index_deposit_entrance_ul li.active {
+  border-top-color: #D3B797;
+}
+
+.index_deposit_entrance .index_deposit_entrance_ul li::after {
+  background-color: #D3B797;
+}
+
+.Member_safety_information_button button {
+  background: linear-gradient(90deg,#dccab8,#d2b496);
+}
+#topNav{
+  padding: 10px 0;
+}
+#topNav .swiper-slide .active {
+  border-radius: 8px;
+background: #F1D5B1;
+border: 1px solid #FFE9C1;
+color: #3E0D11;
+font-family: PingFang SC;
+font-weight: bold;
+font-size: 12px;
+line-height: normal;
+letter-spacing: 0px;
+text-align: center;
+
+}
+
+#topNav .swiper-slide span:hover {
+  border-radius: 8px;
+  background: #F1D5B1;
+  border: 1px solid #FFE9C1;
+  color: #3E0D11;
+  font-family: PingFang SC;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+
+.borderFrame h4 {
+  color: #D3B797;
+}
+
+body .zm-dropdown-style .ui-dropdown .ui-dropdown-trigger {
+  color: #D3B797 !important;
+}
+
+// body .yh-dropdown-style .ui-dropdown .ui-dropdown-trigger {
+//   background: #5D5D5D !important;
+//   border: 1px solid #6A6A6A !important;
+// }
+// body .yh-dropdown-style .ui-dropdown{
+//   background: #252525 !important;
+//   border: 1px solid #6A6A6A !important;
+// }
+
+
+.Member_history_bottom li {
+  border-color: #D3B797;
+  background: #D3B797;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+  border-color: #D3B797 !important;
+  background: #D3B797 !important;
+  //box-shadow: 0 0 0 0.2em #D3B797;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active:not(.ui-state-disabled):hover {
+  border-color: #D3B797 !important;
+  background-color: #D3B797 !important;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active.ui-state-focus {
+  border-color: #D3B797 !important;
+  background: #D3B797 !important;
+  box-shadow: none;
+}
+
+//充值中心
+.index_deposit_entrance_box{
+  font-family: PingFang SC;
+  padding: 20px 20px 50px 20px;
+  .index_deposit_entrance_list{
+      background-color: #212121;
+      margin: 0 auto;
+      padding: 14px 14px 0 14px;
+      border: 1px solid #4A4A4A;
+      margin-bottom: 10px;
+      .index_deposit_entrance_title{
+        font-size: 18px;
+        padding-bottom: 10px;
+      }
+      ul{
+        display: flex;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+        li{
+          margin-right: 20px;
+          position: relative;
+          width: 212px;
+          margin-bottom: 20px;
+          cursor: pointer;
+          .index_deposit_entrance_list_img{
+            width: 100%;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            img{
+              width: 100%;
+              height: 100%;
+            }
+            
+          }
+          .index_deposit_entrance_list_text{
+            position: absolute;
+            top: 0;
+            right: 10px;
+            line-height: 24px;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            .index_deposit_entrance_name{
+              font-size: 16px;
+            }
+            .index_deposit_entrance_amount{
+              font-size: 12px;
+            }
+          }
+        }
+      }
+  }
+  .index_deposit_entrance_tip{
+    padding:20px 14px 0 14px;
+    p{
+      color: #FFFFFF;
+      font-family: PingFang SC;
+      font-weight: medium;
+      font-size: 18px;
+      line-height: 1.62;
+      letter-spacing: 0px;
+      text-align: left;
+
+    }
+  }
+}
+.index_deposit_entrance_black_box{
+  padding: 10px 20px;
+  border-bottom: 1px solid #454545;
+  .index_deposit_entrance_black{
+    width: 90px;
+    height: 30px;
+    background: #FFF1E0;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    color: #3E0D11;
+    font-weight: bold;
+    font-family: PingFang SC;
+    font-size: 12px;
+  }
+}
+

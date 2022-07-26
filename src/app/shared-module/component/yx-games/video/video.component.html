@@ -1,0 +1,22 @@
+<div class="index_zrsx">
+  <div class="index_zrsx_center">
+    <ul class="index_bjsc_name index_hover" *ngFor="let data of $GlobalService.globalJavaResData.gameNavList">
+      <ng-container *ngIf="data.subname === 'ZR GAME'">
+        <li *ngFor="let x of data.childs" class="zm-bg-zr">
+          <img class="GameUrl" src="{{(x.imgLUrl.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{x.imgLUrl}}"/>
+          <div class="zm-img-box" (click)="goGame(x)">
+            <img class="zm-img-one" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/hover1_1.png" alt="">
+            <img class="zm-img-two" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/hover2_1.png" alt="">
+
+            <!--            <span-->
+<!--            class="zrsx"-->
+<!--            (click)="goGame(x)"-->
+<!--            [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + $GlobalService.globalJavaResData.projectName+'/img/hover1_1.png' | bgUrl"-->
+<!--          ></span>-->
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>
+

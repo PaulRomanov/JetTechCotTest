@@ -1,0 +1,22 @@
+<!-- 全局公用弹框 -->
+<div class="mc-modal " id='mc-modal'>
+  <div class="modal-bg"></div>
+  <div class="modal-dialog">
+    <div class="morph-shape">
+      <svg  width="100%" height="100%" viewBox="0 0 560 280" preserveAspectRatio="none">
+        <rect x="3" y="3" fill="none" width="556" height="276"/>
+      </svg>
+    </div>
+    <div class="modal-inner">
+      <div class="modal-content">对话框的内容</div>
+      <div class="modal-controller">
+        <button class='btn-close close'>取消</button>
+        <button class='btn-ok' >确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end-->
+<router-outlet></router-outlet>
+<!--loading-->
+<loading-bar></loading-bar>

@@ -1,0 +1,29 @@
+<div class="zm-lottery"
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + $GlobalService.globalJavaResData.projectName+'/img/bjscbg.png' | bgUrl"
+
+>
+  <div  class="index_bjsc">
+    <div class="index_bjsc_head">
+      <ng-container *ngFor="let data of $GlobalService.globalJavaResData.gameNavList">
+        <ul *ngIf="data.subname === 'CP GAME'" class="index_bjsc_head_ul">
+          <div class="title-current" [style.left.px]="$GlobalService.globalJavaResData.tabIndex*140" style="height: 50px;"></div>
+          <li *ngFor="let x of data.childs  let i=index"
+              (click)="gamesName($event, x.gameUrl2,i,data.whStatus,x.chargeStatus,x)"
+              [class.active]="$GlobalService.globalJavaResData.tabIndex===i">
+            {{x.name}}
+          </li>
+        </ul>
+      </ng-container>
+      <div class="index_bjsc_center">
+        <ul>
+          <li *ngFor="let data of $GlobalService.globalJavaResData.cpList" (click)="gameLogin(data)"
+              [ngClass]="$GlobalService.globalJavaResData.cpList.length > 6 ? 'bjsc_sixClass' : 'bjsc_oneClass'">
+            <img src="{{(data.imgpath.indexOf('http')?$GlobalService.globalJavaResData.cdnValidKey:'')}}/{{data.imgpath}}"/>
+            <p>{{data.gamename}}</p>
+            <div class="index_bjsc_center_abs"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

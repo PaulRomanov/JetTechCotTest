@@ -1,0 +1,48 @@
+<div class="index_deposit_entrance">
+    <ul class="index_deposit_entrance_ul">
+        <li  class="active">投注合计</li>
+    </ul>
+</div>
+<div class="index-account-history">
+  日期
+  <span>
+      <p-calendar [(ngModel)]="dataStateTime"
+                  class="zm-calendar" [style]="{'width':'120px'}" [inputStyle]="{'width':'120px'}"
+                  [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"></p-calendar>
+        <i class="iconfont">&#xe65d;</i>
+    12:00
+      </span>
+  <span style="margin-left: 30px">
+        <p-calendar [(ngModel)]="dataEndTime"
+                    class="zm-calendar" [style]="{'width':'120px'}" [inputStyle]="{'width':'120px'}"
+                    [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"></p-calendar>
+        <i class="iconfont">&#xe65d;</i>
+    11:59
+  </span>
+  <span class="Member_safety_information_button">
+        <button (click)="searchList()" lh-loading [isLoad]="isLogin">查询</button>
+  </span>
+  <div class="index-betting-total Member_personal_table">
+    <table class="Member_personal_table">
+      <thead>
+        <tr>
+          <th>游戏平台</th>
+          <th>单量</th>
+          <th>有效投注额</th>
+          <th>输赢</th>
+        </tr>
+      </thead>
+      <tbody class="Member_personal_none">
+        <tr *ngFor="let item of list">
+          <td>{{item.GAMENAME}}</td>
+          <td>{{item.TOTAL}}</td>
+          <td>{{item.VALIDBATAMOUNT | number: '0.2'}}</td>
+          <td>{{item.RESULTAMOUNT | number: '0.2'}}</td>
+        </tr>
+      <tr *ngIf="list.length === 0">
+        <td colspan="4">暂无数据...</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="swiper-container home-swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let item of data">
+      <img (click)="targetImg(item)" src="{{(item.filePath.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{item.filePath}}"/>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+
+  <!---->
+  <div *ngIf="$GlobalService.globalQueryModel.companyId === '24'">
+    <div class="swiper-button-prev swiper-button-prev1"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/left-pre.png' | bgUrl"
+    ></div>
+    <div class="swiper-button-next swiper-button-next1"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/right-next.png' | bgUrl"
+    ></div>
+  </div>
+
+  <!--电竞-->
+  <div *ngIf="$GlobalService.globalQueryModel.companyId === '37699' || $GlobalService.globalQueryModel.companyId === '37529' || $GlobalService.globalQueryModel.companyId === '1227207' || $GlobalService.globalQueryModel.companyId === '31366'">
+    <div class="swiper-button-prev swiper-button-prev1"></div>
+    <div class="swiper-button-next swiper-button-next1"></div>
+  </div>
+  <!--励扬-->
+  <div *ngIf="$GlobalService.globalQueryModel.companyId === '24' || $GlobalService.globalQueryModel.companyId === '9426' ">
+    <div class="swiper-button-prev swiper-button-prev1"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/left-pre.png' | bgUrl"
+    ></div>
+    <div class="swiper-button-next swiper-button-next1"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/right-next.png' | bgUrl"
+    ></div>
+  </div>
+  <!--星汇世博-->
+  <div *ngIf="$GlobalService.globalQueryModel.companyId === '24' || $GlobalService.globalQueryModel.companyId === '40051' ">
+    <div class="swiper-button-prev swiper-button-prev1"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/left-pre.png' | bgUrl"
+    ></div>
+    <div class="swiper-button-next swiper-button-next1"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/right-next.png' | bgUrl"
+    ></div>
+  </div>
+</div>
+
+
+

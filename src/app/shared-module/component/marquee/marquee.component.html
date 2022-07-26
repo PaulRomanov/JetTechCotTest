@@ -1,0 +1,11 @@
+<div class="index_characteristic">
+  <div class="index_characteristic_center">
+    <div style="position: relative;">
+      <span [ngStyle]="marqueeTitleStyle"><i class="iconfont">&#xe8c0;</i>公告：</span>
+      <marquee scrolldelay="10" scrollamount="3" (click)="marquee()" [ngStyle]="marqueeContentStyle">
+        　　{{marqueeStr}}
+      </marquee>
+<!--      <div class="zaixiankefu" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/' + $GlobalService.globalJavaResData.projectName + '/img/zaixiankefu.png' | bgUrl" (click)="$GlobalMethodsService.openKufu()"></div>-->
+    </div>
+  </div>
+</div>

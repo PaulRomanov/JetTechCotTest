@@ -1,0 +1,144 @@
+.djchess-card {
+  width: 100%;
+  min-height: 400px;
+}
+
+.djchess-card-background {
+  min-height: 400px;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  background-color: #090908;
+}
+
+.djchess-card-background-center {
+  width: 1250px;
+  margin: 0 auto;
+  border-radius: 5px;
+  padding-top: 216px
+}
+.game_type_list{
+  position: relative;
+  height: 50px;
+  display: flex;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  margin-bottom: 24px;
+}
+.game_type_list li{
+  width: 140px;
+  line-height: 50px;
+  height: 50px;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.game_type_list .game_type_active{
+  background: #990000 !important;
+  border-top: 1px solid #ff5152;
+  height: 50px;
+  border-bottom: 1px solid #8c1b1b;
+  position: absolute;
+  z-index: 0;
+}
+.game_type_list .check_first{
+  border-radius: 5px 0 0 5px;
+}
+.game_type_list .game_name{
+  z-index: 1;
+}
+.djchess-card-background-center .game_list {
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.djchess-card-background-center .game_list li {
+  width: 288px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.djchess-card-background-center .game_list li img {
+  width: 100%;
+  height: 178px;
+  display: block;
+  background: #ccc;
+  position: relative;
+}
+
+.djchess-card-background-center .game_list li img:after {
+  content: """ "attr(alt);
+  font-size: 146px;
+  background: url("../../../../../assets/img/tulie.png") no-repeat;
+  background-position: center;
+  text-align: center;
+  font-family: FontAwesome;
+  color: #646464;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.djchess-card-background-center-div p {
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #563c06;
+  transition: all .3s
+}
+
+.djchess-card-background-center-button {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 178px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.8);
+  transform-style: preserve-3d;
+  opacity: 0;
+  transition: all .3s ease-in;
+  transform: scale(1.5);
+}
+
+.djchess-card-background-center-button div {
+  color: #fff;
+  font-weight: 100;
+  transform: translateY(-100px);
+  transform: translateY(-95px);
+  position: absolute;
+}
+
+.djchess-card-background-center-button button {
+  border-radius: 3px;
+  width: 196px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  line-height: 32px;
+  cursor: pointer;
+  height: 32px;
+  // background: linear-gradient(to right, #c92122, #800000) !important;
+  background: #AE2122;
+  text-align: center
+}
+
+.djchess-card-background-center .game_list li:hover>.djchess-card-background-center-button {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+

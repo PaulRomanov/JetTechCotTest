@@ -1,0 +1,14 @@
+<div class="index_deposit_entrance">
+  <ul class="index_deposit_entrance_ul">
+    <!-- <li  *ngFor="let item of list let i = index "
+         [class.active]="i==0" routerLink="{{item.link}}"
+         clickActive
+         [activeClass]="'active'">{{item.name}}</li> -->
+    <ng-container *ngFor="let item of showList let i = index ">
+      <li style="font-size: 12px" routerLink="{{item.link}}"
+           (click)="tabIndex=i" *ngIf="item.isShow"
+           [class.active]="tabIndex===i">{{item.name}}</li>
+    </ng-container>
+  </ul>
+  <router-outlet></router-outlet>
+</div>

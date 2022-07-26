@@ -1,0 +1,51 @@
+.Member_personal_table {
+  width: 90%;
+  text-align: center;
+  margin: 30px auto;
+  border-collapse: collapse;
+  line-height: 30px;
+  border-radius: 5px
+}
+
+.Member_personal_table,
+.Member_personal_table tr td,
+.Member_personal_table tr th {
+  border: 1px solid #dedede
+}
+
+.Member_personal_table tr td {
+  border-bottom: solid 1px #dedede;
+  padding: 5px;
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.Member_personal_table tr td:nth-child(3) p:nth-child(1) {
+  //width: 545px;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  white-space: initial;
+}
+
+.Member_personal_table tr td:nth-child(3) p:nth-child(1).isShow {
+  white-space: initial;
+}
+
+.Member_personal_table tr td:nth-child(3) p:nth-child(2) {
+  text-align: right;
+}
+
+.Member_personal_table tr td:nth-child(3) p:nth-child(2) span {
+  color: #3a9be8;
+  cursor: pointer;
+  padding-right: 10px;
+}
+
+.Member_personal_none tr td:first-child {
+  width: 180px;
+}
+
+// .index_historical_latest {
+//   padding-top: 10px;
+// }

@@ -1,0 +1,14 @@
+<div class="index_deposit_entrance">
+  <ul class="index_deposit_entrance_ul">
+    <!-- <li class="active" clickActive [activeClass]="'active'" routerLink="commonBank">常用银行卡</li>
+    <li clickActive [activeClass]="'active'" routerLink="historyBank">历史银行卡</li>
+    <li clickActive [activeClass]="'active'" routerLink="newBank">新增银行卡</li> -->
+    <li  *ngFor="let item of list let i = index "
+    routerLink="{{item.link}}"
+    (click)="tabIndex=i"
+    [class.active]="tabIndex===i">{{item.name}}</li>
+  </ul>
+  <div class="Member_credit_use_card">
+    <router-outlet></router-outlet>
+  </div>
+</div>

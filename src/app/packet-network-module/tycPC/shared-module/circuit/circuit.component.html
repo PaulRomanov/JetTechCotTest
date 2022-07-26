@@ -1,0 +1,49 @@
+<div class="circuit"
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/xljc_bg.png' | bgUrl">
+  <div class="circuit-head">
+    <div class="circuit-head-center">
+      <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/tyc_logo.png" alt="">
+    </div>
+  </div>
+  <div class="circuit-title">
+    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/slogan.png">
+  </div>
+  <div class="circuit-title">
+    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/slogan2.png">
+  </div>
+  <div class="circuit-center">
+    <div style="min-height: 260px;">
+        <ul class="lines" id='lines' *ngIf='isreload'>
+            <li class="lines-item" *ngFor="let item of autourl let i = index" [hidden]="i>3">
+              <span class="lines-item-time">{{seconds[i]}}</span>
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/arrow.png" alt="" class="lines-item-arrow">
+              <span class="lines-item-link">{{item}}</span>
+              <a class="lines-item-btn" [href]='item' target="_blank" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/enter.png' | bgUrl"></a>
+              <img [src]="item+'?'+timeStamp" (error)="autoTest(item,i)" [hidden]='true'>
+            </li>
+          </ul>
+    </div>
+    <div class="retest-btn">
+      <a [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/retest.png' | bgUrl" (click)='retest()'></a>
+    </div>
+  </div>
+</div>
+<pc-djbottom></pc-djbottom>
+<!-- <div id="stage">
+  <div id="page1" class="status1">
+    <div class="glow">
+      <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/page1_glow_3.png" />
+    </div>
+    <div class="main">
+      <ul>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/page2_main_1_3.png" /></li>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/page2_main_2_3.png" /></li>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/page2_main_3_3.png" /></li>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/page2_main_4_3.png" /></li>
+      </ul>
+    </div>
+    <div id="track" class="page1">
+      <div id="line1"><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/lineglow_3.png"  /></div>
+    </div>
+  </div>
+</div> -->

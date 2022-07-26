@@ -1,0 +1,52 @@
+.index_characteristic_recommend{margin: 30px 0;}
+ //首页特色图片瀑布流
+.index_characteristic_recommend_center{width: 1200px;margin: 0 auto;display: flex;}
+.index_characteristic_recommend_center p{color:#f1b55a;width: 16px;font-size: 16px;}
+.index_characteristic_recommend_right{background:rgba(128, 128, 128, 0.08);margin-left: 5px;
+padding: 5px;position: relative;}
+.sz-waterfall{-moz-column-count:2;-webkit-column-count:2;column-count:2;-moz-column-gap:0;-webkit-column-gap:0;
+  column-gap:0;margin-top:10px;margin-right:10px}
+.sz-waterfall-item{;padding:0;margin:0;-moz-page-break-inside:avoid;-webkit-column-break-inside:avoid;break-inside:avoid}
+.sz-playlist-img img{width:100%;margin-bottom:0;margin:0;cursor: pointer;vertical-align: middle }
+.sz-playlist-img img:nth-child(2){display: none;}
+.sz-playlist-img:hover img:nth-child(1){display: none;}
+.sz-playlist-img:hover img:nth-child(2){display: block;}
+.waterfall-list{margin:0;padding:0;list-style:none;position:relative}
+.waterfall-list li{position:absolute;left:0;top:0;-webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;box-sizing:border-box;padding:5px;overflow:hidden}
+.index_characteristic_recommend_center .sz-waterfall-text{margin-top:-25px;display:flex;padding:0 18px;cursor:pointer;
+  position: relative;z-index: 22;}
+.index_characteristic_recommend_center .sz-waterfall-text span{flex:1}
+.index_characteristic_recommend_center .sz-waterfall-text span:nth-child(1){text-align:left}
+.index_characteristic_recommend_center .sz-waterfall-text span:nth-child(2){text-align:right}
+.sz-waterfall-item{margin-bottom: 20px;margin-left: 10px;}
+.orangeFont{color: #f1b55a;}
+// 首页底部
+.index_act{background: rgba(128, 128, 128, 0.08);}
+.block3{text-align:center;padding:30px 0;}
+.block3 p,.block3 span{font-size:12px;font-weight: 100;}
+.block3 .boldTitle{font-size:14px;font-weight:700}
+.block3>ul{display:inline-block;width:1200px;}
+.block3>ul>li{display: inline-block;width: 394px;
+  height: 324px;padding: 28px 64px;box-sizing: border-box;vertical-align: top;position: relative;}
+.block3>ul>li:nth-child(1) img{display:block}
+.borderTop{position:absolute;z-index:100;top:0px}
+.borderRight{position:absolute;top:20px;right:0;z-index:98}
+.block3>ul li{text-align:left;margin-bottom: 20px;}
+.serverOnline ul li{display: block;}
+.block3>ul>li>div{font-weight:700;font-size:18px;margin-bottom:20px;display: flex;align-items: center;}
+.block3>ul>li .recommends li{margin-bottom:20px}
+.block3 .informationCenter li{padding-left:42px;margin-bottom:32px}
+.block3 .informationCenter li span{font-size:14px;display: block;cursor: pointer}
+a{color: #424242;}
+.block3 .serverOnline img{vertical-align:middle;margin-right:6px}
+.block3 .serverOnline li i{height:38px;line-height:38px;margin-right:10px;font-weight:700;font-size:30px;color:grey}
+.block3 .serverOnline li div{display:inline-block}
+.index_bjae .orangeFont i{font-size: 34px;font-weight: 100;margin-right: 5px;}
+// 进度条动画
+.graph{ width: 250px; height: 12px; background: #303030;border-radius: 100px;overflow: hidden;}
+#bar , #drawing{ display: block; background: #34b2e9; float: left; height: 100%; text-align: center;
+  font-family: Verdana; line-height: 25px; color: red; }
+.serviceAdvantage .blueFont{font-size: 18px;margin-left: 50%;color: #34b2e9;}
+.block3 .blueFont{color: #34b2e9;font-size: 14px;font-weight: bold;}
+.pagination2{position: absolute;z-index: 999;bottom: 0;text-align: center;}

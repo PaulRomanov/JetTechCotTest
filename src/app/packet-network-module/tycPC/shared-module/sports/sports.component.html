@@ -1,0 +1,49 @@
+<div style="background: rgb(247, 249, 251);">
+  <div style="min-height: calc(100vh - 210px);">
+    <div class="AoU_WG" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj01.jpg' | bgUrl">
+      <ul class="AoU_WI">
+        <li class="AoU_WK">
+          <div class="AoU_SM AoU_Wj AoU_S3">
+            <div class="AoU_k9"><img
+                class="AoU_WY"
+                src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/image-slotgame.png"
+                style="width: 615px;margin-top: 30px;"></div>
+          </div>
+          <div class="AoU_SK">
+            <div class="AoU_Wj AoU_SS">
+              <div class="AoU_IK"><img
+                  src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/img_content_title_sbsports.png"></div>
+              <p class="AoU_UB">
+                信誉至上，网上娱乐爱好者首选！ 提供各种大型赛事。稳定安全。包含BBIN体育、沙巴体育、皇冠体育、皇冠三昇，五大联赛及各式球赛投注竞猜，包括NBA篮球、足球、网球、冠军赛、棒球、冰球、橄榄球等游戏。
+              </p>
+              <!-- <div class="AoU_Wp" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/button_bg.png' | bgUrl">进入游戏</div> -->
+            </div>
+
+            <!-- <div class="list-box">
+              <ng-container *ngFor="let x of arr let i = index">
+                <div  (click)="goGame(x)" (mousemove)="listName(i)"
+                (mouseout)="listNameHide()" [style.background-image]="i === isShowIndex?($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_live_casino_logo_bg.png' | bgUrl):($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_live_casino_logo_bg2.png' | bgUrl)">
+                  <img [class.active-img]="i === isShowIndex" src="{{x.imgLUrl}}" alt="">
+                  <p>{{x.name}}</p>
+                </div>
+              </ng-container>
+            </div> -->
+
+            <div class="games_wrapper">
+              <div class="btn_prev" *ngIf="arr.length > 5" (click)="scrollGame('prev')" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Group-13.png' | bgUrl"></div>
+              <div class="games_box">
+                <div  (click)="goGame(x)" class="game" *ngFor="let x of arr let i = index" (click)="selectedGame = x">
+                  <div (mouseover)="isShowIndex = i" (mouseout)="isShowIndex = null" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + (isShowIndex == i ? '/img/img_live_casino_logo_bg.png' : '/img/img_live_casino_logo_bg2.png') | bgUrl">
+                    <img [class.active-img]="i === isShowIndex" src="{{ x.imgLUrl }}" alt="">
+                  </div>
+                   <div>{{x.name}}</div>
+                </div>
+              </div>
+              <div class="btn_next" *ngIf="arr.length > 5" (click)="scrollGame('next')" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Group-13.png' | bgUrl"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

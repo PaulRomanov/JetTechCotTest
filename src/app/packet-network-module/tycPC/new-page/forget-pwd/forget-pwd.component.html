@@ -1,0 +1,32 @@
+<div class="pwd-box">
+  <div class="pwd-header">
+    <div>
+      <div class="pwd-header-left">
+        <img
+          src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/tyc_logo.png"
+          alt="">
+        <!-- <span>励扬安全中心</span> -->
+        <!-- <span>重置密码</span> -->
+      </div>
+      <div class="pwd-header-right">
+        <span class="pr30" (click)="$GlobalMethodsService.openKufu()">联系客服</span>
+        <!-- <span class="pl30 pr30">手机App</span> -->
+        <span class="pl30" (click)="closeWindow()">返回首页</span>
+      </div>
+    </div>
+  </div>
+  <yx-forget-resetPwd></yx-forget-resetPwd>
+  <div class="pwd-footer">
+    <!-- <ul>
+      <li class="pwd-footer-item">关于我们</li>
+      <li class="pwd-footer-item">联络我们</li>
+      <li class="pwd-footer-item">合作伙伴</li>
+      <li class="pwd-footer-item">存款帮助</li>
+      <li class="pwd-footer-item">常见问题</li>
+      <li class="pwd-footer-item">博彩责任</li>
+    </ul> -->
+    <div>
+      Copyright © {{$GlobalService.globalJavaResData.title}} All Right Reserved
+    </div>
+  </div>
+</div>

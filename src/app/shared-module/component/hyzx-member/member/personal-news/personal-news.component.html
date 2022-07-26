@@ -1,0 +1,45 @@
+<div class="index_deposit_entrance index_historical_latest">
+    <ul class="index_deposit_entrance_ul">
+        <li  class="active">个人消息</li>
+    </ul>
+  <table class="Member_personal_table">
+    <thead>
+      <tr>
+        <th width="20%">日期</th>
+        <th width="20%">主题</th>
+        <th width="60%">内容</th>
+      </tr>
+    </thead>
+    <tbody class="Member_personal_none">
+      <tr *ngFor="let item of data">
+        <td>{{ item.SENDTIME }}</td>
+        <td>{{ item.CN_THEME }}</td>
+        <td>
+          <p>{{ item.CN_CONTENT }}</p>
+          <!-- <p *ngIf="item.CN_CONTENT.length > 39"><span>更多 >></span></p> -->
+        </td>
+      </tr>
+      <tr *ngIf="data.length===0">
+        <td colspan="3"  style="text-align: center">暂无数据...</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="Member_history_bottom" *ngIf="data.length > 0">
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(1)">首页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">上一页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">
+      {{pageData.currentPage - 1}}</li>
+    <li class="lyactive" (click)="addCurrentPage(pageData.currentPage)" [class.page-bg]="pageData.currentPage">
+      {{pageData.currentPage}}</li>
+    <li *ngIf="pageData.currentPage != pageData.total" class="lyactive"
+      (click)="addCurrentPage(pageData.currentPage + 1)">{{pageData.currentPage + 1}}</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total"
+      (click)="addCurrentPage(pageData.currentPage + 1)">下一页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.total)">末页</li>
+    <li *ngIf="pageData.total != 1" class="noBoder">共{{pageData.total}}页</li>
+    <li *ngIf="pageData.total != 1" class="noBoder">跳转到 <input type="text" [(ngModel)]="pageData.goPage"
+        onkeyup="value=value.replace(/[^\d]/g,'') "> 页
+    </li>
+    <li *ngIf="pageData.total != 1" class="lyactive HistoryActive" (click)="addCurrentPage(pageData.goPage, 0)">GO</li>
+  </div>
+</div>

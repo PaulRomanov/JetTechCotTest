@@ -1,0 +1,73 @@
+<div class="index_deposit_entrance">
+  <ul class="index_deposit_entrance_ul">
+    <li *ngFor="let item of list let i = index "
+        (click)="tabIndex=i"
+        [class.active]="tabIndex===i">{{item.name}}</li>
+  </ul>
+<button class="refreshList" (click)="refreshList()" lh-loading [isLoad]="isLoading">刷新</button>
+
+  <div class="Member_set" *ngIf="auditData.length > 0">
+    <ul class="auditList">
+      <li *ngFor="let item of auditData">
+        <ul class="liInline">
+          <li>序号：<span class="blue">{{item.no}}</span></li>
+          <li>日期区间：{{item.starttime}}  -  {{item.endtime}}</li>
+        </ul>
+        <ul class="liInline">
+          <li>存款金额：<span class="blue">{{item.money}}</span></li>
+          <li>优惠金额：<span class="blue">{{item.privilegemoney}}</span></li>
+          <li>实际流水：<span class="blue">{{actualMoney(item.streamMoney)}}</span></li>
+          <li>扣除金额：<span class="blue">{{item.administrative}}</span></li>
+        </ul>
+        <div class="auditReq" style="border-bottom: 1px solid #f1b55a;">
+          <span>稽核要求流水：</span>
+          <ul class="liInline">
+            <li>
+              优惠稽核：<span class="blue">{{item.privilegIspass}}</span>
+            </li>
+            <li>需要扣除优惠：
+              <span class="blue">{{item.deductPrivilege}}</span>
+            </li>
+            <li>常态稽核：<span class="blue">{{item.norispass}}</span></li>
+            <li>需要扣除行政费：<span class="blue">{{item.isadministrative}}</span></li>
+            <li>常态打码量：<span class="blue">{{item.camamount}}</span></li>
+            <li>放款额度：<span class="blue">{{item.broadenlimit}}</span></li>
+            <ng-container *ngFor="let x of item.favourable">
+              <li *ngIf="x.amount != 0">{{x.game}}：<span class="blue">{{x.amount}}</span></li>
+            </ng-container>
+          </ul>
+        </div>
+        <div class="auditReq">
+          <span>有效投注额：</span>
+          <ul class="liInline" [style.height]="item.isMore? 'auto': '16px'">
+            <ng-container *ngFor="let k of item.streamMoney">
+              <li>{{k.game}}：<span class="blue">{{k.bet}}</span></li>
+            </ng-container>
+          </ul>
+          <a href="javascript:;" (click)="toggleMore(item)">
+            <span class="blue">{{item.isMore ? '收起' : '更多' }}</span>
+            <i class="iconfont iconweibiaoti35" [className]="item.isMore? 'iconfont iconxiangshang' : 'iconfont iconweibiaoti35'"></i>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="Member_history_bottom" *ngIf="auditData.length > 0">
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(1)">首页</li>
+    <li class="lyactive"  *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">上一页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">{{pageData.currentPage - 1}}</li>
+    <li class="lyactive" (click)="addCurrentPage(pageData.currentPage)" [class.page-bg]="pageData.currentPage">{{pageData.currentPage}}</li>
+    <li *ngIf="pageData.currentPage != pageData.total"
+        class="lyactive" (click)="addCurrentPage(pageData.currentPage + 1)">{{pageData.currentPage + 1}}</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.currentPage + 1)">下一页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.total)">末页</li>
+    <li *ngIf="pageData.total != 1" class="noBoder">共{{pageData.total}}页</li>
+    <li *ngIf="pageData.total != 1" class="noBoder">跳转到 <input type="text" [(ngModel)]="pageData.goPage" onkeyup="value=value.replace(/[^\d]/g,'') "> 页
+    </li>
+    <li *ngIf="pageData.total != 1" class="lyactive HistoryActive" (click)="addCurrentPage(pageData.goPage, 0)">GO</li>
+  </div>
+  <div class="notData" *ngIf="auditData.length === 0">
+      暂无数据
+  </div>
+</div>
+

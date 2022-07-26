@@ -1,0 +1,113 @@
+.index_head_list {
+  width: 100%;
+  background: #3085d7;
+}
+// 新修改的
+.index_head_list_game {
+  height: 50px;
+  width: 1200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+.index_head_list_arr ul li:hover{background: #1a607c;border-radius: 5px;cursor: pointer;}
+.index_head_list_game li {
+  height: 50px;
+  line-height: 50px;
+  min-width: 120px;
+  display: flex;
+}
+
+.index_head_list_game li a {
+  color: #fff;
+  display: block;
+  width: 100%;text-align: center;
+}
+
+.index_head_list_game li i {
+  display: block;
+  margin-left: 5px;
+  color: #fff;
+}
+.index_head_list_arr {
+  //width: 100%;
+  //background: url("../../../../assets/img/bgls.jpg");
+  position: relative;
+  z-index: 99;
+  width: 100%;
+  margin: 0 auto;
+  background: #01468a;
+  opacity: .95;
+}
+
+.index_head_list_arr ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.index_head_list_arr ul li {
+  padding-top: 10px;
+  position: relative;
+  margin-top: -.5px;
+  height: auto;
+  width: 10%;
+  text-align: center;
+  border-bottom: 1px solid #345e74;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+//.index_head_list_arr ul li:nth-child(8n+1):nth-last-child(-n+8){
+//  border-bottom: none;
+//}
+
+.ejhover {
+  //background: url("../../../../assets/public/img/rjhover.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.index_head_list_arr ul li p {
+  line-height: 30px;
+  //margin-top: 18px;
+  text-align: center;
+  color: #fff;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.index_head_list_arr ul li a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+}
+.li-hide {
+  display: none;
+
+}
+
+.li-show {
+  display: block;
+}
+
+.index_head_list_game li:hover {
+  //background: #004e64;
+  background: #01468a;
+}
+
+.active {
+  //background: #004e64;
+  background: #01468a;
+}
+.p-name {
+  font-size: 15px;
+  font-weight: 500;
+}

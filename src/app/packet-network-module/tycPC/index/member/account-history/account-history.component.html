@@ -1,0 +1,90 @@
+<div class="index_deposit_entrance">
+    <ul class="index_deposit_entrance_ul">
+        <li  class="active">账户历史</li>
+    </ul>
+</div>
+<div class="index-account-history">
+  <div class="index-account-con">
+    <span>
+        <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" [filter]="true"
+                    class="zm-dropdown-style" [style]="{'width':'110px'}"
+                    (onChange)="dataTimeChange($event, 0)"
+                    filterBy="label,value.name" [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+      </span>
+    <span>
+      <p-calendar [(ngModel)]="dataStateTime" (onSelect)="selectDate()" [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"
+                  class="zm-calendar" [style]="{'width':'120px'}" [inputStyle]="{'width':'120px'}"
+      ></p-calendar>
+        <i class="iconfont">&#xe65d;</i>
+      </span>
+    <span>
+        <p-calendar [(ngModel)]="dataEndTime" (onSelect)="selectDate()" [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"
+                    class="zm-calendar" [style]="{'width':'120px'}" [inputStyle]="{'width':'120px'}"
+        ></p-calendar>
+        <i class="iconfont">&#xe65d;</i>
+      </span>
+    <span>
+        类型
+        <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" [filter]="true"
+                    (onChange)="dataTimeChange($event, 3)"
+                    class="zm-dropdown-style" [style]="{'width':'145px'}"
+                    filterBy="label,value.name" [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+    </span>
+    <span>
+    状态
+     <p-dropdown [options]="cities3" [(ngModel)]="selectedCity3" [filter]="true"
+                 (onChange)="dataTimeChange($event, 4)"
+                 class="zm-dropdown-style" [style]="{'width':'130px'}"
+                 filterBy="label,value.name" [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+    </span>
+    <span>
+     <p-dropdown [options]="cities4" [(ngModel)]="selectedCity4" [filter]="true"
+                 (onChange)="dataTimeChange($event, 5)"
+                 class="zm-dropdown-style" [style]="{'width':'110px'}"
+                 filterBy="label,value.name" [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+    </span>
+    <div class="serach-btn-box">
+      <button lh-loading [isLoad]="isQueryLoading" (click)="querySerach()">搜索</button>
+    </div>
+  </div>
+
+
+  <table class="Member_personal_table col-414655">
+    <thead>
+    <tr>
+      <ng-container *ngFor="let header of tableHeaderList">
+        <th [style.width.%]="header.width">{{header.label}}</th>
+      </ng-container>
+    </tr>
+    </thead>
+    <tbody class="Member_personal_none">
+    <tr *ngFor="let item of tableList let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{item.ddh }}</td>
+      <td>{{item.realamount | number: '0.2'}}</td>
+      <td>{{item.applyamount | number: '0.2'}}</td>
+      <td>{{item.type }}</td>
+      <td>{{item.status }}</td>
+      <td>{{item.optime }}</td>
+      <td>{{item.hint === '' ? '-' : item.hint}}</td>
+    </tr>
+    <tr *ngIf="tableList.length === 0">
+      <td colspan="8">暂无数据...</td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="Member_history_bottom" *ngIf="tableList.length > 0">
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(1)">首页</li>
+    <li class="lyactive"  *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">上一页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">{{pageData.currentPage - 1}}</li>
+    <li class="lyactive" (click)="addCurrentPage(pageData.currentPage)" [class.page-bg]="pageData.currentPage">{{pageData.currentPage}}</li>
+    <li *ngIf="pageData.currentPage != pageData.total"
+        class="lyactive" (click)="addCurrentPage(pageData.currentPage + 1)">{{pageData.currentPage + 1}}</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.currentPage + 1)">下一页</li>
+    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.total)">末页</li>
+    <li *ngIf="pageData.total != 1" class="noBoder">共{{pageData.total}}页</li>
+    <li *ngIf="pageData.total != 1" class="noBoder">跳转到 <input type="text" [(ngModel)]="pageData.goPage" onkeyup="value=value.replace(/[^\d]/g,'') "> 页
+    </li>
+    <li *ngIf="pageData.total != 1" class="lyactive HistoryActive" (click)="addCurrentPage(pageData.goPage, 0)">GO</li>
+  </div>
+</div>

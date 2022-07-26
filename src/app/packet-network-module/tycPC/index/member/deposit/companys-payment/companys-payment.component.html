@@ -1,0 +1,416 @@
+<div class="companys-payment">
+  <!-- <div id="topNav">
+    <div class="swiper-wrapper Online_aske" style="width: 1000px">
+      <div class="swiper-slide" *ngFor="let item of underLineName let i=index">
+        <span (click)="companyList(item.paychannel,i,item)" [class.active]="i === isCompany">{{item.payName}}</span>
+      </div>
+    </div>
+  </div> -->
+
+  <div id="topNav" [hidden]="isWYCXK">
+    <div class="swiper-wrapper Online_aske" style="width: 1000px">
+      <div class="swiper-slide" *ngIf="isUSDT,else elseBlock">
+        <span class="active">{{itemData.payName}}</span>
+      </div>
+      <ng-template  #elseBlock>
+        <div class="swiper-slide" *ngFor="let item of cities1 let i=index">
+          <span [class.active]="selectKey===i" (click)='changeType(item,i)'>
+            <em *ngIf="mach.payTypeSets[0].bigType !== '1' && mach.payTypeSets[0].code !== '4' && !isUSDT">{{item.bankname+(i+1)}}</em>
+              <em *ngIf="mach.payTypeSets[0].bigType === '1' && mach.payTypeSets[0].code === '4'">{{'网银转账'+(i+1)}}</em>
+              <em *ngIf="isUSDT">{{item.bankname}}</em>
+          </span>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+  <!-- 网银储蓄卡 start-->
+  <app-companys-wycxk *ngIf="isWYCXK" [listStr]="listStr"></app-companys-wycxk>
+  <!-- 网银储蓄卡 end-->
+  <!-- <p-steps [model]="items" styleClass="steps-custom" [readonly]="false" [activeIndex]="serialNumber"></p-steps> -->
+  <div *ngIf="!isWYCXK">
+    <!-- <ul class="progressBar">
+      <li class="active">
+        <p></p>
+        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_1.png" />
+        <p></p>
+      </li>
+      <li [class.active]="serialNumber>0">
+        <p></p>
+        <img *ngIf="serialNumber===0" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_2.png" />
+        <img *ngIf="serialNumber>0" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_2_2.png" />
+        <p> </p>
+      </li>
+      <li [class.active]="serialNumber>1">
+        <p> </p>
+        <img *ngIf="serialNumber<2" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_3.png" />
+        <img *ngIf="serialNumber===2"
+          src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_3_2.png" />
+        提交成功
+      </li>
+    </ul> -->
+    <div class="companys-payment-center" [hidden]="indexShow !== 0">
+      <ul class="companys-payment-center-ui" *ngIf="cities1!==''">
+        <li [hidden]="isCode||!isUSDT"><label>付款方式：</label>
+          <span *ngFor="let item of cities1 let i=index" (click)='changeType(item,i)' class="payType-item">
+            <i class="iconfont" [ngClass]="selectKey===i?'iconselected-copy':'iconweixuanzhong'"></i>
+            <!-- <em *ngIf="mach.payTypeSets[0].bigType !== '1' && mach.payTypeSets[0].code !== '4' && !isUSDT">{{item.bankname+(i+1)}}</em>
+            <em *ngIf="mach.payTypeSets[0].bigType === '1' && mach.payTypeSets[0].code === '4'">{{'网银转账'+(i+1)}}</em> -->
+            <em *ngIf="isUSDT">{{item.bankname}}</em>
+          </span>
+        </li>
+
+       <li *ngIf="!isCode && isShowName"><label>收款姓名：</label><b>{{cBankaccount}}</b></li>
+       <li *ngIf="!isCode && isShowName"><label>收款账号：</label><b>{{cAccountnum}}</b></li>
+
+        <li><label>存款金额：</label>
+          <input type="text" class="common-input-style" id="saveDepositeMoney" pInputText
+            placeholder="{{defaultPlaceHolder}}" oninput="value=value.replace(/[^\d]/g,'')"
+            (input)="setValueReplace()" [(ngModel)]="$GlobalService.globalQueryModel.saveDeposite.money"
+            (blur)="discount($GlobalService.globalQueryModel.saveDeposite.money)" />
+          <em class="warnTxt" *ngIf="isMoneyWarnShow">{{warnTxt}}</em>
+          <em *ngIf="isUSDT&&$GlobalService.globalQueryModel.saveDeposite.money&&!isMoneyWarnShow" class="warnTxt">需要您支付{{xnbBalance}}{{usdtObj.bankname=="CNYB"?"CNYB":"USDT"}}</em>
+        </li>
+        <!-- <div *ngIf="isUSDT&&$GlobalService.globalQueryModel.saveDeposite.money">
+          <em class="warnTxt" style="text-indent: 20px;">需要您支付{{$GlobalService.globalQueryModel.saveDeposite.money*dRate}}{{usdtObj.bankname=="CNYB"?"CNYB":"USDT"}}</em>
+        </div> -->
+        <em *ngIf="isUSDT" class="warnTxt" style="text-indent: 105px;">当前汇率：1{{usdtObj.bankname=="CNYB"?"CNYB":"USDT"}}={{dRate}}CNY</em>
+        <li *ngIf="!isUSDT"><label>存款人姓名：</label>
+          <input type="text" class="common-input-style" id="depositusername" pInputText placeholder="请输入存款人姓名"
+            oninput="value = value.replace(/[^\a-zA-Z\u4E00-\u9FA5]/g, '')" (input)="setValueReplace()"
+            [(ngModel)]="$GlobalService.globalQueryModel.saveDeposite.depositusername" />
+        </li>
+        <!-- <li *ngIf="isDocount"> -->
+        <li><label>优惠：</label>
+          <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" [filter]="true" filterBy="label,value.name"
+            (onChange)="deChangeType($event)" [style]="{'width':'60%'}"></p-dropdown>
+        </li>
+        <!-- <li *ngIf="isUSDT" class="companys-payment-center-i" style="padding-left:63px"><i class="iconfont" style="margin-right: 6px;">&#xe8a5;</i>
+          温馨提示：入款如有遇到5分钟内未到账的情况，
+          <div style="text-indent: 25px;">请立即联系在线客服查询，如超过72小时本公司概不负责！</div>
+          <div *ngIf="usdtObj.bankname!='CNYB'" style="text-indent: 25px;">2022年3月前TRC通道提款免收手续费，ERC通道提款10000U以下收取30u手续费，10000U以上免手续费。</div>  -->
+        <!-- </li> 
+        <li *ngIf="!isUSDT" class="companys-payment-center-i"><i class="iconfont">&#xe8a5;</i>
+          存款转账请自带小数点后两位任意金额，（例：欲存8000，请转8000.18）以便财务第一时间为您添加游戏额度。
+        </li> -->
+        <li class="Member_safety_information_button" style="margin-top: 20px;">
+          <button [class.active]="isDisabled" [disabled]="isDisabled" (click)="nextCompany()" lh-loading
+            [isLoad]="isLoad">下一步</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- USDT扫码 -->
+  <div class="usdtbox companys-payment-center" *ngIf="indexShow == 4">
+    <div class="usdtLeft">
+      <div class="usdtl1">{{usdtObj.bankname=="CNYB"?"CNYB":"USDT"}}收款二维码</div>
+        <img src="{{usdtArr[selectKey].bankfile}}" />
+      <div class="usdtl2">扫描二维码进行付款</div>
+    </div>
+    <div class="usdtRight">
+      <div class="ut1">请您存入：{{xnbBalance}}{{usdtObj.bankname=="CNYB"?"CNYB":"USDT"}}</div>
+      <div class="ut2">到账金额（RMB）：{{$GlobalService.globalQueryModel.saveDeposite.money}}</div>
+      <!-- <div class="ut3">当前汇率：1{{usdtObj.bankname=="CNYB"?"CNYB":"USDT"}}={{dRate}}CNY</div> -->
+      <div class="ut4">{{usdtObj.bankname=="CNYB"?"CNYB":"USDT"}}收款地址：<span>（协议：{{usdtArr[selectKey].bankname}}）</span></div>
+      <div class="uti">
+        <!-- <div>{{usdtObj.account}}</div> -->
+        <div>{{usdtArr[selectKey].accountnum}}</div>
+        <div id="bankaccount6" [attr.data-clipboard-text]='usdtArr[selectKey].accountnum' (click)="copyBankaccount(1,5)">复制</div>
+      </div>
+      <div class="utips">
+        <div>温馨提示:</div>
+        <div>充值时请确保收款地址及支付协议正确，否则出现损失将无法找回！</div>
+      </div>
+      <div class="usid">
+        <span class="usid1">区块链交易ID：</span>
+        <!-- <input type="text" placeholder="请输入后六位"> -->
+        <input type="text" id="depositusername" pInputText placeholder="请输入后六位"
+
+            [(ngModel)]="$GlobalService.globalQueryModel.saveDeposite.depositusername" />
+        <span class="usid2">方便快捷核对账单，请填写区块链交易后六位</span>
+
+      </div>
+      <ng-container>
+        <button (click)="subMinCode(getBank[0])" lh-loading [isLoad]="isLoad" [disabled]="isLoad">确认提交</button>
+        <em class="warnTxt" *ngIf="isNoTradeId">{{warnTxt}}</em>
+      </ng-container>
+    </div>
+
+  </div>
+  <!--扫码-->
+  <div class="companys-payment-center companys-payment-center-sweepCode" *ngIf="indexShow === 1">
+    <div class="sweepCode-left">
+      <li class="sweepCode-greenFont">1.请扫描二维码完成付款</li>
+      <!-- 普通扫码 -->
+      <div *ngIf="!ispecialType">
+        <ng-container *ngFor="let item of getBank">
+          <ul class="sweepCode-getBank">
+            <li class="sweepCode-getBank-li"><img src="{{item.bankfile}}" /></li>
+            <li class="sweepCode-getBank-right">
+              <h4>收款二维码</h4>
+              <p>存款方式：<span>{{item.bankname}}</span></p>
+              <p>付款金额：<span>{{$GlobalService.globalQueryModel.saveDeposite.money}}</span></p>
+              <p>收款账号：
+                <span *ngIf="item.btype === '1'">{{item.accountnum}}</span>
+                <span *ngIf="item.btype !== '1'">{{item.num}}</span>
+              </p>
+              <p>收款姓名：<span>{{item.bankaccount}}</span></p>
+              <div class="remind-txt">
+                <span class="remind-txt-title">备注：</span>
+                <span *ngIf="!item.remind">请在付款页面的添加备注处，填上会员账号，然后请按支付！</span>
+                <span *ngIf="item.remind">{{item.remind}}</span>
+              </div>
+            </li>
+          </ul>
+          <div class="upload-box" *ngIf="$GlobalService.globalJavaResData.projectName == 'xhsb'">
+            <div class="sweepCode-greenFont sweepCode-subMin-button">3.上传转账截图</div>
+            <div class="upload-image">
+              <div class="add">+</div>
+              <input type="file" id="upload" size="5" accept="image/*" value="请选择上传文件..."  (change)="showImage()"/>
+            </div>
+            <img src="" alt="" id="imgshow">
+          </div>
+          <li class="sweepCode-greenFont sweepCode-subMin-button">最后.点击确认存款按钮</li>
+          <div class="Member_safety_information_button">
+            <button (click)="subMinCode(item)" lh-loading [isLoad]="isLoad" [disabled]="isLoad">确认存款</button>
+          </div>
+        </ng-container>
+      </div>
+      <!-- 励扬支付宝扫码 -->
+      <div *ngIf="ispecialType">
+        <ul class="sweepCode-getBank">
+          <li class="sweepCode-getBank-li"><img src="{{specialQcode}}" /></li>
+          <li class="sweepCode-getBank-right">
+            <h4>收款二维码</h4>
+            <p>存款方式：<span>{{subBankName}}</span></p>
+            <p>付款金额：<span>￥{{specialDepositData.trueMoney}}</span></p>
+            <p>收款账号：
+              <span>{{specialDepositData.accountInfo}}</span>
+            </p>
+            <p>收款姓名：<span>{{specialDepositData.accountInfoName}}</span></p>
+            <div>备注：<span>请在付款页面的添加备注处，填上会员账号，然后请按支付！</span></div>
+          </li>
+        </ul>
+        <div class="upload-box" *ngIf="$GlobalService.globalJavaResData.projectName == 'xhsb'">
+          <div class="sweepCode-greenFont sweepCode-subMin-button">3.上传转账截图</div>
+          <div class="upload-image">
+            <div class="add">+</div>
+            <input type="file" id="upload" size="5" accept="image/*" value="请选择上传文件..." (change)="showImage()"/>
+          </div>
+          <img src="" alt="" id="imgshow">
+        </div>
+        <li class="sweepCode-greenFont sweepCode-subMin-button">最后.点击确认存款按钮</li>
+        <div class="Member_safety_information_button">
+          <button (click)="submitSpecial()" lh-loading [isLoad]="isLoad">确认存款</button>
+        </div>
+      </div>
+    </div>
+    <div class="sweepCode-right" *ngIf="!ispecialType">
+      <li class="sweepCode-greenFont">2.请在付款页备注会员账号</li>
+      <li><img
+          src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/example.png" />
+      </li>
+    </div>
+    <div class="sweepCode-right" *ngIf="ispecialType">
+      <li class="sweepCode-greenFont">2.付款注意事项</li>
+      <li><img
+          src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/example_special.jpg" width="220px" />
+      </li>
+    </div>
+  </div>
+  <!--  银行卡 转账-->
+  <div class="companys-payment-center companys-payment-code" *ngIf="indexShow === 2">
+    <div class="companys-payment-code-head">请存款至下方银行账户：</div>
+    <!-- 普通网银转账 -->
+    <div class="companys-payment-code-list" *ngIf="!ispecialType">
+      <div class="companys-payment-code-list-li">
+        <ul *ngFor="let item of getBank let i=index" class="bank-list">
+          <li class=" bank-item-top">
+            <div class="bank-item bank-top-img">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/bank1.png" />
+              <span>{{item.bankname}}</span>
+            </div>
+            <!--后台银行卡转账返回字段不一致 需要单独处理-->
+            <div class="bank-item bank-top-account" *ngIf="item.btype === '1'">
+              收款账号：<span>{{item.accountnum}}</span>
+              <b id="bankaccount{{i+1}}" [attr.data-clipboard-text]='item.accountnum' (click)='copyBankaccount(item,i)'>复制</b>
+            </div>
+            <div class="bank-item" *ngIf="item.btype !== '1'">
+              收款账号：<span>{{item.num}}</span>
+              <b id="bankaccount{{i+1}}" [attr.data-clipboard-text]='item.num' (click)='copyBankaccount(item,i)'>复制</b>
+            </div>
+            <div class="bank-item">收款姓名：<span>{{item.bankaccount}}</span></div>
+            <div class="bank-item">收款银行：<span>{{item.bankname}}</span></div>
+            <div class="bank-item bank-top-address">开户网点：<span>{{item.address}}</span></div>
+            <div class="bank-item">存款金额：<span>{{$GlobalService.globalQueryModel.saveDeposite.money}}</span></div>
+            <div class="upload-box" *ngIf="$GlobalService.globalJavaResData.projectName == 'xhsb'">
+              <div class="sweepCode-greenFont sweepCode-subMin-button">上传转账截图</div>
+              <div class="upload-image">
+                <div class="add">+</div>
+                <input type="file" id="upload" size="5" accept="image/*" value="请选择上传文件..." (change)="showImage()"/>
+              </div>
+              <img src="" alt="" id="imgshow">
+            </div>
+            <div class="companys-payment-code-list-subMin">
+              <button (click)="subMinCode(item)" lh-loading [isLoad]="item.isLoad" [disabled]="item.isLoad">提交</button>
+            </div>
+          </li>
+          <li class="bank-item-bottom" *ngIf="item.remind">
+            <div class="bank-remind">
+              <span class="bank-remind-title">备注信息：</span>
+              <span class="bank-remind-msg">{{item.remind}}</span>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+    <!-- 励扬网银转账 -->
+    <div class="companys-payment-code-list" *ngIf="ispecialType">
+        <div class="companys-payment-code-list-li">
+          <ul class="bank-list">
+            <li class=" bank-item-top">
+              <div class="bank-item bank-top-img">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/bank1.png" />
+                <span>{{specialDepositData.otherName}}</span>
+              </div>
+              <div class="bank-item bank-top-account" >
+                收款账号：<span>{{specialDepositData.accountInfo}}</span>
+                <b id="bankaccount1" [attr.data-clipboard-text]='specialDepositData.accountInfo' (click)='copyBankaccount(specialDepositData,0)'>复制</b>
+              </div>
+              <div class="bank-item">收款姓名：<span>{{specialDepositData.accountInfoName}}</span></div>
+              <div class="bank-item">收款银行：<span>{{specialDepositData.otherName}}</span></div>
+              <div class="bank-item">存款金额：<span>{{specialDepositData.trueMoney}}</span></div>
+              <div class="upload-box" *ngIf="$GlobalService.globalJavaResData.projectName == 'xhsb'">
+                <div class="sweepCode-greenFont sweepCode-subMin-button">上传转账截图</div>
+                <div class="upload-image">
+                  <div class="add">+</div>
+                  <input type="file" id="upload" size="5" accept="image/*" value="请选择上传文件..." (change)="showImage()"/>
+                </div>
+                <img src="" alt="" id="imgshow">
+              </div>
+              <div class="companys-payment-code-list-subMin">
+                <button (click)="submitSpecial()" lh-loading [isLoad]="isLoad">提交</button>
+              </div>
+            </li>
+
+            <!-- <li class="bank-item-bottom" *ngIf="item.remind">
+              <div class="bank-remind">
+                <span class="bank-remind-title">备注信息：</span>
+                <span class="bank-remind-msg">{{item.remind}}</span>
+              </div>
+            </li> -->
+          </ul>
+          <div  class="bank-item-tips">
+            <div class="companys-payment-code-head">❈ 存款银行账户限本次使用，账号不定期更换！如存款至已过期账户导致无法查收，恕不负责！</div>
+            <div class="companys-payment-code-head">❈ 请您在提交订单后 <span class="bank-item-tips-time">5分钟</span> 内完成支付，否则订单会自动取消。</div>
+          </div>
+          <ul class="bank-item-tipImg">
+            <li >
+              <div class="companys-payment-code-head">温馨提示：</div>
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/bank_example.png" height="260px" />
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+  <!--  最终提交显示-->
+  <div class="companys-payment-center" *ngIf="indexShow === 3">
+    <!-- 普通方式提交后的信息 -->
+    <ul *ngIf="!ispecialType&&!isUSDT">
+      <li class="companys-payment-orderTop">
+        <div class="companys-payment-orderTop-head">
+          <div class="companys-payment-blueFont">存款订单详情</div>
+          <div class="companys-payment-orderTop-right">订单编号：<span>{{saveDe}}</span></div>
+        </div>
+        <div class="companys-payment-orderInfo">
+          <ul>
+            <li class="companys-payment-orderTop-orangeFont">存款金额：
+              <span>{{$GlobalService.globalQueryModel.saveDeposite.money}}</span>
+            </li>
+            <li>存款人姓名：
+              <span>{{$GlobalService.globalQueryModel.saveDeposite.depositusername}}</span>
+            </li>
+            <li>存款时间：<span>{{paytime}}</span></li>
+            <li>存款方式：<span>{{subBankName}}</span></li>
+          </ul>
+          <ul>
+            <li>收款银行：<span>{{subBank}}</span></li>
+            <li>开户网点：<span>{{address}}</span></li>
+            <li class="companys-payment-orderTop-orangeFont number">收款账号：<span>{{subNum}}</span></li>
+            <li>收款人姓名：<span>{{subBankaccount}}</span></li>
+          </ul>
+        </div>
+        <p>优惠方案：<span>将会为您的主账号存入对应金额，请注意查收！祝您游戏愉快！</span></p>
+      </li>
+    </ul>
+    <!-- 励扬网银转账，励扬支付宝扫码提交后的信息 -->
+    <ul *ngIf="ispecialType&&!isUSDT">
+      <li class="companys-payment-orderTop">
+        <div class="companys-payment-orderTop-head">
+          <div class="companys-payment-blueFont">存款订单详情</div>
+          <div class="companys-payment-orderTop-right">订单编号：<span>{{specialDepositData.orderNo}}</span></div>
+        </div>
+        <div class="companys-payment-orderInfo">
+          <ul>
+            <li class="companys-payment-orderTop-orangeFont">存款金额：
+              <span>{{$GlobalService.globalQueryModel.saveDeposite.money}}</span>
+            </li>
+            <li>存款人姓名：
+              <span>{{$GlobalService.globalQueryModel.saveDeposite.depositusername}}</span>
+            </li>
+            <li>存款时间：<span>{{paytime}}</span></li>
+            <li>存款方式：<span>{{subBankName}}</span></li>
+          </ul>
+          <ul>
+            <li>收款银行：<span>{{subBank}}</span></li>
+            <li class="companys-payment-orderTop-orangeFont number">收款账号：<span>{{subNum}}</span></li>
+            <li>收款人姓名：<span>{{subBankaccount}}</span></li>
+          </ul>
+        </div>
+        <p>优惠方案：<span>将会为您的主账号存入对应金额，请注意查收！祝您游戏愉快！</span></p>
+      </li>
+    </ul>
+    <ul *ngIf="isUSDT">
+      <li class="companys-payment-orderTop">
+        <div class="companys-payment-orderTop-head">
+          <div class="companys-payment-blueFont">存款订单详情</div>
+          <div class="companys-payment-orderTop-right">订单编号：<span>{{saveDe}}</span></div>
+        </div>
+        <div class="companys-payment-orderInfo">
+          <ul>
+            <li class="companys-payment-orderTop-orangeFont">存款金额：
+              <span>{{$GlobalService.globalQueryModel.saveDeposite.money}}</span>
+            </li>
+            <li>存款方式：<span>{{subBankName}}</span></li>
+            <li>存款时间：<span>{{paytime}}</span></li>
+          </ul>
+          <ul>
+            <li>链名称：<span>{{usdtArr[selectKey].bankname}}</span></li>
+            <li>收款地址：<span>{{usdtArr[selectKey].accountnum}}</span></li>
+            <li>区域链交易ID：<span>{{$GlobalService.globalQueryModel.saveDeposite.depositusername}}</span></li>
+
+          </ul>
+        </div>
+        <p>优惠方案：<span>将会为您的主账号存入对应金额，请注意查收！祝您游戏愉快！</span></p>
+      </li>
+    </ul>
+    <em class="companys-payment-orderTop-bottom">
+      ❈ 待系统审核通过后，将会为您的主账号存入对应金额，请注意查收！祝您游戏愉快！
+    </em>
+    <div class="Member_safety_information_button subMin_button">
+      <button
+        (click)="indexShow = 0;companyList(this.$GlobalService.globalQueryModel.mcashgsrk.code, isCompany)">继续存款</button>
+      <button [routerLink]="['/tyc/index/member/accountHistory']">查看资金记录</button>
+    </div>
+  </div>
+
+  <div class="yh_model" *ngIf="!isYh" (click)="closeYh()">
+    <div>暂无可选优惠方案</div>
+    <div>关闭倒计时 {{yhNum}}</div>
+  </div>
+
+  <div class="yh_mb" *ngIf="!isYh" (click)="closeYh()"></div>
+  
+</div>

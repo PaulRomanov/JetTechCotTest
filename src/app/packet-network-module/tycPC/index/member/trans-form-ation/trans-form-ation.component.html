@@ -1,0 +1,89 @@
+<div class="idex-trans-form-ation">
+  <div class="idex-trans-form-ation-head">
+    <div class="form-ation-head-left">
+      <span *ngIf="isQbMs">请输入转换信息</span>
+      <span>资金账户分布情况</span>
+      <button (click)="refreshAmount()" lh-loading [isLoad]="refroneKeyTransfer" [disabled]="refroneKeyTransfer">
+        刷新
+      </button>
+    </div>
+    <div class="form-ation-head-right" *ngIf="isQbBtn">
+      <div class="head-right-btn" [class.t-active]="isQbMs" (click)="upDateWalletType(0)">转账模式</div>
+      <div class="head-right-btn h-btn-border" [class.t-active]="!isQbMs" (click)="upDateWalletType(1)">免转模式</div>
+    </div>
+  </div>
+  <div *ngIf="isQbMs">
+    <span>转出账户</span>
+    <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" [filter]="true" (onChange)="filterChange($event, 0)"
+      class="zm-dropdown-style" [style]="{'width':'170px'}" filterBy="label,value.name" *ngIf="isLoding"
+      [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+    <div class="loding" *ngIf="!isLoding"><span></span></div>
+    <span class="tran-form-con">
+      <img
+        src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/transform.png"
+        (click)="transFormChange()">
+    </span>
+    <span>转入账户</span>
+    <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" [filter]="true" (onChange)="filterChange($event, 1)"
+      class="zm-dropdown-style" [style]="{'width':'170px'}" filterBy="label,value.name" *ngIf="isLoding"
+      [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+    <div class="loding" *ngIf="!isLoding"><span></span></div>
+    <span>转入金额</span>
+    <input id="float-input" type="text" size="10" class="common-input-style" maxlength="13" pInputText
+      [pKeyFilter]="noSpecial" onInput="this.value=this.value.replace(/[^\d]/g,'')" (input)="changeRegData($event)"
+      [(ngModel)]="$GlobalService.globalQueryModel.beginUserChange.balance">
+    <button class="idex-trans-form-ation-immediately hvr-pulse-grow" lh-loading [isLoad]="isOneKeyTransfer"
+      (click)="beginUser()">
+      立即转换
+    </button>
+  </div>
+
+  <div class="idex-trans-form-ation-list">
+    <ul>
+      <ng-container *ngFor="let item of $GlobalService.globalQueryModel.balancelist let i=index">
+        <li *ngIf="!(item.id ==='0' || item.id === '-1')">
+          <div class="idex-trans-form-ation-list-name">{{item.name}}
+            <img class="idex-trans-form-ation-list-img" *ngIf="item.id === '20'"
+              src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/dianjingtext.png"
+              alt="">
+          </div>
+          <div>
+            <span [class.yjgz-active]="!isQbMs">￥{{item.value}}</span>
+            <button class="hvr-radial-out" (click)="Next(item.id, i);"
+            *ngIf="isQbMs"
+            [disabled]="oneKeyTransfer && i == isShowIndex"
+              lh-loading [isLoad]="oneKeyTransfer && i == isShowIndex">
+              <span>一键转入</span>
+            </button>
+          </div>
+        </li>
+      </ng-container>
+      <!-- 配合调整样式 -->
+      <li *ngIf="($GlobalService.globalQueryModel.balancelist.length-2)%3===2"></li>
+      <li *ngIf="($GlobalService.globalQueryModel.balancelist.length-2)%3===1"></li>
+      <li *ngIf="($GlobalService.globalQueryModel.balancelist.length-2)%3===1"></li>
+    </ul>
+  </div>
+  <p class="idex-trans-form-ation-tips">※&nbsp;主账户1元，等于KA游戏100游戏点。</p>
+  <p class="idex-trans-form-ation-tips">※&nbsp;一键归账将所有游戏账户余额归集到主账户中。</p>
+<!--  <p class="idex-trans-form-ation-tips">※&nbsp;电竞投注属于皇冠游戏，娱乐电竞游戏前请转账至皇冠游戏。</p>-->
+
+</div>
+<div class="idex-trans-form-ation-teach" *ngIf="!isTeachHide">
+  <div class="idex-trans-form-ation-teach-menber">
+    <div class="idex-trans-form-ation-teach-menber-group">
+      <img
+        src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/transFormAtionGroup1.png"
+        alt="">
+      <img
+        src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/transFormAtionGroup2.png"
+        alt="">
+      <img
+        src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/transFormAtionGroup3.png"
+        alt="">
+      <img (click)="closeTeach()" class="idex-trans-form-ation-know"
+        src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/transFormAtionKnow.png"
+        alt="">
+    </div>
+  </div>
+</div>

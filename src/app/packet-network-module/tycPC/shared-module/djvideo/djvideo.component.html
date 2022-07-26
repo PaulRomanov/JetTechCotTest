@@ -1,0 +1,71 @@
+<!-- <div class="video"  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/video_bg.png' | bgUrl">
+  <div class="video-head">
+    <ul>
+      <ng-container *ngFor="let data of $GlobalService.globalJavaResData.gameNavList">
+        <ng-container *ngIf="data.subname === 'ZR GAME'">
+          <li *ngFor="let x of data.childs" class="zm-bg-zr" (click)="goGame(x)">
+            <img class="GameUrl" src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgLUrl}}"/>
+            <p>{{x.name}}</p>
+            <div>
+              <button>开始游戏</button>
+            </div>
+          </li>
+        </ng-container>
+      </ng-container>
+    </ul>
+  </div>
+</div> -->
+
+
+
+<div style="background: rgb(247, 249, 251);">
+  <div style="min-height: calc(100vh - 210px);">
+    <div class="AoU_WG" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj01.jpg' | bgUrl">
+      <ul class="AoU_WI">
+        <li class="AoU_WK">
+          <div class="AoU_SM AoU_Wj AoU_S3">
+            <div class="AoU_k9"><img
+                class="AoU_WY"
+                src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/img_live_casino_01.png"
+                style="width: 615px;margin-top: 30px;"></div>
+          </div>
+          <div class="AoU_SK">
+            <div class="AoU_Wj AoU_SS">
+              <div class="AoU_IK"><img
+                  src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/img_content_title_aglive.png"></div>
+              <p class="AoU_UB">
+                以高规格打造的真人配备最先进的设备以及富丽堂皇的装潢，为玩家打造绝佳真人视讯游戏体验。游戏选择多样化，包括备受欢迎的百家乐、骰宝、轮盘等，加上全天侯监控管理，为玩家提供稳定而流畅的游戏服务。
+              </p><img class="AoU_mO" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_live_casino_icon.png'" alt="">
+              <!-- <div class="AoU_Wp" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/button_bg.png' | bgUrl">进入游戏</div> -->
+            </div>
+
+            <!-- <div class="list-box">
+              <ng-container *ngFor="let x of arr let i = index">
+                <div  (click)="goGame(x)" (mousemove)="listName(i)"
+                (mouseout)="listNameHide()" [style.background-image]="i === isShowIndex?($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_live_casino_logo_bg.png' | bgUrl):($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_live_casino_logo_bg2.png' | bgUrl)">
+                  <img [class.active-img]="i === isShowIndex" src="{{x.imgLUrl}}" alt="">
+                  <p>{{x.name}}</p>
+                </div>
+              </ng-container>
+            </div> -->
+
+            <div class="games_wrapper">
+              <div class="btn_prev" *ngIf="arr.length > 5" (click)="scrollGame('prev')" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Group-13.png' | bgUrl"></div>
+              <div class="games_box">
+                <div  (click)="goGame(x)" class="game" *ngFor="let x of arr let i = index" (click)="selectedGame = x">
+                  <div (mouseover)="isShowIndex = i" (mouseout)="isShowIndex = null" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + (isShowIndex == i ? '/img/img_live_casino_logo_bg.png' : '/img/img_live_casino_logo_bg2.png') | bgUrl">
+                    <img [class.active-img]="i === isShowIndex" src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgLUrl}}" alt="">
+                  </div>
+                   <div>{{x.name}}</div>
+                </div>
+              </div>
+              <div class="btn_next" *ngIf="arr.length > 5" (click)="scrollGame('next')" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/Group-13.png' | bgUrl"></div>
+            </div>
+
+
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

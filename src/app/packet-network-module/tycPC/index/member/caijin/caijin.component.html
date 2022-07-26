@@ -1,0 +1,112 @@
+<div class="caijin">
+  <img class="caijin-img" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/caijin.png" alt="">
+  <div class="caijin-txt">
+    <div class="caijin-title">
+      完成 <a class="caijin-title-red">姓名，手机号码，邮箱三项认证后即可领取38元注册免费彩金</a>，完成10倍流水，主账户余额满100元即可提现，最高可得288元！
+    </div>
+    <div class="caijin-msg">
+      <p class="caijin-msg-item">提示细则：</p>
+      <p class="caijin-msg-item">1.本优惠活动只限注册三天内完成系统认证的新会员，逾期认证将无法领取体验金；</p>
+      <p class="caijin-msg-item">2.领取本优惠后，您可直接娱乐游戏，完成10倍流水，主账户余额满100元即可提现，最高提现金额为288元，若提现时您的账户多于288元金额，提现后账户余额将被清零；如领取认证金后直接进行存款，提现时则会取消体验金奖励和盈利金额，只保留您的充值金额；</p>
+      <p class="caijin-msg-item">3.新注册用户如果直接存款游戏，而后将无法领取此免费彩金；</p>
+      <p class="caijin-msg-item">4.同IP多账户用户无法享有此优惠活动；</p>
+      <p class="caijin-msg-item">5.此活动每日500个名额，送完为止；</p>
+      <p class="caijin-msg-item">6.参与该优惠，则表示您同意<span (click)='showDetailRules()'>[一般优惠条例及规则]</span> 。</p>
+    </div>
+  </div>
+  <div class="caijin-content">
+    <ul class="caijin-box">
+      <li class="caijin-item">
+        <div class="caijin-item-icon">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/icon_name.png" alt="">
+          <p class="caijin-icon-des">姓名认证</p>
+        </div>
+        <div class="caijin-item-form">
+          <div class="caijin-item-top">
+              <span><b class="red">*</b>真实姓名：</span>
+              <input type="text" class="caijin-input common-input-style" [(ngModel)]="caijinData.realname" disabled="{{initCaijinData.realname?'disabled':false}}" placeholder="请输入真实姓名" />
+          </div>
+          <div class="caijin-item-bottom caijin-item-bottomA">
+            请确保真实姓名与您的银行卡姓名一致，否则将影响出款
+          </div>
+        </div>
+      </li>
+      <li class="caijin-item">
+          <div class="caijin-item-icon">
+            <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/icon_phone.png" alt="">
+            <p class="caijin-icon-des">手机号认证</p>
+          </div>
+          <div class="caijin-item-form">
+            <div class="caijin-item-top">
+                <span><b class="red">*</b>手机号：</span>
+                <input type="text" class="caijin-input common-input-style" [(ngModel)]="caijinData.phone" placeholder="请输入手机号码" onkeyup="value=value.replace(/[^\d]/g,'') " disabled="{{initCaijinData.vcode===1}}" />
+            </div>
+            <div class="caijin-item-bottom" *ngIf="initCaijinData.vcode!==1">
+              <input type="text" class="caijin-input common-input-style" [(ngModel)]="caijinData.phoneCode" placeholder="请输入手机验证码"  />
+              <button class="btn btn-code" (click)='caijinVerifyPhone()' >获取验证码</button>
+            </div>
+          </div>
+        </li>
+        <li class="caijin-item">
+            <div class="caijin-item-icon">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/icon_mail.png" alt="">
+              <p class="caijin-icon-des">邮箱认证</p>
+            </div>
+            <div class="caijin-item-form">
+              <div class="caijin-item-top">
+                  <span><b class="red">*</b>邮箱：</span>
+                  <input type="text" class="caijin-input common-input-style" [(ngModel)]="caijinData.email" placeholder="请输入邮箱" disabled="{{initCaijinData.vcode===1}}" />
+              </div>
+              <div class="caijin-item-bottom" *ngIf="initCaijinData.vcode!==1">
+                  <input type="text" class="caijin-input common-input-style" [(ngModel)]="caijinData.emailCode" placeholder="请输入邮箱验证码" />
+                  <button class="btn btn-code" (click)='caijinVerifyEmail()' >获取验证码</button>
+              </div>
+            </div>
+          </li>
+    </ul>
+    <div class="caijin-btn">
+      <button class="btn" (click)="setCaijinVerifySetting()" *ngIf="initCaijinData.vcode!==1">领取彩金</button>
+      <div *ngIf="initCaijinData.vcode===1">{{initCaijinData.vmsg}}</div>
+    </div>
+  </div>
+    <!-- 一般优惠条例及规则 -->
+    <div class="dialog-rule" [hidden]='!isShowRules'>
+        <div class="dialog-rule-modal"></div>
+        <div class="dialog-rule-content">
+          <div class="dialog-rule-title">
+            <span>一般优惠条例及规则</span>
+            <span class="iconfont zm-icon-close" (click)='closeDetailRules()'>&#xe60c;</span>
+          </div>
+          <div class="dialog-rule-item" >
+            <div>
+              <span>1.</span>
+              <span>{{$GlobalService.globalJavaResData.title}}所有优惠活动以美东时间（EDT）为计时区间，并且以人民币（CNY）为主要货币结算；</span>
+            </div>
+            <div>
+              <span>2.</span>
+              <span>{{$GlobalService.globalJavaResData.title}}活动赠送之所有彩金，严禁会员违规投注，如果会员存在任何违规投注游戏情况，{{$GlobalService.globalJavaResData.title}}有权无需通知玩家，限制会员出入款渠道，严重者直接收回红利和非正常盈利金额，冻结所有游戏账号；</span>
+            </div>
+            <div>
+              <span>3.</span>
+              <span>任何非正常投注，如同时下注庄闲，单边下注，轮盘红黑，电子游戏多窗口投注，体育亚盘低于0.5，欧盘低于1.75等投注均属于违规无效投注；</span>
+            </div>
+            <div>
+              <span>4.</span>
+              <span>每位玩家、每户、每一电子邮箱地址、每一电话号码、相同支付方式（相同借记卡信用卡银行账户）及ip地址只能享有一次优惠；若会员有重复申请账号行为，{{$GlobalService.globalJavaResData.title}}公司保留取消或回收会员优惠彩金的权利；</span>
+            </div>
+            <div>
+              <span>5.</span>
+              <span>{{$GlobalService.globalJavaResData.title}}所有优惠特为玩家而设，如发现任何团体或个人，以不诚实方式套取红利或任何威胁、滥用公司优惠等行为，公司保留冻结、取消该团体或个人账户以及账户结余的权利；</span>
+            </div>
+            <div>
+              <span>6.</span>
+              <span>若会员对活动有争议时，为确保双方利益，杜绝身份盗用行为，{{$GlobalService.globalJavaResData.title}}有权要求会员向我们提供充足有效的文件，用以确认是否享有该优惠的资质；</span>
+            </div>
+            <div>
+              <span>7.</span>
+              <span>{{$GlobalService.globalJavaResData.title}}保留对活动的最终解释权；以及在无通知的情况下修改、终止活动的权利；适用所有的优惠。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

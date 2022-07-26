@@ -1,0 +1,159 @@
+<div class="index_deposit_entrance">
+  <ul class="index_deposit_entrance_ul">
+    <li (click)="tabIndex=0" [class.active]="tabIndex===0">实时返水</li>
+    <li (click)="tabIndex=1" [class.active]="tabIndex===1">返水记录</li>
+  </ul>
+</div>
+    <div>
+      <!-- <div class="a5_bS">
+        <img class="a5_bW"  [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/ssfs_banner.png'" alt="">
+      </div> -->
+      <div>
+        <!-- <div class="a5_eG">
+          <ul>
+            <li [class.a5_Cf]="i === tabIndex" (click)="sportsTab(i)" *ngFor="let item of titleList let i = index">
+              <p>{{item}}</p>
+            </li>
+          </ul>
+        </div> -->
+        <div class="a5_G a5_bY">
+          <div>
+            <div class="a5_ba">
+              <div class="a5_b7 a5_cn">
+
+                <div *ngIf="tabIndex === 0">
+                  <div class="ss_top">
+                    <div>本次计算时间段</div>
+                    <div>{{ssfsTime}}</div>
+                    <button (click)="shisuan()" [disabled]="this.nextcaltm - this.nowTime > 0" [class.ss_top_disabled]="this.nextcaltm - this.nowTime > 0">{{this.nextcaltm - this.nowTime > 0 ? "倒计时"+countDownTime:"试算"}}</button>
+                    <button (click)="allget()" [disabled]="cancollect==0" [class.ss_top_disabled]="cancollect==0">全部领取</button>
+                  </div>
+
+                  <table class="ss_table">
+                    <thead>
+                      <tr>
+                        <th>游戏平台</th>
+                        <th>有效投注</th>
+                        <th>返水金额</th>
+                      </tr>
+                    </thead>
+                    <tbody class="ss_table_none">
+                      <tr *ngFor="let item of tableList let i = index">
+                        <td>{{item.cNm}}</td>
+                        <td>{{item.coma === '' ? '-' : item.coma.toFixed(2)}}</td>
+                        <td>{{item.amount === '' ? '-' : item.amount.toFixed(2)}}</td>
+                      </tr>
+                      <tr *ngIf="tableList.length === 0">
+                        <td colspan="3">暂无数据...</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+                <div *ngIf="tabIndex === 1" class="fsjlBox">
+                  <div class="index-account-history">
+                    <div class="index-account-con">
+                      <i class="ffI">自定义时间： </i>
+                      <span>
+                        <p-calendar [(ngModel)]="dataStateTime" (onSelect)="selectDate()" [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"
+                                    class="zm-calendar" [style]="{'width':'130px'}" [inputStyle]="{'width':'130px','background':'black','color':'white','text-indent':'5px'}"
+                        ></p-calendar>
+                          <i class="iconfont">&#xe65d;</i>
+                      </span>
+                      <p>~</p>
+                      <span>
+                        <p-calendar [(ngModel)]="dataEndTime" (onSelect)="selectDate()" [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" yearRange="2016:2028" [readonlyInput]="true"
+                                    class="zm-calendar" [style]="{'width':'130px'}" [inputStyle]="{'width':'130px','background':'black','color':'white','text-indent':'5px'}"
+                        ></p-calendar>
+                        <i class="iconfont">&#xe65d;</i>
+                      </span>
+
+                      <div class="serach-btn-box">
+                        <button lh-loading [isLoad]="isQueryLoading" (click)="querySerach()">查询</button>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                  <table class="ss_table ss_table2">
+                    <thead>
+                      <tr>
+                        <th style="width: 60px;">排序</th>
+                        <th>周期</th>
+                        <th>计算区间</th>
+                        <th>有效投注</th>
+                        <th>返水金额</th>
+                        <th>发放方式</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody class="ss_table_none">
+                      <tr *ngFor="let item of tableList2 let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.period}} 返水</td>
+                        <td>{{item.calStartTime}}~{{item.calEndTime}}</td>
+                        <td>{{item.coma === '' ? '-' : item.coma.toFixed(2)}}</td>
+                        <td>{{item.totalAmount === '' ? '-' : item.totalAmount.toFixed(2)}}</td>
+                        <td>{{item.returnMethod === '1' ? '手动领取' : '系统自动发放'}}</td>
+                        <td> <button (click)="getDetail(item.id)">查看详情</button> </td>
+                      </tr>
+                      <tr *ngIf="tableList2.length === 0">
+                        <td colspan="7">暂无数据...</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="Member_history_bottom" *ngIf="tableList2.length > 0">
+                    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(1)">首页</li>
+                    <li class="lyactive"  *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">上一页</li>
+                    <li class="lyactive" *ngIf="pageData.currentPage != 1" (click)="addCurrentPage(pageData.currentPage - 1)">{{pageData.currentPage - 1}}</li>
+                    <li class="lyactive" (click)="addCurrentPage(pageData.currentPage)" [class.page-bg]="pageData.currentPage">{{pageData.currentPage}}</li>
+                    <li *ngIf="pageData.currentPage != pageData.total"
+                        class="lyactive" (click)="addCurrentPage(pageData.currentPage + 1)">{{pageData.currentPage + 1}}</li>
+                    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.currentPage + 1)">下一页</li>
+                    <li class="lyactive" *ngIf="pageData.currentPage != pageData.total" (click)="addCurrentPage(pageData.total)">末页</li>
+                    <li *ngIf="pageData.total != 1" class="noBoder">共{{pageData.total}}页</li>
+                    <li *ngIf="pageData.total != 1" class="noBoder">跳转到 <input type="text" [(ngModel)]="pageData.goPage" onkeyup="value=value.replace(/[^\d]/g,'') "> 页
+                    </li>
+                    <li *ngIf="pageData.total != 1" class="lyactive HistoryActive" (click)="addCurrentPage(pageData.goPage, 0)">GO</li>
+                  </div>
+                  
+                  <div class="fsDetail" *ngIf="showDetail">
+                    <div class="dtop">
+                      返水详情
+                      <img (click)="closeDetail()" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/closeOpen.png">
+                    </div>
+                    <div class="dcontent">
+                      <table class="ss_table ss_table3">
+                        <thead>
+                          <tr>
+                            <th>游戏平台</th>
+                            <th>有效投注</th>
+                            <th>返水金额</th>
+                          </tr>
+                        </thead>
+                        <tbody class="ss_table_none">
+                          <tr *ngFor="let item of tableList3 let i = index">
+                            <td>{{item.cNm}}</td>
+                            <td>{{item.coma === '' ? '-' : item.coma.toFixed(2)}}</td>
+                            <td>{{item.amount === '' ? '-' : item.amount.toFixed(2)}}</td>
+                          </tr>
+                          <tr *ngIf="tableList3.length === 0">
+                            <td colspan="3">暂无数据...</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  <!-- <router-outlet></router-outlet> -->

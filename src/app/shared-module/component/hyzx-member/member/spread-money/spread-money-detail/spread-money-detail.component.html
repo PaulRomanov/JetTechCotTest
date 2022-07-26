@@ -1,0 +1,82 @@
+<div class="Member_acticity Member_spread_reward Member_spread_detail">
+	<ul class="Member_acticity_ul">
+		<li class="Member_reward_item">
+			<span>直属玩家人数：</span>
+			<span class="bluefont">{{spreadActiveData.userCount2nd}}</span>
+		</li>
+		<li class="Member_reward_item">
+				<span>其他会员人数：</span>
+				<span class="bluefont">{{spreadActiveData.userCountTotal-spreadActiveData.userCount2nd}}</span>
+			</li>
+			<li class="Member_reward_item">
+				<span>可领取奖励（元）：</span>
+				<span class="bluefont">{{spreadActiveData.balance}}</span>
+			</li>
+		<li class="Member_reward_item">
+			<label>会员查询：</label>
+			<input type="text" class="common-input-style" placeholder="请输入会员账号进行查询" [(ngModel)]="memberName">
+		</li>
+    <li class="serach-btn-box">
+      <button (click)="searchMemberData()" lh-loading [isLoad]="isLoad">搜索</button>
+    </li>
+		<!-- 提成模式 -->
+		<!-- spreadMode=1无限模式 -->
+		<!-- spreadMode=2提成模式 -->
+		<table class="Member_personal_table">
+			<thead>
+				<tr>
+					<th>直属会员账号</th>
+					<th width='150'>注册时间</th>
+					<th>历史奖励贡献（元）</th>
+					<!-- <th width='150'>当前奖励贡献（元）</th> -->
+					<th *ngIf="spreadMode===2">提成比例（%）</th>
+					<th *ngIf="spreadMode===2">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let data of spreadDetailData.datauser">
+					<td>{{data.account}}</td>
+					<td>{{data.registerTime}}</td>
+					<td>{{data.cashback}}</td>
+					<td *ngIf="spreadMode===2&&data.delegatePercent!==0">{{data.delegatePercent}}</td>
+					<td *ngIf="spreadMode===2&&data.delegatePercent===0">{{spreadDetailData.companySet.userDefaultRewardPercent}}</td>
+					<td *ngIf="spreadMode===2">
+						<button (click)='setSpreadPercent(data)' class="btn" [ngClass]="{disabledBtn:(data.status===2||spreadActiveData.delegatePercent<=spreadDetailData.companySet.minimalDelegatePercent)}">设置提成比例</button>
+					</td>
+				</tr>
+				<tr *ngIf="spreadDetailData.datauser.length>0">
+					<td></td>
+					<td>页面总计:</td>
+					<td>{{spreadDetailData.cashBackAll}}</td>
+					<td *ngIf="spreadMode===2"></td>
+					<td *ngIf="spreadMode===2"></td>
+				</tr>
+			</tbody>
+			<tbody class="Member_personal_none" *ngIf="!spreadDetailData.datauser.length">
+				<tr>
+					<td colspan="7">暂无数据</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="percentDialog" *ngIf="isPercentDialogShow">
+			<div class="percentDialog-modal" (click)='closeSpreadPercentDialog()'></div>
+			<div class="percentDialog-content">
+				<div class="percentDialog-title bluefont pdt20">设置提成比例</div>
+				<div class="pdt20">
+					<span>当前可设置范围：</span>
+					<span class="bluefont">{{spreadPercentData.minimalDelegatePercent}}% ~ {{spreadPercentData.maxDelegatePercent}}%</span>
+				</div>
+				<div class="pdt20 pdb20 percentDialog-number">
+					<span>分成比例：</span>
+					<input type="text" (blur)='testNumber()' [(ngModel)]="newPercent" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" />
+					<span class="bluefont">%</span>
+					<span class="percentWarning">{{percentWarning}}</span>
+				</div>
+				<div class="pdb20 pdt20 percentDialog-btn">
+					<button class="cancel-btn" (click)='closeSpreadPercentDialog()'>取消</button>
+					<button class="confirm-btn" (click)='postSpreadPercentData()'>确认</button>
+				</div>
+			</div>
+		</div>
+	</ul>
+</div>

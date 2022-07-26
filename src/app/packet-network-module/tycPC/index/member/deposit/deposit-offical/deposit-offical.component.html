@@ -1,0 +1,26 @@
+<div class="Member_deposit_Official">
+    <h4 class="Member_head_lan Member_deposit_Official_head">添加官方微信客服即可一对一充值</h4>
+    <ul class="Member_deposit_Official_div">
+      <ng-container *ngFor="let data of rechargerList let i=index">
+        <li  *ngIf="!isShow">
+          {{data.nickname}}
+          <button class="btn lyactive" id="wechat{{i+1}}" [attr.data-clipboard-text]='data.weixin' (click) = 'details(data,i)'>查看详情</button>
+        </li>
+      </ng-container>
+      <div *ngIf="isShow" class="newData">
+        <li>
+          <p>{{newData.nickname}}</p>
+          <div *ngIf="newData.wechatctl">
+            <p *ngIf="!newData.wechattype">微信号：<span>{{newData.wechat}}</span></p>
+            <p *ngIf="newData.wechattype">微信：<img src="{{newData.wechat}}"></p>
+          </div>
+          <div *ngIf="newData.qqctl">
+            <p *ngIf="!newData.qqtype">QQ：<span>{{newData.qq}}</span></p>
+            <p *ngIf="newData.qqtype">QQ：<img src="{{newData.qq}}"></p>
+          </div>
+          <a href="{{newData.link}}" class="kfBtn"><i class="iconfont">&#xe7bb;</i>客服链接</a>
+        </li>
+        <a (click)='goBack()'>返回</a>
+      </div>
+    </ul>
+  </div>

@@ -1,0 +1,266 @@
+.index2 {
+  padding: 40px 0;
+  //background-image: url('../../../../../assets/public/img/dz-game-bg.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+.ul-slider {
+  transition-duration: 600ms !important;
+}
+
+.index2Content {
+  width: 1200px;
+  margin: 0 auto
+}
+
+.index2Content .bg {
+  background-color: #3085d7
+}
+
+.index2Content li {
+  display: inline-block
+}
+
+.titleOne {
+  width: 1200px;
+  overflow: hidden
+}
+
+.titleOne li {
+  height: 50px;
+  line-height: 50px;
+  width: 140px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.titleOne li.active {
+  color: #3a9be8;
+  background-color: #fff
+}
+
+.active {
+  color: #3a9be8;
+  background-color: #fff
+}
+
+.title2 {
+  overflow: hidden;
+  background-color: #fff
+}
+
+.searchGrop, .titleTwoGrops {
+  display: inline-block
+}
+
+.titleTwoGrops {
+  float: left;
+  width: 950px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  overflow: hidden
+}
+
+.titleTwoGrops li {
+  width: 140px
+}
+
+.titleTwoGrops span {
+  display: block;
+  width: 140px;
+  text-align: center;
+  height: 36px;
+  line-height: 36px;
+  cursor: pointer
+}
+
+.titleTwoGrops span.title-active {
+  background-color: #6a6a6a;
+  color: #fff
+}
+
+.title-active {
+  background-color: #6a6a6a;
+  color: #fff
+}
+
+.searchGrop {
+  position: relative;
+  float: right;
+  margin: 10px 24px 10px 0
+}
+
+.searchGrop input {
+  width: 172px;
+  height: 26px;
+  line-height: 26px;
+  border: 1px solid #dedede;
+  border-radius: 50px;
+  padding: 0 10px
+}
+
+.searchGrop i {
+  display: block;
+  position: absolute;
+  right: 4px;
+  top: 1px;
+  padding: 4px;
+  cursor: pointer;
+  color: #3a9be8;
+  font-weight: 700;
+  font-size: 15px;
+  z-index: 10;
+  background-color: #fff;
+  border-top-right-radius: 9px;
+  border-bottom-right-radius: 9px
+}
+
+.gameLists {
+  padding: 30px 10px;
+  background-color: #e7e7e7
+}
+
+.gameLists li {
+  overflow: hidden;
+  width: 19%;
+  height: 200px;
+  background: rgba(33, 33, 33, 0.88);
+  position: relative;
+  margin: 0.5%;
+}
+
+.gameLists #theader {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: white;
+}
+
+.gameLists li:nth-child(5n+5) {
+  margin-right: 0;
+}
+
+.gameLists img {
+  width: 100%;
+  height: 172px;
+  position: relative;
+  vertical-align: bottom;
+}
+.gameLists img:after{
+  content: "" " " attr(alt);
+  font-size: 146px;
+  background: url("../../../../../assets/img/tulie.png") no-repeat;
+  background-position:center ;
+  text-align: center;
+  font-family: FontAwesome;
+  color: rgb(100, 100, 100);
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
+.firstFloor p {
+  background-color: #171c2c;
+  color: #7e8593;
+  padding: 4px 10px;
+}
+
+.gameLists i {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.firstFloor i {
+  float: right;
+}
+
+.gameLists .twoFloor {
+  transform-style: preserve-3d;
+  bottom: 0;
+  opacity: 0;
+  -webkit-transition: all .4s ease-in;
+  transition: all .3s ease-in;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  cursor: pointer;
+}
+.twoFloor p:nth-child(1) {
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.twoFloor p:nth-child(1) a {
+  padding: 4px 12px;
+  color: #fff;
+  background-color: #34a853
+}
+#theader li:hover > .twoFloor{opacity: 1;
+  transform: scale3d(1,1,1);}
+.twoFloor p:nth-child(2) {
+  padding: 4px 10px;
+  border-top: 1px solid #e4bf62;
+  position: absolute;
+  bottom: 0px;
+}
+
+.firstFloor p span, .twoFloor p:nth-child(2) span {
+  display: inline-block;
+  width: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.twoFloor p:nth-child(2) span {
+  color: #e4bf62
+}
+
+.twoFloor p:nth-child(2) b {
+  display: inline-block;
+  margin-top: -20%;
+  border: 1px solid #e4bf62;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background-color: #171c2c;
+  float: right;
+  margin-right: 84px;
+}
+
+.twoFloor p:nth-child(2) i {
+  color: #e4bf62
+}
+
+.imgHeight {
+  width: 100% !important;
+  height: 160px !important;
+  vertical-align: bottom !important;
+}
+
+.imgPrimary {
+  width: 100%;
+  height: 125px;
+  vertical-align: bottom;
+}
+// 电子
+.gameLists .twoFloor {}
+#theader li:hover > .twoFloor{    }

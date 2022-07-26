@@ -1,0 +1,61 @@
+<div class="Member_acticity Member_spread_reward">
+	<ul class="Member_acticity_ul">
+		<li class="Member_reward_item">
+			<span>直属会员人数：</span>
+			<span class="bluefont">{{spreadActiveData.userCount2nd}}</span>
+		</li>
+		<li class="Member_reward_item">
+			<span>其他会员人数：</span>
+			<span class="bluefont">{{spreadActiveData.userCountTotal - spreadActiveData.userCount2nd}}</span>
+		</li>
+		<li class="Member_reward_item">
+			<span>可领取奖励（元）：</span>
+			<span class="bluefont">{{spreadActiveData.balance}}</span>
+		</li>
+		<li class="Member_reward_item">
+			<label>会员查询：</label>
+			<input type="text" class="common-input-style" placeholder="请输入会员账号进行查询" [(ngModel)]="memberName">
+		</li>
+		<li class="serach-btn-box">
+      <button (click)="searchMemberData()" lh-loading [isLoad]="isLoad">搜索</button>
+    </li>
+		<table class="Member_personal_table">
+			<thead>
+				<tr>
+					<th>会员账号</th>
+					<th width='150'>注册时间</th>
+					<th>推广层级</th>
+					<th width='150'>实际提成比例（%）</th>
+					<th>流水总计（元）</th>
+					<th>流水贡献（元）</th>
+					<th width='150'>当前奖励贡献（元）</th>
+				</tr>
+			</thead>
+			<tbody *ngIf="spreadRewardData.list.length>0">
+				<tr *ngFor="let data of spreadRewardData.list">
+					<td>{{data.account}}</td>
+					<td>{{data.registerTime}}</td>
+					<td>{{data.interval}}</td>
+					<td>{{data.realPercent}}</td>
+					<td>{{data.validBetAmount}}</td>
+					<td>{{data.validReward}}</td>
+					<td>{{data.rebate}}</td>
+				</tr>
+				<tr ng-if="spreadRewardData.list.length>0">
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>页面总计:</td>
+					<td>{{spreadRewardData.base.validBetAmountAll}}</td>
+					<td>{{spreadRewardData.base.validRewardAll}}</td>
+					<td>{{spreadRewardData.base.rebateAll}}</td>
+				</tr>
+			</tbody>
+			<tbody class="Member_personal_none" *ngIf="!spreadRewardData.list.length">
+				<tr>
+					<td colspan="7">暂无数据</td>
+				</tr>
+			</tbody>
+		</table>
+	</ul>
+</div>

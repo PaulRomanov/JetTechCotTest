@@ -1,0 +1,448 @@
+<div class="zm-logins-container" class="index_head_box">
+  <div class="index_head">
+    <li class="index_head_center" *ngIf="!$GlobalService.globalJavaResData.isShowloginHeader">
+      <div class="index_head_top">
+        <div class="index_head_top_menu">
+          <div class="index_btn_kf" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_btn01.png' | bgUrl" (click)="$GlobalMethodsService.openKufu()">客服</div>
+          <div class="index_btn_register" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_btn01.png' | bgUrl" (click)="$GlobalMethodsService.regOPenWindow()">注册</div>
+          <div class="index_btn_login" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_btn02.png' | bgUrl" (click)="$GlobalMethodsService.loginOPenWindow()">登录</div>
+        </div>
+      </div>
+    </li>
+    <li class="index_head_center account_box" *ngIf="$GlobalService.globalJavaResData.isShowloginHeader">
+      <div class="account_balance">
+        <span>余额：{{$GlobalService.globalTipsModelModel.balanceState.loading ? '加载中...' : balanceState ? $GlobalService.globalQueryModel.totalBalance : '****'}}</span>
+        <i [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/shuaxin.png' + ')'" (click)="$GlobalMethodsService.myAllbalancelist()"></i>
+        <i *ngIf="balanceState" [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/zhengyan.png' + ')'" (click)="toggleBalance()"></i>
+        <i *ngIf="!balanceState" [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/biyan.png' + ')'" (click)="toggleBalance()"></i>
+      </div>
+      <div class="dropdown_list">
+        <div>
+          <i [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/zongyue.png' + ')'"></i>总余额：{{$GlobalService.globalTipsModelModel.balanceState.loading ? '加载中...' : balanceState ? $GlobalService.globalQueryModel.totalBalance : "****"}}
+        </div>
+        <div>
+          <i [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/zhuzhanghu.png' + ')'"></i>主账户：{{$GlobalService.globalTipsModelModel.balanceState.loading ? '加载中...' : balanceState ? $GlobalService.globalQueryModel.totalBalanceName : "****"}}
+        </div>
+        <div>
+          <i [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/gameicon.png' + ')'"></i>游戏账户：{{$GlobalService.globalTipsModelModel.balanceState.loading ? '加载中...' :  balanceState ? ($GlobalService.globalQueryModel.totalBalance - $GlobalService.globalQueryModel.totalBalanceName) : "****"}}
+        </div>
+      </div>
+    </li>
+    <li class="index_head_center" *ngIf="$GlobalService.globalJavaResData.isShowloginHeader">
+      <div class="index_head_top">
+        <ul class="index_head_center_top">
+          <li *ngIf="!$GlobalService.globalQueryModel.swToken" (click)="listName('1')">
+            <div class="header_right_icon header_right_icon_1" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/sprite.png' | bgUrl"></div>
+            <div>取款</div>
+          </li>
+          <li *ngIf="!$GlobalService.globalQueryModel.swToken" (click)="routerClick()">
+            <div class="header_right_icon header_right_icon_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/sprite.png' | bgUrl"></div>
+            <div>存款</div>
+          </li>
+          <li class="user_name">
+            <img (click)="routerClick()" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/avatar_2.png'" alt="" class="avatar">
+            <div class="user_name_box_right" (click)="routerClick()">
+              <div>{{$GlobalService.globalTipsModelModel.loginisState.sessionStorageName || sessionStorageName}}</div>
+              <div *ngIf="isTotalBalance">
+                {{$GlobalService.globalQueryModel.totalBalance || totalBalance}}
+                <div class="arrow" [style.background]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + 'tyc/img/sprite.png' + ')'"></div>
+              </div>
+            </div>
+            <div class="dropdown_list">
+              <div *ngIf="!$GlobalService.globalQueryModel.swToken" routerLink="member/bankCard/commonBank">
+                <i [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_icons_sprite.png' + ')'"></i>银行卡管理
+              </div>
+              <div *ngIf="!$GlobalService.globalQueryModel.swToken" routerLink="member/transFormAtion">
+                <i [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_icons_sprite.png' + ')'"></i>金额转换
+              </div>
+              <div *ngIf="!$GlobalService.globalQueryModel.swToken" (click)="routerClick()">
+                <i [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_icons_sprite.png' + ')'"></i>会员中心
+              </div>
+              <div (click)="$GlobalMethodsService.signOut()">退出登录</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </div>
+</div>
+
+<!--登录-->
+<div class="zm-login" *ngIf="$GlobalService.globalTipsModelModel.loginisState.isLoginCon">
+  <div class="zm-login-con fadeInDown-zm"
+  [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/' + $GlobalService.globalJavaResData.projectName + '/img/bg_login_dialog@1x.png' + ')'"
+       [class.animated]="$GlobalService.globalTipsModelModel.loginisState.isLoginCon">
+    <span class="iconfont zm-icon-close" (click)="loginClose()">&#xe60c;</span>
+    <div class="zm-login-title">
+      <ng-container *ngFor="let item of listTitle let i = index">
+        <div class="zm-title-text" [class.current]="i === isIndex"
+            (click)="selectClick($event, i, item)">{{item.name}}</div>
+      </ng-container>
+    </div>
+    <div class="select-title">
+      <div class="login-container-login">
+        <!--密码登录-->
+        <div class="select-password" *ngIf="$GlobalService.globalTipsModelModel.loginisState.isSelectChangePassword && isIndex == 0">
+          <div class="input-con zm-input-err" *ngIf="$GlobalService.globalTipsModelModel.loginisState.passwordLoginErr">
+            <i class="zm-err-icon"
+               [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/error-tips.png' | bgUrl"
+            ></i>
+            <span class="err-msg-zm">{{$GlobalService.globalTipsModelModel.loginisState.loginMsg}}</span>
+          </div>
+          <div [style.margin-top.px]="$GlobalService.globalTipsModelModel.loginisState.passwordLoginErr ? -8 : 0">
+            <input pInputText class="input-con" placeholder="请输入账号" type="text"
+                   [(ngModel)]="$GlobalService.globalQueryModel.loginData.loginName">
+            <div class="password-box">
+              <i
+                [class]="passwordType === 'password' ? 'iconfont iconeyeoff icon-password' : 'iconfont iconeyeon icon-password'"
+                (click)="toggleIsPassword()"></i>
+               <input  pInputText class="input-con" placeholder="密码" *ngIf="$GlobalMethodsService.verifySwitchOn; else templateEnter"
+                     [type]="passwordType" [(ngModel)]="$GlobalService.globalQueryModel.loginData.passWord"
+                     maxlength="13">
+
+                    <ng-template #templateEnter> 
+                          <input pInputText class="input-con" (keydown.enter)="$GlobalMethodsService.okLogins()" placeholder="密码"
+                        [type]="passwordType" [(ngModel)]="$GlobalService.globalQueryModel.loginData.passWord"
+                        maxlength="13">
+                </ng-template>
+            </div>
+
+            <div *ngIf="!$GlobalMethodsService.verifySwitchOn">
+              <input pInputText class="input-con" (keydown.enter)="$GlobalMethodsService.okLogins()"
+                     style="width: 224px" type="text" [(ngModel)]="$GlobalService.globalQueryModel.loginData.code"
+                     maxlength="13">
+              <img class="head-yzm" [src]="$GlobalService.globalTipsModelModel.loginisState.yzmUrl"
+                   (click)="$GlobalMethodsService.syidentifying('login')"/>
+            </div>
+          <div class="input-zc">
+            <div class="zc-left">
+              <p-checkbox [(ngModel)]="checkedUserName" binary="true"
+                          (onChange)="checkedUserNameChange($event)"></p-checkbox>
+              <span>记住密码</span>
+            </div>
+            <div class="zc-right">
+              <span (click)='forgetPwd()'>忘记密码</span>
+            </div>
+          </div>
+          <!-- <button class="input-button"
+                  [disabled]="!$GlobalService.globalQueryModel.loginData.loginName || !$GlobalService.globalQueryModel.loginData.passWord || !$GlobalService.globalQueryModel.loginData.code"
+                  [class.zm-no-disable]="!$GlobalService.globalQueryModel.loginData.loginName || !$GlobalService.globalQueryModel.loginData.passWord || !$GlobalService.globalQueryModel.loginData.code"
+                  (click)="$GlobalMethodsService.okLogins()" lh-loading
+                  [isHideLoad]="$GlobalService.globalTipsModelModel.loginisState.isLoginLoading">{{$GlobalService.globalTipsModelModel.loginisState.isLoginLoading ? '登录中...' : '立即登录' }}</button> -->
+          
+          <button type="button" class="input-button" *ngIf="$GlobalMethodsService.verifySwitchOn; else templateName"
+            [disabled]="!$GlobalService.globalQueryModel.loginData.loginName || !$GlobalService.globalQueryModel.loginData.passWord"
+            [class.zm-no-disable]="!$GlobalService.globalQueryModel.loginData.loginName || !$GlobalService.globalQueryModel.loginData.passWord"
+            lh-loading data-toggle="modal" data-target="#click" 
+            [isHideLoad]="$GlobalService.globalTipsModelModel.loginisState.isLoginLoading">{{$GlobalService.globalTipsModelModel.loginisState.isLoginLoading ? '登录中...' : '立即登录' }}</button>
+          
+          <ng-template #templateName>
+            <button class="input-button"
+            [disabled]="!$GlobalService.globalQueryModel.loginData.loginName || !$GlobalService.globalQueryModel.loginData.passWord"
+            [class.zm-no-disable]="!$GlobalService.globalQueryModel.loginData.loginName || !$GlobalService.globalQueryModel.loginData.passWord"
+            (click)="$GlobalMethodsService.okLogins()" lh-loading
+            [isHideLoad]="$GlobalService.globalTipsModelModel.loginisState.isLoginLoading">{{$GlobalService.globalTipsModelModel.loginisState.isLoginLoading ? '登录中...' : '立即登录' }}</button>  
+          </ng-template>
+          
+
+          <div class="register_now">
+            没有账号？<span (click)="comeReg()">马上注册</span>
+          </div>
+        </div>
+        </div>
+        <!--短信登录-->
+        <div class="select-msg-info" *ngIf="isIndex == 1">
+          <div class="input-con zm-input-err" *ngIf="$GlobalService.globalTipsModelModel.loginisState.phoneLoginErr">
+            <i class="zm-err-icon"
+               [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/error-tips.png' | bgUrl"
+            ></i>
+            <span class="err-msg-zm">{{$GlobalService.globalTipsModelModel.loginisState.phoneLoginMsg}}</span>
+          </div>
+          <div [style.margin-top.px]="msgInfoLoginErr ? -8 : 0">
+            <input pInputText class="input-con" placeholder="请输入手机号" type="text" [(ngModel)]="$GlobalService.globalQueryModel.mobileLogin.mobile" maxlength="13">
+            <input pInputText class="input-con" style="width: 224px" type="text" [(ngModel)]="$GlobalService.globalQueryModel.mobileLogin.vcode" maxlength="13">
+            <button class="head-yzm"
+                    (click)="$GlobalMethodsService.sendLoginCode()"
+                    [class.yzm-not-disable]="!$GlobalService.globalQueryModel.mobileLogin.mobile || $GlobalMethodsService.loginCount < 60"
+                    [disabled]="!$GlobalService.globalQueryModel.mobileLogin.mobile || $GlobalMethodsService.loginCount < 60">{{this.$GlobalService.globalTipsModelModel.loginState.yzmText}}</button>
+          </div>
+          <div class="input-zc">
+            <div class="zc-left">
+              <p-checkbox [(ngModel)]="checkedPhoneNumber" binary="true"
+                          (onChange)="checkedPhoneChange($event)"></p-checkbox>
+              <span>记住账号</span>
+            </div>
+            <div class="zc-right">
+            </div>
+          </div>
+          <button class="input-button"
+                  [disabled]="!$GlobalService.globalQueryModel.mobileLogin.mobile || !$GlobalService.globalQueryModel.mobileLogin.vcode"
+                  (click)="$GlobalMethodsService.mobileLogin()" lh-loading
+                  [isHideLoad]="$GlobalService.globalTipsModelModel.loginisState.isLoginLoading"
+                  [class.zm-no-disable]="!$GlobalService.globalQueryModel.mobileLogin.mobile || !$GlobalService.globalQueryModel.mobileLogin.vcode">立即登录</button>
+          <div class="register_now">
+            没有账号？<span (click)="comeReg()">马上注册</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--真实姓名校验-->
+<div class="zm-login" *ngIf="$GlobalService.globalTipsModelModel.loginisState.realNameVerify">
+  <div class="zm-login-con fadeInDown-zm"
+  [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/' + $GlobalService.globalJavaResData.projectName + '/img/bg_login_dialog@1x.png' + ')'"
+       [class.animated]="$GlobalService.globalTipsModelModel.loginisState.isLoginCon">
+    <span class="iconfont zm-icon-close" (click)="realNameVerifyClose()">&#xe60c;</span>
+    <div class="zm-login-title">
+      <div class="zm-title-text">真实姓名校验</div>
+    </div>
+    <div class="select-title">
+      <div class="login-container-login">
+        <div class="input-con zm-input-err" *ngIf="$GlobalService.globalTipsModelModel.loginisState.realNameErr">
+          <i class="zm-err-icon"
+             [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/error-tips.png' | bgUrl"
+          ></i>
+          <span class="err-msg-zm">您输入的真实姓名不对，还剩{{$GlobalService.globalTipsModelModel.loginisState.realNameVerifyTimes}}次。</span>
+        </div>
+        <div class="select-password">
+          <div class="verify-realName">此账号姓名为：<span style="font-size: 20px;">{{$GlobalService.globalTipsModelModel.loginisState.realNameLastName}}**</span>,请补充名字校验:</div>
+          <div [style.margin-top.px]="$GlobalService.globalTipsModelModel.loginisState.passwordLoginErr ? -8 : 0" class="input-area">
+            <div class="input-label">{{$GlobalService.globalTipsModelModel.loginisState.realNameLastName}}</div>
+            <input pInputText class="input-con" placeholder="请补充名字" type="text"
+                   [(ngModel)]="$GlobalService.globalTipsModelModel.loginisState.realName" maxlength="13">
+          </div>
+          <br>
+          <button class="input-button"
+                  [disabled]="!$GlobalService.globalTipsModelModel.loginisState.realName"
+                  (click)="$GlobalMethodsService.okLogins()" lh-loading
+                  [isHideLoad]="$GlobalService.globalTipsModelModel.loginisState.isLoginLoading">{{$GlobalService.globalTipsModelModel.loginisState.isLoginLoading ? '登录中...' : '确定' }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--联系在线客服-->
+<div class="zm-login" *ngIf="$GlobalService.globalTipsModelModel.loginisState.onlineServiceModel">
+  <div class="zm-login-con fadeInDown-zm"
+  [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/' + $GlobalService.globalJavaResData.projectName + '/img/bg_login_dialog@1x.png' + ')'"
+       [class.animated]="$GlobalService.globalTipsModelModel.loginisState.isLoginCon">
+    <span class="iconfont zm-icon-close" (click)="onlineServiceClose()">&#xe60c;</span>
+    <div class="zm-login-title">
+      <div class="zm-title-text">提示</div>
+    </div>
+    <div class="select-title">
+      <div class="login-container-login">
+        <div class="select-password">
+          <div class="verify-realName">您输入的信息不正确，请点击在线客服进行人工核对。</div>
+          <br>
+          <button class="input-button"
+                  (click)="$GlobalMethodsService.openKufu()">在线客服</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--注册-->
+<div class="reg-container">
+  <div class="zm-login" *ngIf="$GlobalService.globalTipsModelModel.regLoginisState.isLoginCon">
+    <div class="zm-login-con fadeInDown-zm zm-reg-con"
+    [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/' + $GlobalService.globalJavaResData.projectName + '/img/bg-reg-dialog.png' + ')'"
+         [class.animated]="$GlobalService.globalTipsModelModel.regLoginisState.isLoginCon">
+      <span class="iconfont zm-icon-close" (click)="regClose()">&#xe60c;</span>
+      <div class="zm-login-title zm-reg-title">
+        <ng-container *ngFor="let item of listTitleReg let i = index">
+          <div class="zm-title-text" [class.current]="i === isRegIndex"
+              (click)="selectRegClick($event, i, item)">{{item.name}}</div>
+        </ng-container>
+        <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/ginxian.png'" alt="">
+      </div>
+      <div class="select-title">
+        <div class="login-container-login">
+          <!--常规注册-->
+          <div class="select-password" *ngIf="isRegIndex == 0">
+            <!-- 注册失败时候的提示 -->
+            <div class="input-con zm-input-err"
+              *ngIf="$GlobalService.globalTipsModelModel.regLoginisState.passwordLoginErr">
+              <i class="zm-err-icon"
+                  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/error-tips.png' | bgUrl"
+              ></i>
+              <span class="err-msg-zm">{{$GlobalService.globalTipsModelModel.regLoginisState.loginMsg}}</span>
+            </div>
+            <!-- 成功时候的提示 -->
+            <div class="input-con zm-input-err zm-input-success"
+                  *ngIf="$GlobalService.globalTipsModelModel.regLoginisState.passwordLoginSuccess">
+              <i class="zm-err-icon"
+                  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/success-tips.png' | bgUrl"
+              ></i>
+              <span class="err-msg-zm">{{$GlobalService.globalTipsModelModel.regLoginisState.loginMsg}}</span>
+            </div>
+         <div
+           [style.margin-top.px]="($GlobalService.globalTipsModelModel.regLoginisState.passwordLoginErr||$GlobalService.globalTipsModelModel.regLoginisState.passwordLoginSuccess) ? -8 : 0">
+           <input type="password" style="position: absolute; top: -1000px"/>
+           <input pInputText class="input-con" type="text"
+                  [class.margin-bottom]="$GlobalService.globalTipsModelModel.regLoginisState.userNameExpIsState"
+                  [class.err-msg-border]="$GlobalService.globalTipsModelModel.regLoginisState.userNameExpIsState"
+                  (blur)="$GlobalMethodsService.rustFormatReg('userName', $GlobalService.globalQueryModel.createUser.loginName)"
+                  placeholder="账号（6~13个字母和数字组成）"
+                  [(ngModel)]="$GlobalService.globalQueryModel.createUser.loginName"
+                  maxlength="13">
+           <div *ngIf="$GlobalService.globalTipsModelModel.regLoginisState.userNameExpIsState"
+                [class.padding-err]="$GlobalService.globalTipsModelModel.regLoginisState.userNameExpIsState">
+             {{$GlobalService.globalTipsModelModel.regLoginisState.userNameExpMsg}}
+           </div>
+           <div class="password-box">
+             <i
+               [class]="passwordType === 'password' ? 'iconfont iconeyeoff icon-password' : 'iconfont iconeyeon icon-password'"
+               (click)="toggleIsPassword()"></i>
+             <input pInputText class="input-con"
+                    placeholder="密码（8~12个字母和数字组成）"
+                    [type]="passwordType"
+                    [(ngModel)]="$GlobalService.globalQueryModel.createUser.passWord"
+                    maxlength="12"
+                    [class.margin-bottom]="$GlobalService.globalTipsModelModel.regLoginisState.passWordExpIsState || $GlobalService.globalTipsModelModel.regLoginisState.isPasswordQd"
+                    [class.err-msg-border]="$GlobalService.globalTipsModelModel.regLoginisState.passWordExpIsState"
+                    (blur)="$GlobalMethodsService.rustFormatReg('password', $GlobalService.globalQueryModel.createUser.passWord)"
+                    (input)="$GlobalMethodsService.passwordChangeInput('password', $GlobalService.globalQueryModel.createUser.passWord)"
+             >
+             <div *ngIf="$GlobalService.globalTipsModelModel.regLoginisState.passWordExpIsState"
+                  [class.padding-err]="$GlobalService.globalTipsModelModel.regLoginisState.passWordExpIsState">{{$GlobalService.globalTipsModelModel.regLoginisState.passWordExpMsg}}</div>
+             <div class="zm-qd"
+                  *ngIf="!$GlobalService.globalTipsModelModel.regLoginisState.passWordExpIsState && $GlobalService.globalTipsModelModel.regLoginisState.isPasswordQd"
+                  [class.padding-err-password-qd]="!$GlobalService.globalTipsModelModel.regLoginisState.passWordExpIsState && $GlobalService.globalTipsModelModel.regLoginisState.isPasswordQd">
+                           <span class="zm-password-qd"
+                                 [ngClass]="$GlobalService.globalTipsModelModel.regLoginisState.passwordQdStyle === 2 ? 'zm-password-qd-g' : $GlobalService.globalTipsModelModel.regLoginisState.passwordQdStyle === 3 ? 'zm-password-qd-z' : 'zm-password-qd-d' "></span>
+               <span class="zm-password-qd"
+                     [ngClass]="$GlobalService.globalTipsModelModel.regLoginisState.passwordQdStyle === 2 ? 'zm-password-qd-g' : $GlobalService.globalTipsModelModel.regLoginisState.passwordQdStyle === 3 ? 'zm-password-qd-z' : '' "></span>
+               <span class="zm-password-qd"
+                     [ngClass]="$GlobalService.globalTipsModelModel.regLoginisState.passwordQdStyle === 2 ? 'zm-password-qd-g' : ''"></span>
+             </div>
+           </div>
+
+           <div>
+             <input pInputText class="input-con"
+                    placeholder="手机号"
+                    type="text"
+                    [(ngModel)]="$GlobalService.globalQueryModel.createUser.mobile"
+                    maxlength="11"
+                    [class.margin-bottom]="$GlobalService.globalTipsModelModel.regLoginisState.mobileExpIsState"
+                    [class.err-msg-border]="$GlobalService.globalTipsModelModel.regLoginisState.mobileExpIsState"
+                    (blur)="$GlobalMethodsService.rustFormatReg('mobile', $GlobalService.globalQueryModel.createUser.mobile)">
+             <div *ngIf="$GlobalService.globalTipsModelModel.regLoginisState.mobileExpIsState"
+                  [class.padding-err]="$GlobalService.globalTipsModelModel.regLoginisState.mobileExpIsState">{{$GlobalService.globalTipsModelModel.regLoginisState.mobileExpMsg}}</div>
+             <!-- <div class="mobile-tip-p"
+                  [class.padding-err]="$GlobalService.globalTipsModelModel.regLoginisState.mobileExpIsState"
+             >
+               <img class="dp-img" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/dengpaotip.png" alt="">
+               请务必填写真实手机号码，稍后回访时会有惊喜红利派送</div> -->
+           </div>
+           <!--手机验证码-->
+           <div *ngIf="$GlobalService.globalTipsModelModel.regLoginisState.isYzmShow">
+             <input pInputText class="input-con" style="width: 224px" type="text"
+                    [(ngModel)]="$GlobalService.globalQueryModel.createUser.smsCode" maxlength="4">
+             <button class="head-yzm"
+                     [class.yzm-not-disable]="!$GlobalService.globalTipsModelModel.regLoginisState.mobileExpIsState && $GlobalService.globalTipsModelModel.regLoginisState.isYzm"
+                     [disabled]="$GlobalService.globalTipsModelModel.regLoginisState.mobileExpIsState || !$GlobalService.globalTipsModelModel.regLoginisState.isYzm"
+                     (click)="$GlobalMethodsService.getMobileNum($GlobalService.globalQueryModel.createUser.mobile)">
+               {{$GlobalService.globalTipsModelModel.regLoginisState.yzmText}}
+             </button>
+           </div>
+           <input pInputText class="input-con" type="text"
+                  [disabled]="$GlobalService.globalQueryModel.createUser.isreferCode"
+                  [(ngModel)]="$GlobalService.globalQueryModel.createUser.referCode"
+                  placeholder="介绍号，没有可不填"
+                  maxlength="6">
+           <!--图片验证码-->
+           <div *ngIf="!$GlobalMethodsService.verifySwitchOn">
+             <input pInputText class="input-con" style="width: 224px" type="text"
+                    [(ngModel)]="$GlobalService.globalQueryModel.createUser.code"
+                    maxlength="4">
+             <img class="head-yzm" [src]="$GlobalService.globalTipsModelModel.regLoginisState.yzmUrl"
+                  (click)="$GlobalMethodsService.syidentifying('reg')"/>
+           </div>
+         </div>
+         <button class="input-button" *ngIf="$GlobalMethodsService.verifySwitchOn; else regButton"
+            [disabled]="!$GlobalService.globalTipsModelModel.regLoginisState.isSubmit"
+            [class.zm-no-disable]="!$GlobalService.globalTipsModelModel.regLoginisState.isSubmit"
+            lh-loading
+            data-toggle="modal" data-target="#click"
+            [isHideLoad]="$GlobalService.globalTipsModelModel.regLoginisState.isLoginLoading">
+            {{$GlobalService.globalTipsModelModel.regLoginisState.isLoginLoading ? '注册中...' : '注册' }}
+          </button>
+         <ng-template #regButton>
+          <button class="input-button"
+                  [disabled]="!$GlobalService.globalTipsModelModel.regLoginisState.isSubmit"
+                  [class.zm-no-disable]="!$GlobalService.globalTipsModelModel.regLoginisState.isSubmit"
+                  (click)="$GlobalMethodsService.registeredLogin()"
+                  lh-loading
+                  [isHideLoad]="$GlobalService.globalTipsModelModel.regLoginisState.isLoginLoading">
+            {{$GlobalService.globalTipsModelModel.regLoginisState.isLoginLoading ? '注册中...' : '注册' }}
+          </button>
+         </ng-template>
+          </div>
+          <!--短信注册-->
+          <div class="select-msg-info" *ngIf="isRegIndex == 1">
+            <div>
+              <input pInputText class="input-con" placeholder="请输入手机号" type="text" [(ngModel)]="$GlobalService.globalQueryModel.fastCreateUser.mobile" maxlength="13">
+              <!-- <div class="mobile-tip-p">
+               <img class="dp-img" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/dengpaotip.png'" alt=""/>
+               请务必填写真实手机号码，稍后回访时会有惊喜红利派送</div> -->
+              <input pInputText class="input-con" style="width: 224px" type="text" [(ngModel)]="$GlobalService.globalQueryModel.fastCreateUser.smsCode" maxlength="13" placeholder="请输入验证码">
+              <button class="head-yzm"
+                    (click)="$GlobalMethodsService.sendRegisterCode()"
+                    [class.yzm-not-disable]="!$GlobalService.globalQueryModel.fastCreateUser.mobile || $GlobalMethodsService.registerCount < 60"
+                    [disabled]="!$GlobalService.globalQueryModel.fastCreateUser.mobile || $GlobalMethodsService.registerCount < 60">{{this.$GlobalService.globalTipsModelModel.loginState.regText}}</button>
+              <input pInputText class="input-con" type="text" placeholder="介绍号，没有可不填" maxlength="13" [disabled]="$GlobalService.globalQueryModel.createUser.isreferCode" [(ngModel)]="$GlobalService.globalQueryModel.createUser.referCode">
+            </div>
+            <button class="input-button"
+                 [disabled]="!$GlobalService.globalQueryModel.fastCreateUser.smsCode || !$GlobalService.globalQueryModel.fastCreateUser.mobile"
+                 [class.zm-no-disable]="!$GlobalService.globalQueryModel.fastCreateUser.smsCode || !$GlobalService.globalQueryModel.fastCreateUser.mobile"
+                 (click)="$GlobalMethodsService.fastRegister()">
+              {{$GlobalService.globalTipsModelModel.regLoginisState.isRegSubmitLoading ? '注册中...' : '注册' }}
+            </button>
+          </div>
+          <div class="input-zc">
+            <span>已有账号，</span>
+            <span class="mashang-login" (click)="comeOnLogin()">马上登录</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--注册成功-->
+<div class="zm-login zc-suc-model" *ngIf="$GlobalService.globalTipsModelModel.loginisState.registerSuccess">
+  <div class="zm-login-con fadeInDown-zm"
+  [style.background-image]="'url(' + $GlobalService.globalJavaResData.cdnValidKey2 + '/' + $GlobalService.globalJavaResData.projectName + '/img/bg_login_dialog@1x.png' + ')'"
+       [class.animated]="$GlobalService.globalTipsModelModel.loginisState.isLoginCon">
+    <span class="iconfont zm-icon-close" (click)="zcsucClose()">&#xe60c;</span>
+    <div class="zm-login-title">
+      <div class="zm-title-text">恭喜您注册成功</div>
+    </div>
+    <div class="zc-suc-content">
+      <div class="zc-suc-title">以下是您的账户信息</div>
+      <div class="zc-msg">
+        <div class="row">
+          <div class="label-value">
+            账号：<span id="account-copy">{{$GlobalService.globalTipsModelModel.regSuccAccount.account}}</span>
+          </div>
+          <button class="input-button" (click)="copy('account-copy')">复制</button>
+        </div>
+        <div class="row">
+          <div class="label-value">
+            密码：<span id="pass-copy">{{$GlobalService.globalTipsModelModel.regSuccAccount.password}}</span>
+          </div>
+          <button class="input-button" (click)="copy('pass-copy')">复制</button>
+        </div>
+      </div>
+      <div class="hint">请及时修改默认登录密码</div>
+      <button class="input-button" (click)="goModifyPass()">去修改密码</button>
+    </div>
+  </div>
+</div>
+

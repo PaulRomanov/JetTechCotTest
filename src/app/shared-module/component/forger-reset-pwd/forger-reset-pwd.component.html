@@ -1,0 +1,87 @@
+<div class="pwd-content" [style.height]="windowHeight">
+  <div class="content-step">
+    <img *ngIf="isStep1" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/pwd-step1.png" alt="">
+    <img *ngIf="isStep2" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/pwd-step2.png" alt="">
+    <img *ngIf="isStep3" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/pwd-step3.png" alt="">
+    <img *ngIf="isStep4" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/pwd-step4.png" alt="">
+    <div>
+      <span class="">填写账号</span>
+      <span>身份验证</span>
+      <span>设置新密码</span>
+      <span>完成</span>
+    </div>
+  </div>
+  <div class="line"></div>
+  <div class="content-txt" *ngIf="isStep1">
+    <div class="content-txt-title">请输入您的账号并选择找回方式</div>
+    <div class="content-txt-item">
+      <div class="input-item">
+        <input type="text" maxlength="13" class="input-account" placeholder="账号（6-13位数字与字母）" [(ngModel)]="account">
+      </div>
+      <div class="input-item input-code">
+        <input type="text" placeholder="请输入验证码" [(ngModel)]="code">
+        <img src="{{codeUrl}}" (click)="refreshCode()" />
+      </div>
+      <div>
+        <button class="btn pwd-btn" (click)='resetBy(1)'>通过手机号找回</button>
+        <button class="btn pwd-btn ml30" (click)='resetBy(2)'>通过密保问题找回</button>
+      </div>
+    </div>
+  </div>
+  <div class="content-txt" *ngIf="isStep2">
+    <div class="content-txt-title" *ngIf="!isByQuestion">消息已发送至您的账号手机，请查看短信验证码</div>
+    <div class="content-txt-item">
+      <div class="input-item" *ngIf="!isByQuestion">
+        <input type="text" class="input-SMS" placeholder="请填写短信验证码" [(ngModel)]="smsCode">
+        <button class="btn" *ngIf="!isSendSMS">{{countSecond}}s</button>
+        <button class="btn pwd-btn" *ngIf="isSendSMS" (click)='sendSMS()'>重新发送</button>
+      </div>
+      <div class="input-item" *ngIf="isByQuestion">
+        <p-dropdown [options]="questionList" optionLabel="name" [(ngModel)]="selectedQuestion" (onChange)="changeType($event)">
+        </p-dropdown>
+      </div>
+      <!-- <div class="input-item" *ngIf="!isByQuestion">
+        <input type="text" class="input-SMS" placeholder="请填写短信验证码" [(ngModel)]="smsCode">
+      </div> -->
+      <div class="input-item" *ngIf="isByQuestion">
+        <input type="text" class="input-SMS" placeholder="请输入安全问题答案" [(ngModel)]="inputQuestion">
+      </div>
+      <div>
+        <button class="btn pwd-btn" (click)='next(0)'>上一步</button>
+        <button class="btn pwd-btn ml30" (click)='next(1)'>下一步</button>
+      </div>
+    </div>
+  </div>
+  <div class="content-txt" *ngIf="isStep3">
+    <div class="content-txt-title">请输入新的密码</div>
+    <div class="content-txt-item">
+      <div class="input-item">
+        <input type="{{isShowPwd?'text':'password'}}" maxlength="12" class="input-account" placeholder="请输入密码" [(ngModel)]="password" (keyup)='checkPwdStrength()'>
+        <i class="iconfont" [ngClass]="isShowPwd ? 'iconyanjing' : 'iconbiyan'" (click)='toggleClass(1)'></i>
+        <!-- <i class="iconfont iconyanjing" *ngIf="isShowPwd"></i> -->
+        <div class="progress">
+          <div class="progress-item" [ngClass]="{active: progress>0&&progress<4}"></div>
+          <div class="progress-item" [ngClass]="{active: progress>1&&progress<4}"></div>
+          <div class="progress-item" [ngClass]="{active: progress===3}"></div>
+        </div>
+      </div>
+      <div class="input-item">
+        <input type="{{isShowEnsurePwd?'text':'password'}}" maxlength="12" class="input-account" placeholder="确认密码" [(ngModel)]="ensurePwd">
+        <i class="iconfont" [ngClass]="isShowEnsurePwd ? 'iconyanjing' : 'iconbiyan'" (click)='toggleClass(2)'></i>
+      </div>
+      <div>
+        <button class="btn pwd-btn confirm-btn" (click)='resetPwd()'>确定</button>
+        <!-- <button class="btn pwd-btn" (click)='resetByQuestion()'>通过密保问题找回</button> -->
+      </div>
+    </div>
+  </div>
+  <div class="content-txt step4" *ngIf="isStep4">
+    <div class="iconfont">&#xe60f;</div>
+    <div class="content-txt-title">您已经成功设置密码，请使用新密码登录</div>
+    <div class="content-txt-item">
+      <div>
+        <button class="btn pwd-btn confirm-btn" (click)='login()'>马上登录</button>
+      </div>
+    </div>
+  </div>
+</div>

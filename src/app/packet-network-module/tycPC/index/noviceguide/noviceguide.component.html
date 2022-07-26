@@ -1,0 +1,44 @@
+<div class="bg" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/main-background@2x.jpg' | bgUrl">
+  <tyc-homepage></tyc-homepage>
+  <tyc-marquee [marqueeTitleStyle]="marqueeTitleStyle" [marqueeContentStyle]="marqueeContentStyle"></tyc-marquee>
+  <!--首页弹窗-->
+  <div class="zm-model-box" *ngIf="$GlobalService.globalTipsModelModel.isOpenBigMsg && (bannerLeft.length > 0 || bannerRight.length > 0)">
+    <div class="zm-container">
+      <div class="zm-model-title" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/dialog_top.png' | bgUrl">
+            <span class="zm-close-btn"
+                  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/closeOpen.png' | bgUrl"
+                  (click)="toggleShow()"></span>
+      </div>
+      <div class="zm-model-box-con">
+        <div class="zm-con-left" *ngIf="bannerLeft.length > 0">
+          <div class="zm-con-left-item"
+               *ngFor="let item of bannerLeft let i = index"
+               [style.color]="item.active ? '#fff':'#DAD4D1'"
+               [style.background-image]="item.active ? ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/active-bg_01.png' | bgUrl) : ($GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/current-bg.png' | bgUrl)"
+               (click)="toogelImg(item,i)">
+            {{item.title}}
+          </div>
+        </div>
+        <div class="zm-con-content" *ngIf="bannerLeft.length > 0">
+          <img [hidden]="!(imgShowIndex === i)"
+              *ngFor="let item of bannerLeft let i = index"
+               [src]="item.imgurl"
+               (click)="bannerJump(item)"
+               alt="">
+        </div>
+        <div class="zm-con-right" *ngIf="bannerRight.length > 0">
+          <div class="zm-right-item" *ngFor="let item of bannerRight let i = index">
+            <img [src]="item.imgurl" alt="" (click)="bannerJump(item)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 首页签到悬浮窗 -->
+  <div class="zm-model-sign" *ngIf="$GlobalService.globalJavaResData.isSignShow">
+    <img (click)="goSign()" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/sign_ad.png" alt="" />
+    <div class="zm-sign-close" (click)="closeSign()"></div>
+  </div>
+  <!--<pc-seekAdvice></pc-seekAdvice>-->
+  <app-handicap></app-handicap>
+</div>

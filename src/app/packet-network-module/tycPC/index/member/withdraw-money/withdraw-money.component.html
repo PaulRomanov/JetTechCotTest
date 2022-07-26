@@ -1,0 +1,41 @@
+<div class="index-withdraw-money">
+  <!-- <p-steps [model]="items" styleClass="steps-custom" [readonly]="false" [activeIndex]="isLoad"></p-steps> -->
+  <ul class="progressBar">
+		<li class="active">
+      <p></p>
+      <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_1.png" />
+			<p></p>
+		</li>
+		<li [class.active]="isLoad>0">
+      <p></p>
+      <img *ngIf="isLoad===0" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_2.png" />
+      <img *ngIf="isLoad>0" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_2_2.png" />
+			<p> </p>
+		</li>
+		<li [class.active]="isLoad>1">
+      <p> </p>
+      <img *ngIf="isLoad<2" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_3.png" />
+      <img *ngIf="isLoad===2" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/progress_3_2.png" />
+      提交成功
+		</li>
+	</ul>
+  <div class="index-withdraw-money_one" *ngIf="isLoad !== 2">
+    <pc-withdrawone-one [data]="" (loadingChange)="getIsLading($event)"></pc-withdrawone-one>
+  </div>
+  <div class="index-withdraw-money_one" *ngIf="isLoad === 2">
+    <div class="Member_drwa_conghesd">
+      <i class="iconfont chenggong">&#xe60f;</i>
+      <p>提现申请提交成功</p>
+    </div>
+    <p class="index-withdraw-money-tips">我们尽快为您处理<span *ngIf="isShow">，预计
+      {{$GlobalService.globalJavaResData.WITAUDITFLAG['WITAUDITTIME']}}小时内到账</span>，请关注资金变动。</p>
+    <div class="index-withdraw-money-record"><span [routerLink]="['/tyc/index/member/accountHistory']">查看资金记录&nbsp;></span></div>
+  </div>
+  <div class="index-withdraw-money_bottom">
+    <p><span>温馨提示:</span>1.取款之间的间隔为两分钟。游戏注单同步需要一定时间，如流水量
+      与您实际不符合，请耐心等待一段时间。</p>
+    <p>2.尊敬的会员，款项只能从主账户，若要取出其他游戏账户的款项请将额度转换到主账户。</p>
+    <p>3.如有问题请联系<em (click)="$GlobalMethodsService.openKufu()">在线客服</em></p>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="djchess-card">
+  <div class="djchess-card-background"
+       [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/qpbj.png' | bgUrl">
+    <div class="djchess-card-background-center">
+      <ul class="game_type_list">
+        <ng-container *ngFor="let item of gameTypeList let i = index">
+          <li class="game_name" (click)="changeGameType(i)">{{item.name}}</li>
+        </ng-container>
+        <li class="game_type_active" [class.check_first] ="checkGameTypeIndex===0"></li>
+      </ul>
+      <ul class="game_list">
+        <ng-container *ngFor="let data of $GlobalService.globalJavaResData.gameNavList">
+          <ng-container *ngIf="data.subname === 'VG GAME'">
+            <li *ngFor="let x of data.childs let i = index" (click)="goGame(x)">
+              <img [src]="x.imgLUrl" />
+              <div class="djchess-card-background-center-div">
+                <p [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/gameBtn.png' | bgUrl">{{x.name}}</p>
+              </div>
+              <div class="djchess-card-background-center-button">
+                <!-- <div>{{x.name}}</div> -->
+                <button>开始游戏</button>
+              </div>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>

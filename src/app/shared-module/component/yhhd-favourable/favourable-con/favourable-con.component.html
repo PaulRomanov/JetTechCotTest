@@ -1,0 +1,260 @@
+<div class="favourable-container" id="wrap" (mousemove)="mouseMoveDom($event)">
+  <div class="favourable-header-bg"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/' + $GlobalService.globalJavaResData.projectName + '/img/favourable-bg.jpg' | bgUrl">
+
+    <div>
+      <div class="favourable-header-yyq"
+        [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/favourable-yyq.png' | bgUrl"
+        [style.width.%]="changeNum">
+      </div>
+      <div class="text2-box">
+        <img class="favourable-header-hd-text2"
+          src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/public/img/favoueabletext-dt.gif" alt="">
+      </div>
+      <!--      <div class="favourable-header-hd-text"
+                 [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/favoueabletext-dt.gif' | bgUrl"
+
+      ></div>-->
+      <!--      <div class="favourable-header-hd-yun"
+             [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/favou_yun.png' | bgUrl"
+      ></div>-->
+      <!--      <div class="favourable-header-hd-text-show"
+                  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/textbg.png' | bgUrl"
+
+      ></div>-->
+      <!--      <div class="favourable-header-hd-pop-men"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/favoueable-pop.png' | bgUrl"
+      [style.left.%]="popChangeNum"></div>-->
+      <div class="favourable-header-hd-pop-men2" [style.left.%]="popChangeNum">
+        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/public/img/favoueable-pop.png" alt=""
+          style="width: 100%;">
+      </div>
+      <div class="favourable-header-hd-yj"
+        [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/favoueable-yj.png' | bgUrl"
+        [style.width.%]="changeNum"></div>
+      <div class="favourable-header-hd-lh fly-item"
+        [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/favourable-lh2.gif' | bgUrl">
+      </div>
+    </div>
+
+    <div class="favourable-container-banner">
+      <div class="pageIn">
+        <h2 class="sloga"
+          [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/dianjing/img/favourable-title.png' | bgUrl">
+          七月全民海趴</h2>
+      </div>
+      <div class="favourable-banner-title2"
+        [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/favourable-title-bg.png' | bgUrl">
+        <!--        <div class="back-home2" routerLink="noviceguide">返回首页<i></i></div>-->
+        <h2>活动中心</h2>
+        <div class="favourable-banner-link2">您当前位置：<a>首页</a> <span>></span> <a>活动中心</a></div>
+        <div class="favourable-banner-user-info2">
+          <!--        <a class="banner-sc">我的收藏</a>-->
+          <!--        <a class="banner-zj">足迹</a>-->
+          <!--          <div class="banner-login-info" *ngIf="$GlobalService.globalQueryModel.sessionStorageName">-->
+          <!--            <span class="border-d" style="border: none;">{{$GlobalService.globalQueryModel.sessionStorageName}}</span>-->
+          <!--            <span>-->
+          <!--            欢迎您，-->
+          <!--          </span>-->
+          <!--          </div>-->
+
+          <!--          <div class="banner-login-info" *ngIf="!$GlobalService.globalQueryModel.sessionStorageName">-->
+          <!--            <span class="border-d" (click)="getLogin()"> [登录]</span>-->
+          <!--            <span>-->
+          <!--            您好,请-->
+          <!--          </span>-->
+
+          <!--          </div>-->
+        </div>
+      </div>
+
+      <!--      <div class="favourable-banner-title"
+                 [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/favourable-title-bg.png' | bgUrl"
+      >-->
+      <!--        <h2>活动中心</h2>-->
+      <!--        <div class="favourable-banner-link">您当前位置：<a>首页</a> <span>></span> <a>活动中心</a></div>-->
+      <!--        <div class="back-home" routerLink="noviceguide">返回首页<i></i></div>-->
+      <!--        <div class="favourable-banner-user-info">-->
+      <!--          &lt;!&ndash;        <a class="banner-sc">我的收藏</a>&ndash;&gt;-->
+      <!--          &lt;!&ndash;        <a class="banner-zj">足迹</a>&ndash;&gt;-->
+      <!--          <div class="banner-login-info" *ngIf="$GlobalService.globalQueryModel.sessionStorageName">-->
+      <!--            <span class="border-d" style="border: none;">{{$GlobalService.globalQueryModel.sessionStorageName}}</span>-->
+      <!--            <span>-->
+      <!--            欢迎您，-->
+      <!--          </span>-->
+      <!--          </div>-->
+
+      <!--          <div class="banner-login-info" *ngIf="!$GlobalService.globalQueryModel.sessionStorageName">-->
+      <!--            <span class="border-d" (click)="getLogin()"> [登录]</span>-->
+      <!--            <span>-->
+      <!--            您好,请-->
+      <!--          </span>-->
+
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <div class="banner-con-hd">
+        <div class="banner-con-hd-info">
+          <div class="banner-tab-com">
+            <ul id="banner-ul">
+              <div class="active" [style.left.px]="(isIndex - 1) * (1118 / listHead.length)"
+                [style.width.px]="1118 / listHead.length"></div>
+              <li *ngFor="let item of listHead">
+                <a href="javascript:void(0);" [class.current]="item.ID === isIndex"
+                  (click)="selectClick($event, item, item.ID)">
+                  <img class="li-img" [src]="item.URL" alt="">
+                  {{item.PREACTNAME}}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="banner-hd-list">
+            <ul class="clearfix">
+              <li *ngFor="let item of list">
+                <a (click)='checkDetail(1,item)'>
+                  <img src="{{item.PCACTIMG}}">
+                </a>
+                <span class="underway"
+                  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/public/img/active_spr.png' | bgUrl"
+                  *ngIf="item.APPLYENTER===0">进行中</span>
+                <p class="banner-title">
+                  <a class="banner-list-title" (click)='checkDetail(1,item)'>{{item.ACTNAME}}</a>
+                  <button class="banner-active-sq hvr-border-fade-button">
+                    <!-- <a  class="hvr-icon-wobble-shengqing" (click)='applyPort(item)'>点击申请</a> -->
+                    <a class="hvr-icon-wobble-shengqing" (click)='checkDetail(1,item)'>查看详情</a>
+                  </button>
+                </p>
+                <!-- <p class="banner-hd-time">活动时间：永久</p>
+                <p class="banner-hd-msg">{{item.ACTRENARKS}}</p> -->
+              </li>
+              <div class="banner-hd-list-null" *ngIf="list.length === 0">暂无更多数据...</div>
+              <!--            <li>-->
+              <!--              <a href="javascript:;">-->
+              <!--                <img src="../../../../assets/ly/img/hd2.jpg">-->
+              <!--              </a>-->
+              <!--              <span class="notstart">限时活动</span>-->
+              <!--              <a class="banner-list-title" href="javascript:;">-->
+              <!--                VG棋牌迎80%首存优惠-->
+              <!--              </a>-->
+              <!--              <button class="banner-active-sq hvr-border-fade-button" href="javascript:;">-->
+              <!--                <a href="javascript:;" class="hvr-icon-wobble-shengqing">点击申请</a>-->
+              <!--              </button>-->
+              <!--              <p class="banner-hd-time">活动时间：<span>2019.03.22-2019.08.22</span></p>-->
+              <!--              <p class="banner-hd-msg">全网最好玩励杨VG棋牌，高达80%首存红利相送！</p>-->
+              <!--            </li>-->
+              <!--            <li>-->
+              <!--              <a href="javascript:;">-->
+              <!--                <img src="../../../../assets/ly/img/hd3.jpg">-->
+              <!--              </a>-->
+              <!--              <span class="ended">已结束</span>-->
+              <!--              <a class="banner-list-title" href="javascript:;">-->
+              <!--                老虎机首存赠送100%-->
+              <!--              </a>-->
+              <!--              <button class="banner-active-sq hvr-border-fade-button" href="javascript:;"-->
+              <!--                      [disabled]="isOver"-->
+              <!--                      [class.hvr-border-fade-button]="!isOver">-->
+              <!--                <a href="javascript:;" class="hvr-icon-wobble-shengqing"-->
+              <!--                   [class.hvr-icon-wobble-shengqing]="!isOver">-->
+              <!--                  点击申请-->
+              <!--                  <em *ngIf="isOver" class="iconfont iconshenqing1" style="font-size: 13px;margin-left: 4px"></em></a>-->
+              <!--              </button>-->
+              <!--              <p class="banner-hd-time">活动时间：<span>2018.03.12-2019.04.25</span></p>-->
+              <!--              <p class="banner-hd-msg">励杨太阳城震撼推出老虎机疯狂存送！</p>-->
+              <!--            </li>-->
+              <!--            <li>-->
+              <!--              <a href="javascript:;">-->
+              <!--                <img src="../../../../assets/ly/img/hd2.jpg">-->
+              <!--              </a>-->
+              <!--              <span class="notstart">限时活动</span>-->
+              <!--              <a class="banner-list-title" href="javascript:;">-->
+              <!--                VG棋牌迎80%首存优惠-->
+              <!--              </a>-->
+              <!--              <button class="banner-active-sq hvr-border-fade-button" href="javascript:;">-->
+              <!--                <a href="javascript:;" class="hvr-icon-wobble-shengqing">点击申请</a>-->
+              <!--              </button>-->
+              <!--              <p class="banner-hd-time">活动时间：<span>2019.01.01-2019.07.03</span></p>-->
+              <!--              <p class="banner-hd-msg">全网最好玩励杨VG棋牌，高达80%首存红利相送！</p>-->
+              <!--            </li>-->
+              <!--            <li>-->
+              <!--              <a href="javascript:;">-->
+              <!--                <img src="../../../../assets/ly/img/hd1.jpg">-->
+              <!--              </a>-->
+              <!--              <span class="underway">进行中</span>-->
+              <!--              <a class="banner-list-title" href="javascript:;">-->
+              <!--                VG棋牌迎新福袋-->
+              <!--              </a>-->
+              <!--              <button class="banner-active-sq hvr-border-fade-button" href="javascript:;">-->
+              <!--                <a href="javascript:;" class="hvr-icon-wobble-shengqing">点击申请</a>-->
+              <!--              </button>-->
+              <!--              <p class="banner-hd-time">活动时间：永久</p>-->
+              <!--              <p class="banner-hd-msg">VG棋牌迎新福袋，每天最高可获得1800金币！</p>-->
+              <!--            </li>-->
+              <!--            <li>-->
+              <!--              <a href="javascript:;">-->
+              <!--                <img src="../../../../assets/ly/img/hd3.jpg">-->
+              <!--              </a>-->
+              <!--              <span class="ended">已结束</span>-->
+              <!--              <a class="banner-list-title" href="javascript:;">-->
+              <!--                老虎机首存赠送100%-->
+              <!--              </a>-->
+              <!--              <button class="banner-active-sq hvr-border-fade-button" href="javascript:;"-->
+              <!--                      [disabled]="isOver"-->
+              <!--                      [class.hvr-border-fade-button]="!isOver">-->
+              <!--                <a href="javascript:;" class="hvr-icon-wobble-shengqing"-->
+              <!--                   [class.hvr-icon-wobble-shengqing]="!isOver">-->
+              <!--                  点击申请-->
+              <!--                  <em *ngIf="isOver" class="iconfont iconshenqing1" style="font-size: 13px;margin-left: 4px"></em></a>-->
+              <!--              </button>-->
+              <!--              <p class="banner-hd-time">活动时间：<span>2019.01.12-2019.05.20</span></p>-->
+              <!--              <p class="banner-hd-msg">励杨太阳城震撼推出老虎机疯狂存送！</p>-->
+              <!--            </li>-->
+            </ul>
+          </div>
+          <!--          <div id="mPageList" class="m_page_list banner-page-info">-->
+          <!--            <a id="mPagePrev" class="prev" href="javascript:;"><b>&lt;</b>上一页</a>-->
+          <!--            <a id="mPageNext" class="next" href="javascript:;">下一页<b>&gt;</b></a>-->
+          <!--            <span><b>1</b>/<i></i></span>&nbsp;&nbsp;-->
+          <!--            到&nbsp;<input class="banner-page-value" type="text" value="">-->
+          <!--            <a id="mPageGo" class="banner-page-go" href="javascript:;">GO</a>-->
+          <!--          </div>-->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- 活动申请弹框 -->
+  <!-- <div class="dialog-apply" *ngIf="isDialogShow">
+		<div class="dialog-apply-modal" (click)='closeDialogApply()'></div>
+		<div class="dialog-apply-content">
+			<div class="dialog-apply-title">
+				<div class="font18">申请活动</div>
+				<i class="iconfont" (click)="closeDialogApply()">&#xe6a0;</i>
+			</div>
+			<div class="dialog-apply-box">
+				<ul>
+					<li class="apply-item">
+						<span >申请活动：</span>
+						<input type="text" readonly class="apply-activity-title" value="{{currentData.ACTNAME}}">
+						<span ></span>
+						<input type="button" value="查看详情" class="apply-activity-check" (click)="checkDetail(2)" />
+					</li>
+					<li *ngFor="let item of applyItemList" class="apply-item">
+						<span ><b style="color:red;">*</b> {{item.name}}：</span>
+						<input type="text" [(ngModel)]="item.value" (blur)="isHasValue(1,item)">
+						<span class="activity-warning">{{item.warningTxt}}</span>
+					</li>
+					<li class="activity_code apply-item">
+						<span><b style="color:red;">*</b> 请输入验证码：</span>
+						<input  type="text" placeholder="请输入验证码" [(ngModel)]="activityCode" (blur)='isHasValue(2)' />
+						<span class="activity_code-img activity-warning"> {{codeWarningText}}<img src="{{codeUrl}}" id="activity_imgcode"  (click)="refreshCode()" /></span>
+					</li>
+					<li class="apply-item apply-btn">
+						<span></span>
+						<input type="button" value="提交申请" (click)='submitActivityData()'>
+						<span ></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+  </div> -->
+</div>

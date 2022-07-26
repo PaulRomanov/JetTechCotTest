@@ -1,0 +1,65 @@
+<!--<div class="index2" *ngIf="$GlobalService.globalQueryModel.companyId === '24'"-->
+<div class="index2"
+
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 +
+     $GlobalService.globalJavaResData.projectName + '/img/dz-game-bg.jpg' | bgUrl">
+  <div class="index2Content">
+    <div class="titleOne bg" id="dzGame">
+      <ul class="swiper-wrapper ul-slider" style="position: relative">
+        <div class="title-current" style="height: 50px;"></div>
+        <li class="swiper-slide"
+            *ngFor="let x of navList let i = index"
+            [class.active]="i === oneTiTle"
+            (click)="titleTab(x, i)">
+          <span>
+             {{x.name}}
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="isLinkType">
+      <div class="title2">
+        <div class="titleTwoGrops">
+          <ul>
+            <li *ngFor="let data of titleList let i = index"
+                [class.title-active]="i === titleNum" (click)="twoTitle(data, i)">
+              <span>{{data.gameName}}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="searchGrop">
+          <input type="text" placeholder="请输入游戏名称" [(ngModel)]="searchGameName">
+          <i class="iconfont" (click)="gameSearch()">&#xe634;</i>
+        </div>
+      </div>
+      <div class="gameLists">
+        <ul id="theader">
+          <li *ngFor="let data of gameList">
+            <div class="firstFloor">
+              <img src="{{(data.newimgpath.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{data.newimgpath}}"
+                   [class]="data.gameplatformId ==='PT' ? 'imgHeight' : 'imgPrimary'">
+              <p>
+                <span>{{data.gamename}}</span>
+                <i class="iconfont">&#xe676;</i>
+              </p>
+            </div>
+            <div class="twoFloor">
+              <p  (click)="startGame(data)">
+                <a href="javascript:;">开始游戏</a>
+              </p>
+              <p>
+                <span>{{data.gamename}}</span>
+                <b><i class="iconfont">&#xe676;</i></b>
+              </p>
+            </div>
+          </li>
+          <div class="firstFloorTX" *ngIf="gameList.length === 0" style="width: 100%;text-align: center;">暂无更多数据...</div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="onlyImg" *ngIf="!isLinkType">
+      <img [src]="gameImgBg" alt="">
+    </div>
+  </div>
+</div>

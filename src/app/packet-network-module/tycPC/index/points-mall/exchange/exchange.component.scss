@@ -1,0 +1,33 @@
+h3{
+    height: 40px;
+    padding-left: 20px;
+    border-bottom: 1px solid #5d5d5d;
+    background-color: #141414;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 41px;
+}
+.content{
+    padding:10px 30px 20px;
+    background: #141414;
+    color: #fff;
+    line-height: 20px;
+    h4{
+        margin: 10px 0;
+        font-size: 15px;
+        font-weight: 500;
+        color: #FFE7B8;
+        position: relative;
+        &::before{
+            content: "";
+            position: absolute;
+            left: -20px;
+            top:6px;
+            width:6px;
+            height: 6px;
+            background-color: #FFE7B8;
+            transform: rotate(45deg);
+        }
+    }
+}

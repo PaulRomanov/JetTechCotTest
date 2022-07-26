@@ -1,0 +1,14 @@
+.swiper-slide img{width: 100%;height: 100%;display: block;}
+.swiper-container .hide{
+  opacity:0;
+}
+.swiper-button-next,.swiper-button-prev{
+  transition:opacity .5s;
+}
+.swiper-button-prev {
+  left: 0px;
+}
+.swiper-button-next {
+  right: 0px;
+}
+

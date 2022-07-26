@@ -1,0 +1,59 @@
+<div class="common-bank-card" *ngIf="!isSHowBankInfo">
+  <ul class="new-bank-card-ul">
+    <li>
+      <label><span>*</span>存款银行：</label>
+      <p-dropdown [options]="cities1"
+                  [(ngModel)]="selectedCity1"
+                  [filter]="true"
+                  class="zm-dropdown-style" [style]="{'width':'145px'}"
+                  (onChange)="changeType($event)"
+                  filterBy="label,value.name" ></p-dropdown>
+    </li>
+    <li><label><span>*</span>银行卡号：</label>
+      <input type="text" pInputText placeholder="请输入银行卡号" maxlength="19" disabled
+             onkeyup = "value=value.replace(/[^\d]/g,'')"
+             class="common-input-style"
+             [(ngModel)]="$GlobalService.globalQueryModel.updCard.accountnum"/>
+    </li>
+    <li  class="new-bank-card-city"><label><span>*</span>所属地区：</label>
+      <input type="text" pInputText placeholder="所属省" size="10"
+             class="common-input-style"
+             [(ngModel)]="$GlobalService.globalQueryModel.updCard.province"/>
+      <input type="text" pInputText placeholder="所属城市"  size="10"
+             class="common-input-style"
+             [(ngModel)]="$GlobalService.globalQueryModel.updCard.city"/>
+    </li>
+    <li><label><span>*</span>开户支行：</label>
+      <input type="text" pInputText placeholder="请输入开户支行"
+             class="common-input-style"
+             [(ngModel)]="$GlobalService.globalQueryModel.updCard.branch"/>
+    </li>
+    <li class="new-bank-card-icon"><i class="iconfont">&#xe8a5;</i>
+      银行卡账户必须和真实姓名保持一致。
+    </li>
+    <li class="Member_safety_information_button">
+      <button (click)="clickAddCard()"  lh-loading [isLoad]="isLoad">提交</button>
+      <button (click)="clickCancelCard()" >取消</button>
+    </li>
+  </ul>
+</div>
+<div class="common-bank-card" *ngIf="!isSHowUsdtInfo">
+  <ul class="new-bank-card-ul">
+    <li>
+      <label><span>*</span>出款方式：</label>
+      <input type="text" pInputText placeholder="请输入银行卡号" maxlength="19" disabled
+             onkeyup = "value=value.replace(/[^\d]/g,'')"
+             class="common-input-style"
+             [(ngModel)]="$GlobalService.globalQueryModel.updCard.bankName"/>
+    </li>
+    <li><label><span>*</span>出款地址：</label>
+      <input type="text" disabled
+             class="common-input-style"
+             style="width: 300px;"
+             [(ngModel)]="$GlobalService.globalQueryModel.updCard.accountnum"/>
+    </li>
+    <li class="Member_safety_information_button">
+      <button (click)="clickCancelCard()" >返回</button>
+    </li>
+  </ul>
+</div>

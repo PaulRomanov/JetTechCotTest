@@ -1,0 +1,153 @@
+<!-- <div class="fish-bj">
+  <div class="fish-bj-game">
+    <div class="fishbj-games">
+      <div class="flishbj-head">
+        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/fish.png" class="fish-bj-game-title"/>
+        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/wenzi.png"/>
+      </div>
+      <div class="fish-bj-game-center">
+        <ul  *ngFor="let data of $GlobalService.globalJavaResData.gameNavList">
+          <ng-container *ngIf="data.subname === 'PY GAME'">
+              <li *ngFor="let x of data.childs" (click)="goGame(x)">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgLUrl}}"/>
+                <p [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2
+                 + '/tyc/img/BUTTON-FISH.png' | bgUrl">{{x.name}}</p>
+              </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+    <div class="pb-bg"
+           [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish-bj.png' | bgUrl">
+        <div class="clear"></div>
+        <div id="fishBody">
+          <div class="aquarium">
+            <div class="fishGroup">
+              <div class="fish_wrap left_right_2"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_1" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish1.png' | bgUrl"></div></div></div></div>
+              </div>
+              <div class="fish_wrap left_right_2"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_1"[style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish1.png' | bgUrl"></div></div></div></div>
+              </div>
+              <div class="fish_wrap left_right_2"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_1" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish1.png' | bgUrl"></div></div></div></div>
+              </div>
+              <div class="fish_wrap left_right_2"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_1" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish1.png' | bgUrl"></div></div></div></div>
+              </div>
+            </div>
+            <div class="fishGroup">
+              <div class="fish_wrap right_left_4"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish2.png' | bgUrl"></div></div></div></div></div>
+              <div class="fish_wrap right_left_4"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish2.png' | bgUrl"></div></div></div></div></div>
+              <div class="fish_wrap right_left_4"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish2.png' | bgUrl"></div></div></div></div></div>
+              <div class="fish_wrap right_left_4"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish2.png' | bgUrl"></div></div></div></div></div>
+            </div>
+            <div class="fishGroup">
+              <div class="fish_wrap right_left_4"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish2.png' | bgUrl"></div></div></div></div></div>
+              <div class="fish_wrap right_left_4"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish2.png' | bgUrl"></div></div></div></div></div>
+              <div class="fish_wrap right_left_4"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish2.png' | bgUrl"></div></div></div></div></div>
+              <div class="fish_wrap right_left_4"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish2.png' | bgUrl"></div></div></div></div></div>
+            </div>
+            <div class="fishGroup">
+              <div class="fish_wrap left_right_3"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_6" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish6.png' | bgUrl"></div></div></div></div></div>
+              <div class="fish_wrap left_right_3"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_6" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish6.png' | bgUrl"></div></div></div></div></div>
+            </div>
+            <div class="fishGroup">
+              <div class="fish_wrap left_right_1"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_7" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish7.png' | bgUrl"></div></div></div></div></div>
+              <div class="fish_wrap left_right_1"><div class="x"><div class="y"><div class="fish_box">
+                <div class="fish_7" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish7.png' | bgUrl"></div></div></div></div></div>
+            </div>
+            <div class="fish_wrap right_left_3"><div class="x"><div class="y"><div class="fish_box">
+              <div class="fish_8" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish8.png' | bgUrl"></div></div></div></div></div>
+            <div class="fish_wrap right_left_1"><div class="x"><div class="y"><div class="fish_box">
+              <div class="fish_9" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish9.png' | bgUrl"></div></div></div></div></div>
+            <div class="fish_wrap right_left_2"><div class="x"><div class="y"><div class="fish_box">
+              <div class="fish_10"  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/fish10.png' | bgUrl"></div></div></div></div></div>
+          </div>
+        </div>
+        <div data-v-967dd86a="" class="fc-bubble-wrap">
+          <div data-v-967dd86a="" class="bubble x1"></div>
+          <div data-v-967dd86a="" class="bubble x2"></div>
+          <div data-v-967dd86a="" class="bubble x3"></div>
+          <div data-v-967dd86a="" class="bubble x4"></div>
+          <div data-v-967dd86a="" class="bubble x5"></div>
+          <div data-v-967dd86a="" class="bubble x6"></div>
+          <div data-v-967dd86a="" class="bubble x7"></div>
+          <div data-v-967dd86a="" class="bubble x8"></div>
+          <div data-v-967dd86a="" class="bubble x9"></div>
+          <div data-v-967dd86a="" class="bubble x10"></div>
+        </div>
+      </div>
+  </div>
+</div> -->
+
+<div class="a5_a7" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj02.jpg' | bgUrl">
+  <div class="a5_bS">
+    <img class="a5_bU" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/bannerImg_fishing.png'" alt="">
+    <img class="a5_bW"  [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/bannerTittle.png'" alt="">
+  </div>
+  <div class="a5_a9 a5_bB">
+
+    <div class="a5_eG">
+      <ul>
+        <li [class.a5_Cf]="i === $GlobalService.globalJavaResData.gameItemByIndexId" (click)="sportsTab(item, i)" *ngFor="let item of boxArr let i = index">
+          <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 +item.imgUrl" alt="">
+          <p>{{item.name}} {{item.name=='全部'?'':'捕鱼'}}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="a5_G a5_bY">
+      <div>
+        <div class="a5_ba">
+          <div class="a5_b7 a5_cn">
+            <div class="a5_cB">
+              <div class="a5_cO">
+                <div class="a5_bc">
+                  <div class="a5_bj">
+                    <span class="a5_bn"></span>
+                    <img class="a5_I" [src]="$GlobalService.globalJavaResData.cdnValidKey2 +boxArr[tabIndex].imgUrl" alt="">
+                    <div class="a5_bf">
+                      <p class="a5_bl">{{boxArr[tabIndex].name}}{{boxArr[tabIndex].name=='全部'?'':'捕鱼'}}</p>
+                      <p class="a5_bQ">{{boxArr[tabIndex].yname}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="a5_b7">
+                  <ul class="a5_ca a5_bY">
+                    <li *ngFor="let item of nowArr let i = index" >
+                      <section class="a5_cc">
+                        <div class="a5_ch"><img [src]="$GlobalService.globalJavaResData.cdnValidKey +item.imgLUrl" /></div>
+                        <div class="a5_cj">
+                          <span>{{item.name}}</span>
+                        </div>
+                        <div class="a5_cf">
+                          <button class="a5_cv" (click)="goGame(item)">开始游戏</button>
+                        </div>
+                      </section>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

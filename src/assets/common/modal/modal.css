@@ -1,0 +1,194 @@
+.mc-modal{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	transform: all .5s;
+	opacity: 0;
+	z-index: -1;
+}
+.mc-modal .modal-bg{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	background: #000;
+	opacity: 0.5;
+	right: 0;
+}
+.mc-modal .modal-dialog{
+	min-width: 40%;
+    position: absolute;
+	background: transparent;
+	opacity: 0;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+}
+
+@media screen and (max-width:764px){
+	.mc-modal .modal-dialog{
+		min-width: 350px;
+	}
+}
+.mc-modal .modal-controller{
+	padding:0 15px;
+	padding-top: 0;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.mc-modal .modal-content{
+    padding: 20px;
+    text-align: center;
+}
+
+.mc-modal  button{
+	padding: 6px 22px;
+    border-radius: 2px;
+  	margin: 0 70px;
+    border: none;
+	background: rgb(58,155,232);
+	color: #fff;
+	cursor: pointer;
+}
+.mc-modal  button:hover{
+	background: rgb(241,181,90);
+}
+.morph-shape {
+	position: absolute;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	top: -2px;
+	left: -2px;
+	z-index: -1;
+}
+.morph-shape svg rect {
+	stroke: #fff;
+	stroke-width: 2px;
+	stroke-dasharray: 1680;
+}
+.modal-inner {
+	opacity: 0;
+	border-radius: 5px;
+}
+/* 自定义添加动画请写在下面，上面为公共样式 */
+.dialog--open{
+	opacity: 1;
+	z-index: 1000;
+}
+.dialog--open .modal-dialog  {
+	opacity: 1;
+}
+.dialog--open .morph-shape{
+	opacity: 0;
+	-webkit-transition: opacity .6s .6s;
+	transition: opacity .6s .6s;
+}
+.dialog--open .morph-shape svg rect {
+	-webkit-animation: anim-dash .6s forwards !important;
+	animation: anim-dash .6s forwards !important;
+}
+.dialog--open .modal-content {
+	-webkit-animation: anim-elem-1 0.7s ease-out both;
+	animation: anim-elem-1 0.7s ease-out both;
+}
+.dialog--open button {
+	-webkit-animation: anim-elem-2 0.7s ease-out both;
+	animation: anim-elem-2 0.7s ease-out both;
+}
+.dialog--open .modal-inner {
+	opacity: 1;
+	-webkit-transition: opacity 0.85s 0.35s;
+	transition: opacity 0.85s 0.35s;
+	background: #fff;
+}
+@keyframes anim-dash {
+	0% {
+		stroke-dashoffset: 1680;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@-webkit-keyframes anim-dash {
+	0% {
+		stroke-dashoffset: 1680;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+/* Inner elements animations */
+
+@-webkit-keyframes anim-elem-1 {
+	0% { opacity: 0; -webkit-transform: translate3d(-150px, 0, 0); }
+	100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); }
+}
+
+@keyframes anim-elem-1 {
+	0% { opacity: 0; -webkit-transform: translate3d(-150px, 0, 0); transform: translate3d(-150px, 0, 0); }
+	100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+}
+
+@-webkit-keyframes anim-elem-2 {
+	0% { opacity: 0; -webkit-transform: translate3d(150px, 0, 0); }
+	100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); }
+}
+
+@keyframes anim-elem-2 {
+	0% { opacity: 0; -webkit-transform: translate3d(150px, 0, 0); transform: translate3d(150px, 0, 0); }
+	100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+}
+/* toast 弹框样式 */
+.showMessage {
+	position: fixed;
+	z-index: 1000;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translateY(-50%, -50%);
+	padding: 15px 30px;
+	background: rgba(0,0,0,.5);
+	color: #fff;
+	border-radius: 5px;
+	min-width: 200px;
+	max-width: 500px;
+    word-wrap: break-word;
+	text-align: center;
+	font-size: 18px;
+}
+
+.showMessage_success {
+	background: #e1f3d8;
+	color: #67c23a;
+}
+
+.showMessage_warning {
+	background: #faecd8;
+	color: #e6a23c;
+}
+
+.showMessage_error {
+	background: #fef0f0;
+	color: #f56c6c;
+}
+
+.showMessage_fadeOut {
+	opacity:1;
+	 animation:showMessage_fadeOut 3s linear;
+	 animation-fill-mode: forwards;
+	 -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes showMessage_fadeOut{
+	0% {
+		opacity:1;
+	}
+
+	100% {
+		opacity:0;
+	}
+}

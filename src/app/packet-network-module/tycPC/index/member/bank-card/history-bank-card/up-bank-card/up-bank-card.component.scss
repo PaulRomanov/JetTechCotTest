@@ -1,0 +1,32 @@
+.new-bank-card-ul {
+  // margin: 0px 20px;
+  box-shadow: 1px 1px 5px #dedede;
+  padding: 20px;
+  border-radius: 5px;
+  margin-right: 300px;
+}
+
+.new-bank-card-icon i {
+  color: #3a9be8;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.new-bank-card-icon {
+  font-size: 12px;
+}
+
+.new-bank-card-ul li {
+  margin: 18px 0;
+}
+
+.new-bank-card-ul li span {
+  color: red;
+}
+
+.new-bank-card-city input {
+  margin-right: 10px;
+}
+.new-bank-card-ul li button:first-child {
+  margin-right: 10px;
+}

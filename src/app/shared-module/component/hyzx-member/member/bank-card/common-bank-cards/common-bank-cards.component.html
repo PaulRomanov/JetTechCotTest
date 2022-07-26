@@ -1,0 +1,70 @@
+<ul class="common-bank-card">
+  <li *ngFor="let item of list let i=index">
+    <ng-container *ngIf="item.banktype === '0'">
+      <h4 class="common-bank-card_title" [ngClass]="{useCardh:(item.isdefault === '1')}">
+        <div class="cbctd">{{item.bankname}}</div>
+        <div class="Member_credit_use_right">
+          <label class="Member_credit_use_label" *ngIf="item.isdefault === '1'">已默认</label>
+          <label class="Member_credit_use_label" *ngIf="item.isdefault !== '1'">设置默认</label>
+          <input type="checkbox" id="checkbox_c{{i}}" class="chk_3"  [checked]="item.isdefault === '1'"/>
+          <label for="checkbox_c{{i}}"  (click)="thisChecked(item)"></label>
+        </div>
+      </h4>
+      <div class="common-bank-card-bottom">
+        <p class="common-bank-card_number"><b>{{item.userbanknum}}</b></p>
+        <p class="Member_credit_use_details">分行<span>{{item.branch}}</span></p>
+        <p class="common-bank-card-city">市<span>{{item.city}}</span></p>
+        <p class="common-bank-card-province">省<span>{{item.province}}</span></p>
+        <span class="lyActive" (click)="clickDelUserBankCard(item.id)">移至历史</span>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="item.banktype === '1'">
+      <h4 class="common-bank-card_title" [ngClass]="{useCardh:(item.isdefault === '1')}">
+        {{item.bankname}}
+        <div class="Member_credit_use_right">
+          <label class="Member_credit_use_label" *ngIf="item.isdefault === '1'">已默认</label>
+          <label class="Member_credit_use_label" *ngIf="item.isdefault !== '1'">设置默认</label>
+          <input type="checkbox" id="checkbox_c{{i}}" class="chk_3"  [checked]="item.isdefault === '1'"/>
+          <label for="checkbox_c{{i}}"  (click)="thisChecked(item)"></label>
+        </div>
+      </h4>
+      <div class="common-bank-card-bottom">
+        <p class="common-bank-card_number usdt"><b style="font-size: 16px;">{{item.userbanknum}}</b></p>
+        <span class="lyActive" (click)="clickDelUserBankCard(item.id)">移至历史</span>
+       
+      </div>
+    </ng-container>
+    <ng-container *ngIf="item.banktype === '2'">
+      <h4 class="common-bank-card_title" [ngClass]="{useCardh:(item.isdefault === '1')}">
+        {{item.bankname}}
+        <div class="Member_credit_use_right">
+          <label class="Member_credit_use_label" *ngIf="item.isdefault === '1'">已默认</label>
+          <label class="Member_credit_use_label" *ngIf="item.isdefault !== '1'">设置默认</label>
+          <input type="checkbox" id="checkbox_c{{i}}" class="chk_3"  [checked]="item.isdefault === '1'"/>
+          <label for="checkbox_c{{i}}"  (click)="thisChecked(item)"></label>
+        </div>
+      </h4>
+      <div class="common-bank-card-bottom">
+        <p class="common-bank-card_number usdt"><b style="font-size: 16px;">{{item.userbanknum}}</b></p>
+        <span class="lyActive" (click)="clickDelUserBankCard(item.id)">移至历史</span>
+        
+      </div>
+    </ng-container>
+    <ng-container *ngIf="item.banktype === '3'">
+      <h4 class="common-bank-card_title" [ngClass]="{useCardh:(item.isdefault === '1')}">
+        {{item.bankname}}
+        <div class="Member_credit_use_right">
+          <label class="Member_credit_use_label" *ngIf="item.isdefault === '1'">已默认</label>
+          <label class="Member_credit_use_label" *ngIf="item.isdefault !== '1'">设置默认</label>
+          <input type="checkbox" id="checkbox_c{{i}}" class="chk_3"  [checked]="item.isdefault === '1'"/>
+          <label for="checkbox_c{{i}}"  (click)="thisChecked(item)"></label>
+        </div>
+      </h4>
+      <div class="common-bank-card-bottom">
+        <p class="common-bank-card_number usdt"><b style="font-size: 16px;">{{item.userbanknum}}</b></p>
+        <span class="lyActive" (click)="clickDelUserBankCard(item.id)">移至历史</span>
+      </div>
+    </ng-container>
+  </li>
+  <div *ngIf="list.length === 0" style="margin: 0 auto">暂无银行卡信息请新增银行卡后查看</div>
+</ul>

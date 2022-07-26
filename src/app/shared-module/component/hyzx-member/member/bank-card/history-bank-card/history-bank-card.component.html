@@ -1,0 +1,51 @@
+<ul class="common-bank-card" *ngIf="isShowList">
+  <li *ngFor="let item of list let i = index">
+    <ng-container *ngIf="item.banktype === '0'">
+      <h4 class="common-bank-card_title">{{item.bankname}}
+        <i class="iconfont" (click)="historyCard(i)">&#xe619;</i>
+      </h4>
+      <div class="common-bank-card-bottom">
+        <p class="common-bank-card_number"><b>{{item.userbanknum}}</b></p>
+        <p class="Member_credit_use_details">分行<span>{{item.branch}}</span></p>
+        <p class="common-bank-card-city">市<span>{{item.city}}</span></p>
+        <p class="common-bank-card-province">省<span>{{item.province}}</span></p>
+        <span class="lyActive" (click)="clickDelUserBankCard(item.id)">移至常用</span>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="item.banktype === '1'">
+      <h4 class="common-bank-card_title">{{item.bankname}}
+        <i class="iconfont" (click)="historyCard(i)">&#xe619;</i>
+      </h4>
+      <div class="common-bank-card-bottom">
+        <p class="common-bank-card_number"><b style="font-size: 16px;">{{item.userbanknum}}</b></p>
+        <span class="lyActive" (click)="clickDelUserBankCard(item.id)">移至常用</span>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="item.banktype === '2'">
+      <h4 class="common-bank-card_title">{{item.bankname}}
+        <i class="iconfont" (click)="historyCard(i)">&#xe619;</i>
+      </h4>
+      <div class="common-bank-card-bottom">
+        <p class="common-bank-card_number"><b style="font-size: 16px;">{{item.userbanknum}}</b></p>
+        <span class="lyActive" (click)="clickDelUserBankCard(item.id)">移至常用</span>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="item.banktype === '3'">
+      <h4 class="common-bank-card_title">{{item.bankname}}
+        <i class="iconfont" (click)="historyCard(i)">&#xe619;</i>
+      </h4>
+      <div class="common-bank-card-bottom">
+        <p class="common-bank-card_number"><b style="font-size: 16px;">{{item.userbanknum}}</b></p>
+        <span class="lyActive" (click)="clickDelUserBankCard(item.id)">移至常用</span>
+      </div>
+    </ng-container>
+  </li>
+</ul>
+<div style="text-align: center" *ngIf="list.length === 0">暂无银行卡信息请新增银行卡后查看</div>
+
+<ul  class="common-bank-card">
+  <pc-up-bank-card [getSelect]="selectBankName"
+                   [isSHowBankInfo]="isBankHistoryList"
+                   [isSHowUsdtInfo]="isUsdtHistoryList"
+                   (isSHowBankInfoChange)="changListData($event)"></pc-up-bank-card>
+</ul>

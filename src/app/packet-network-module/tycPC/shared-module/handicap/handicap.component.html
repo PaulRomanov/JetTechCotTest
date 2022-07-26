@@ -1,0 +1,259 @@
+<div class="handicap-container">
+  <!-- <div (click)="jumptossfs()">
+    <img class="ssfs" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ssfs.gif">
+  </div> -->
+
+  <div class="banner_container">
+    <div class="item-con">
+      <div class="seekAdvice-list-list-zm2" *ngFor="let list of charas2 let number = index" (click)="jumptoGame(list, list['number'])">
+        <img class="zm-img" src="{{$GlobalService.globalJavaResData.cdnValidKey2+list.imgUrl}}"/>
+      </div>
+    </div>
+  </div>
+  <div class="type_title" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_head_hot@1x.png' | bgUrl" style="margin: 35px 0;"></div>
+  <div class="hot_games">
+    <div class="game_btns">
+      <div *ngFor="let x of games let number = index" (click)="selectGameType(x, number)" class="game_btn" [style.background-image]="selectedIndex === number  ? selectedBackgroundImage : backgroundImage">
+        <div class="game_img" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/icon.png' | bgUrl" [style.background-position]="selectedIndex == number ? x.bgPosition1 : x.bgPosition" [style.top]= "selectedIndex == number ? '-10px' : '0'"></div>
+        <div class="text" [style.color] = "selectedIndex == number ? '#714C37' : '#dad4d1'">{{x.name}}</div>
+      </div>
+    </div>
+    <div [class.game_type_selected]="selected">
+      <div *ngFor="let x of games let number = index">
+        <img *ngIf="selectedIndex === number" class="content_right" src="{{x.imgUrl}}" alt="" >
+      </div>
+    </div>
+    <div class="game_detail_box">
+      <div class="download_content game_content" [class.game_type_selected]="selected">
+<!--        <img class="content_right" src="{{selectedGameType.imgUrl}}" alt="">-->
+        <div class="content_left">
+          <!--<div class="content_title">
+            <div class="title">
+              {{selectedGameType.name}}
+            </div>
+            <div class="recommend">
+              <div>重磅强推</div>
+              <div>万人在线对战</div>
+            </div>
+          </div>-->
+          <!--<div class="title_en">
+            {{selectedGameType.enname}}
+          </div>-->
+          <!--<p class="content_text">
+            {{selectedGameType.summary}}
+          </p>-->
+          <!-- <div class="enter_btn"  (click)="enterGame()" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/primary-medium-new-selected.png' | bgUrl">进入游戏</div> -->
+          <div class="games_wrapper">
+            <div class="btn_prev" *ngIf="selectedGameType.childs.length > 5" (click)="scrollGame('prev')" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/home_hot_jt.png' | bgUrl"></div>
+            <div class="games_box">
+              <div  (click)="enterGame(x)" class="game" *ngFor="let x of selectedGameType.childs let number = index" (click)="selectedGame = x">
+                <div (mouseover)="selectedIndex1 = number" (mouseout)="selectedIndex1 = null" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + (selectedIndex1 == number ? '/img/home_right_Selected.png' : '/img/home_right_Unselected.png') | bgUrl">
+                  <span *ngIf="x.status === 3" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/zy_tag.png' | bgUrl"></span>
+                  <img src="{{ x.gameBgImg }}" alt="">
+                  <div>{{x.name}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="btn_next" *ngIf="selectedGameType.childs.length > 5" (click)="scrollGame('next')" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/home_hot_jt.png' | bgUrl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="type_title" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_head_tese@1x.png' | bgUrl" style="margin: 35px 0 50px;"></div>
+
+  <div class="ptts">
+    <a *ngFor="let childs of teseList let number = index" (click)="number!=2?nopenWindow(childs):listgame('#/tyc/index/favourable')">
+      <img src="{{childs.activitypictures}}" alt="">
+    </a>
+    <!-- <a (click)="nopenWindow(1)">
+      <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/platform _features_1.png" alt="">
+    </a>
+    <a (click)="nopenWindow(2)">
+      <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/platform _features_2.png" alt="" >
+    </a>
+    <a target="_blank" [routerLink]="['../favourable']">
+      <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/platform _features_5.png" alt="" >
+    </a>
+    <a (click)="nopenWindow(3)">
+      <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/platform _features_3.png" alt="" >
+    </a>
+    <a (click)="nopenWindow(4)">
+      <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/platform _features_4.png" alt="" >
+    </a> -->
+    
+    <div style="clear: both;"></div>
+  </div>
+  <div class="type_title" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_head_service@1x.png' | bgUrl" style="margin: 100px 0 20px;"></div>
+
+  <div class="nopen_window" *ngIf="isNOpenWin">
+    <div class="nclose_window" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/dialog_top.png' | bgUrl">
+      <img (click)="closenWindow()" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/closeOpen.png">
+    </div>
+    <div class="nlist_window">
+      <img [src]="imgOpenIndex">
+    </div>
+    
+  </div>
+
+  <!--<div class="quality_service">
+    <div class="download_eng" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/quality-services 2.png' | bgUrl"></div>
+    <div class="download_title">
+      <div class="title_left" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/titleset-left.png' | bgUrl"></div>
+      <div class="title">优质服务</div>
+      <div class="title_right" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/titleset-right.png' | bgUrl"></div>
+    </div>
+    <div class="download_subtitle">亚信全心全意为您提供最优质的服务</div>
+  </div>-->
+  <!-- <div class="hcp-banner">
+    <div>
+      <div class="banner-item">
+        <div class="item-header"
+          [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/ax-juxing.png' | bgUrl">
+          <div class="s-header-left">火爆真人</div>
+          <div class="s-header-right" (click)="listgame('#/tyc/index/video')">
+            <span class="head-icon">全部</span>
+            <i class="iconfont" style="font-size: 12px">&#xe6b7;</i>
+          </div>
+        </div>
+        <div class="item-con">
+          <div class="seekAdvice-list-list-zm2" *ngFor="let list of charas2 let number = index"
+            (click)="jumptoGame(list['obj'],{}, number)">
+            <img class="zm-img" src="{{$GlobalService.globalJavaResData.cdnValidKey2+list.imgUrl}}" />
+            <div class="layer-zm">
+              <div class="layer-zm-text2">{{list.title}}</div>
+              <span class="zm-start-game2">
+                点击进入
+              </span>
+            </div>
+            <span class="lightTop">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+            </span>
+            <span class="lightRight">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+            </span>
+            <span class="lightBottom">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+            </span>
+            <span class="lightLeft">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="banner-item3">
+        <div class="item-header"
+          [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/ax-juxing.png' | bgUrl">
+          <div class="s-header-left">会员专享</div>
+        </div>
+        <div class="item-con2">
+          <div class="tranlate-cobanner">
+            <div class="seekAdvice-list-list-zm2" style="width: 100%;margin: 0;"
+              (click)="listgame('#/tyc/newPage/member-exclusive')">
+              <img class="zm-img" style="width:356px"
+                src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_index_05.png" />
+              <div class="layer-zm">
+                <div class="layer-zm-text2">会员专享服务</div>
+                <span class="zm-start-game2">
+                  点击进入
+                </span>
+              </div>
+              <span class="lightTop">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+              </span>
+              <span class="lightRight">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+              </span>
+              <span class="lightBottom">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+              </span>
+              <span class="lightLeft">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner-item3">
+        <div class="item-header"
+          [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/ax-juxing.png' | bgUrl">
+          <div class="s-header-left">美女空投</div>
+        </div>
+        <div class="item-con2">
+
+          <div class="tranlate-cobanner">
+            <div class="seekAdvice-list-list-zm2" style="width: 100%;margin: 0;"
+              (click)="listgame('#/tyc/newPage/beauty-home-service')">
+              <img class="zm-img"
+                src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_index_06.png" />
+              <div class="layer-zm">
+                <div class="layer-zm-text2">美女空投</div>
+                <span class="zm-start-game2">
+                  点击进入
+                </span>
+              </div>
+              <span class="lightTop">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+              </span>
+              <span class="lightRight">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+              </span>
+              <span class="lightBottom">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+              </span>
+              <span class="lightLeft">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-item2">
+      <div class="item-header"
+        [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/ax-juxing.png' | bgUrl">
+        <div class="s-header-left">活动申请</div>
+      </div>
+      <div class="item-con2">
+        <div class="tranlate-cobanner">
+          <img style="width: '100%';height: 465px;cursor: pointer" (click)="listgame('#/tyc/index/favourable')"
+            src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_index_07.png">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="seekAdvice-list-tuglie page-opacity">
+    <div class="seekAdvice-list-list-zm" *ngFor="let list of charas; let i = index" (click)="listgame(list.gameUrl)">
+      <div *ngIf="i < 4">
+        <img class="zm-img" src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{list.imgUrl}}" />
+        <div class="seekAdvice-text">
+          {{list.name}}
+        </div>
+        <div class="layer-zm">
+          <div class="layer-zm-text2">{{list.name}}</div>
+          <span class="zm-start-game2">
+            开始游戏
+          </span>
+        </div>
+        <span class="lightTop">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+        </span>
+        <span class="lightRight">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+        </span>
+        <span class="lightBottom">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+        </span>
+        <span class="lightLeft">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+        </span>
+      </div>
+
+
+    </div>
+  </div> -->
+  <app-djadvantage></app-djadvantage>
+</div>

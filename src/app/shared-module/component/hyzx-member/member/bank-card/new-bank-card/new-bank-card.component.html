@@ -1,0 +1,89 @@
+<div class="common-bank-card">
+  <ul class="new-bank-card-ul">
+    <li>
+      <label><span>*</span>出款方式：</label>
+      <p-dropdown [options]="payWays" [(ngModel)]="selectedPayWay" [filter]="true"
+                  (onChange)="changePayType($event)"
+                  class="zm-dropdown-style" [style]="{'width':'145px'}"
+                  filterBy="label,value.name" [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+    </li>
+    <ng-container *ngIf="selectedPayWay.name === 'bank'">
+      <li>
+        <label><span>*</span>存款银行：</label>
+        <p-dropdown [options]="cities1" [(ngModel)]="selectedCity1" [filter]="true"
+                    (onChange)="changeType($event)"
+                    class="zm-dropdown-style" [style]="{'width':'145px'}"
+                    filterBy="label,value.name" [emptyFilterMessage]="$GlobalService.globalJavaResData.selectText"></p-dropdown>
+      </li>
+      <li *ngIf="!isShow"><label><span>*</span>银行卡号：</label>
+        <input type="text" pInputText placeholder="请输入16-19位银行卡号" maxlength="19"
+               onkeyup = "value=value.replace(/[^\d]/g,'')"
+               class="common-input-style"
+               [(ngModel)]="$GlobalService.globalQueryModel.addCard.accountnum"/>
+      </li>
+
+      <!--所有厅主单独处理 start-->
+      <li *ngIf="isShow"><label><span>*</span>银行卡号：</label>
+        <input type="text" pInputText placeholder="请输入银行卡号" class="common-input-style"
+               [(ngModel)]="$GlobalService.globalQueryModel.addCard.accountnum"/>
+      </li>
+      <!--所有厅主单独处理 end-->
+
+      <li *ngIf="!isShow"  class="new-bank-card-city"><label><span>*</span>所属地区：</label>
+        <input type="text" pInputText placeholder="所属省" size="15" maxlength="15"
+               class="common-input-style"
+               onkeyup="value=value.replace(/[^0-9a-zA-Z\u4e00-\u9fa5]/g,'')"
+               [(ngModel)]="$GlobalService.globalQueryModel.addCard.province"/>
+        <input type="text" pInputText placeholder="所属城市"  size="12" maxlength="15"
+               onkeyup="value=value.replace(/[^0-9a-zA-Z\u4e00-\u9fa5]/g,'')"
+               class="common-input-style"
+               [(ngModel)]="$GlobalService.globalQueryModel.addCard.city"/>
+      </li>
+      <li *ngIf="!isShow"><label><span>*</span>开户支行：</label>
+        <input type="text" pInputText placeholder="请输入开户支行" maxlength="15"
+               class="common-input-style"
+               onkeyup="value=value.replace(/[^0-9a-zA-Z\u4e00-\u9fa5]/g,'')"
+               [(ngModel)]="$GlobalService.globalQueryModel.addCard.branch"/>
+      </li>
+      <li class="new-bank-card-icon"><i class="iconfont">&#xe8a5;</i>
+        银行卡账户必须和真实姓名保持一致。
+      </li>
+    </ng-container>
+    <ng-container *ngIf="selectedPayWay.name === 'USDT-ERC20'">
+      <li><label><span>*</span>USDT-ERC20地址：</label>
+        <input style="width: 300px" type="text" pInputText placeholder="请输入USDT-ERC20地址"
+               class="common-input-style"
+               [(ngModel)]="$GlobalService.globalQueryModel.addCard.accountnum"/>
+      </li>
+    </ng-container>
+    <ng-container *ngIf="selectedPayWay.name === 'USDT-TRC20'">
+      <li><label><span>*</span>USDT-TRC20地址：</label>
+        <input style="width: 300px" type="text" pInputText placeholder="请输入USDT-TRC20地址"
+               class="common-input-style"
+               [(ngModel)]="$GlobalService.globalQueryModel.addCard.accountnum"/>
+      </li>
+    </ng-container>
+    <!-- <ng-container *ngIf="selectedPayWay.name === 'CNYB'">
+      <li><label><span>*</span>CNYB地址：</label>
+        <input style="width: 300px" type="text" pInputText placeholder="请输入CNYB地址"
+               class="common-input-style"
+               [(ngModel)]="$GlobalService.globalQueryModel.addCard.accountnum"/>
+      </li>
+    </ng-container> -->
+
+    <li class="Member_safety_information_button"  *ngIf="!isShow && selectedPayWay.name === 'bank'">
+      <button (click)="clickAddCard()"  lh-loading [isLoad]="isLoad"
+              [class.active]="!$GlobalService.globalQueryModel.addCard.branch ||
+!$GlobalService.globalQueryModel.addCard.province || !$GlobalService.globalQueryModel.addCard.city ||
+!$GlobalService.globalQueryModel.addCard.accountnum"
+              [disabled]="!$GlobalService.globalQueryModel.addCard.branch ||
+!$GlobalService.globalQueryModel.addCard.province || !$GlobalService.globalQueryModel.addCard.city ||
+!$GlobalService.globalQueryModel.addCard.accountnum">提交</button>
+    </li>
+    <li class="Member_safety_information_button"  *ngIf="isShow || selectedPayWay.name !== 'bank'">
+      <button (click)="clickAddCard()"  lh-loading [isLoad]="isLoad"
+              [class.active]="!$GlobalService.globalQueryModel.addCard.accountnum"
+              [disabled]="!$GlobalService.globalQueryModel.addCard.accountnum">提交</button>
+    </li>
+  </ul>
+</div>

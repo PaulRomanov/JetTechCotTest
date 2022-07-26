@@ -1,0 +1,144 @@
+<div class="perspmal-information">
+  <ul class="Member_safety_information_ul">
+    <li *ngIf="$GlobalService.globalQueryModel.companyId !== '40051'">
+      <label><span>*</span>真实中文姓名：</label>
+      <span *ngIf='inFo.realname' class="txt-normal">{{$GlobalService.globalQueryModel.setInfo.realname}}</span>
+      <input type="text" pInputText placeholder="请输入真实姓名"
+             [(ngModel)]="$GlobalService.globalQueryModel.setInfo.realname"
+             class="common-input-style"
+             *ngIf='!inFo.realname'
+              />
+      <div class="Member_safety_information_hui"
+           [class.active]="!$GlobalService.globalQueryModel.setInfo.realname">
+        <em *ngIf="$GlobalService.globalQueryModel.setInfo.realname">请确保真实姓名与您的银行卡姓名一致，否则影响出款</em>
+        <em *ngIf="!$GlobalService.globalQueryModel.setInfo.realname">请输入真实姓名</em>
+      </div>
+    </li>
+
+    <!--星汇世博 start-->
+    <li  *ngIf="$GlobalService.globalQueryModel.companyId === '40051'">
+      <label><span>*</span>真实姓名：</label>
+      <span *ngIf='inFo.realname' class="txt-normal">{{$GlobalService.globalQueryModel.setInfo.realname}}</span>
+      <input type="text" pInputText placeholder="请输入姓名"
+             onInput="this.value=this.value.replace(/[\u4E00-\u9FA5]/g,'')" (input)="changeRegDataName($event)"
+             [(ngModel)]="$GlobalService.globalQueryModel.setInfo.realname"
+             class="common-input-style"
+             *ngIf='!inFo.realname'
+      />
+      <div class="Member_safety_information_hui"
+           [class.active]="!$GlobalService.globalQueryModel.setInfo.realname">
+        <em *ngIf="$GlobalService.globalQueryModel.setInfo.realname"></em>
+        <em *ngIf="!$GlobalService.globalQueryModel.setInfo.realname">请输入英文名字!</em>
+      </div>
+    </li>
+    <!--星汇世博 end-->
+
+    <li class="Datepicker" *ngIf="$GlobalService.globalQueryModel.companyId !== '40051'">
+      <label><span>*</span>手机号码：</label>
+      <span *ngIf='inFo.mobile' class="txt-normal">{{$GlobalService.globalQueryModel.setInfo.mobile}}</span>
+      <input type="text" placeholder="请输入您的手机号码" maxlength="11"
+             pInputText
+             pKeyFilter="num"
+             *ngIf='!inFo.mobile'
+             [(ngModel)]="$GlobalService.globalQueryModel.setInfo.mobile"
+             onInput = "this.value=this.value.replace(/[\u4E00-\u9FA5]/g,'')"
+             (input)="changeRegDataMobile($event)"
+             class="Informationaaa noBorder common-input-style" />
+      <div class="Member_safety_information_hui"
+           [class.active]="!$GlobalService.globalQueryModel.setInfo.mobile">
+        <em *ngIf="$GlobalService.globalQueryModel.setInfo.mobile">请填写能联系到您的手机号码</em>
+        <em *ngIf="!$GlobalService.globalQueryModel.setInfo.mobile">请输入手机号码</em>
+      </div>
+    </li>
+
+    <!--星汇世博 start-->
+    <li class="Datepicker" *ngIf="$GlobalService.globalQueryModel.companyId === '40051'">
+      <label><span>*</span>手机号码：</label>
+      <span *ngIf='inFo.mobile' class="txt-normal">{{$GlobalService.globalQueryModel.setInfo.mobile}}</span>
+      <input type="text" placeholder="请输入您的手机号码"
+             pInputText
+             pKeyFilter="num"
+             *ngIf='!inFo.mobile'
+             [(ngModel)]="$GlobalService.globalQueryModel.setInfo.mobile"
+             onInput = "this.value=this.value.replace(/[\u4E00-\u9FA5]/g,'')"
+             (input)="changeRegDataMobile($event)"
+             class="Informationaaa noBorder common-input-style" />
+      <div class="Member_safety_information_hui"
+           [class.active]="!$GlobalService.globalQueryModel.setInfo.mobile">
+        <em *ngIf="$GlobalService.globalQueryModel.setInfo.mobile">请填写能联系到您的手机号码</em>
+        <em *ngIf="!$GlobalService.globalQueryModel.setInfo.mobile">请输入手机号码</em>
+      </div>
+    </li>
+    <!--星汇世博 end-->
+  </ul>
+  <ul class="Member_safety_information_ul">
+    <li class="information-gender">
+      <label>性别：</label>
+      <b> 男</b><p-radioButton name="groupname" value="1"
+                               [(ngModel)]="$GlobalService.globalQueryModel.setInfo.sex"></p-radioButton>
+      <b> 女</b><p-radioButton name="groupname" value="2"
+                               [(ngModel)]="$GlobalService.globalQueryModel.setInfo.sex"></p-radioButton>
+    </li>
+    <li class="birth">
+      <label>出生年月：</label>
+      <p-calendar [(ngModel)]="$GlobalService.globalQueryModel.setInfo.birthday"
+                  class="zm-calendar" [style]="{'width':'145px'}" [inputStyle]="{'width':'145px'}"
+                  [locale]="en" dateFormat="yy-mm-dd" [yearNavigator]="true" [yearRange]="dateTimeStr"  [readonlyInput]="true"></p-calendar>
+      <i class="iconfont">&#xe65d;</i>
+    </li>
+  </ul>
+  <ul class="Member_safety_information_ul">
+    <li>
+      <label>电子邮箱：</label>
+      <span *ngIf='inFo.mail' class="txt-normal">{{$GlobalService.globalQueryModel.setInfo.email}}</span>
+      <input type="text" placeholder="请输入电子邮箱" pInputText
+             [(ngModel)]="$GlobalService.globalQueryModel.setInfo.email"
+             onInput = "this.value=this.value.replace(/[\u4E00-\u9FA5]/g,'')"
+             (input)="changeRegData($event)"
+             class="common-input-style"
+             *ngIf='!inFo.mail'
+             />
+    </li>
+    <li>
+      <label>微信 / QQ：</label>
+      <input type="text" placeholder="请输入微信 / QQ" pInputText
+             [(ngModel)]="$GlobalService.globalQueryModel.setInfo.qq"
+             onInput = "this.value=this.value.replace(/[\u4E00-\u9FA5]/g,'')"
+             (input)="changeRegDataQQ($event)"
+             class="common-input-style"
+      >
+    </li>
+  </ul>
+  <ul class="Member_safety_information_ul">
+    <li>
+      <label>所在地区：</label>
+      <input type="text" placeholder="请输入所在地区" pInputText
+             class="common-input-style"
+             [(ngModel)]="$GlobalService.globalQueryModel.setInfo.address">
+    </li>
+    <li class="{{inFo.userbankpassword?'information-gender':''}}">
+      <label><span>*</span>取款密码：</label>
+      <span *ngIf='inFo.userbankpassword' class="txt-normal">{{$GlobalService.globalQueryModel.setInfo.withdrawpwd}}</span>
+      <input type="text" placeholder="请输入取款密码"maxlength="6"  pInputText
+             pKeyFilter="num"
+             class="common-input-style"
+             *ngIf='!inFo.userbankpassword'
+             [(ngModel)]="$GlobalService.globalQueryModel.setInfo.withdrawpwd"
+             onInput = "this.value=this.value.replace(/[\u4E00-\u9FA5]/g,'')"
+             (input)="changeRegDataPassword($event)" />
+      <div class="Member_safety_information_hui"
+           [class.active]="!$GlobalService.globalQueryModel.setInfo.withdrawpwd">
+        <em *ngIf="!$GlobalService.globalQueryModel.setInfo.withdrawpwd">请输入取款密码</em>
+      </div>
+    </li>
+  </ul>
+  <div class="Member_safety_information_button">
+    <button (click)="Preservation()" lh-loading [isLoad]="refroneKeyTransfer"
+            [disabled]="!this.$GlobalService.globalQueryModel.setInfo.realname ||
+                        !this.$GlobalService.globalQueryModel.setInfo.mobile ||
+                        !this.$GlobalService.globalQueryModel.setInfo.withdrawpwd"
+            [class.active]="!this.$GlobalService.globalQueryModel.setInfo.realname ||
+                        !this.$GlobalService.globalQueryModel.setInfo.mobile ||
+                        !this.$GlobalService.globalQueryModel.setInfo.withdrawpwd">保存</button>
+  </div>
+</div>

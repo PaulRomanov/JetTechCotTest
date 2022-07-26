@@ -1,0 +1,522 @@
+.companys-payment-center {
+  padding: 10px 20px;
+  margin: 10px;
+  box-shadow: 4px 2px 12px #dedede;
+  -webkit-box-shadow: 4px 2px 12px #dedede;
+}
+.upload-box{
+  height: 260px;
+  margin-bottom: 10px;
+  &::after {
+    content: '.';
+    height: 0;
+    display: block;
+    clear: both;
+}
+}
+.upload-image{
+  width: 200px;
+  height: 200px;
+  background-color: #f5f5f5;
+  border: 2px dotted #aaa;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+  float: left;
+  position: relative;
+  .add{
+    position: absolute;
+    left: 50%;
+    top:50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50px, -50px);
+    color: #ccc;
+    font-size: 100px;
+    text-align: center;
+    line-height: 100px;
+    z-index: 0;
+  }
+  input{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+}
+#imgshow{
+  width: 200px;
+  min-height: 100px;
+  float: left;
+  margin: 20px;
+}
+
+.companys-payment-center .companys-payment-center-ui li span {
+  color: red;
+}
+
+.companys-payment-center ul li {
+  margin: 10px 0;
+  &.companys-payment-orderTop{
+    margin: 0;
+  }
+}
+
+.companys-payment-center ul li label {
+  display: inline-block;
+  min-width: 90px;
+  text-align: right;
+}
+
+.companys-payment-center-i i {
+  margin-right: 5px;
+  color: #3a9be8;
+  font-weight: 700;
+}
+.companys-payment-center ul li .payType-item{
+  color:inherit;
+}
+.companys-payment-center ul li i.iconselected-copy,
+.companys-payment-center ul li i.iconweixuanzhong{
+  color: #f1b55a;
+  margin-right: 0;
+}
+.companys-payment {
+  margin: 0 20px;
+  padding-bottom: 50px;
+}
+
+.Member_safety_information_button .active {
+  background: #dedede;
+  color: #000;
+}
+
+.companys-payment-center-sweepCode {
+  display: flex;
+}
+
+.sweepCode-getBank {
+  display: flex;
+  border-radius: 5px;
+  display: flex;
+  border: 1px solid #dedede;
+  padding: 15px 20px;
+  .remind-txt{
+    display: flex;
+    display: -webkit-flex;
+    .remind-txt-title{
+      width: 50px;
+      display: block;
+    }
+  }
+}
+
+.sweepCode-greenFont {
+  color: #3ba649;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sweepCode-getBank-li img {
+  width: 130px
+}
+
+.warnTxt {
+  margin-left: 10px;
+  color: red;
+}
+
+.companys-payment-center ul li.sweepCode-getBank-right {
+  margin-left: 20px;
+}
+
+.sweepCode-getBank-right p {
+  line-height: 25px;
+}
+
+.sweepCode-getBank-right h4 {
+  margin-bottom: 5px;
+}
+
+.sweepCode-getBank-right p span {
+  color: #f1b55a;
+}
+
+.sweepCode-getBank-right div {
+  font-size: 11px;
+
+}
+
+.sweepCode-right {
+  margin-left: 20px;
+}
+
+.sweepCode-subMin-button {
+  margin-top: 10px;
+}
+
+.companys-payment-orderTop {
+  display: block;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+
+.companys-payment-blueFont {
+  color: #3a9be8;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.companys-payment-orderTop-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #dedede;
+}
+
+.companys-payment-orderInfo {
+  display: flex;
+  padding: 6px 0;
+  margin-bottom: 6px;
+  border-bottom: 1px dotted #dedede;
+  align-items: center;
+}
+
+.companys-payment-orderInfo>ul {
+  flex: 1;
+}
+
+.companys-payment-orderTop-orangeFont span {
+  color: #f1b55a;
+}
+
+.companys-payment-orderInfo .number span {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.companys-payment-orderTop-bottom {
+  color: #3a9be8;
+  margin-bottom: 20px;
+}
+
+.subMin_button button {
+  margin: 0 20px
+}
+
+.companys-payment-code-head {
+  color: #3a9be8;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.companys-payment-code-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.companys-payment-code-list-li{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  position: relative;
+  .bank-list{
+    min-width: 40%;
+    margin:10px 19px;
+    position: relative;
+
+    .bank-item-top{
+      box-shadow: 4px 2px 12px #dedede;
+      -webkit-box-shadow: 4px 2px 12px #dedede;
+      border: 1px solid #dedede;
+      border-radius: 5px;
+      padding: 15px 20px;
+      margin: 0;
+      .bank-item{
+        margin-bottom: 6px;
+        margin-top: 0;
+      }
+    }
+    .bank-item-bottom{
+      box-shadow: 4px 2px 12px #dedede;
+      -webkit-box-shadow: 4px 2px 12px #dedede;
+      border: 1px solid #dedede;
+      border-radius: 5px;
+      padding: 15px 20px;
+      margin: 0;
+      margin-top: 6px;
+      .bank-remind-title{
+        color: #3a9be8;
+      }
+    }
+    .bank-top-account{
+      span{
+        font-size: 16px;
+        color: #f1b55a;
+      }
+      b{
+        margin-left: 10px;
+        color: #3a9be8;
+        cursor: pointer;
+      }
+    }
+    .bank-top-img {
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 22px;
+        margin-left: 10px;
+        color: #3a9be8;
+      }
+    }
+    .bank-top-address{
+      span{
+        color: #f1b55a;
+      }
+    }
+  }
+  .companys-payment-code-list-subMin button {
+    background: #3a9be8;
+    color: #fff;
+    border-radius: 5px;
+    padding: 4px 17px;
+    display: inline-block;
+    float:right;
+    // position: absolute;
+    // right: 18px;
+    border: none;
+    outline: none;
+    // bottom: 18px;
+    cursor: pointer;
+    margin-top: -20px;
+  }
+  .bank-item-tips{
+    position: absolute;
+    bottom: 0;
+    .companys-payment-code-head:first-child{
+      margin-bottom: 5px;
+    }
+    .bank-item-tips-time{
+      color: red;
+    }
+  }
+  .bank-item-tipImg{
+    margin-left: 145px;
+    li{
+      margin-top: -35px;
+    }
+  }
+}
+
+// .companys-payment-code-list-li ul li:first-child span {
+//   font-size: 22px;
+//   margin-left: 10px;
+//   color: #3a9be8;
+// }
+
+// .companys-payment-code-list-li ul li {
+//   margin-bottom: 6px;
+//   margin-top: 0;
+// }
+
+// .companys-payment-code-list-li ul li:nth-child(2) span {
+//   font-size: 16px;
+//   color: #f1b55a;
+// }
+
+// .companys-payment-code-list-li ul li:nth-child(2) b {
+//   margin-left: 10px;
+//   color: #3a9be8;
+//   cursor: pointer;
+// }
+
+// .companys-payment-code-list-li ul li:nth-child(5) span {
+//   color: #f1b55a;
+// }
+
+
+.progressBar {
+  display: flex
+}
+
+.progressBar li {
+  flex: 1;
+  display: flex
+}
+
+.progressBar li p {
+  flex: 1;
+  height: 0;
+  margin-top: 9px;
+  border-bottom: 2px solid #ccc;
+}
+
+.progressBar li.active {
+  color: #4faf5b;
+}
+
+.progressBar li.active p {
+  border-color: #3a9be8;
+}
+
+.progressBar li span {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: 0 8px;
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+}
+.subMin_button{
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+.usdtbox{
+  height: 410px;
+}
+.usdtLeft{
+  float: left;
+  margin-right: 70px;
+  margin-top: 20px;
+  width: 233px;
+}
+.usdtLeft div{
+  color: #FFFFFF;
+  font-family: PingFang SC;
+  font-weight: medium;
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.usdtl1{
+  
+}
+.usdtLeft .usdtl2{
+  font-size: 16px;
+}
+.usdtLeft img{
+  width: 233px;
+  height: 233px;
+  margin: 5px 0 5px;
+}
+.usdtRight{
+  float: left;
+  margin-top: 20px;
+  width: 600px;
+}
+.usdtRight .ut1,.usdtRight .ut2,.usdtRight .ut3,.usdtRight .ut4{
+  // color: #FFFFFF;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.usdtRight .ut4{
+  font-weight: bold;
+  margin-top: 10px;
+}
+.usdtRight .ut4 span{
+  color: #F1D5B1;
+}
+.usdtRight .uti{
+  margin-bottom: 20px;
+  width: 516px;
+  height: 40px;
+}
+.usdtRight .uti div:nth-child(1){
+  float: left;
+  width: 456px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  border: 1px solid #6A6A6A;
+  text-indent: 10px;
+  color: #FFFFFF;
+  background: #141414;
+}
+.usdtRight .uti div:nth-child(2){
+  float: left;
+  width: 60px;
+  height: 40px;
+  color: #3E0D11;
+  font-size: 14px;
+  text-align: center;
+  line-height: 40px;
+  background: #F1D5B1;
+  cursor: pointer;
+}
+
+.usdtRight .utips div:nth-child(1){
+  color: #FF4848;
+  font-family: PingFang SC;
+  font-weight: regular;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0px;
+  text-align: left;
+
+}
+.usdtRight .utips div:nth-child(2){
+  // color: #ffffff;
+  font-family: PingFang SC;
+  font-weight: regular;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.usdtRight .usid{
+  margin-top: 15px;
+  // color: #FFFFFF;
+  font-size: 14px;
+  line-height: 40px;
+  height: 38px;
+}
+.usid .usid1{
+  // color: #FFFFFF;
+  font-size: 14px;
+  line-height: 38px;
+
+}
+.usid .usid2{
+  margin-left: 10px;
+  color: #F1D5B1;
+  font-size: 12px;
+  line-height: 38px;
+
+}
+.usid input::placeholder {
+  color: #fff;
+}
+.usdtRight .usid input{
+  width: 214px;
+  height: 38px;
+  border-radius: 4px;
+  background: #5D5D5D;
+  color: #fff;
+  text-indent: 10px;
+  border: 1px solid #AAAAAA;
+}
+.usdtRight .usbtn{
+  
+}
+.usdtRight button{
+  cursor: pointer;
+  margin-top: 45px;
+  margin-left: 114px;
+  width: 212px;
+  height: 40px;
+  border-radius: 7px;
+  border-width: 0;
+  background: #F1D5B1;
+  color: #4F2021;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  
+}

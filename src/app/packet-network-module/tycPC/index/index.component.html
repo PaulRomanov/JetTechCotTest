@@ -1,0 +1,100 @@
+<div id="index-container">
+  <div class="zm-index">
+    <!--头部top start-->
+    <div class="index_top">
+      <!-- <app-zm-header></app-zm-header> -->
+  <!--    <pc-head></pc-head>-->
+      <pc-djlist></pc-djlist>
+    </div>
+    <!--头部top end-->
+  
+    <!--中间 content start-->
+    <div class="banner-container">
+      <router-outlet></router-outlet>
+    </div>
+    <!--中间 content end-->
+  
+    <!--底部 footer start-->
+    <div class="index_LowerPart">
+      <pc-consultation></pc-consultation>
+    </div>
+    <!--底部 footer end-->
+    <pc-djbottom></pc-djbottom>
+  </div>
+  <!--公告弹窗-->
+  <pc-login-affiche *ngIf="$GlobalService.globalTipsModelModel.openLoginMsg"></pc-login-affiche>
+  <!--客服-->
+  <div class="floats" id="test4">
+    <!--<div class="floats-item_new floats-item_1" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/icon_float_right.png' | bgUrl">
+      <div class="float_tip">
+        <div class="qrcode">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/downloadVX.png" alt="">
+          IOS APP
+        </div>
+        <div class="qrcode">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/downloadVX.png" alt="">
+          Android APP
+        </div>
+      </div>
+    </div>-->
+    <!--<div class="floats-item_new floats-item_2" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/icon_float_right.png' | bgUrl">
+      <div class="float_tip">帮助中心</div>
+    </div>-->
+    <div  (click)="$GlobalMethodsService.openKufu()" class="floats-item_new floats-item_3" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/icon_float_right.png' | bgUrl">
+      <div class="float_tip">在线客服</div>
+    </div>
+    <!-- <div (click)="jumptossfs()" *ngIf="!$GlobalMethodsService.isSsfs">
+      <img class="ssfs" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ssfs.gif">
+    </div> -->
+    <div [ngClass]="{itemShow:isTopShow,itemHide:!isTopShow}" (click)="topClick()" class="floats-item_new floats-item_4" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/icon_float_right.png' | bgUrl"></div>
+    <div *ngIf="scoreMall==1" (click)="goMall($event)" class="points-mall" [class]="mallSwing && showMall ? 'points-mall mall-swing' : 'points-mall'" [hidden]="!showMall" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/jifenmall.png' | bgUrl">
+      <div class="close-btn" (click)="showMall = false"></div>
+    </div>
+  </div>
+  <!-- 红包雨倒计时 -->
+  <div class="envelop-rain-timer" [style.visibility]="(isUserToken && allSecond > 0) ? 'visible' : 'hidden'">
+    <span>剩余时间</span>
+    <span>{{timerCountdown}}</span>
+  </div>
+  <!-- 领红包modal -->
+  <div class="modal-bg" [style.visibility]="hiddenEnvelop ? 'hidden' : 'visible'">
+    <div class="envelop-open" [class]="hiddenEnvelop ? 'envelop-open' : 'envelop-open scale1'" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/pc_red.png' | bgUrl">
+      <div class="title">{{ hasEnvelop ? '恭喜您获得' : timeRunout ? '您次数用完啦～' : '红包抢完啦～下次继续'}}</div>
+      <div class="money" *ngIf="hasEnvelop">{{ envelop.amount }} <span>元</span></div>
+      <div class="left-time">剩余<span>{{ hasEnvelop ? envelop.left : 0 }}</span>次</div>
+      <div class="btn" (click)="hasEnvelop ? (hiddenEnvelop = true) : ''" [class]="(hasEnvelop && !timeRunout) ? 'btn' : 'btn btn-disabled'">继续领取</div>
+      <div class="envelop-record-btn" (click)="goEnvelopRecord()">查看获得红包记录</div>
+      <div class="close-btn" (click)="hiddenEnvelop = true"></div>
+    </div>
+  </div>
+  <!-- 刮刮乐modal -->
+  <div class="modal-bg" [style.visibility]="hiddenScratch ? 'hidden' : 'visible'">
+    <div class="scratch-open" [class]="hiddenScratch ? 'scratch-open' : 'scratch-open scale1'" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/gglbg@3x.png' | bgUrl">
+      <div class="scratch-area" [style.visibility]="showVerify ? 'hidden' : 'visible'">
+        <div class="scratch-content">
+          <div class="scratch-result">
+            <div class="font">恭喜您获得</div>
+            <div class="num">{{openAmount}}<span class="yuan">元</span></div>
+          </div>
+          <canvas id="canvas"></canvas>
+        </div>
+      </div>
+      <div class="mobile-verify" [style.visibility]="!showVerify ? 'hidden' : 'visible'">
+        <div class="row">
+          <label for="mobile">手机号</label>
+          <input type="text" [(ngModel)]="form.mobile" name="mobile" ngDefaultControl>
+          <div class="button" (click)="form.mobile = ''">更换手机</div>
+        </div>
+        <div class="row">
+          <label for="code" name="smscode">验证码</label>
+          <input type="text" [(ngModel)]="form.smscode" ngDefaultControl>
+          <div class="button" (click)="scratchVerifyPhone()">{{codeSend ? (codeTimer + 's后发送') : '发送验证码'}}</div>
+        </div>
+      </div>
+      <div [class]="disabledBtn ? 'scratch-btn' : 'scratch-btn scratch-btn-able'" (click)="!disabledBtn ? (showVerify = true) : ''" [style.visibility]="showVerify ? 'hidden' : 'visible'">领取奖金</div>
+      <div class="scratch-btn scratch-btn-able" [style.visibility]="!showVerify ? 'hidden' : 'visible'" (click)="scratchGetPrize()">领取奖金</div>
+      <div class="close-btn" (click)="hiddenScratch = true"></div>
+    </div>
+  </div>
+</div>
+

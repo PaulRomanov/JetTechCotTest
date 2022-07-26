@@ -1,0 +1,7 @@
+{
+  "/": {
+    "target": "http://dianjing.yx262.vip/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,46 @@
+<div class="sign">
+  <div class="sign-header">
+    <div class="sign-header-box">
+      <div class="sign-header-logo">
+        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/LOGO.png" alt="">
+      </div>
+      <!-- <div class="sign-header-btns">
+        <div>返回首页</div>
+        <div class="sign-btn">登录</div>
+        <div class="sign-btn">注销</div>
+      </div> -->
+    </div>
+
+  </div>
+  <div class="sign-content" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/sign_bg.png' | bgUrl">
+    <div class="sign-content-box">
+      <div class="sign-content-slogan">
+        <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/sign_slogan.png" />
+      </div>
+      <div class="sign-content-top" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/sign_box.png' | bgUrl">
+        <div class="sign-calendar" *ngIf="calender">
+          <p-calendar [(ngModel)]="dateValue" [inline]="true" [locale]="en" dateFormat="yy-mm-dd"
+           [style]="{'width':'630px'}" [showOtherMonths]="false" (onMonthChange)="monthChange($event)" [disabledDates]="signDayArr">
+          </p-calendar>
+        </div>
+        <div class="sign-days">
+          <div class="sign-days-count">
+            <p>已签到{{signDay1}}天</p>
+            <p>距离领奖还需签到{{signDay2}}天</p>
+          </div>
+          <div class="sign-days-btn">
+            <img *ngIf="!isUserSign" (click)="sign()" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/sign_btn1.png"  />
+            <img *ngIf="isUserSign" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/sign_btn2.png"  />
+          </div>
+          <div class="sign-days-reward" (click)="getTodayReward()" *ngIf="rewardMoney>0" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/sign_reward1.png' | bgUrl">
+            <div class="sign-reward-num">￥{{rewardMoney}}</div>
+            <div class="sign-reward-money">签到7天领{{rewardMoney}}元</div>
+          </div>
+        </div>
+      </div>
+      <div class="sign-content-bottom">
+        <img  src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/sign_content.png" alt="" />
+      </div>
+    </div>
+  </div>
+</div>

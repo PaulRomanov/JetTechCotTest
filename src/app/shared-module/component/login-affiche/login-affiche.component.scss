@@ -1,0 +1,73 @@
+
+.gonggao-window-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,.5);
+  justify-content: center;
+  z-index: 999;
+
+}
+.g-g-w-banner {
+  max-width: 650px;
+  width: 650px;
+  background-image: linear-gradient(270deg, #DCCAB8 0%, #D2B496 100%);
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.g-g-title {
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+}
+.g-g-title-span {
+  font-size: 24px;
+  color: #FFFFFF;
+}
+.zm-close-font {
+  font-size: 30px;
+  color: #FFFFFF;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.g-g-w-con {
+  background: #fff;
+  height: calc(100% - 50px);
+  padding: 30px 32px 0 32px;
+  color: #000;
+}
+.g-g-w-con{
+  .swiper-button-next, .swiper-button-prev{
+    width: 7%;
+  }
+  .swiper-button-prev, .swiper-container-rtl .swiper-button-next{
+    background-image:url(../../../../assets/img/swiper_btn.png);
+    background-size: contain;
+    left: 0;
+  }
+  .swiper-button-next, .swiper-container-rtl .swiper-button-prev{
+    background-image:url(../../../../assets/img/swiper_btn.png);
+    transform:rotate(180deg);
+    background-size: contain;
+    right: 0;
+  }
+  
+  .swiper-wrapper{
+    padding-bottom: 30px;
+  }
+}
+
+.g-g-w-box{
+  width: 800px;
+  min-width: 800px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}

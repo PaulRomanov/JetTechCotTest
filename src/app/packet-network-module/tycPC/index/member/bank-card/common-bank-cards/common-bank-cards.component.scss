@@ -1,0 +1,233 @@
+.common-bank-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: stretch;
+}
+
+.common-bank-card li {
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 29%;
+  // height: 134px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  position: relative;
+  background: #fff;
+}
+
+.common-bank-card_title {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  padding-right: 90px;
+  font-size: 13px;
+  line-height: 46px;
+  color: #fff;
+  text-indent: 15px;
+  font-weight: 100;
+  position: relative;
+  background: #BBB;
+}
+
+.common-bank-card_title .cbctd{
+  width: 195px;overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  line-height: 46px;
+}
+
+.common-bank-card_title i {
+  font-size: 35px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.common-bank-card-bottom {
+  padding-bottom: 10px;
+  height: 110px;
+  background: #fff;
+}
+
+.common-bank-card-bottom p.common-bank-card_number {
+  margin: 10px 0;
+  padding: 0 5px;
+  line-height: 35px;
+  background: #f8f8f8;
+  text-indent: 15px;
+  color: #47A3EC;
+  width: 100%;
+}
+
+.common-bank-card-bottom p.usdt {
+  //white-space: pre-wrap;
+}
+
+.common-bank-card_number b {
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #47A3EC;
+  font-size: 13px;
+  line-height: 15px;
+  height: 15px;
+  overflow: hidden;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.common-bank-card-province {
+  position: relative;
+}
+
+.common-bank-card-province b {
+  position: absolute;
+}
+
+.common-bank-card-bottom p {
+  line-height: 25px;
+  text-indent: 15px;
+  color: #47A3EC;
+  width: 287px;
+  //white-space: nowrap;
+  //text-overflow: ellipsis;
+}
+
+.common-bank-card-bottom span {
+  color: #47A3EC;
+  font-size: 14px;
+  padding-left: 15px;
+}
+
+.common-bank-card .useCardh {
+  //border: 1px solid #47A3EC;
+  background: #47A3EC;
+}
+
+.common-bank-card li:hover .common-bank-card_title {
+  //border: 1px solid #47A3EC;
+  background: #47A3EC;
+}
+
+.common-bank-card-bottom .lyActive {
+  border: none;
+  outline: 0;
+  color: #F1B55A;
+  border: 1px solid #F1B55A;
+  border-radius: 3px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background: 0 0;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 0;
+  padding: 2px 9px;
+  text-indent: 0;
+  line-height: normal;
+}
+
+.common-bank-card-bottom .lyActive:hover {
+  background: #F1B55A;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+}
+
+.Member_credit_use_right {
+  display: flex;
+  align-items: center;
+  width: 170px;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: -40px;
+  *{
+    box-sizing: content-box;
+  }
+  .Member_credit_use_label {
+    margin-right: 5px;
+    color: #fff;
+  }
+
+  .chk_3 {
+    display: none;
+  }
+
+  .chk_3+label {
+    background-color: #fafbfa;
+    // padding: 9px;
+    border-radius: 50px;
+    display: inline-block;
+    position: relative;
+    margin-right: 30px;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+    width: 34px;
+    height: 18px;
+  }
+
+  .chk_3+label:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    -webkit-transition: box-shadow .1s ease-in;
+    transition: box-shadow .1s ease-in;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    box-shadow: inset 0 0 0 0 #eee, 0 0 1px rgba(0, 0, 0, .4);
+  }
+
+  .chk_3+label:before {
+    content: ' ';
+    position: absolute;
+    background: #fff;
+    top: 0px;
+    left: 1px;
+    z-index: 22;
+    width: 18px;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+    height: 18px;
+    border-radius: 100%;
+    box-shadow: 0 3px 1px rgba(0, 0, 0, .05), 0 0 1px rgba(0, 0, 0, .3);
+  }
+
+  .chk_3:active+label:after {
+    box-shadow: inset 0 0 0 20px #eee, 0 0 1px #eee;
+  }
+
+  .chk_3:active+label:before {
+    width: 37px;
+  }
+
+  .chk_3:checked:active+label:before {
+    width: 37px;
+    left: 20px;
+  }
+
+  .chk_3+label:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05), inset 0 1px 3px rgba(0, 0, 0, .1);
+  }
+
+  .chk_3:checked+label:before {
+    content: ' ';
+    position: absolute;
+    left: 16px;
+    border-radius: 100%;
+  }
+
+  .chk_3:checked+label:after {
+    content: ' ';
+    font-size: 1.5em;
+    position: absolute;
+    background: #4cda60;
+    box-shadow: 0 0 1px #4cda60
+  }
+}

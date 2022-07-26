@@ -1,0 +1,104 @@
+<div class="companys-payment">
+  <div id="topNav">
+    <div class="swiper-wrapper Online_aske" style="width: 1000px;">
+      <div class="swiper-slide" *ngFor="let item of onLine let i=index">
+        <span (click)="companyList(item,i)" [class.active]="i === isCompany">{{item.payName}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="online-borderFrame">
+    <ul class="online-payment-center-ui">
+      <li>
+        <label><span>*</span>付款方式：</label>
+        <span *ngFor="let item of cities1 let i=index" (click)='changeType(item,i)' class="payType-item">
+          <i class="iconfont" [ngClass]="selectKey===i?'iconselected-copy':'iconweixuanzhong'"></i>
+          {{item.paychannelname}}
+        </span>
+      </li>
+      <!-- <li><label><span>*</span>付款方式：</label>
+
+        <p-dropdown #dd [options]="cities1" [(ngModel)]="selectedCity1" [filter]="true"
+					(onChange)="changeType($event)"
+					optionLabel="paychannelname"
+                    filterBy="label,value.name" ></p-dropdown></li> -->
+      <li style="position:relative">
+        <label><span>*</span>存款金额：</label>
+        <input type="text" class="common-input-style" [ngStyle]="{'padding-right':isUSDT ? '1.465em' : '0.465em' }" *ngIf="restrictionType!==2" pInputText
+          placeholder="{{placeHolder}}" (blur)="discount()" onkeyup="value=value.replace(/[^\d]/g,'')"
+          [(ngModel)]="$GlobalService.globalQueryModel.heepay.amount" />
+          <span *ngIf="isUSDT" style="position: absolute;
+          top: 10px;
+          left: 221px;
+          z-index: 9999999;
+          font-size: 12px;
+          color: black;
+          font-weight: bold;">CNY</span>
+        <em *ngIf="isMoneyWarnShow&&restrictionType!==2" class="warnTxt">{{warnTxt}}</em>
+        <em
+          *ngIf="(isShowUSDT&&$GlobalService.globalQueryModel.getPayType.payChannel == 'erc20') || (isShowUSDT&&$GlobalService.globalQueryModel.getPayType.payChannel == 'trc20') || (isShowUSDT&&$GlobalService.globalQueryModel.getPayType.payChannel == 'omni')"
+          class="warnTxt">需要您支付{{mathNuber($GlobalService.globalQueryModel.heepay.amount/USDTrate)}}USDT</em>
+        <p style="margin-left: 95px;margin-top: 5px;"
+          *ngIf="$GlobalService.globalQueryModel.getPayType.payChannel == 'erc20' || $GlobalService.globalQueryModel.getPayType.payChannel == 'trc20' || $GlobalService.globalQueryModel.getPayType.payChannel == 'omni'">
+          当前存款汇率1USDT={{USDTrate}}CNY</p>
+        <p-dropdown [options]="selectMoneyArr" class="zm-dropdown-style" [style]="{'width':'150px'}"
+          [(ngModel)]="$GlobalService.globalQueryModel.heepay.amount" *ngIf="restrictionType===2"
+          (onChange)="changeAmount($event)">
+        </p-dropdown>
+      </li>
+      <li *ngIf="isDiscounts"><label><span>*</span>优惠：</label>
+        <p-dropdown [options]="cities2" [(ngModel)]="selectedCity2" [filter]="true" (onChange)="IsChangeType($event)"
+          filterBy="label,value.name"></p-dropdown>
+      </li>
+      <li><i class="iconfont">&#xe8a5;</i>标记有*者为必填项目；</li>
+      <li><i class="iconfont">&#xe8a5;</i>请不要保存收款账户重复充值；</li>
+      <li><i class="iconfont">&#xe8a5;</i>支付宝、微信 90秒内支付《超时  不补不退》</li>
+      <li><i class="iconfont">&#xe8a5;</i>温馨提示：入款如有遇到5分钟内未到账的情况，<br> 请立即联系在线客服查询，如超过72小时本公司概不负责！</li>
+      <div class="Member_safety_information_button" style="overflow:hidden;">
+        <button (click)="subMinHeepay()" [disabled]="!$GlobalService.globalQueryModel.heepay.amount"
+          [class.active]="!$GlobalService.globalQueryModel.heepay.amount">下一步</button>
+          <a *ngIf="isUSDT" style="color: #ce924a;margin-left: 10px;cursor: pointer;" href="javascript:;" routerLink="/anxin/index/ly-member/knowHuobi">了解虚拟币 >></a>
+          <!-- <span  (click)="knowBi()">了解虚拟币 >></span> -->
+      </div>
+    </ul>
+  </div>
+  <div class="floor1" *ngIf="layerShow">
+    <div class="floor2" (click)="closeLayer()"></div>
+    <div class="layerBlock1" *ngIf="whichBlock === 1">
+      <i class="iconfont" (click)="closeLayer()">&#xe6a0;</i>
+      <p><i class="iconfont">&#xe60f;</i>立即支付</p>
+      <p class="btnG">
+        <a (click)="closeLayer()">取消</a>
+        <a (click)="payEnd()" class="toPay">确定</a>
+      </p>
+    </div>
+    <div class="layerBlock2" *ngIf="whichBlock === 2">
+      <i class="iconfont" (click)="closeLayer()">&#xe6a0;</i>
+      <p><i class="iconfont">&#xe615;</i>温馨提示：</p>
+      <p>请到支付平台进行付款，暂时不要关闭此窗口。</p>
+      <p>如有疑问，请联系在线客服！</p>
+      <p class="btnG">
+        <a (click)="closeLayer()">继续存款</a>
+        <a (click)="toLookOrder()">查看订单</a>
+        <a (click)="openKufu()" style="background: red;">在线客服</a>
+      </p>
+    </div>
+    <div class="layerBlock3" *ngIf="whichBlock === 3">
+      <i class="iconfont" (click)="closeLayer()">&#xe6a0;</i>
+      <p>订单号：{{heepaydata.orderNo}}</p>
+      <p>订单金额：{{$GlobalService.globalQueryModel.heepay.amount}}</p>
+      <p class="ewm"><img [src]="imgSrc" alt=""></p>
+      <p class="btnG">
+        <a (click)="closeLayer()">取消</a>
+        <a (click)="payEnd()">确定</a>
+      </p>
+    </div>
+    <div class="layerBlock4" *ngIf="whichBlock === 4">
+      <i class="iconfont iconfont-close" (click)="closeLayer()">&#xe6a0;</i>
+      <p class="layerBlock4-txt"><i class="iconfont iconfont-confirm">&#xe60f;</i>立即支付</p>
+      <p class="btnG">
+        <a (click)="closeLayer()">取消</a>
+        <a (click)="payEnd()" class="toPay">确定</a>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,139 @@
+<!--<div class="index2" *ngIf="$GlobalService.globalQueryModel.companyId === '24'"-->
+<!--<div class="index2"
+
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 +
+     $GlobalService.globalJavaResData.projectName + '/img/dz-game-bg.jpg' | bgUrl">
+  <div class="index2Content">
+    <div class="titleOne bg" id="dzGame">
+      <ul class="swiper-wrapper ul-slider" style="position: relative">
+        <div class="title-current" style="height: 50px;"></div>
+        <li class="swiper-slide"
+            *ngFor="let x of navList let i = index"
+            [class.active]="i === oneTiTle"
+            (click)="titleTab(x, i)">
+          <span>
+             {{x.name}}
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="isLinkType">
+      <div class="title2">
+        <div class="titleTwoGrops">
+          <ul>
+            <li *ngFor="let data of titleList let i = index"
+                [class.title-active]="i === titleNum" (click)="twoTitle(data, i)">
+              <span>{{data.gameName}}</span>
+            </li>
+          </ul>
+        </div>
+        <div class="searchGrop">
+          <input type="text" placeholder="请输入游戏名称" [(ngModel)]="searchGameName">
+          <i class="iconfont" (click)="gameSearch()">&#xe634;</i>
+        </div>
+      </div>
+      <div class="gameLists">
+        <ul id="theader">
+          <li *ngFor="let data of gameList">
+            <div class="firstFloor">
+              <img src="{{(data.newimgpath.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{data.newimgpath}}"
+                   [class]="data.gameplatformId ==='PT' ? 'imgHeight' : 'imgPrimary'">
+              <p>
+                <span>{{data.gamename}}</span>
+                <i class="iconfont">&#xe676;</i>
+              </p>
+            </div>
+            <div class="twoFloor">
+              <p  (click)="startGame(data)">
+                <a href="javascript:;">开始游戏</a>
+              </p>
+              <p>
+                <span>{{data.gamename}}</span>
+                <b><i class="iconfont">&#xe676;</i></b>
+              </p>
+            </div>
+          </li>
+          <div class="firstFloorTX" *ngIf="gameList.length === 0" style="width: 100%;text-align: center;">暂无更多数据...</div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="onlyImg" *ngIf="!isLinkType">
+      <img [src]="gameImgBg" alt="">
+    </div>
+  </div>
+</div>-->
+<div class="a5_a7" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj02.jpg' | bgUrl">
+  <div class="a5_bS">
+    <img class="a5_bU" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_slotgames_banner.png'" alt="">
+    <img class="a5_bW"  [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_slotgames_banner_text.png'" alt="">
+  </div>
+  <div class="a5_a9 a5_bB"> 
+    <div class="a5_eG">
+      <ul>
+        <li [class.a5_Cf]="i === oneTiTle" (click)="titleTab(x, i)" *ngFor="let x of navList let i = index">
+          <img [src]="x.imgLUrl" alt="">
+          <p>{{x.name}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="a5_G a5_bY">
+      <div>
+        <div class="a5_bE">
+          <ul class="a5_bG">
+            <li *ngFor="let data of titleList let i = index" [class.a5_Cf]="i === titleNum" (click)="twoTitle(data, i)">
+              <span class="a5_I9">{{data.gameName}}</span>
+              <i class="a5_bK"></i>
+            </li>
+          </ul>
+          <div class="a5_bM">
+            <i class="a5_HI" (click)="gameSearch()" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/slotgames_search.png' | bgUrl"></i>
+            <input type="text" placeholder="输入游戏名称"  [(ngModel)]="searchGameName">
+          </div>
+        </div>
+        <div class="a5_ba">
+          <div class="a5_b7 a5_cn">
+            <div class="a5_cB">
+              <div class="a5_cO">
+                <div class="a5_bc">
+                  <div>
+                    <div class="a5_bj">
+                      <span class="a5_bn"></span>
+<!--                      <span class="a5_I" [style.background-image]="imgUrl | bgUrl"></span>-->
+                      <img class="a5_I" [src]="imgUrl" alt="">
+                      <div class="a5_bf">
+                        <p class="a5_bl">{{ titleName }}</p>
+                        <p class="a5_bQ">SLOT GAMES</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="a5_c9" *ngIf="!gameList.length">
+                  <div class="a5_eB" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/noGame.png' | bgUrl"></div>
+                  <p class="a5_eE">暂无游戏</p>
+                </div>
+                <div class="a5_b7" *ngIf="gameList.length">
+                  <ul class="a5_ca a5_bY">
+                    <li *ngFor="let data of gameList">
+                      <section class="a5_cc">
+                        <div class="a5_ch">
+                          <img src="{{(data.newimgpath.indexOf('http') ? $GlobalService.globalJavaResData.cdnValidKey : '')}}{{data.newimgpath}}" alt="">
+                        </div>
+                        <div class="a5_cj">
+                          <span>{{data.gamename}}</span>
+                        </div>
+                        <div class="a5_cf">
+                          <button class="a5_cv" (click)="startGame(data)">立即游戏</button>
+                        </div>
+                      </section>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

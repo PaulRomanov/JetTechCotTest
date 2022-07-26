@@ -1,0 +1,44 @@
+.mvkt {
+  background-size: 100% 100%;
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+    // overflow: auto;
+    .top_bg {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      .top_bg_left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .btns {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+          span {
+            width: 148px;
+            height: 55px;
+            line-height: 40px;
+            font-size: 18px;
+            color: #5E3005;
+            text-align: center;
+            background-size: cover;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .vip {
+      margin: 10px 0 0;
+      padding-bottom: 25px;
+      img {
+        margin-top: 15px;
+        width: 100%;
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

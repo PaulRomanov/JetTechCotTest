@@ -1,0 +1,190 @@
+<div class="brokerage">
+  <div class="brokerage-header">
+    <span class="brokerage-header-item">
+      期数：
+      <p-dropdown [options]="peroidList" [(ngModel)]="selectedPeroid" [filter]="true" (onChange)="dataChange($event)"
+        filterBy="label,value.name" optionLabel="periodname" class="zm-dropdown-style" [style]="{'width':'175px'}">
+      </p-dropdown>
+    </span>
+    <span class="brokerage-header-item">
+      会员查询：
+      <input type="text" class="common-input-style" placeholder="请输入会员账号进行查询" [(ngModel)]="memberName" />
+    </span>
+    <div class="brokerage-header-item serach-btn-box">
+      <button (click)="querySerach()" lh-loading [isLoad]="isLoad">搜索</button>
+    </div>
+  </div>
+  <div class="brokerage-box">
+    <div class="brokerage-content-title">
+      <div>
+        {{selectedPeroid.periodname}} ( {{selectedPeroid.starttime}} ~ {{selectedPeroid.endtime}} )
+      </div>
+      <div class="brokerage-content-account">会员账号：<span class="bluefont">{{vipuserName}}</span></div>
+    </div>
+    <div *ngIf="winningCountList.length===0">本期暂无数据........</div>
+    <ul class="brokerage-content" *ngIf="winningCountList.length>0">
+      <li class="brokerage-content-item">
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">直属会员输赢金额(元)：</span>
+            <span class="bluefont">{{winningCountListObj.resultAmount}}</span>
+          </div>
+          <button class="btn" (click)="showDetail(1)">查看详情</button>
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">直属会员费用(元)：</span>
+            <span class="bluefont">{{winningCountListObj.commFee}}</span>
+          </div>
+          <button class="btn" (click)="showDetail(2)">查看详情</button>
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">直属会员退佣金额(元)：</span>
+            <span class="bluefont">{{winningCountListObj.commission2nd}}</span>
+          </div>
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">非直属会员退佣金额(元)：</span>
+            <span class="bluefont">{{winningCountListObj.commissionOther}}</span>
+          </div>
+          <button class="btn" (click)="showDetail(3)">查看详情</button>
+        </div>
+      </li>
+      <li class="brokerage-content-item">
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">有效会员：</span>
+            <span class="bluefont">{{winningCountListObj.effectiveUser}}</span>
+          </div>
+          <!-- <button class="btn">查看详情</button> -->
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">佣金比例(%)：</span>
+            <span class="bluefont">{{winningCountListObj.commissionPercent}}</span>
+          </div>
+          <!-- <button class="btn">查看详情</button> -->
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">平台管理费(元)：</span>
+            <span class="bluefont">{{winningCountListObj.managementFee}}</span>
+          </div>
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">净盈利(元)：</span>
+            <span class="bluefont">{{winningCountListObj.netProfit}}</span>
+          </div>
+          <!-- <button class="btn">查看详情</button> -->
+        </div>
+      </li>
+      <li class="brokerage-content-item">
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">前期累计退佣(元)：</span>
+            <span class="bluefont">{{winningCountListObj.commissionCount}}</span>
+          </div>
+          <!-- <button class="btn">查看详情</button> -->
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">可获退佣(元)：</span>
+            <span class="bluefont">{{winningCountListObj.commissionAvailable}}</span>
+          </div>
+          <!-- <button class="btn">查看详情</button> -->
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">已获退佣(元)：</span>
+            <span class="bluefont">{{winningCountListObj.commissioned}}</span>
+          </div>
+        </div>
+        <div class="brokerage-item-des">
+          <div>
+            <span class="">本期状态：</span>
+            <span class="bluefont">{{setState(winningCountListObj.status)}}</span>
+          </div>
+          <!-- <button class="btn">查看详情</button> -->
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- 查看详情弹框 -->
+  <div class="statement-fined" *ngIf="isShowDialog">
+    <div class="statement-other">
+      <h4>{{title}}</h4>
+      <table class="Member_personal_table">
+        <thead>
+          <tr *ngIf="index===1">
+            <th>直属会员账号</th>
+            <th>输赢金额（元）</th>
+          </tr>
+          <tr *ngIf="index===2">
+            <th>直属会员账号</th>
+            <th>活动优惠(元)</th>
+            <th>优惠返水(元)</th>
+            <th>手续费(元)</th>
+            <th>小计</th>
+          </tr>
+          <tr *ngIf="index===3">
+            <th>非直属会员账号</th>
+            <th>推广层级</th>
+            <th>可获退佣金额(元)</th>
+            <th>佣金贡献率(%)</th>
+            <th>佣金贡献(元)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="index===1">
+            <tr *ngFor="let item of listDetailsOf2nd">
+              <td>{{item.account}}</td>
+              <td>{{item.resultAmount}}</td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="index===2">
+            <tr *ngFor="let item of listDetailsOf2nd">
+              <td>{{item.account}}</td>
+              <!-- 活动优惠：存款优惠+注册优惠+存档优惠+其他金额 -->
+              <td>{{item.depositOffer+item.register+item.yharchive+item.other}}</td>
+              <td>{{item.returnPriv}}</td>
+              <td>{{item.commFee}}</td>
+              <td>{{item.depositOffer+item.register+item.yharchive+item.other+item.returnPriv+item.commFee}}</td>
+            </tr>
+            <tr>
+              <td>总计</td>
+              <td>
+                {{count(listDetailsOf2nd,'depositOffer')+count(listDetailsOf2nd,'register')+count(listDetailsOf2nd,'yharchive')+count(listDetailsOf2nd,'other')}}
+              </td>
+              <td>{{count(listDetailsOf2nd,'returnPriv')}}</td>
+              <td>{{count(listDetailsOf2nd,'commFee')}}</td>
+              <td>
+                {{count(listDetailsOf2nd,'depositOffer')+count(listDetailsOf2nd,'register')+count(listDetailsOf2nd,'yharchive')+count(listDetailsOf2nd,'other')+count(listDetailsOf2nd,'returnPriv')+count(listDetailsOf2nd,'commFee')}}
+              </td>
+            </tr>
+          </ng-container>
+          <ng-container *ngIf="index===3">
+            <tr *ngFor="let item of listDetailsOfOther">
+              <td>{{item.account}}</td>
+              <td>{{item.generation}}</td>
+              <td>{{item.commissionTotal}}</td>
+              <td>{{item.commissionPercent}}</td>
+              <td>{{item.commissionOther}}</td>
+            </tr>
+            <tr>
+              <td>总计</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>{{count(listDetailsOfOther,'commissionOther')}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div><button (click)="hideDialog()">确定</button></div>
+    </div>
+
+  </div>
+</div>

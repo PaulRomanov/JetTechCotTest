@@ -1,0 +1,397 @@
+<div class="particles-container">
+  <div class="cooperation-title">
+    <div class="coon-t-logo">
+      <img
+        src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/dailixitongLogo.png"
+        alt="">
+      <ul class="coon-zm-ul">
+        <li class="coon-ul-li" *ngFor="let item of list let i = index"
+            [class.coon-active]="isIndex === i"
+            (click)="isSetIndex(i)">
+          <span>{{item.name}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="particles-content">
+    <div id="particles-js" [style.height.px]="heightIs">
+      <!--  <canvas class="pg-canvas" width="1312" height="500"></canvas>-->
+    </div>
+    <div [style.min-height.px]="heightIs">
+      <!--首页-->
+      <div class="cooperation-con" [hidden]="!(isIndex === 0)">
+        <div class="shouzhang-img">
+          <img class="img-1"
+               src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/shoubi-z.png"
+               alt="">
+          <img class="img-2"
+               src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/lianjinshu.png"
+               alt="">
+        </div>
+        <div class="sweper-con">
+          <div class="sweper-con-img" (click)="isSetIndex(1)">
+            <img
+              src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/guanyumen.png"
+              alt="">
+            <div class="sweper-con--text">
+              <p>关于我们</p>
+              <p>亚洲第一在线电竞博彩</p>
+            </div>
+            <span class="lightTop">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+            </span>
+            <span class="lightRight">
+               <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+            </span>
+            <span class="lightBottom">
+               <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+             </span>
+            <span class="lightLeft">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+             </span>
+          </div>
+          <div class="sweper-con-img" (click)="$GlobalMethodsService.openKufu()">
+            <img
+              src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/meinvkefu.png"
+              alt="">
+            <div class="sweper-con--text">
+              <p>24小时客服</p>
+              <p>专业客服团队24小时全年无休</p>
+            </div>
+            <span class="lightTop">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+            </span>
+            <span class="lightRight">
+               <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+            </span>
+            <span class="lightBottom">
+               <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+             </span>
+            <span class="lightLeft">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+             </span>
+          </div>
+          <div class="sweper-con-img" (click)="isSetIndex(2)">
+            <img
+              src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/huibaolv-z.png"
+              alt="">
+            <div class="sweper-con--text">
+              <p>了解合作条款</p>
+              <p>正规牌照经营，规则透明
+              </p>
+            </div>
+            <span class="lightTop">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+            </span>
+            <span class="lightRight">
+               <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+            </span>
+            <span class="lightBottom">
+               <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-1.png">
+             </span>
+            <span class="lightLeft">
+              <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/index-con1-1-light-2.png">
+             </span>
+          </div>
+        </div>
+      </div>
+      <!--关于我们-->
+      <div class="cooperation-con2" [hidden]="!(isIndex === 1)">
+        <div class="common-banner-con">
+          <div class="g-y-banner">
+            <div class="title-pa">
+              <div class="coon-title-h-text">
+                关于我们
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}为菲律宾注册成立之博彩公司，并持有卡加延经济特区管理局Cagayan Special Economic Zone and Free Port
+                (CSEZFP) 通过北卡加延博彩监督委员会North Cagayan Gaming and Amusement Corporation (NCGAC)颁布许可的合法博彩执照。
+                从2005年开始致力于网络博彩娱乐服务，以体育赛事，电竞赛事为主的娱乐平台，共同打造高品质游戏平台，追求完美，着眼于产品和服务的每个细节，公司拥有多样化的游戏项目（体育赛事、电竞赛事视讯直播、电子游艺、彩票游戏）和丰富经验的服务团队，无须耗时下载，操作接口简单明了、功能齐全、画面精致，为每一位客户提供实时、刺激、体贴的娱乐产品与高质量服务为首要宗旨。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h-text">
+                我们承诺
+              </div>
+              <div class="coon-title-h2-text">
+                公平诚信
+              </div>
+              <p class="coon-h-p">
+                {{$GlobalService.globalJavaResData.title}}作为国际知名的线上博彩营运商，获得GEOTRUST国际认证，确保网站公平公正，对接入的所有平台均经过严格的筛选，只选用国际知名线上博彩平台。保证让每位玩家在一个公平、公正的环境下进行游戏。同时菲律宾政府First
+                Cagayan leisure and Resort Corporation会对游戏平台的数据进行监控最终确保游戏的公平性和真实性。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                信息安全隐私
+              </div>
+              <p class="coon-h-p">
+                在日渐热络、成熟的网络博彩市场中，除了多样化的游戏外，网络安全最为客户注重，{{$GlobalService.globalJavaResData.title}}针对现阶段网络安全问题，成立了网络安全维护中心，彻底解决了网络安全的后顾之忧，诺顿分级评级核{{$GlobalService.globalJavaResData.title}}为最安全网站之一；会员网上支付和银行交易由国际金融机构在高标准的安全和机密的网络中进行。所有会员数据均经过加密，保障玩家隐私。我们不会向任何第三方包括政府透露客户任何的个人信息及资料。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                高效存提现
+              </div>
+              <p class="coon-h-p">
+                {{$GlobalService.globalJavaResData.title}}全天候不打烊，不断注重用户体验，高效快速的存提现业务是用户最实在的体验，{{$GlobalService.globalJavaResData.title}}一直致力于开发最新的收支业务和人员培训，高效的存提现，保证5分钟存提款到账，全天候处理客户出入款相关事宜。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                精英客服团队
+              </div>
+              <p class="coon-h-p">
+                {{$GlobalService.globalJavaResData.title}}严格训练的客服团队，以专业、亲切的态度，尽速解决您于网站、游戏中遇到的种种问题，全天候24小时为您提供专业、贴心的VIP服务，努力让客户皆有宾至如归的感觉。{{$GlobalService.globalJavaResData.title}}以业界前所未见的各种优惠方式回馈客户，绝对是您明智的选择！</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                菲律宾执照
+              </div>
+              <p class="coon-h-p">我们提供的所有产品和服务，是由菲律宾政府卡格扬河经济特区 First Cagayan leisure and Resort Corporation.
+                www.firstcagayan.com 所授权和监管。这是一家位于Cagayan特别经济区和自由口岸 (CSEZFP) 的机构，并且是互动游戏的授权者及管理者。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h-text">
+                诚信打造品牌，实力铸就{{$GlobalService.globalJavaResData.title}}，十大放心理由：
+              </div>
+              <div class="coon-title-h2-text">
+                一、平台足够权威
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}与im，BBIN,AG,MG,OG,ALLBET,3S,PT,HB进行技术合作，并获得GEOTRUST国际认证，确保网站公平、公正、公开。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                二、排名足够靠前
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}为亚洲最具公信力品牌之一，信誉领先排名，在海量娱乐城信息中独占前茅。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                三、资金足够安全
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}雄厚的资金链信誉良好，大额充值无忧，资金安全有保障，免去您一切后顾之忧。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                四、提现足够自由
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}24小时自由提现，提现3-5分钟火速到帐。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                五、活动足够给力
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}时时推出各项给力活动，优惠送不停，让您真正赚翻天。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                六、安全足够保障
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}采用128位SSL加密技术和严格的安全管理体系，确保客户资料安全得到最完善的保障。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                七、服务足够贴心
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}7X24小时客服贴心的服务，温馨的呵护每一位玩家。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                八、VIP足够至尊
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}VIP尊享贵宾级的专属服务让您享有宾至如归般的帝王享受。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                九、操作足够简单
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}秉承以客户为中心的宗旨，在开发之初就设计了诸多人性化的功能和特性，省去繁琐的麻烦，让您轻松操作。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                十、营业足够合法
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}是菲律宾政府认证的大型合法互联网博彩公司。选择{{$GlobalService.globalJavaResData.title}}，等于选择一份信誉的保障。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 佣金计划-->
+      <!-- <div class="cooperation-con2" [hidden]="!(isIndex === 2)">
+        <div class="common-banner-con">
+          <div class="g-y-banner">
+            <div class="title-pa">
+              <div class="coon-title-h-text">
+                佣金计划
+              </div>
+              <p class="coon-h-p">您只需要通过网络推广或介绍身边朋友成为我们的会员，{{$GlobalService.globalJavaResData.title}}
+                根据每月体育博彩和娱乐场以及其他游戏的净收入按百分比计算佣金。净收益的定义为：公司在体育博彩和娱乐场及其他游戏中所得的毛利减去客户的平台费、给顾客的红利及其他奖赏等。
+              </p>
+              <p class="coon-h-p">简单来说，就是您介绍的客户在{{$GlobalService.globalJavaResData.title}}当月输了多少钱，我们就按照比例（30%起）来返给你他的输值。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                一、合营佣金方案：
+              </div>
+              <p class="coon-h-p">
+                通过{{$GlobalService.globalJavaResData.title}}合营计划，您每月均可获得您推荐的所有会员的净损失额的30%（最低）作为您的合营佣金。赚取高的佣金，取决于您带给{{$GlobalService.globalJavaResData.title}}活跃会员的总量，活跃会员越多，您赚取的佣金越高。</p>
+              <p class="coon-h-p">您的会员净损失额的30%（最低）将会成为您的佣金。</p>
+              <p class="coon-h-p">增加会员净损失额和注册的会员数会使您获得更多的回报。</p>
+              <p class="coon-h-p">我们会时刻关注合营伙伴的表现，并及时地通知您。</p>
+              <p class="coon-h-p">合营伙伴推荐的会员所产生的运营费、市场推广费等，这些费用将会累计并会在每月的佣金中扣除。这些费用包括:</p>
+              <p class="coon-h-p">(1)、银行费用 - 包括所有合营伙伴推荐会员的充值和提款费用。</p>
+              <p class="coon-h-p">(2)、媒介费用 - 任何费用支出为{{$GlobalService.globalJavaResData.title}}支持或协助合营伙伴与促销或营销目的。</p>
+              <p class="coon-h-p">(3)、优惠红利 - 给予合营伙伴推荐会员的现金红利及其他优惠。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                佣金比例
+              </div>
+              <div class="table">
+                <p><span>活跃会员</span><span>净盈利</span><span>佣金占成比例</span></p>
+                <p><span>≥5</span><span>0-100000</span><span>30%</span></p>
+                <p><span>≥8</span><span>100001-300000</span><span>35%</span></p>
+                <p><span>≥15</span><span>300001-600000</span><span>40%</span></p>
+                <p><span>≥20</span><span>600001-1000000</span><span>45%</span></p>
+                <p><span>≥35</span><span>1000001-1500000</span><span>50%</span></p>
+                <p><span>≥50</span><span>≥1500001</span><span>60%</span></p>
+              </div>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                二、提款要求
+              </div>
+              <p class="coon-h-p">当月最少5个有效会员即可进行提款！</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                三、有效会员定义
+              </div>
+              <p class="coon-h-p">当月充值满500元且投注大于1000元即为有效会员。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                四、佣金清零及累计
+              </div>
+              <p class="coon-h-p">(1)、合作伙伴连续3个月内，至少需要新增一名有效会员，否则佣金将清零。</p>
+              <p class="coon-h-p">(2)、合作伙伴连续3个月内佣金为负值，佣金将清零。</p>
+              <p class="coon-h-p">(3)、若合作伙伴本月佣金出现负值，将会带到下个月继续累计，直至获得正数结算。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                五、佣金清零及累计
+              </div>
+              <p class="coon-h-p">佣金结算周期为自然月（每月第一天0:00至月末最后一天23:59 GMT+8北京时间）。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                六、佣金支付
+              </div>
+              <p class="coon-h-p">每月5号左右我们将会联系您，核对您上个月佣金的数据和盈利情况，核对完毕后将在3个工作日内将款项打入您指定的账户。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                {{$GlobalService.globalJavaResData.title}}最大特色人人代，我们的宗旨让每位会员能安心，安全放心的在平台尽可能得到最大的优惠，玩的放心，然后每位会员即是代理，人人发挥自己的人脉凭自己的劳动可以赚取一份应得的报酬。平台会尽可能的帮助会员去开发会员，定制化的代理特殊服务，协助每一位有梦想的会员实现最大的利益价值。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- 合作条款-->
+      <div class="cooperation-con2" [hidden]="!(isIndex === 2)">
+        <div class="common-banner-con">
+          <div class="g-y-banner">
+            <div class="title-pa">
+              <div class="coon-title-h-text">
+                合作条款
+              </div>
+              <div class="coon-title-h2-text">
+                一、{{$GlobalService.globalJavaResData.title}}对代理联盟的权利与义务
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}的客服部会登记联盟的会员并会观察他们的投注状况。联盟及会员必须同意并遵守{{$GlobalService.globalJavaResData.title}}的会员条例，政策及操作程式。
+                {{$GlobalService.globalJavaResData.title}}保留拒绝或冻结联盟/会员帐户权利。
+              </p>
+              <p class="coon-h-p">代理联盟可随时登入介面观察旗下会员的下注状况及会员在网站的活动概况。 {{$GlobalService.globalJavaResData.title}}的客服部会根据代理联盟旗下的会员计算所得的佣金。</p>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}保留可以修改合约书上的任何条例，包括:
+                现有的佣金范围、佣金计划、付款程式、及参考计划条例的权力，{{$GlobalService.globalJavaResData.title}}会以电邮、网站公告等方法通知代理联盟。代理联盟对于所做的修改有异议，代理联盟可选择终止合约，或与客服人员反映意见。如修改后代理联盟无任何异议，便视作默认合约修改，代理联盟必须遵守更改后的相关规定。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                二、代理联盟对{{$GlobalService.globalJavaResData.title}}的权力及义务
+              </div>
+              <p class="coon-h-p">
+                代理联盟应尽其所能，广泛地宣传、销售及推广{{$GlobalService.globalJavaResData.title}}，使代理本身及{{$GlobalService.globalJavaResData.title}}的利润最大化。代理联盟可在不违反法律下，以正面形象宣传、销售及推广{{$GlobalService.globalJavaResData.title}}，并有责任义务告知旗下会员所有{{$GlobalService.globalJavaResData.title}}的相关优惠条件及产品。
+              </p>
+              <p class="coon-h-p">代理联盟选择的{{$GlobalService.globalJavaResData.title}}推广手法若需付费，则代理应承担该费用。</p>
+              <p class="coon-h-p">任何{{$GlobalService.globalJavaResData.title}}相关资讯包括:
+                标志、报表、游戏画面、图样、文案等，代理联盟不得私自复制、公开、分发有关材料，{{$GlobalService.globalJavaResData.title}}保留法律追诉权。如代理在做业务推广有相关需要，请随时洽{{$GlobalService.globalJavaResData.title}}。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                三、规则条款
+              </div>
+              <p class="coon-h-p">
+                各阶层代理联盟不可在未经{{$GlobalService.globalJavaResData.title}}许可情况下开设双/多个的代理账号，也不可从{{$GlobalService.globalJavaResData.title}}帐户或相关人士赚取佣金。{{$GlobalService.globalJavaResData.title}}有权终止并封存账号及所有在游戏中赚取的佣金。
+              </p>
+              <p class="coon-h-p">
+                为确保所有{{$GlobalService.globalJavaResData.title}}会员账号隐私与权益，{{$GlobalService.globalJavaResData.title}}不会提供任何会员密码，或会员个人资料。各阶层代理联盟亦不得以任何方式取得会员资料，或任意登入下层会员账号，如发现代理联盟有侵害{{$GlobalService.globalJavaResData.title}}会员隐私行为，{{$GlobalService.globalJavaResData.title}}有权取消代理联盟红利，并取消代理联盟账号。</p>
+              <p class="coon-h-p">代理联盟旗下的会员不得开设多于一个的帐户。
+                {{$GlobalService.globalJavaResData.title}}有权要求会员提供有效的身份证明以验证会员的身份，并保留以IP判定是否重复会员的权利。如违反上述事项，{{$GlobalService.globalJavaResData.title}}有权终止玩家进行游戏并封存账号及所有于游戏中赚取的佣金</p>
+              <p class="coon-h-p">代理联盟不可为自己或其他联盟下的有效投注会员,只能是公司直属下的有效投注会员,
+                代理每月需有5个下线有效投注（有效投注为每月至少上线5次进行正常投注），如有违反联盟协议{{$GlobalService.globalJavaResData.title}}有权终止并封存账号及所有在游戏中赚取的佣金。</p>
+              <p class="coon-h-p">
+                如代理联盟旗下的会员因为违反条例而被禁止享用{{$GlobalService.globalJavaResData.title}}的游戏，或{{$GlobalService.globalJavaResData.title}}退回充值给会员，{{$GlobalService.globalJavaResData.title}}将不会分配相应的佣金给代理联盟。如代理联盟旗下会员充值用的信用卡、银行资料须经审核，{{$GlobalService.globalJavaResData.title}}保留相关佣金直至审核完成。</p>
+              <p class="coon-h-p">合约内的条件会以{{$GlobalService.globalJavaResData.title}}通知接受代理联盟加入后开始执行。
+                {{$GlobalService.globalJavaResData.title}}及代理联盟可随时终止此合约，在任何情况下，代理联盟如果想终止合约，都必须以书面/电邮方式提早于七日内通知{{$GlobalService.globalJavaResData.title}}。代理联盟的表现会3个月审核一次，如代理联盟已不是现有的合作成员则本合约书可以在任何时间终止。如合作伙伴违反合约条例，{{$GlobalService.globalJavaResData.title}}有权立即终止合约。</p>
+              <p class="coon-h-p">
+                在没有{{$GlobalService.globalJavaResData.title}}许可下，代理联盟不能透露及授权{{$GlobalService.globalJavaResData.title}}相关密资料，包括代理联盟所获得的回馈、佣金报表、计算等;代理联盟有义务在合约终止后仍执行机密档及资料的保密。</p>
+              <p class="coon-h-p">在合约终止后，代理联盟及{{$GlobalService.globalJavaResData.title}}将不须要履行双方的权利及义务。终止合约并不会解除代理联盟于终止合约前应履行的义务。</p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                回馈/佣金支付
+              </div>
+              <p class="coon-h-p">
+                联盟佣金计算，结算区间为本月一号至下月一号，将会员盈利，以联盟方案分红公式计算，佣金由承办客服于每个月的五号开始与代理确认金额后，在5个工作天内将佣金直接汇入代理联盟登记之银行账号。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 牌照展示-->
+      <div class="cooperation-con2" [hidden]="!(isIndex === 3)">
+        <div class="common-banner-con">
+          <div class="g-y-banner">
+            <div class="title-pa">
+              <div class="coon-title-h-text">
+                牌照展示
+              </div>
+              <p class="coon-h-p" style="text-align: center;height: 612px;">
+                <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/paizhao.jpg" alt="">
+              </p>
+            </div>
+            <div class="title-pa">
+              <div class="coon-title-h2-text">
+                营业执照
+              </div>
+              <p class="coon-h-p">{{$GlobalService.globalJavaResData.title}}隶属于 TIANYUN WORLDWIDE COMPANY
+                LTD.，拥有菲律宾卡格杨（Cagayan）颁发的执照并受其监督，经正式授权后为您提供安全、合法的线上博彩服务。从娱乐场、扑克、体育投注到桌面游戏，您可以尽情选择各种精彩刺激的游戏产品。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="coon-footer">
+    <div class="footer-con">
+      <div class="footer-left">
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=860000798&site=qq&menu=yes" target="_blank">
+          <i class="iconfont" style="vertical-align: top;font-size: 30px">&#xe610;</i>
+          代理客服QQ：860000798
+        </a>
+      </div>
+      <div class="footer-right">Copyright @ {{$GlobalService.globalJavaResData.title}} All Right Reserved</div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,87 @@
+<div class="companys-payment"
+[style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/Group-8@1x.png' | bgUrl">
+
+  <div class="back" (click)="goBack()"><了解虚拟币</div>
+  <div class="title1"
+  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/title1-1@1x.png' | bgUrl"></div>
+
+  <div>
+    <div class="alist"><span class="dot"></span>虚拟币是一种不具备实体形式的、仅以数字形式存在的货币，也称之为“数字货币”。</div>
+    <div class="alist"><span class="dot"></span>其性质与实体货币相似，允许在互联网上即时地、无地理限制地转让，主流的数字货币如USDT(泰达币)、BTC(比特币)、ETH(以太坊)等。</div>
+    <div class="alist"><span class="dot"></span>用户可以通过数字货币交易平台购买数字货币，在平台进行支付、兑换成人民币从而进行游戏。</div>
+  </div>
+
+  <div class="title1"
+  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/title2-1@1x.png' | bgUrl"></div>
+
+  <div class="img1"
+  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/img-1@1x.png' | bgUrl"></div>
+
+  <div class="title1"
+  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/title3-1@1x.png' | bgUrl"></div>
+
+  <div class="img1"
+  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/taidabiyoushi-1@1x.png' | bgUrl"></div>
+
+  <div class="title1"
+  [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/title4-1@1x.png' | bgUrl"></div>
+
+  <div *ngIf="myhref=='anxin'" class="list1">
+    <!-- <div class="img2"
+      routerLink="/anxin/index/XunibiHuobi"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/huobi@1x.png' | bgUrl">
+      <div>查看教程</div>
+    </div> -->
+    <div class="img2"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/huobi@1x.png' | bgUrl">
+      <div><a target="_blank" href="https://www.okex.com/cn" class="Zj_aB">查看详情</a></div>
+    </div>
+
+    <div class="img2"
+    routerLink="/anxin/index/XunibiBian"
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/bian@1x.png' | bgUrl">
+     <div>查看教程</div>
+    </div>
+
+    <!-- <div class="img2"
+    routerLink="/anxin/index/XunibiCoin"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/58coin@1x.png' | bgUrl">
+      <div>查看教程</div>
+    </div> -->
+    <div class="img2"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/58coin@1x.png' | bgUrl">
+      <div><a target="_blank" href="https://b9.com/" class="Zj_aB">查看详情</a></div>
+    </div>
+  </div>
+
+  <div *ngIf="myhref=='yaxin'" class="list1">
+    <!-- <div class="img2"
+      routerLink="/yaxin/index/XunibiHuobi"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/huobi@1x.png' | bgUrl">
+      <div>查看教程</div>
+    </div> -->
+
+    <div class="img2"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/huobi@1x.png' | bgUrl">
+      <div><a target="_blank" href="https://www.okex.com/cn" class="Zj_aB">查看详情</a></div>
+    </div>
+
+    <div class="img2"
+    routerLink="/yaxin/index/XunibiBian"
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/bian@1x.png' | bgUrl">
+     <div>查看教程</div>
+    </div>
+
+    <!-- <div class="img2"
+    routerLink="/yaxin/index/XunibiCoin"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/58coin@1x.png' | bgUrl">
+      <div>查看教程</div>
+    </div> -->
+    <div class="img2"
+      [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName +'/img/58coin@1x.png' | bgUrl">
+      <div><a target="_blank" href="https://b9.com/" class="Zj_aB">查看详情</a></div>
+    </div>
+  </div>
+
+  <div class="foot">您也可以选择其他数字货币交易平台进行数字货币买卖。</div>
+</div>

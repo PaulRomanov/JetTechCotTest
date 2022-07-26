@@ -1,0 +1,19 @@
+<div class="fishing-title" id="index_by"
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + $GlobalService.globalJavaResData.projectName+'/img/index_bybj.jpg' | bgUrl"
+>
+  <canvas id="bubbles"></canvas>
+  <div class="index_by_head">
+    <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}{{$GlobalService.globalJavaResData.projectName}}/img/bg_title.png"/>
+  </div>
+  <div class="index_by_center">
+    <ul *ngFor="let data of $GlobalService.globalJavaResData.gameNavList">
+      <ng-container *ngIf="data.subname === 'PY GAME'">
+        <li *ngFor="let x of data.childs" (click)="goGame(x)">
+          <img class="GameUrl" src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgLUrl}}"/>
+          <p>{{x.name}}</p>
+          <a href="javascript:;"></a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

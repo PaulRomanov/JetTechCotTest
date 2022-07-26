@@ -1,0 +1,32 @@
+<div class="chessCard"
+     [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + $GlobalService.globalJavaResData.projectName+'/img/VGQP_bg.png' | bgUrl"
+>
+  <div class="chessCard-head">
+    <div class="chessCard-head-title"
+         [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + $GlobalService.globalJavaResData.projectName+'/img/title_bg.png' | bgUrl"
+    >
+        VG棋牌
+    </div>
+    <ng-container *ngFor="let data of $GlobalService.globalJavaResData.gameNavList">
+      <ng-container *ngIf="data.subname === 'VG GAME'">
+        <ul class="chessCard-center">
+          <li class="game-list" *ngFor="let x of data.childs let i = index">
+            <img class="afterImg" [src]="x.imgLUrl"/>
+            <button
+              class="start-btn"
+              [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + 'public/img/click_bg.png' | bgUrl"
+              (click)="goGame(x)">开始游戏</button>
+            <p class="zm-game-name">{{x.name}}</p>
+          </li>
+          <div class="chessCard-center-left"
+               [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + $GlobalService.globalJavaResData.projectName+'/img/left_bg.png' | bgUrl"
+          ></div>
+          <div class="chessCard-center-right"
+               [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + $GlobalService.globalJavaResData.projectName+'/img/right_bg.png' | bgUrl"
+
+          ></div>
+        </ul>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

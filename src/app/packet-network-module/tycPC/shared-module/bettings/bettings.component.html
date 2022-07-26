@@ -1,0 +1,78 @@
+<!-- <div class="djchess-card">
+  <div class="djchess-card-background"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/qpbj.png' | bgUrl">
+    <div class="djchess-card-background-center">
+      <ul class="game_type_list">
+        <div class="title-current" [style.left.px]="tabIndex*140"></div>
+        <ng-container *ngFor="let item of titleList let i = index">
+          <li class="game_name" (click)="sportsTab($event, item, i)">{{item.name}}</li>
+        </ng-container>
+      </ul>
+      <ul class="game_list" *ngIf="isQp === 'FF'">
+            <li *ngFor="let item of qpList let i = index" (click)="goGame(item)">
+              <img [src]="item.imgpath" />
+              <div class="djchess-card-background-center-div">
+                <p [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/gameBtn.png' | bgUrl">{{item.gamename}}</p>
+              </div>
+              <div class="djchess-card-background-center-button">
+                <button>开始游戏</button>
+              </div>
+            </li>
+      </ul>
+      <div class="game_list" *ngIf="isQp === 'DTQP'" (click)="goGame(dtDataObj)">
+        <img src="{{dtDataObj.imgpath}}" alt="">
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="a5_a7" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj02.jpg' | bgUrl">
+  <div class="a5_bS">
+    <img class="a5_bU" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/ESports_04.png'" alt="">
+    <img class="a5_bW"  [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/ESports_03.png'" alt="">
+  </div>
+  <div class="a5_a9 a5_bB">
+    <div class="a5_eG">
+      <ul>
+        <li [class.a5_Cf]="i === tabIndex" (click)="sportsTab($event, item, i)" *ngFor="let item of titleList let i = index">
+          <img [src]="$GlobalService.globalJavaResData.cdnValidKey +item.imgLUrl" alt="">
+          <p>{{item.name}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="a5_G a5_bY">
+      <div>
+        <div class="a5_ba">
+          <div class="a5_b7 a5_cn">
+            <div class="a5_cB">
+              <div class="a5_cO">
+                <div class="a5_bc">
+                  <div class="a5_bj">
+                    <span class="a5_bn"></span>
+                    <img class="a5_I" [src]="$GlobalService.globalJavaResData.cdnValidKey +titleList[tabIndex].imgLUrl" alt="">
+                    <div class="a5_bf">
+                      <p class="a5_bl">{{dj_item.name}}  </p>
+                      <p class="a5_bQ">{{dj_item.gamePlatformId}} ESPORTS</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="a5_b7">
+                  <div class="title_btn" (click)="goGame(dj_item)" [style.background-image]="dj_item.imgSUrl | bgUrl">
+                    <!-- <div>
+                      <p class="title_1">{{dj_item.gamePlatformId}} ESports</p>
+                      <p class="title_2">{{dj_item.name}}  </p>
+                      <p class="title_3">最专业的电竞赛事娱乐平台，内含最新最火的赛事，综合老牌战队和新鲜力量提供最合理的竞猜赔率，让您共同参与到强者争霸当中。</p>
+                      <div class="enter_btn"  (click)="goGame(dj_item)" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/'+ $GlobalService.globalJavaResData.projectName + '/img/primary-medium-new-selected.png' | bgUrl">进入游戏</div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

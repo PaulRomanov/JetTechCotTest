@@ -1,0 +1,38 @@
+<div class="index_head_list">
+  <ul class="index_head_list_game">
+
+    <ng-container *ngFor="let list of $GlobalService.globalJavaResData.gameNavList let i = index">
+      <!--加首页图标按钮-->
+      <li *ngIf="i===0"
+          (mousemove)="listName(list, i)"
+          (mouseout)="listNameHide()"
+          [class.active]="tabIndex===i"
+          [class.list-item-bg]="i === isShowIndex">
+        <a [routerLink]="list.link" (click)="openLinkGame(list.subname, i)">
+          <i class="iconfont" style="font-size: 25px;">&#xe61b;</i>
+        </a>
+      </li>
+      <li *ngIf="i>0"
+          (mousemove)="listName(list, i)"
+          (mouseout)="listNameHide()"
+          [class.active]="tabIndex===i"
+          [class.list-item-bg]="i === isShowIndex">
+        <a href="javascript:;" [routerLink]="list.link" (click)="openLinkGame(list.subname, i)">{{list.name}}</a>
+      </li>
+    </ng-container>
+
+  </ul>
+  <div class="index_head_list_arr">
+    <ng-container *ngFor="let list of $GlobalService.globalJavaResData.gameNavList let i = index">
+      <ul (mousemove)="listName(list, i)"
+          (mouseout)="listNameHide()">
+        <li *ngFor="let x of list.childs let number = index" class="li-hide"
+            [class.li-show]="i=== isShowIndex" (click)="imgGamesGo(x,list,number)">
+          <img [class.lyactiveimg]="x.active" src="{{$GlobalService.globalJavaResData.cdnValidKey}}{{x.imgUrl}}" />
+          <p class="p-name">{{x.name}}</p>
+        </li>
+      </ul>
+    </ng-container>
+  </div>
+</div>
+

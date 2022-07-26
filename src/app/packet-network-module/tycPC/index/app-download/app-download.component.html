@@ -1,0 +1,32 @@
+<div class="B7_B9">
+  <div class="B7_CB">
+    <div class="B7_CE" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/common_bj01.jpg' | bgUrl">
+      <div class="B7_CI B7_Ca">
+        <div class="B7_CK B7_CM">
+          <img [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_app.png'" alt="">
+        </div>
+        <div class="B7_CK B7_CO">
+          <div>
+            <img class="B7_CG" [src]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/img_title.png'" alt=""></div>
+          <div class="B7_CQ">全球首家一体化娱乐原生APP，尽显流畅、完美操作。海量体育、电竞顶尖赛事，真人娱乐、彩票投注及电子游艺等，最新最全娱乐项目尽在掌中体验扫码下载，即刻拥有！</div>
+          <!--<div class="no_login" *ngIf="!$GlobalService.globalJavaResData.isShowloginHeader">
+            <span>登录后下载APP</span>
+            <div class="btn" (click)="$GlobalMethodsService.loginOPenWindow()" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/button_bg.png' | bgUrl">立即登录</div>
+          </div>-->
+          <div class="B7_CS">
+            <div class="B7_CY" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/qrcode_bg.png' | bgUrl">
+              <qr-code [value]="appDownUrl"></qr-code>
+              <span class="B7_CU">iOS/Android客户端下载</span>
+              <span class="B7_CW">iOS/Android client download</span>
+            </div>
+            <!--<div class="B7_CY" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/qrcode_bg.png' | bgUrl">
+              <qr-code [value]="appDownUrl"></qr-code>
+              <span class="B7_CU">iOS客户端下载</span>
+              <span class="B7_CW">iOS client download</span>
+            </div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

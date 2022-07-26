@@ -1,0 +1,213 @@
+<div class="ly-guide">
+  <div>当前位置
+    <span>首页</span>&nbsp;
+    >&nbsp;<span>{{navigationName}}</span>
+  </div>
+  <div class="ly-newhand">
+      <ul class="ly-newhand-left">
+        <li (click)="listName(item, i)" [class.active]="i=== isShowIndex" *ngFor="let item of listData let i=index">
+          <i class="iconfont" [ngClass]="item.icon"></i><span>{{item.name}}</span><i class="iconfont">&#xe65e;</i></li>
+      </ul>
+      <ul class="ly-newhand-right" *ngIf="0=== isShowIndex">
+        <div class="ly-newhand-right-text">
+            <h4>联系我们</h4>
+          <p>客服中心全年无休，提供365天每天24小时的全天候优质服务。如果您对我们有任何操作及相关问题，您可以在( 常见问题 )中找到答案，如果您仍然有任何疑惑，可以随时洽询我们的24小时在线客服，或使用Email与客服人员取得联系我们的客服人员将于24小时内与您联系。</p>
+          <b></b>
+          <ul class="ly-newhand-right-text-margin">
+            <li>
+              <div style="background-image: linear-gradient(90deg, #DCCAB8 0%, #D2B496 100%);"><i class="iconfont">&#xe610;</i></div>
+              <div>
+                <!-- <span>客服QQ：</span> -->
+                <span>客服邮箱：</span>
+                <!-- <span>860000798</span> -->
+                <ng-container *ngFor="let item of $GlobalService.globalQueryModel.customerQQ;let i=index ">
+                  <span *ngIf="i<2">{{item.keyvalue}}</span>
+                </ng-container>
+              </div>
+            </li>
+            <!-- <li>
+              <div><i class="iconfont">&#xe601;</i></div>
+              <div>
+                <span>客服电话：</span>
+                <ng-container *ngFor="let item of $GlobalService.globalQueryModel.customerPhone;let i=index ">
+                  <span *ngIf="i<2">{{item.keyvalue}}</span>
+                </ng-container>
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </ul>
+    <ul class="ly-newhand-right" *ngIf="1 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <h4>一、点击网站顶部“注册”,弹出注册窗口</h4>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/howRegist1.png"/></li>
+        <h4>二、填写注册表单</h4>
+        <p>1.填写账号、密码、邮箱等相关信息，没有介绍号可留空。</p>
+        <p>2.同时您须接受相关规则条约、隐私保护等所有政策，确认您已经年满18岁以完成此协议。</p>
+        <p>3.确认无误后点击“注册”。</p>
+        <p>4.注册成功后，将自动登录至会员中心。</p>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/howRegist2.png"/></li>
+      </div>
+    </ul>
+     <ul class="ly-newhand-right" *ngIf="2 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <h4>一、点击网站顶部处“登录”。</h4>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/howLogin1.png"/></li>
+        <h4>二、输入账号、密码。</h4>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/howLogin2.png"/></li>
+        <h4>三、若您输入错误信息，系统将弹出错误提示，并请求您重新输入。</h4>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/howLogin3.png"/></li>
+        <h4>四、关闭系统弹出错误提示后，再次输入账号、密码后，需拖动滑块验证</h4>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/howLogin4.png"/></li>
+        <h4>五、输入的账号信息正确无误后即可登录您的账号进行操作。</h4>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/howLogin5.png"/></li>
+      </div>
+    </ul>
+     <ul class="ly-newhand-right" *ngIf="3 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <h4>一、点击网站顶部处“登录”。</h4>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/forgetPsw1.png"/></li>
+        <h4>二、在“登录”弹窗内点击“忘记密码”</h4>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/forgetPsw2.png"/></li>
+        <h4>三、选择“手机号码找回”或 “密保问题找回”验证身份：</h4>
+        <p>1.输入用户名后选择“手机号码找回”或 “密保问题找回”验证身份。</p>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/forgetPsw3.png"/></li>
+        <p>2.选择“手机号码找回”：请点击“通过手机号码找回”，手机号验证成功后点击“下一步”进行下一步操作。</p>
+        <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/forgetPsw4.png"/></li>
+        <p>	3.选择“密保问题找回”：请点击“通过密保问题找回”，输入密保问题后点击“下一步”进行下一步操作。</p>
+         <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/forgetPsw5.png"/></li>
+         <p>4.验证身份成功后将进入重置密码页面，输入新的密码并再次输入确认，点击“下一步”完成重置。</p>
+         <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/forgetPsw6.png"/></li>
+         <p>5.密码重置完成后即可返回首页，使用新密码登录账号。</p>
+         <li><img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/forgetPsw7.png"/></li>
+      </div>
+    </ul>
+     <ul class="ly-newhand-right" *ngIf="4 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <h4>您现在可以通过以下方式存款到{{$GlobalService.globalJavaResData.title}}：</h4>
+        <h4>一、方法A：【微信/支付宝扫码支付】</h4>
+        <p>填写存款金额（单笔最低100元，最高3000元，3000元以上支付建议多笔支付或选择在线支付）；</p>
+        <p>扫一扫二维码 → 完成充值立即到账。</p>
+        <h4>二、方法B：银行卡转账</h4>
+        <p>方法B：银行卡转账是通过公司指定的银行卡号进行存款支付；</p>
+        <p>公司入款可以用网银、手机银行、支付宝、ATM存款，或者柜台汇款的方式支付；</p>
+        <p>请您登陆会员账户后点击“在线存款”，选择“银行卡存款”，进入查看最新的公司入款收款账户信息或向24小时在线客服人员索取；</p>
+        <p>目前提供中国建设银行、中国工商银行、中国农业银行、支付宝、招商银行可选择；</p>
+        <p>同行转账存款到账时间及时到账，跨行转账请选择实时到账，会员存款成功后提交存款信息后财务将于0-3分钟内为您添加额度。</p>
+        <h4>三、方法C：网银在线支付</h4>
+        <p>方法C：网银在线支付是通过网银直接在线支付，在线支付需要开通网银才可进行存款；</p>
+        <p>请您登入会员账户后点选“在线存款”，选择“在线支付”，输入域需要充值的金额，选择“支付银行”。</p>
+        <p>确认送出后，将请您确认您的支付订单无误。并建议您记录您的支付订单号后。</p>
+        <p>确认送出，并耐心等待加在网络银行页面，传输中已将您账户数据加密。</p>
+        <p>进入网络银行页面，请确认填写您的银行卡账号信息，支付成功，额度将立即加入您的会员账户，请您点击{{$GlobalService.globalJavaResData.title}}首页刷新额度。</p>
+        <h4>存款须知：</h4>
+        <p>会员成功注册会员账号，首次存款需按照页面提示绑定银行账号，注意（绑定的银行账号必须真实有效且绑定的银行账号户名需与注册姓名一致）；</p>
+        <p>{{$GlobalService.globalJavaResData.title}}公司入款最低存款100元最高无上限，在线支付最低存款100元最高1000000元；</p>
+        <p>未开通网银的会员，请您联系您的银行柜台办理；</p>
+        <p>如有任何问题，请您联系24小时【在线客服】咨询；</p>
+        <p>{{$GlobalService.globalJavaResData.title}}相关优惠，请详见【优惠活动】。</p>
+      </div>
+    </ul>
+    <ul class="ly-newhand-right" *ngIf="5 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <p>1. 单笔最低取款金额不低于100.0元。</p>
+        <p>2. 普通会员24小时内免费提款3次（超过三次需每笔扣除手续费¥50）</p>
+        <p>3. 单笔最高取款金额不高于1000000.0元。</p>
+        <p>4. 取款金额必须为1的整数倍。</p>
+        <p>5. 取款之间的间隔时间为2分钟。</p>
+        <p>6. 部分游戏注单同步需要一定时间，如若流水量与您的实际不符合，请耐心等待一段时间。</p>
+        <p>7. 尊敬的会员，款项只能从主账户取出，若要取出其他账户的款项请将额度转换到主账户。</p>
+        <h4>取款方法：</h4>
+        <p>登入会员账号后点击会员中心→取款→输入取款密码、取款金额，点击提交；</p>
+        <p>成功提交取款信息后，一般1-3分钟到账，最晚10分钟内到账；</p>
+        <p>会员存款后需完成存款金额的一倍有效投注后即可全额取款，若未完成全额有效投注，则需扣除存款金额30%行政费用，附加手续费¥50；</p>
+        <p>会员绑定的银行账号的户名需要与注册的真实姓名一致；</p>
+        <p>目前支持以下金流出款：绑定中国工商银行（优先）、中国农业银行、北京银行、交通银行、中国银行、中国建设银行、中国光大银行、兴业银行、中国民生银行总行、招商银行、中信银行、广东发展银行、中国邮政、深圳发展银行、上海浦东发展银行；</p>
+        <p>会员如需修改银行账号，请您联系24小时【在线客服】修改。</p>
+        <h4>取款需知：</h4>
+        <p>最低取款为¥100人民币，取款上限为¥5000000人民币。（普通会员24小时内免费提款3次，超过三次需每次扣除手续费¥50。</p>
+        <p>{{$GlobalService.globalJavaResData.title}}保留权利审核会员帐户，若由最后一次入款起，有效下注金额需达到入款金额的100%，未达到而申请出款者，公司将收取入款金额的30%行政费用，以及¥50出款手续费。</p>
+        <p>完成全额有效投注，VIP会员24小时不限次数提款，手续费全免。</p>
+        <p>{{$GlobalService.globalJavaResData.title}}保留权利审核会员账户，若由上次出款起，有效下注金额未达""最后一次入款后账户的总余额""，而申请出款者，公司将收取""最后一次入款后账户的总余额""30%的行政费用，以及￥50出款手续费。</p>
+        <p>【例1】1月1日 12:00当下额度￥1000，并在存入3000元，则在1月1日 12:00后，有效投注额必须为（1000+3000）以上出款，才不被扣除行政费用+手续费用。</p>
+        <h4>请注意：</h4>
+        <p>各游戏和局/未接受/取消注单，不纳入有效投注计算，运动博弈游戏项目，大赔率玩法计算有效投注金额，小赔率法计算输赢金额为有效投注，大赔率产品包括： 过关、波胆、总入球、半全场、双胜彩、冠军赛；</p>
+        <p>如有任何问题，请您联系24小时【在线客服】咨询；</p>
+        <p>{{$GlobalService.globalJavaResData.title}}相关优惠，请详见【优惠活动】。</p>
+      </div>
+    </ul>
+    <ul class="ly-newhand-right" *ngIf="6 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <p><b class="index_newhand_body_r_red">Q:</b>{{$GlobalService.globalJavaResData.title}}实力怎样？</p>
+        <p><b class="index_newhand_body_r_green">A:</b>您好，请参阅主页“关于我们”。</p>
+        <p><b class="index_newhand_body_r_red">Q:</b>:在贵公司进行游戏是否安全？</p>
+        <p><b class="index_newhand_body_r_green">A:</b>您好，本公司系统绝对安全。我们决不泄漏客户的个人资料给任何商业机构。此外，我们亦要求有交易往来的银行，信用卡中转代理等严格保密客户的资料。所有的存款将视为贸易户口，并不会交给其它的人士进行。</p>
+        <p><b class="index_newhand_body_r_red">Q:</b>网上博彩是否合法？</p>
+        <p><b class="index_newhand_body_r_green">A:</b>您好，有的国家或地区当地法律禁止博彩，在这种情况下，请您务必遵守当地法律，如有任何疑问，请寻求当地法律部门的意见。本公司不能亦不会接受任何人士违犯当地法律所引致之任何责任。</p>
+        <p><b class="index_newhand_body_r_red">Q:</b>在{{$GlobalService.globalJavaResData.title}}进行投注是否有年龄限制？</p>
+        <p><b class="index_newhand_body_r_green">A:</b>您好，是的，投注合法年龄必须年满18岁。</p>
+        <p><b class="index_newhand_body_r_red">Q:</b>开户是否要填写真实姓名？</p>
+        <p><b class="index_newhand_body_r_green">A:</b>您好，基于安全理由，提款时财务部会按照注册姓名进行审核，银行卡户名必须与注册姓名相同方可提款，所以请您在开户时填写的姓名必须与您提款的户名相同。
+</p>
+			<p><b class="index_newhand_body_r_red">Q:</b>忘记密码怎么办？</p>
+			<p><b class="index_newhand_body_r_green">A:</b>您可点击首页【免费开户】旁边的【忘记密码】，填写您的会员帐号以及验证身份，即可重设密码。当您无法收取邮件时，您也可以联系24小时在线客服人员咨询协助取回您的账号密码。</p>
+			<p><b class="index_newhand_body_r_red">Q:</b>我可以只试玩而不下注吗？</p>
+			<p><b class="index_newhand_body_r_green">A:</b>您好，可以，我们诚挚邀请您观摩我们的游戏。只需注册一个会员账号，登录后即可查看所有的游戏。</p>
+			<p><b class="index_newhand_body_r_red">Q:</b>我的注码的限制是多少？</p>
+			<p><b class="index_newhand_body_r_green">A:</b>您好，从最低注单 1（电子游艺）~10（球类/视讯） 元人民币以上即可投注， 您的注码会根据您的存款有所不同，以及您挑选的游戏不同而有所区别。</p>
+			<p><b class="index_newhand_body_r_red">Q:</b>我在哪里可以找到游戏的规则？</p>
+			<p><b class="index_newhand_body_r_green">A:</b>您好，在未登录前，您可以在游戏的最外层看到"游戏规则"选项，清楚告诉您游戏的玩法、规则及派彩方式。 在游戏窗口中，也有"规则"选项，让您在享受游戏乐趣的同时，可以弹跳窗口随时提醒您游戏规则。</p>
+      </div>
+    </ul>
+    <ul class="ly-newhand-right" *ngIf="7 === isShowIndex">
+      <div class="ly-newhand-right-text">
+      	<h4>一、负责任博彩</h4>
+      	<p>{{$GlobalService.globalJavaResData.title}}积极推行负责任博彩，并极力拒绝未成年玩家使用我们的软件进行网上娱乐。</p>
+      	<p>同时，我们更透过专业人员及各种有效方法以防止问题博彩的发生。</p>
+      	<p>一旦发现使用该本网站的客户未满18岁，我们将会没收所有赢取的彩金并保留立即终止客户的投注户口操作的权利。</p>
+      	<p>如您的计算机被未满18岁的人士使用， 我们建议您设定计算机数据保密以防止帐户号码/用户名称被盗用。</p>
+      	<p>父母或者监护人可以使用一系列的第三方软件来监控或者限制计算机的互联网使用：</p>
+      	<p>Net Nanny过滤软件防止儿童浏览不适宜的网站内容: www.netnanny.com </p>
+      	<p>CYBERsitter过滤软件允许父母增加自定义过滤网站: www.cybersitter.com</p>
+      	<h4>二、博彩责任</h4>
+      	<p>本公司希望客户高兴与满意本公司提供的网上博彩服务。我们会为客户在博彩自律方面提供多方面的帮助。如您担心博彩会严重影响您或他人的生活，我们建议：在登录我们的系统时，不要让未成年人士在荧光幕显示范围内观看或停留。</p>
+      	<p>如果用户需要离开系统的操作范围，请谨记使用密码锁住计算机。</p>
+      	<p>各用户务必将{{$GlobalService.globalJavaResData.title}}帐户及密码放置在安全地方。</p>
+      	<p>请于计算机使用年龄保护软件，以限制未成年用户到访特定网站及使用相关程序。</p>
+      	<p>切勿与未成年人士分享信用卡或帐户等相关信息 。</p>
+      	<p>当用户从他人计算机登入{{$GlobalService.globalJavaResData.title}}软件时，或从远程位置（无线网吧、机场、酒店或其他公共场所）进行登录及娱乐活动时，请留意是否已隔离任何未成年人士。</p>
+      	<h4>三、严重博彩引发的问题</h4>
+      	<p>您会否因为博彩而不上班或不上学？</p>
+      	<p>您博彩是否为了逃避烦闷或不愉快的生活？</p>
+      	<p>当您博彩花光钱时，您是否感到失望甚至绝望，并且希望马上能再进行赌博？</p>
+      	<p>您会否博彩到最后一分钱才罢休？</p>
+      	<p>您有否曾经用谎言掩饰您花在博彩上的时间和金钱？</p>
+      </div>
+    </ul>
+    <ul class="ly-newhand-right" *ngIf="8 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <h4>关于太阳城</h4>
+        <p>品牌信誉-首选本公司,最具公信力的博彩公司、更有高品质的游戏平台、打造线上博彩第一品牌。</p>
+        <p>公司不仅拥有市场上最多样化的游戏投注平台，同时为客户提供即时、刺激、高信誉的服务保证、高品质的游戏平台，也是公司的首要宗旨。</p>
+        <p>在日渐热络、成熟的网络博彩市场中，除了多样化的游戏外，网络安全最为客户注重，公司针对现阶段网络安全问题，成立了网路安全维护中心，彻底为客户的网路安全解决了后顾之忧，诺顿分级评级审核本公司为最安全网站之一，并获得GEOTRUST国际认证，确保网站公平公正性，所有会员资料均经过加密，保障玩家所有隐私。</p>
+      </div>
+    </ul>
+    <ul class="ly-newhand-right" *ngIf="9 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <h4>安全保密</h4>
+        <p>我们采用128位SSL加密技术和严格的安全管理系统，确保客户的资料得到完善安全的保障。</p>
+        <p>客户的所有数据都在极机密的情况下处理，任何被脱机保存在公司内部的数据，均保护在最严密的服务器内，任何情况下，我们不会向任何第三方包括任何政府透漏客户资料。</p>
+      </div>
+    </ul>
+    <ul class="ly-newhand-right" *ngIf="10 === isShowIndex">
+      <div class="ly-newhand-right-text">
+        <h4>诚信专业</h4>
+        <p>因为只有诚信经营才能赢得玩家的信任和口碑，作为国际专业的网络游戏运营商，凭着世界级的博彩信息专家、经营丰富的服务团队、市场营销专家、先进的技术人才建立起来最全面、最完善的体系。</p>
+        <p>我们承诺为每位玩家提供最佳、最安全、最公平的网上真人游戏、以及全方位的服务。我们坚守「公正诚信」，力求创新，不断进步的精神，力拓多元化的娱乐产品。我们聘用庞大的服务团队，凭市场推广、客户服务、技术支持等优秀人员的不懈努力。玩家提供最专业的娱乐服务：</p>
+        <p>1.提供7/24小时专业的客户服务，随时解决客户的咨询问题。</p>
+        <p>2.多渠道的与客户的互动交流，了解客户的需求，随时关注客户的意见及建议。</p>
+        <p>3.举办更多的优惠及促销活动，给玩家提供更多的回馈及惊喜。</p>
+      </div>
+    </ul>
+  </div>
+</div>

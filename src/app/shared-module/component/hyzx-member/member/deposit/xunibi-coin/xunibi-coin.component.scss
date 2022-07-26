@@ -1,0 +1,129 @@
+.index_member{
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  // padding-top: 20px;
+  // padding-bottom: 40px;
+  position: relative;
+}
+.posi_left{
+  position: fixed;
+  top: 245px;
+  // left: 13px;
+  width: 164px;
+  height: 240px;
+  div{
+    width: 164px;
+    line-height: 50px;
+    height: 60px;
+    text-align: center;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+}
+.index_member_left{
+  min-width: 165px;
+  padding: 7px;
+  background: #ffffff;
+  overflow: hidden;
+  div{
+    width: 164px;
+  }
+}
+.companys-payment {
+  // padding: 31px;
+  width: calc(100% - 175px);
+  padding: 30px 0;
+  background-color: #e8f2ff;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.header{
+  margin: 0px auto;
+    width: 522px;
+    height: 62px;
+    background-size: 100%;
+  background-repeat: no-repeat;
+}
+.title1{
+  margin: 40px auto;
+  background-size: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  height: 63px;
+}
+.alist{
+  position: relative;
+  margin: 0 auto 10px;
+  width: 921px;
+  height: 36px;
+  font-size: 15px;
+  text-indent: 18px;
+  line-height: 36px;
+  color: #6B7491;
+  border-radius: 8px;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 5px 0px #D8EAFF;
+}
+.alist .dot{
+  position: absolute;
+  background: #E1C0A0;
+  width: 6px;
+  height: 6px;
+  left: 7px;
+  top: 15px;
+  border-radius: 50%;
+}
+
+.swiper-father {
+  width: 100%;
+  height: 450px;
+  position: relative;
+}
+.swiper-container {
+  width: 80%;
+  height: 450px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.banner-swiper {
+  height: 450px;
+}
+.swiper-slide {
+  width: 80%;
+  height: 450px;
+  
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+.swiper-container .hide{
+  opacity:0;
+}
+.swiper-button-next,.swiper-button-prev{
+  transition: opacity .5s;
+  width: 38px;
+  height: 104px;
+  background-size: 100%;
+  margin-top:-52px;
+}
+.swiper-button-prev {
+  left: 30px;
+}
+.swiper-button-next {
+  right: 30px;
+}
+
+
+.foot{
+  margin: 20px 0;
+  width: 100%;
+  text-align: center;
+  color: #000000;
+  font-size: 15px;
+}

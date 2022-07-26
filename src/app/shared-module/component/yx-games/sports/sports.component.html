@@ -1,0 +1,28 @@
+
+<div class="zm-sports-container"
+    [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 +$GlobalService.globalJavaResData.projectName+ '/img/index-tybg.png' | bgUrl">
+  <div class="zm-sports-banner">
+    <ul class="zm-ul-con">
+      <div class="title-current" [style.left.px]="tabIndex*140"></div>
+      <li class="sports-item"
+          *ngFor="let x of navList let i = index"
+          [class.active]="tabIndex===i"
+          (click)="sportsTab($event, x, i)">
+        {{x.name}}
+      </li>
+    </ul>
+  </div>
+  <div class="tab-con" *ngIf="$GlobalService.globalQueryModel.userToken && !isTyErrImg">
+    <iframe [src]="iframeUrl | safe"
+            allowtransparency="true"
+            frameborder="0"
+            id="defaulIframePage" width="100%" height="100%">
+    </iframe>
+  </div>
+  <div class="tab-con" *ngIf="isErrImg">
+    <img width="1280" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/{{$GlobalService.globalJavaResData.projectName}}/img/ty.jpg" alt="">
+  </div>
+  <div class="tab-con" *ngIf="isTyErrImg">
+    <img width="1280" [src]="tyImg" alt="">
+  </div>
+</div>

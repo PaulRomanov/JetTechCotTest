@@ -1,0 +1,38 @@
+<!--<div class="notice" *ngIf="show">-->
+<!--  <div class="noticeBg"  (click)="closeNotice()"></div>-->
+<!--  <div class="noticeContent">-->
+<!--    <div>-->
+<!--      <p>公告</p>-->
+<!--      <i class="iconfont" (click)="closeNotice()">&#xe6a0;</i>-->
+<!--      <div class="noticeC" in [innerHTML]="popMessage">-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="gonggao-window-container" *ngIf="show">
+  <div class="g-g-w-box">
+    <div class="g-g-w-banner">
+      <div class="g-g-title">
+        <span class="g-g-title-span">公告</span>
+        <i class="iconfont zm-close-font" (click)="closeNotice()">&#xe6a0;</i>
+      </div>
+      <div class="g-g-w-con">
+        <div class="swiper-container notice-swiper">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide g-g--w-open-text" *ngFor="let item of data">
+                {{$GlobalService.globalQueryModel.userToken?item.CN_CONTENT:swGameName}}
+              </div>
+          </div>
+            <!-- 如果需要分页器 -->
+          <div class="swiper-pagination g-g-w-page"></div>
+        </div>
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+          <!-- <div [innerHTML]="popMessage"></div> -->
+      </div>
+    </div>
+  </div>
+  
+</div>

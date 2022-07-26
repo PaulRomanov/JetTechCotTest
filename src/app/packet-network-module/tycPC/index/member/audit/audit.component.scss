@@ -1,0 +1,152 @@
+.Member_draw_head {
+  border-top: 3px solid #f1b55a;
+  width: 100px;
+  letter-spacing: 1px;
+  padding: 0 20px;
+  padding-left: 30px;
+  color: #f1b55a;
+  margin-bottom: 10px;
+  padding-top: 5px
+}
+
+.Member_draw_center {
+  margin: 20px 50px;
+  border-radius: 5px;
+  border: 1px solid #DEDEDE;
+  box-shadow: 4px 2px 12px #dedede;
+  -webkit-box-shadow: 4px 2px 12px #dedede;
+  padding: 20px
+}
+
+.Member_draw_center3 {
+  width: 600px;
+  margin: 20px auto;
+  text-align: center;
+  padding-bottom: 30px;
+  display: none
+}
+
+.Member_draw_center2_ul li a {
+  color: #3a9be8;
+  margin: 0 5px
+}
+
+.Member_draw_center2_h4 {
+  font-size: 17px;
+  font-weight: 100
+}
+
+.Member_draw_center2_h4 a {
+  font-size: 17px;
+  margin: 0 5px
+}
+
+.Member_draw_center2_p {
+  margin-top: 10px;
+  color: #3a9be8;
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  margin-right: 100px
+}
+
+.Member_draw_center2_ul li {
+  width: 33.3%
+}
+
+.refreshList {
+  border: none;
+  background-color: #D3B797;
+  color: #ffffff;
+  margin-left: 50px;
+  padding: 4px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.notData {
+  width: 90%;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.liInline li {
+  display: inline-block;
+}
+
+.auditList {
+  width: 90%;
+  text-align: left;
+  margin: 30px auto;
+  border: 1px solid #f1b55a;
+}
+
+.auditList .blue {
+  color: #3a9be8;
+}
+
+.auditList li > ul {
+  padding: 4px 0 4px 14px;
+}
+
+.auditList li > ul:nth-child(1) {
+  background-color: #f1b55a;
+}
+
+.auditList li > ul:nth-child(1) li {
+  color: #ffffff;
+}
+
+.auditList li > ul:nth-child(1) li:nth-child(1) {
+  margin-right: 110px;
+}
+
+.auditList li > ul:nth-child(1) li span {
+  color: #ffffff;
+}
+
+.auditList li > ul:nth-child(2) {
+  border-bottom: 1px solid #f1b55a;
+}
+
+.auditList li > ul:nth-child(2) li {
+  margin-right: 24px;
+}
+
+.auditReq {
+  display: flex;
+  padding: 4px 0 4px 14px;
+}
+
+.auditReq > span {
+  width: 98px;
+}
+
+.auditReq > a {
+  display: inline-block;
+  width: 54px;
+  align-self: flex-end;
+}
+
+.auditReq > a i {
+  margin-left: 6px;
+  color: #3a9be8;
+}
+
+.auditReq ul {
+  flex: 1;
+  height: 16px;
+  overflow: hidden;
+}
+
+.auditReq li {
+  min-width: 180px;
+  padding-bottom: 4px;
+}
+
+.liInline li {
+  display: inline-block;
+}

@@ -1,0 +1,119 @@
+.index-withdraw-money_one,
+.index-withdraw-money_bottom {
+  width: 90%;
+  padding: 20px;
+  margin: 20px auto;
+  // background: #f5f5f5;
+  box-shadow: 4px 2px 12px #dedede;
+  -webkit-box-shadow: 4px 2px 12px #dedede;
+  border-radius: 5px;
+  border: 1px solid #DEDEDE;
+}
+
+.index-withdraw-money_bottom {
+  margin-top: 20px;
+}
+
+.index-withdraw-money_bottom em {
+  color: #3a9be8;
+  text-indent: 0;
+  cursor: pointer;
+}
+
+.index-withdraw-money_bottom p {
+  text-indent: 56px;
+  line-height: 23px;
+}
+
+.index-withdraw-money_bottom p:first-child {
+  text-indent: 0;
+}
+
+.index-withdraw-money {
+  padding-top: 20px;
+}
+
+.Member_drwa_conghesd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chenggong {
+  font-size: 80px;
+  color: #16c38d;
+}
+
+.Member_drwa_conghesd p {
+  text-indent: 10px;
+  font-size: 20px;
+  color: #3a9be8;
+}
+
+.index-withdraw-money-tips {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.index-withdraw-money-record {
+  width: 100%;
+  text-align: right;
+}
+
+.index-withdraw-money-record span {
+  color: #3a9be8;
+  cursor: pointer;
+}
+
+.progressBar {
+  display: flex
+}
+
+.progressBar li {
+  flex: 1;
+  display: flex
+}
+
+.progressBar li p {
+  flex: 1;
+  height: 0;
+  margin-top: 9px;
+  border-bottom: 2px solid #ccc;
+}
+
+.progressBar li.active {
+  color: #4faf5b;
+}
+
+.progressBar li.active p {
+  border-color: #3a9be8;
+}
+
+.progressBar li span {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin: 0 8px;
+  // background-repeat: no-repeat;
+  // background-size: 100% 100%;
+}
+
+// .progressBar li:nth-child(1) span {
+//   background-image: url(../img/progress_1.png)
+// }
+
+// .progressBar li:nth-child(2) span {
+//   background-image: url(../img/progress_2.png)
+// }
+
+// .progressBar li:nth-child(2).active span {
+//   background-image: url(../img/progress_2_2.png)
+// }
+
+// .progressBar li:nth-child(3) span {
+//   background-image: url(../img/progress_3.png)
+// }
+
+// .progressBar li:nth-child(3).active span {
+//   background-image: url(../img/progress_3_2.png)
+// }

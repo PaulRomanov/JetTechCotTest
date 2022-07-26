@@ -1,0 +1,357 @@
+/*背景粒子效果*/
+canvas {
+  display: block;
+  vertical-align: bottom;
+  border: none;
+}
+
+.particles-content {
+  padding-top: 70px;
+  overflow: hidden;
+  background: #121212;
+}
+
+/* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  //min-height: calc(100vh - 140px);;
+  background-color: #121212;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.cooperation-title {
+  height: 70px;
+  background: #000000;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  top: 0px;
+}
+
+.coon-t-logo {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coon-zm-ul {
+  display: flex;
+  height: 100%;
+}
+
+.coon-ul-li {
+  height: 100%;
+  width: 130px;
+  cursor: pointer;
+  line-height: 68px;
+  text-align: center;
+  border-top: 2px solid transparent;
+}
+
+.coon-ul-li span {
+  font-size: 18px;
+  color: #dddddd;
+}
+
+.coon-active {
+  background: #151515;
+  border-top: 2px solid #990000;
+}
+
+.cooperation-con {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  // overflow: hidden;
+}
+.cooperation-con2 {
+  position: relative;
+  //width: 1200px;
+  margin: 0 auto;
+}
+.shouzhang-img {
+  height: 500px;
+  position: relative;
+}
+.img-1 {
+  position: absolute;
+  left: 40px;
+  top: 30px;
+}
+.img-2 {
+  position: absolute;
+  right: 40px;
+  top: 150px;
+}
+.sweper-con {
+  width: 1200px;
+  height: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+.sweper-con-img {
+  width: 380px;
+  height: 250px;
+  position: relative;
+  opacity: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.sweper-con-img:nth-child(1){
+  animation: fadeInRight 0.6s;
+  animation-fill-mode: forwards;
+}
+.sweper-con-img:nth-child(2){
+  animation: fadeInRight 0.6s linear 0.6s;
+  animation-fill-mode: forwards;
+}
+.sweper-con-img:nth-child(3){
+  animation: fadeInRight 0.6s linear 1.2s;
+  animation-fill-mode: forwards;
+}
+
+.sweper-con-img img {
+  width: 100%;
+  height: 100%;
+}
+.sweper-con--text {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 95px;
+  text-align: center;
+}
+.sweper-con--text p {
+  line-height: 35px;
+}
+.sweper-con--text p:nth-child(1) {
+  font-size: 24px;
+  color: #FFFFFF;
+}
+.sweper-con--text p:nth-child(2) {
+  font-size: 16px;
+  color: rgb(221,221,221);
+}
+.common-banner-con {
+  width: 60%;
+  margin: 0 auto;
+  min-height: 500px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.g-y-banner {
+  min-height: 500px;
+  background: #252525;
+  border-radius: 5px;
+  padding: 26px 30px 40px;
+}
+.title-pa {
+  padding: 20px 0;
+}
+.coon-title-h-text {
+  font-size: 14px;
+  color: #cc0000;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.coon-title-h2-text {
+  font-size: 14px;
+  color: #dddddd;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+.coon-h-p {
+  font-size: 12px;
+  color: #dddddd;
+  line-height: 25px;
+}
+.coon-footer {
+  height: 75px;
+  background: #222222;
+}
+.footer-con {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-left, .footer-right {
+  color: rgb(221, 221 ,221);
+  font-size: 18px;
+  line-height: 70px;
+}
+.footer-left a {
+  color: rgb(221, 221 ,221);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+// 登录动画
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+  100% {
+    opacity: 1;
+    transform:  translateX(0);
+  }
+}
+
+.sweper-con-img:hover .lightTop {
+  animation: .4s linear topMove
+}
+
+.sweper-con-img:hover .lightRight {
+  animation: .4s linear rightMove
+}
+
+.sweper-con-img:hover .lightBottom {
+  animation: .4s linear bottomMove
+}
+
+.sweper-con-img:hover .lightLeft {
+  animation: .4s linear leftMove
+}
+// 光
+.lightBottom, .lightLeft, .lightRight, .lightTop {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.lightTop {
+  top: 0;
+  left: 0;
+  width: 40px;
+
+}
+
+.lightTop  img{
+  vertical-align: top;
+}
+
+.lightRight {
+  bottom: 0;
+  right: 0px;
+  height: 40px;
+}
+
+.lightBottom {
+  bottom: 0;
+  right: 0;
+  width: 40px;
+}
+
+.lightBottom img{
+  vertical-align: bottom;
+}
+
+.lightLeft {
+  top: 0;
+  left: 0px;
+  height: 40px;
+}
+
+
+@keyframes topMove {
+  0% {
+    left: 0;
+    opacity: 0
+  }
+  50% {
+    left: 50%;
+    opacity: 1
+  }
+  100% {
+    left: 100%;
+    opacity: 0
+  }
+}
+
+@keyframes rightMove {
+  0% {
+    bottom: 0;
+    opacity: 0
+  }
+  50% {
+    bottom: 50%;
+    opacity: 1
+  }
+  100% {
+    bottom: 100%;
+    opacity: 0
+  }
+}
+
+@keyframes bottomMove {
+  0% {
+    right: 0;
+    opacity: 0
+  }
+  50% {
+    right: 50%;
+    opacity: 1
+  }
+  100% {
+    right: 100%;
+    opacity: 0
+  }
+}
+
+@keyframes leftMove {
+  0% {
+    top: 0;
+    opacity: 0
+  }
+  50% {
+    top: 50%;
+    opacity: 1
+  }
+  100% {
+    top: 100%;
+    opacity: 0
+  }
+}
+
+.title-pa .table {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.title-pa .table p {
+  margin-left: 50px;
+  background: #252525;
+  display: block;
+  height: 40px;
+  width: 600px;
+  text-align: center;
+  line-height: 40px;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.title-pa .table p:first-child {
+  border-top: 1px solid #d2d2d2;
+}
+
+.title-pa .table p span {
+  vertical-align: top;
+  display: inline-block;
+  width: 200px;
+  height: 100%;
+  border-right: 1px solid #d2d2d2;
+  color: #dddddd;
+}
+
+.title-pa .table p span:first-child {
+  border-left: 1px solid #d2d2d2;
+}

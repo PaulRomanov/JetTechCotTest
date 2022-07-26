@@ -1,0 +1,71 @@
+.Member_deposit_Official{
+    padding:16px 30px;
+}
+.Member_deposit_Official_head{
+    font-size:15px;
+    margin-bottom:16px;
+    color: #D3B797;
+}
+.Member_deposit_Official_div{
+    display:flex;
+    flex-wrap:wrap;
+    li{
+        border-radius:5px;
+        border:1px solid #dedede;
+        padding:9px;width:30%;
+        margin-right:5%;
+        align-content:center;
+        align-items:center;
+        display:flex;
+        justify-content:space-between;
+        box-shadow:-6px 2px 5px #dedede;
+        -webkit-box-shadow:-6px 2px 5px #dedede;
+        margin-bottom:20px;
+        button{
+            padding:6px 12px;
+            margin-right:5px;
+            background:-o-linear-gradient(#47a3ec,#0674cc);
+            border-radius:5px;
+            color:#fff;
+            background:-moz-linear-gradient(#47a3ec,#0674cc);
+            background: linear-gradient(90deg,#dccab8,#d2b496);
+            border: 0 none;
+            cursor: pointer;
+        }
+    }
+    .newData{
+        text-align: center;
+        .kfBtn{
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            line-height: 18px;
+        }
+        li{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 350px;
+            position: relative;
+            p{
+                margin: 10px 20px;
+                display: flex;
+                img{
+                    width: 130px;
+                }
+            }
+            i{
+                padding-right: 8px;
+            }
+        }
+        a{
+            cursor: pointer;
+            outline: none;
+            border: none;
+            background: linear-gradient(#47a3ec, #0674cc);
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 5px;
+        }
+    }
+}

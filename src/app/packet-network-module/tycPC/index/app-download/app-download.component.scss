@@ -1,0 +1,127 @@
+.B7_B9 {
+  min-width: 1200px;
+  justify-content: center
+}
+.B7_B9,
+.B7_CB {
+  width: 100%;
+  display: flex;
+  position: relative
+}
+.B7_CB {
+  flex-direction: column;
+  align-items: center
+}
+.B7_CB .B7_CE {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: 100% 1442px;
+  background-position: top
+}
+
+.B7_CB .B7_CI {
+  width: 1200px;
+  height: 721px;
+  display: flex
+}
+.B7_CB .B7_CI .B7_CK {
+  height: 100%;
+  position: relative
+}
+.B7_CB .B7_CI .B7_CM {
+  width: 646px
+}
+.B7_CB .B7_CI .B7_CM img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.B7_CB .B7_CI .B7_CO {
+  width: 574px;
+  display: flex;
+  flex-direction: column
+}
+.B7_CB .B7_CI .B7_CO .B7_CG {
+  height: 60px;
+  margin-top: 165px
+}
+.B7_CB .B7_CI .B7_CO .B7_CQ {
+  width: 460px;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+  margin: 32px 0 48px;
+  font-family: PingFang-SC-Medium;
+}
+.B7_CB .B7_CI .B7_CO .B7_CS {
+  display: flex;
+  justify-content: center;
+}
+.B7_CB .B7_CI .B7_CO .B7_CS > div {
+  width: 202px;
+  height: 242px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 28px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%
+}
+
+.B7_CB .B7_CI .B7_CO .B7_CS > div .B7_CU {
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #6a7391;
+  line-height: 25px
+}
+.B7_CB .B7_CI .B7_CO .B7_CS > div .B7_CW {
+  margin-top: 2px;
+  font-size: 12px;
+  color: #6a7391;
+  line-height: 22px
+}
+.B7_CB .B7_CI .B7_CO .B7_CS > div.B7_CY /deep/img {
+  margin-top: 25px;
+  height: 134px;
+  width: 134px;
+}
+
+.B7_CB .B7_Ca .B7_CO {
+  padding-left: 104px;
+  box-sizing: border-box
+}
+
+.no_login {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no_login span {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-family: PingFangSC-Regular;
+  color: #ffffff;
+  line-height: 22px;
+}
+
+.no_login .btn {
+  width: 249px;
+  height: 93px;
+  line-height: 65px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-family: PingFang-SC-Medium;
+  color: #fff;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 249px 93px;
+}

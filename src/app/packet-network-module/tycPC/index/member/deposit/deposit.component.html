@@ -1,0 +1,60 @@
+<div class="index_deposit_entrance">
+  <!-- <ul class="index_deposit_entrance_ul"> -->
+    <!-- <li  *ngFor="let item of list let i = index "
+         [class.active]="i==0" routerLink="{{item.link}}"
+         clickActive
+         [activeClass]="'active'">{{item.name}}</li> -->
+    <!-- <ng-container *ngFor="let item of showList let i = index ">
+      <li style="font-size: 12px" routerLink="{{item.link}}"
+           (click)="tabIndex=i" *ngIf="item.isShow"
+           [class.active]="tabIndex===i">{{item.name}}</li>
+    </ng-container> -->
+    <!-- <li class="kuaisurukuan" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/kuaisurukuan.png' | bgUrl" (click)="$GlobalMethodsService.openKufu()"></li> -->
+  <!-- </ul> -->
+
+  <div class="index_deposit_entrance_box" *ngIf="jumpChild,else elseBlock">
+    <div class="index_deposit_entrance_list" *ngFor="let list of showList let i = index " >
+      <div class="index_deposit_entrance_title">{{list.name}}</div>
+      <ul >
+        <li *ngFor="let item of list.data" (click)="entranceChild(item.paychannel,list.link,item)">
+          <div class="index_deposit_entrance_list_img">
+            <img [src]="item.imgUrl?item.imgUrl : '../../../../../../assets/img/deposit_green.png'" alt="">
+          </div>
+          <div class="index_deposit_entrance_list_text" *ngIf="item.imgUrl">
+            <p class="index_deposit_entrance_name">{{item.payName?item.payName:item.nickname}}</p>
+            <p class="index_deposit_entrance_amount" [hidden]="!item.minMoery">限额{{item.minMoery}}元-{{item.maxMoery}}元</p>
+          </div>
+        </li>
+      </ul>
+    </div> 
+
+    <div class="index_deposit_entrance_list">
+      <div class="index_deposit_entrance_title">客服充值</div>
+      <ul >
+        <li (click)="$GlobalMethodsService.openKufu()">
+          <div class="index_deposit_entrance_list_img">
+            <img src="../../../../../../assets/img/deposit_green2.png" alt="">
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="index_deposit_entrance_tip">
+      <p>充值温馨提示：</p>
+      <p>1、请勿重复充值，导致的损失会员自行承担</p>
+      <p>2、请按实际订单金额付款，修改金额造成的损失自行承担</p>
+      <p>3、《请务必按照订单金额支付：如订单1000元，支付时只能支付1000元，修改金额造成的损失将自行承担》</p>
+    </div>   
+  </div>
+ 
+  <ng-template #elseBlock>
+    <div class="index_deposit_entrance_black_box"> 
+      <div class="index_deposit_entrance_black" (click)="blackDeposit()">
+        &lt;返回
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </ng-template>
+  
+</div>
+
+

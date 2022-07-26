@@ -1,0 +1,57 @@
+<div class="zm-index">
+
+  <!-- banner start -->
+  <!-- <div class="banner-container">
+    <pc-homepage></pc-homepage>
+  </div> -->
+  <div class="banner-container">
+    <img class="banner-img" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_banner.png">
+    <img class="banner-title" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_biaoti (1).png">
+  </div>
+
+  <!-- banner end -->
+
+  <!--中间 content start-->
+  <div class="content-father" [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/home_service_bj@1x.jpg' | bgUrl">
+    <div class="content">
+      <img class="content-left" src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_tq1.png" (click)="open(1)">
+      <div class="content-right">
+        <div class="content-top">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_tq2.png" (click)="open(2)">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_tq3.png" (click)="open(3)">
+        </div>
+        <div class="content-bottom">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_tq4.png" (click)="open(4)">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_tq5.png" (click)="open(5)">
+          <img src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_tq6.png" (click)="open(6)">
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+
+  <!--中间 content end-->
+
+  <!--底部 footer start-->
+  <!--<div class="index_LowerPart">
+    <pc-consultation></pc-consultation>
+  </div>-->
+  <!--底部 footer end-->
+  <!--<pc-djbottom></pc-djbottom>-->
+
+  <!-- 弹窗 -->
+  <div class="popup-box" *ngIf="show">
+    <div class="m-popup">
+      <div class="title">尊享贴心服务{{showNum}}
+        <span class="zm-close-btn"
+              [style.background-image]="$GlobalService.globalJavaResData.cdnValidKey2 + '/tyc/img/closeOpen.png' | bgUrl"
+              (click)="close()"></span>
+      </div>
+      <img class="content"
+           src="{{$GlobalService.globalJavaResData.cdnValidKey2}}/tyc/img/ax_pc_hyzx_tq{{showNum}}_tc.png">
+    </div>
+  </div>
+
+
+</div>

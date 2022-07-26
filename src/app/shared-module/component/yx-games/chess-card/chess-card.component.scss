@@ -1,0 +1,120 @@
+.chessCard {
+  //background: url("../../../../../assets/public/img/VGQP_bg.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 1200px;
+  position: relative;
+  padding-top: 45px;
+  padding-bottom: 86px;
+}
+
+.chessCard-head {
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.chessCard-head-title {
+  //background: url("../../../../../assets/public/img/title_bg.png");
+  line-height: 52px;
+  text-align: center;
+  color: #f1da82;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.chessCard-center {
+  padding: 36px;
+  background: #020f16;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: center
+}
+.chessCard-center li  {
+  width: 274.25px;
+  margin: 0 10px 10px 0px;
+  position: relative;
+  border: 1px solid #666666;
+  height: 194px;
+  img {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+.chessCard-center li:hover {
+  border: 1px solid #ffc685;
+}
+
+.chessCard-center-left {
+  position: absolute;
+  left: -18px;
+  top: 0px;
+  height: 100%;
+  //background: url("../../../../../assets/public/img/left_bg.png") no-repeat;
+  background-repeat: no-repeat;
+  width: 26px;
+  background-size: contain;
+}
+
+.chessCard-center-right {
+  position: absolute;
+  top: 0;
+  right: -18px;
+  height: 100%;
+  //background: url("../../../../../assets/public/img/right_bg.png") no-repeat;
+  background-repeat: no-repeat;
+  width: 26px;
+  background-size: contain;
+}
+.chessCard-center li button {
+  //background: url("../../../../../assets/public/img/click_bg.png") no-repeat;
+  background-repeat: no-repeat;
+  background: none;
+  width: 100%;
+  display: none;
+  position: absolute;
+  border: none;
+  left: 0;
+  top: 37%;
+  line-height: 45px;
+  height: 45px;
+  font-size: 17px;
+  color: #ffcc92;
+  cursor: pointer;
+}
+.chessCard-center li:nth-child(4n) {
+  margin-right: 0px;
+}
+.game-list:hover .start-btn {
+  display: block;
+}
+.zm-game-name {
+  position: absolute;
+  font-size: 14px;
+  height: 47px;
+  color: #e99402;
+  width: 100%;
+  bottom: 0px;
+  line-height: 47px;
+  padding-left: 10px;
+}
+
+img.afterImg:after {
+  content: """ "attr(alt);
+  font-size: 146px;
+  background: url("../../../../../assets/img/tulie.png") no-repeat;
+  background-position: center;
+  text-align: center;
+  font-family: FontAwesome;
+  color: #646464;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+}
